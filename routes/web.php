@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MotherController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+/************************** Public Views For mother*********************/
+Route::prefix("mother/")->name("mother.")->group(function (){
+    Route::get("login" , [MotherController::class , "showLoginForm"])->name("login");
+    Route::post("login" , [MotherController::class , "login"])->name("login");
+});
+
+
+/************************** End Public Views *********************/
 
 require __DIR__.'/auth.php';
