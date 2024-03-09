@@ -15,7 +15,7 @@
 
     <div class="loginform" id="user"> </div>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login.user') }}">
         @csrf
 
         <!-- Email Address -->
