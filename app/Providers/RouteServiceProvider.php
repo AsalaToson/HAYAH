@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends ServiceProvider
+class
+RouteServiceProvider extends ServiceProvider
 {
     /**
      * The path to your application's "home" route.
@@ -18,6 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
+    public const ADMIN = '/admin_dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -36,8 +38,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/admin-web.php'));
+
         });
     }
 }
