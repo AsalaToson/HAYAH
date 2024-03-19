@@ -9,7 +9,7 @@
 
     <div class="loginform" id="user"> </div>
 
-    <form method="POST" action="{{ route("login.auth") }}">
+    <form method="POST" action="{{ route("login.mother") }}">
         @csrf
 
         <!-- Email Address -->

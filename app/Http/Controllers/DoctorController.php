@@ -50,7 +50,7 @@ class DoctorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return $this->doctors->edit($id);
     }
 
     /**
@@ -58,14 +58,14 @@ class DoctorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->doctors->update($request,$id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->doctors->destroy( $request);
     }
 }

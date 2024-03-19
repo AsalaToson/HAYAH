@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class doctor extends Model
+class doctor extends Authenticatable
 {
     use HasFactory;
     protected $guarded=[];
@@ -21,9 +22,14 @@ class doctor extends Model
     }
 
 
-    public function section()
+    public function section(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(section::class);
     }
 
+
+    public function doctorappointments(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(appointment::class,'appointment_doctor');
+    }
 }

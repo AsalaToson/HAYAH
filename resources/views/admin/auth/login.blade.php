@@ -7,9 +7,9 @@
         <label for="exampleFormControlSelect1">Login As Admin</label>
     </div>
 
-    <div class="loginform" id="user"> </div>
 
-    <form method="POST" action="{{ route("login.admin") }}">
+
+    <form method="POST" action="{{ route('login.admin') }}">
         @csrf
 
         <!-- Email Address -->

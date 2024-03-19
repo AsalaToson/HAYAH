@@ -4,16 +4,10 @@
 
 
     <div class="form-group">
-        <label for="exampleFormControlSelect1">select login option</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option value="admin">login as admin</option>
-            <option value="doctor">login as doctor</option>
-            <option value="mother">login as mother</option>
-            <option value="lap doctor">login as laporatory doctor</option>
-        </select>
+        <label for="exampleFormControlSelect1">Login As User</label>
     </div>
 
-    <div class="loginform" id="user"> </div>
+
 
     <form method="POST" action="{{ route('login.user') }}">
         @csrf

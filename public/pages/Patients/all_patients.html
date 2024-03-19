@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    
+
     <link rel="stylesheet" href="../../css/style.css">
-    
+
 </head>
 
 <body>
-    
+
 <!-- main container-->
 <div class="main">
 
@@ -25,7 +25,7 @@
     <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
     <ul>
       <li><a href="../../dashboard.html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
-           
+
       </li>
       <li><a href="#" class="toggle-link"><i class="fas fa-user-md"></i>      Doctors</a>
         <ul class="sublist">
@@ -83,22 +83,22 @@
           <li><a href="../Resources/edit_resources.html">Edit Resources</a></li>
         </ul>
       </li>
-     
-  
-  
+
+
+
     </ul>
   </div>
-  
-  
-  
-  <div class="content"> 
-   
+
+
+
+  <div class="content">
+
       <div class="nav">
         <nav class="navbar navbar-expand-lg ">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-        
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
@@ -126,161 +126,238 @@
             </ul>
           </div>
         </nav>
-        
-      
-  
-    </div>
-    
+
+
+
+      </div>
+
       <h1>All Patients</h1>
       <div class="inner_content">
-        <h3> Patient list </h3><br>
-        <hr>
-        <div class="container">
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="form-groups">
-                      <label for="show-entries">Show Entries</label>
-                      <select class="form-control" id="show-entries">
-                          <option value="1" >10</option>
-                          <option value="2">20</option>
-                          <option value="3">30</option>
-                          <option value="4">40</option>
-                          <option value="5">50</option>
-                      </select>
+          <h3> Patient list </h3><br>
+          <hr>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-groups">
+                          <label for="show-entries">Show Entries</label>
+                          <select class="form-control" id="show-entries">
+                              <option value="1" >10</option>
+                              <option value="2">20</option>
+                              <option value="3">30</option>
+                              <option value="4">40</option>
+                              <option value="5">50</option>
+                          </select>
+                      </div>
                   </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="form-groups">
-                      <label for="search" id="Slabel">Search </label>
-                      <input type="text" class="form-control" id="search">
+                  <div class="col-md-4">
+                      <div class="form-groups">
+                          <label for="search" id="Slabel">Search </label>
+                          <input type="text" class="form-control" id="search" placeholder="search...">
+                      </div>
                   </div>
               </div>
           </div>
+
+          <div class="container2">
+
+              <div class="table-responsive">
+                  <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                          <th></th>
+                          <th>Patient ID</th>
+                          <th>patient Name</th>
+                          <th>email</th>
+                          <th>Phone</th>
+                          <th>operations</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>1</td>
+                          <td>aya</td>
+                          <td>aya@gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+
+                      </tr>
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>14</td>
+                          <td>sarah</td>
+                          <td>sarah@gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+                      </tr>
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>1</td>
+                          <td>noha</td>
+                          <td>hoha2gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+                      </tr>
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>39</td>
+                          <td>Dana</td>
+                          <td>dana@gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+                      </tr>
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>25</td>
+                          <td>menna</td>
+                          <td>menna@gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+                      </tr>
+                      <tr>
+                          <td><input type="checkbox"></td>
+                          <td>1</td>
+                          <td>Hagar</td>
+                          <td>hagar@gmail</td>
+                          <td>123-456-7890</td>
+                          <td><div class="container3" style="display: flex;">
+                              <!-- Delete Button with Delete Icon -->
+                              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
+                                  <i class="fas fa-trash-alt"></i> Delete
+
+                              </button>
+
+                              <!-- Edit Button with Edit Icon -->
+                              <a href="edit_patient.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                  <i class="fas fa-edit"></i> Edit
+                              </button></a>
+                          </div></td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="pag">
+
+              <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+
+          </div>
+
+
+
       </div>
 
-      <div class="container2">
-       
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Doctor ID</th>
-                        <th>Doctor Name</th>
-                        <th>Experience(in years)</th>
-                        <th>Phone</th>
-                        <th>Specialization</th>
-                        <th>Availability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>Dr. John Doe</td>
-                        <td>10 years</td>
-                        <td>123-456-7890</td>
-                        <td>Cardiology</td>
-                        <td>Available</td>
-                    </tr>
-                    <tr>
-                      <td><input type="checkbox"></td>
-                      <td>1</td>
-                      <td>Dr. John Doe</td>
-                      <td>10 years</td>
-                      <td>123-456-7890</td>
-                      <td>Cardiology</td>
-                      <td>on leave</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>Dr. John Doe</td>
-                    <td>10 years</td>
-                    <td>123-456-7890</td>
-                    <td>Cardiology</td>
-                    <td>not Available</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>1</td>
-                  <td>Dr. John Doe</td>
-                  <td>10 years</td>
-                  <td>123-456-7890</td>
-                  <td>Cardiology</td>
-                  <td>Available</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>Dr. John Doe</td>
-                <td>10 years</td>
-                <td>123-456-7890</td>
-                <td>Cardiology</td>
-                <td>Available</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td>1</td>
-              <td>Dr. John Doe</td>
-              <td>10 years</td>
-              <td>123-456-7890</td>
-              <td>Cardiology</td>
-              <td>Available</td>
-          </tr>
-                </tbody>
-            </table>
+  </div>
+
+
+
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal2">
+    <div class="modal-content2">
+        <p>Are you sure?</p>
+        <button id="confirmDelete" class="btn btn-danger">Yes</button>
+        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+    </div>
+</div>
+<!--modal-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: none;">Search Here</h2>
+                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="searchInput">Search:</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                </form>
+            </div>
         </div>
     </div>
- <div class="pag">
-
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
- 
- </div>
-  
- <div class="container3">
-  <!-- Delete Button with Delete Icon -->
-  <button type="button" class="btn btn-danger" id="dbutton">
-      <i class="fas fa-trash-alt"></i> Delete
-  </button>
-  
-  <!-- Edit Button with Edit Icon -->
-  <button type="button" class="btn btn-primary" id="dbutton">
-      <i class="fas fa-edit"></i> Edit
-  </button>
 </div>
-        
-      
-    
-      
-      
-  
-    </div>
-    
-  </div>
-  
-  
-  
-  </div>
-  
-  
 
 
-  <script src="../../js/popper.min.js"></script>
-    <script src="../../js/jquery-3.7.1.min.js"></script>
-    <script src="../../js/bootstrap.js"></script>
-    <script src="../../js/main.js"></script>
+
+
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
-
-
 
 
 

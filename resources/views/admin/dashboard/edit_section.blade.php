@@ -25,47 +25,49 @@
             <li><a href="../../dashboard.html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
             </li>
-            <li><a href="#" class="toggle-link"><i class="fas fa-user-md"></i>    Doctors</a>
+            <li><a href="#" class="toggle-link"><i class="fas fa-user-md"></i>     Doctors</a>
                 <ul class="sublist">
-                    <li><a href="../Doctor/add_doctor_form.html">Add Doctor</a></li>
-                    <li><a href="../Doctor/doctor_details.html">Doctor Details</a></li>
-                    <li><a href="../Doctor/all_doctors.html">All Doctors</a></li>
-                    <li><a href="../Doctor/edit_doctor.html">Edit Doctor</a></li>
+                    <li><a href="{{route('doctors.create')}}">Add Doctor</a></li>
+                    <li><a href="pages/Doctor/doctor_details.html">Doctor Details</a></li>
+                    <li><a href="{{route('doctors.index')}}">All Doctors</a></li>
+                    <li><a href="pages/Doctor/edit_doctor.html">Edit Doctor</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>      Patients</a>
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
-                    <li><a href="../Patients/add_patient_form.html">Add Patient</a></li>
-                    <li><a href="../Patients/patient_details.html">Patient Details</a></li>
-                    <li><a href="../Patients/all_patients.html">All Patient</a></li>
-                    <li><a href="../Patients/edit_patient.html">Edit Patient</a></li>
+                    <li><a href="{{route('patients.create')}}">Add Patient</a></li>
+                    <li><a href="pages/Patients/all_patients.html">Patient Details</a></li>
+                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="pages/Patients/edit_patient.html">Edit Patient</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>        Stuff</a>
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
-                    <li><a href="../Stuff/add_stuff_form.html">Add Stuff</a></li>
-                    <li><a href="../Stuff/stuff_details.html">Stuff Details</a></li>
-                    <li><a href="../Stuff/all_stuff.html">All Stuff</a></li>
-                    <li><a href="../Stuff/edit_stuff.html">EditStuff</a></li>
+                    <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
+                    <li><a href="pages/Stuff/stuff_details.html">Stuff Details</a></li>
+                    <li><a href="{{route('admins.index')}}">All Stuff</a></li>
+                    <li><a href="pages/Stuff/edit_stuff.html">EditStuff</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
-                    <li><a href="../appointments/add_appointment_form.html">Add Appointment </a></li>
-                    <li><a href="../appointments/appointment_details.html">Appointment Details</a></li>
-                    <li><a href="../appointments/all_appointment.html">All Appointments</a></li>
-                    <li><a href="../appointments/edit_appointment.html">Edit Appointment</a></li>
+                    <li><a href="pages/appointments/add_appointment_form.html">Add Appointment </a></li>
+                    <li><a href="pages/appointments/appointment_details.html">Appointment Details</a></li>
+                    <li><a href="pages/appointments/all_appointment.html">All Appointments</a></li>
+                    <li><a href="pages/appointments/edit_appointment.html">Edit Appointment</a></li>
                 </ul>
             </li>
+
+
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Departments</a>
                 <ul class="sublist">
-                    <li><a href="{{route('sections.create')}}">Add Department</a></li>
-                    <li><a href="department_details.html">Department Details</a></li>
+                    <li><a href="{{route('sections.create')}}">Add department</a></li>
+                    <li><a href="pages/Department/department_details.html">Department Details</a></li>
                     <li><a href="{{route('sections.index')}}">All Departments</a></li>
-                    <li><a href="{{route('section')}}">Edit department</a></li>
+                    <li><a href="pages/Department/edit_department.html">Edit Department</a></li>
                 </ul>
             </li>
-            <!-- <li><a href="#" class="toggle-link"><i class="fa-solid fa-clipboard"></i>   Analysis Report</a>
+            <!-- <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Analysis Report</a>
               <ul class="sublist">
                 <li><a href="#">Add Analysis Report</a></li>
                 <li><a href="#">Analysis Report Details</a></li>
@@ -75,10 +77,10 @@
             </li> -->
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>
                 <ul class="sublist">
-                    <li><a href="../Resources/add_resources_form.html">Add Resources</a></li>
-                    <li><a href="../Resources/resources_details.html">Resources Details</a></li>
-                    <li><a href="../Resources/all_resources.html">All Resources</a></li>
-                    <li><a href="../Resources/edit_resources.html">Edit Resources</a></li>
+                    <li><a href="{{route('resources.create')}}">Add Resources</a></li>
+                    <li><a href="pages/Resources/resources_details.html">Resources Details</a></li>
+                    <li><a href="{{route('resources.index')}}">All Resources</a></li>
+                    <li><a href="pages/Resources/edit_resources.html">Edit Resources</a></li>
                 </ul>
             </li>
 
@@ -129,72 +131,35 @@
 
         </div>
 
-        <h1>Edit Appointment</h1>
+        <h1>Edit Department</h1>
         <div class="inner_content">
-            <h3>Edit Appointment</h3><br>
+            <h3>Edit Department</h3><br>
             <hr>
 
-            <form id="add-patient-form">
+            <form id="add-patient-form" action="{{route('sections.update',$section->id)}}" method="post">
+                @method('PUT')
+                @csrf
                 <div class="form-group">
-                    <label for="first-name"> doctor Name</label><br/>
-                    <input type="text" id="first-name" name="first-name" required placeholder=" Doctor Name">
+                    <label for="first-name"> Department Name</label><br/>
+                    <input type="text" id="first-name" name="name" value="{{$section->name}}" required placeholder=" Doctor Name">
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Patient ID</label><br/>
-                    <input type="text" id="pId" name="pid" required placeholder="Patient ID">
+                    <label for="address">Department ID</label><br/>
+                    <input type="hidden" id="pId" name="id" value="{{$section->id}}" required placeholder="Patient ID">
                 </div>
 
 
-                <div class="form-group">
-                    <label for="dep">department</label><br/>
-                    <select id="dep" name="dep" required>
-                        <option value="pregnancy">pregnancy</option>
-                        <option value="psychology">psychology</option>
-                        <option value="other">Other</option>
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dep">Time slot</label><br/>
-                    <select id="time" name="time" required>
-                        <option value="1">10AM-11AM</option>
-                        <option value="1">8AM-1pM</option>
-                        <option value="1">9AM-5pM</option>
-                        <option value="1">10AM-12AM</option>
-                        <option value="1">7AM-11AM</option>
 
 
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="problem">problem</label><br/>
-                    <input type="text" id="problem" name="problem" required placeholder="problem">
-                </div>
-                <div class="form-group">
-                    <label for="date">Appointment Date</label><br/>
-                    <input type="date" id="Date" name="date" required >
-                </div>
-                <div class="form-group">
-                    <label for="tnum">Token Number (Auto Generated)</label><br/>
-                    <input type="text" id="tnum" name="tnum" required placeholder="token number" >
-                </div><br>
                 <div class="form-group">
                     <input type="checkbox" id="checkbox1" name="checkbox1" value="value1" >
                     <label for="checkbox1" style="font-size: large;">Please confrim</label>
                 </div><br>
 
 
-                <button type="submit">Edit Appointment</button>
-                <button type="submit">Delete Appointment</button>
+                <button type="submit">Edit Department</button>
             </form>
-
-
-
-
-
-
 
         </div>
 
