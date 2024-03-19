@@ -30,3 +30,54 @@ window.onclick = function(event) {
     }
   }
 };
+
+
+
+
+
+
+// Get all delete buttons
+var deleteButtons = document.querySelectorAll(".container3 .delete-button");
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the confirm delete button
+var confirmDeleteBtn = document.getElementById("confirmDelete");
+
+// Get the cancel delete button
+var cancelDeleteBtn = document.getElementById("cancelDelete");
+
+// Function to handle delete button click
+function handleDeleteButtonClick(event) {
+    // Show the modal
+    modal.style.display = "block";
+    event.stopPropagation(); // Prevent the event from bubbling up to the container
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Attach event listeners to all delete buttons within the container
+deleteButtons.forEach(function(button) {
+    button.addEventListener("click", handleDeleteButtonClick);
+});
+
+// When the user clicks on cancel delete button or outside the modal, close the modal
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// When the user clicks on confirm delete button
+confirmDeleteBtn.addEventListener("click", function() {
+    // Perform the delete operation
+    alert(" deleted successfully.");
+    closeModal();
+});
+
+// When the user clicks on cancel delete button
+cancelDeleteBtn.addEventListener("click", closeModal);

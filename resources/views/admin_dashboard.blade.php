@@ -36,17 +36,17 @@
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
-                    <li><a href="pages/Patients/add_patient_form.html">Add Patient</a></li>
+                    <li><a href="{{route('patients.create')}}">Add Patient</a></li>
                     <li><a href="pages/Patients/all_patients.html">Patient Details</a></li>
-                    <li><a href="pages/Patients/all_patients.html">All Patient</a></li>
+                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
                     <li><a href="pages/Patients/edit_patient.html">Edit Patient</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>        Stuff</a>
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
-                    <li><a href="pages/Stuff/add_stuff_form.html">Add Stuff</a></li>
+                    <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
                     <li><a href="pages/Stuff/stuff_details.html">Stuff Details</a></li>
-                    <li><a href="pages/Stuff/all_stuff.html">All Stuff</a></li>
+                    <li><a href="{{route('admins.index')}}">All Stuff</a></li>
                     <li><a href="pages/Stuff/edit_stuff.html">EditStuff</a></li>
                 </ul>
             </li>
@@ -65,7 +65,7 @@
                     <li><a href="{{route('sections.create')}}">Add department</a></li>
                     <li><a href="pages/Department/department_details.html">Department Details</a></li>
                     <li><a href="{{route('sections.index')}}">All Departments</a></li>
-                    <li><a href="{{route('section')}}">Edit Department</a></li>
+                    <li><a href="pages/Department/edit_department.html">Edit Department</a></li>
                 </ul>
             </li>
             <!-- <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Analysis Report</a>
@@ -78,9 +78,9 @@
             </li> -->
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>
                 <ul class="sublist">
-                    <li><a href="pages/Resources/add_resources_form.html">Add Resources</a></li>
+                    <li><a href="{{route('resources.create')}}">Add Resources</a></li>
                     <li><a href="pages/Resources/resources_details.html">Resources Details</a></li>
-                    <li><a href="pages/Resources/all_resources.html">All Resources</a></li>
+                    <li><a href="{{route('resources.index')}}">All Resources</a></li>
                     <li><a href="pages/Resources/edit_resources.html">Edit Resources</a></li>
                 </ul>
             </li>

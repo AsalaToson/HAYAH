@@ -12,6 +12,12 @@ interface SectionsRepositoryInterface
 
     public function display();
 
+    public function destroy($request);
+
+    public function edit($id);
+
+    public function update($request,$id);
+
 
 
 

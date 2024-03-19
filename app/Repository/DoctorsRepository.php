@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 use App\Interface\DoctorsRepositoryInterface;
+use App\Models\appointment;
 use App\Models\doctor;
 use App\Models\image;
 use App\Models\section;
@@ -15,14 +16,15 @@ class DoctorsRepository implements DoctorsRepositoryInterface
     public function index()
     {
         $doctors = doctor::all();
-        return view('doctor.dashboard.all_doctors', compact('doctors'));
+        return view('admin.dashboard.all_doctors', compact('doctors'));
     }
 
     public function create()
     {
 
         $section = section::all();
-        return view('doctor.dashboard.add_doctor', compact('section'));
+        $appointments = appointment::all();
+        return view('admin.dashboard.add_doctor', compact('section','appointments'));
     }
 
     public function store($request): \Illuminate\Http\RedirectResponse
@@ -61,4 +63,61 @@ class DoctorsRepository implements DoctorsRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+
+
+    public function destroy($request): \Illuminate\Http\RedirectResponse
+    {
+        $this->Delete_attachment('upload_image','doctors/'.$request->filename,'$request->id','$request->filename');
+        doctor::destroy($request->id);
+        return redirect()->route('doctors.index');
+    }
+
+
+
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $section = section::all();
+        $appointments = appointment::all();
+        $doctor = doctor::findorfail($id);
+        return view('admin.dashboard.edit_doctor',compact('section','appointments','doctor'));
+    }
+
+
+
+
+    public function update($request,$id)
+    {
+
+
+            $doctor = doctor::find($id);
+
+            $doctor->email = $request->email;
+            $doctor->name = $request->name;
+            $doctor->section_id = $request->section_id;
+            $doctor->phone = $request->phone;
+            $doctor->age = $request->age;
+            $doctor->gender = $request->gender;
+            $doctor->details = $request->details;
+            $doctor->address = $request->address;
+            $doctor->experience = $request->experience;
+            $doctor->password = $request->password;
+            $doctor->appointment = $request->appointment;
+            $doctor->price = $request->price;
+            $doctor->save();
+
+
+
+            // update pivot tABLE
+        $doctor->doctorappointments()->sync($request->appointments);
+
+            //Upload img
+                $this->verifyAndStoreImage($request,'image','doctors','upload_image',$doctor->id,'App\Models\doctor');
+
+
+
+            return redirect()->route('doctors.index');
+
+        }
+
 }

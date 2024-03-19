@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Doctor\Auth\DoctorAuthController;
+use App\Http\Controllers\Mother\Auth\MotherAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -27,10 +29,24 @@ Route::middleware('guest')->group(function () {
                          //****************************
 
     //*******************    admin login     *****************
-    Route::get("login/admin" , [AdminAuthController::class , "create"])->name("admin.login") ;
+    Route::get('login/admin' , [AdminAuthController::class , 'create'])->name('admin.login') ;
 
-    Route::post('login', [AdminAuthController::class, 'store'])
+    Route::post('login/admin', [AdminAuthController::class, 'store'])
         ->name('login.admin');
+                        //****************************
+
+           //*******************    doctor login     *****************
+    Route::get('login/doctor' , [DoctorAuthController::class , 'create'])->name('doctor.login') ;
+
+    Route::post('login/doctor', [DoctorAuthController::class, 'store'])
+        ->name('login.doctor');
+                           //****************************
+
+              //*******************    mother login     *****************
+    Route::get('login/mother' , [MotherAuthController::class , 'create'])->name('mother.login') ;
+
+    Route::post('login', [MotherAuthController::class, 'store'])
+        ->name('login.mother');
                         //****************************
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])

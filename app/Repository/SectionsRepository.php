@@ -33,7 +33,32 @@ class SectionsRepository implements SectionsRepositoryInterface
 
     public function display(): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('admin.dashboard.editsection');
+        return view('admin.dashboard.edit_section');
+    }
+
+
+    public function destroy($request)
+    {
+        section::destroy($request->id);
+        return redirect()->route('sections.index');
+    }
+
+
+    public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $section = section::findorfail($id);
+        return view('admin.dashboard.edit_section',compact('section'));
+    }
+
+
+    public function update($request,$id)
+    {
+        $section = section::findOrFail($request->id);
+        $section->update([
+            'name' => $request->input('name'),
+
+        ]);
+        return redirect()->route('sections.index');
     }
 }
 

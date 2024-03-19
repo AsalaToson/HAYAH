@@ -60,7 +60,7 @@ class SectionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return $this->sections->edit($id);
     }
 
     /**
@@ -68,14 +68,14 @@ class SectionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->sections->update($request,$id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->sections->destroy($request);
     }
 }

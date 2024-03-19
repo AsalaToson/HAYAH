@@ -21,6 +21,10 @@ RouteServiceProvider extends ServiceProvider
     public const HOME = '/dashboard';
     public const ADMIN = '/admin_dashboard';
 
+    public const MOTHER = '/mother_dashboard';
+
+    public const DOCTOR = '/doctor_dashboard';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */

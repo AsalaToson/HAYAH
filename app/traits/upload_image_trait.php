@@ -9,7 +9,7 @@ trait upload_image_trait
 {
 
 
-    public function verifyAndStoreImage(Request $request, $inputname, $foldername, $disk, $imageable_id, $imageable_type)
+    public function verifyAndStoreImage(Request $request, $inputname, $foldername, $disk, $imageable_id, $imageable_type): bool|string|\Illuminate\Http\RedirectResponse|null
     {
         if ($request->hasFile($inputname)) {
 
@@ -24,7 +24,7 @@ trait upload_image_trait
             $filename = $name . '.' . $photo->getClientOriginalExtension();
 
 // insert Image
-            $Image = new Image();
+            $Image = new image();
             $Image->filename = $filename;
             $Image->imageable_id = $imageable_id;
             $Image->imageable_type = $imageable_type;
@@ -33,6 +33,16 @@ trait upload_image_trait
         }
 
         return null;
+
+    }
+
+
+
+    public function Delete_attachment($disk,$path,$id,$filename): void
+    {
+
+        Storage::disk($disk)->delete($path);
+        image::where('imageable_id',$id)->delete();
 
     }
 }
