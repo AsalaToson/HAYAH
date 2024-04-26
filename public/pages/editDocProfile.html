@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="images/logo.png"/>
+
     <link rel="stylesheet" href="css/bootstrap.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -20,40 +21,38 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: 100vh;">
 
     <!-- sidebar-->
     <div class="sidebar">
         <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="doctorDashboard.html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+
+            </li>
 
 
 
-
-
-            <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Upcoming Appointments</a>
+            <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i>Upcoming Appointments</a>
                 <ul class="sublist">
-                    <li><a href="{{route('appointments.index')}}">All Appointments</a></li>
+                    <li><a href="pages/doctorAppointments/all_doc_appointment.html">All Appointments</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i> My patients</a>
+                <ul class="sublist">
+                    <li><a href="pages/doctorpatients/all_doc_patients.html">All patients</a></li>
 
                 </ul>
             </li>
-{{--            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i> My patients</a>--}}
-{{--                <ul class="sublist">--}}
-{{--                    <li><a href="{{route('patients.index')}}">All patients</a></li>--}}
-
-{{--                </ul>--}}
-{{--            </li>--}}
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Medical Reports</a>
                 <ul class="sublist">
-{{--                    <li><a href="#">Add Medical Report</a></li>--}}
-                    <li><a href="{{route('records.index')}}">All Medical Reports</a></li>
-{{--                    <li><a href="#">Medical Report Details</a></li>--}}
-
-{{--                    <li><a href="#">Edit Medical Report</a></li>--}}
+                    <li><a href="pages/Medical_Reports/all_medical_reports.html">All Medical Reports</a></li>
                 </ul>
             </li>
+
+
+
 
 
         </ul>
@@ -94,11 +93,10 @@
                         </li>
                         <li class="nav-item-dropdown" >
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
-                                <i class="fas fa-user" ></i>
-                                {{Auth::guard('doctor')->user()->name}}
+                                <i class="fas fa-user"></i>   John Doe
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-                                <a class="dropdown-item" href="{{route('profile.show')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="doctorprofile .html" ><i class="fa fa-user" aria-hidden="true"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="doc_schedule.html" ><i class="fa fa-user" aria-hidden="true"></i>
                                     My schedule</a>
@@ -120,37 +118,60 @@
         </div>
 
 
-        <h1>Home...</h1>
+        <h1> Edit Profile...</h1>
         <div class="inner_content">
-            <div style="display: flex;">
-
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i></i>
-                    <div style="margin: 50px;">
-                        <h2 >340 Report</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 Appointment</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
+            <h3> Edit Profile</h3><br>
+            <hr>
+            <form id="add-patient-form">
+                <div class="form-group">
+                    <label for="first-name">Doctor Name</label><br/>
+                    <input type="text" id="first-name" name="first-name" required placeholder="Admin name">
                 </div>
 
-            </div>
+                <div class="form-group">
+                    <label for="address">Age</label><br/>
+                    <input type="text" id="address" name="address" required placeholder="Age">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone </label><br/>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="phone number">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label><br/>
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label><br/>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
 
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Address">Address</label><br/>
+                    <input type="text" id="Address" name="Address" required placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <label for="Experience">Experience</label><br/>
+                    <input type="text" id="Experience" name="Experience" required placeholder="Experience">
+                </div>
+                <div class="form-group">
+                    <label for="image">image</label><br/>
+                    <input type="file" id="image" name="image" required placeholder="choose image" >
+                </div><br>
+                <div class="form-group">
+                    <input type="checkbox" id="checkbox1" name="checkbox1" value="value1" >
+                    <label for="checkbox1" style="font-size: large;">Please confrim</label>
+                </div><br>
+
+
+                <a href="#"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                    <i class="fas fa-edit"></i> Edit
+                </button></a>
+            </form>
 
 
 

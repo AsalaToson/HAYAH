@@ -20,10 +20,28 @@ class MotherSeeder extends Seeder
             'email' => 'khaterasala21@gmail.com',
             'password' => bcrypt('123456789'),
             'age' => '21',
-            'phone' => '01017553080',
-            'gender' => 'femele',
+            'phone' =>'0101755603',
             'details' => '.',
-            'address' => '.',
+            'address' => '.', ]);
+        mother::create([
+                'name' => 'Mother2',
+                'email' => 'mother2@example.com',
+                'password' => bcrypt('password2'),
+                'age' => 35,
+                'details' => 'Details for Mother 2',
+                'phone' => '01166804539',
+                'address' => 'Address for Mother 2',
+            ]);
+
+        mother::create([
+            'name' => 'Mother 3',
+            'email' => 'mother3@example.com',
+            'password' => bcrypt('password3'),
+            'age' => 28,
+            'details' => 'Details for Mother 3',
+            'phone' => '555555555',
+            'address' => 'Address for Mother 3',
         ]);
+
     }
 }
