@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAYAH</title>
+    <title>HAYAH Lab Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="../../images/logo.png"/>
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    
+
     <link rel="stylesheet" href="../../css/style.css">
-    
+
 </head>
 
-<body id="body">
-    
+<body id="body" style="height: 100vh;">
+
 <!-- main container-->
 <div class="main">
 
@@ -26,52 +26,52 @@
   <div class="sidebar">
     <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
     <ul>
-      <li><a href="../../labDoctorDashboard .html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
-           
+      <li><a href="../../lab_doctor_dashboard" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+
       </li>
-      
+
       </li>
-      <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+
+      <li><a href="#" class="toggle-link"><i class="fas fa-medkit"></i> Analysis Requests</a>
         <ul class="sublist">
-          <li><a href="../labDoctorAppointments/all labDoc_appointment.html">All Appointments</a></li>
+          <li><a href="../anaylsisRequests/all_requests.html">All Requests</a></li>
+
         </ul>
       </li>
-     
-    
+
       <li><a href="#" class="toggle-link"><i class="fa-solid fa-clipboard"></i>   Analysis Reports</a>
         <ul class="sublist">
-          <li><a href="add_analysis_report.html">Add Analysis Report</a></li>
-          <li><a href="analysis_report_details.html">Analysis Report Details</a></li>
+          <li><a href="add_analysis_report.html">Add Analysis Reports</a></li>
+
           <li><a href="all_analysis_reports.html">All Analysis Reports</a></li>
-          <li><a href="edit_analysis_report.html">Edit Analysis Report</a></li>
         </ul>
       </li>
-    
+
   </div>
-  
-  
-  
-  <div class="content"> 
-   
-    <div class="nav"> 
-     
+
+
+
+  <div class="content">
+
+    <div class="nav">
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
-  
+
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav ml-auto" >
            <li class="nav-item">
              <a class="nav-link" href="#" style="padding-top: 18px;"><i class="fa-solid fa-toggle-on" id="dark"></i>
              </i></a>
            </li>
-  
-          
+
+
            <li class="nav-item">
-             <button class="nav-link btn btn-link" id="searchIcon" style="padding-top: 16px;"><i class="fa fa-search"></i></button>
+             <button class="nav-link btn btn-link" id="searchIcon" style="padding-top: 16px;"><i class="fa fa-search"></i>search</button>
            </li>
-              
+
            <li class="nav-item dropdown" style="padding-top: 10px;">
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
                <i class="fa fa-bell"></i>
@@ -83,30 +83,32 @@
                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
              </div>
            </li>
-           <li class="nav-item dropdown" style="padding-top: 10px;">
+           <li class="nav-item-dropdown" >
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
-               <i class="fas fa-user" style="padding-right: 7px;"></i>   John Doe
+               <i class="fas fa-user" ></i>   John Doe
              </a>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-               <a class="dropdown-item" href="../../labdoctorprofile.html" style="height: 40px;"><i class="fa fa-user" aria-hidden="true"></i> 
+               <a class="dropdown-item" href="../../labdoctorprofile.html" ><i class="fa fa-user" aria-hidden="true"></i>
                  Profile</a>
-               <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa fa-cog" aria-hidden="true"></i> 
+                 <a class="dropdown-item" href="../../lab_doc_schedule .html"><i class="fa fa-user" aria-hidden="true"></i>
+                  My schedule</a>
+               <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                  Settings</a>
-               
-               <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-right-from-bracket"></i>
-                 logout</a> 
-                 
-  
+
+               <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
+                 logout</a>
+
+
              </div>
-             
+
            </li>
          </ul>
        </div>
-     
+
      </nav>
-     
-  </div> 
-    
+
+  </div>
+
       <h1>All Analyis Reports </h1>
       <div class="inner_content">
         <h3>Reports  list </h3><br>
@@ -134,163 +136,146 @@
           </div>
       </div>
       <div class="container2">
-       
+
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
                 <tr>
-                   
-                    <th>  Report ID</th>
-                    <th> Report Description</th>
-                    <th>patient ID</th>  
-                    <th>operations</th>                     
+
+                    <th> Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Report Name</th>
+                    <th>operations</th>
                 </tr>
             </thead>
             <tbody>
-              
+
                 <tr>
                     <td>1</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-                    <td>5</td>
+                    <td>sara </td>
+                    <td>john</td>
+                    <td>Blood</td>
                     <td><div class="container3" style="display: flex;">
                       <!-- Delete Button with Delete Icon -->
                       <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                           <i class="fas fa-trash-alt"></i> Delete
-                          
+
                       </button>
-      
-                      <!-- Edit Button with Edit Icon -->
-                     <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                      <i class="fas fa-edit"></i> Edit
-                  </button></a>
-                </button></a>
+
                 <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
                   <i class="fas far fa-eye"></i> view
               </button></a>
                     </div></td>
-                   
-                   
+
+
                 </tr>
                 <tr>
-                  <td>4</td>
-                  <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-                  <td>7</td>
+                  <td>1</td>
+                  <td>sara </td>
+                  <td>john</td>
+                  <td>Blood</td>
                   <td><div class="container3" style="display: flex;">
                     <!-- Delete Button with Delete Icon -->
                     <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                         <i class="fas fa-trash-alt"></i> Delete
-                        
+
                     </button>
-    
-                    <!-- Edit Button with Edit Icon -->
-                   <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                    <i class="fas fa-edit"></i> Edit
-                </button></a>
-              </button></a>
+
+
               <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
                 <i class="fas far fa-eye"></i> view
             </button></a>
                   </div></td>
-                 
-                   
-                  
+
+
+
               </tr>
               <tr>
-                <td>10</td>
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-                <td>23</td>
+                <td>1</td>
+                <td>sara </td>
+                <td>john</td>
+                <td>Blood</td>
                 <td><div class="container3" style="display: flex;">
                   <!-- Delete Button with Delete Icon -->
                   <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                       <i class="fas fa-trash-alt"></i> Delete
-                      
+
                   </button>
-  
-                  <!-- Edit Button with Edit Icon -->
-                 <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                  <i class="fas fa-edit"></i> Edit
-              </button></a>
-            </button></a>
+
+
             <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
               <i class="fas far fa-eye"></i> view
           </button></a>
                 </div></td>
-               
-                   
-               
+
+
+
             </tr>
             <tr>
-              <td>13</td>
-              <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-              <td>54</td>
+              <td>1</td>
+              <td>sara </td>
+              <td>john</td>
+              <td>Blood</td>
               <td><div class="container3" style="display: flex;">
                 <!-- Delete Button with Delete Icon -->
                 <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                     <i class="fas fa-trash-alt"></i> Delete
-                    
+
                 </button>
 
-                <!-- Edit Button with Edit Icon -->
-               <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                <i class="fas fa-edit"></i> Edit
-            </button></a>
-          </button></a>
+
           <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
             <i class="fas far fa-eye"></i> view
         </button></a>
               </div></td>
-             
-              
+
+
           </tr>
           <tr>
-            <td>15</td>
-            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-            <td>34</td>
+            <td>1</td>
+            <td>sara </td>
+            <td>john</td>
+            <td>Blood</td>
             <td><div class="container3" style="display: flex;">
               <!-- Delete Button with Delete Icon -->
               <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                   <i class="fas fa-trash-alt"></i> Delete
-                  
+
               </button>
 
-              <!-- Edit Button with Edit Icon -->
-             <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-              <i class="fas fa-edit"></i> Edit
-          </button></a>
-        </button></a>
+
         <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
           <i class="fas far fa-eye"></i> view
       </button></a>
             </div></td>
-           
-           
+
+
         </tr>
         <tr>
-          <td>12</td>
-          <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-          <td>19</td>  
+          <td>1</td>
+          <td>sara </td>
+          <td>john</td>
+          <td>Blood</td>
           <td><div class="container3" style="display: flex;">
             <!-- Delete Button with Delete Icon -->
             <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
                 <i class="fas fa-trash-alt"></i> Delete
-                
+
             </button>
 
-            <!-- Edit Button with Edit Icon -->
-           <a href="edit_analysis_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >
-            <i class="fas fa-edit"></i> Edit
-        </button></a>
+
         <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
           <i class="fas far fa-eye"></i> view
       </button></a>
           </div></td>
-                 
+
       </tr>
             </tbody>
         </table>
         </div>
     </div>
-     
+
  <div class="pag">
 
     <ul class="pagination">
@@ -300,16 +285,16 @@
       <li class="page-item"><a class="page-link" href="#">3</a></li>
       <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
- 
+
  </div>
-  
-  
+
+
     </div>
-    
+
   </div>
-  
-  
-  
+
+
+
   </div>
 
 
@@ -330,10 +315,10 @@
           <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: none;">Search Here</h2>
           <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
           </button>
-  
+
         </div>
         <div class="modal-body">
-          
+
           <form>
             <div class="form-group">
               <label for="searchInput">Search:</label>
@@ -341,14 +326,14 @@
             </div>
             <button type="submit" class="btn btn-primary "  style="width: 100px; height: 40px; padding: 1px;">Search</button>
             <button type="submit" class="btn btn-primary "style="width: 100px; height: 40px; padding: 1px;" >Cancel</button>
-  
+
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  
+
 
 
   <script src="../../js/popper.min.js"></script>

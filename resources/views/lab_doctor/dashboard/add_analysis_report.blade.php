@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAYAH</title>
+    <title>HAYAH Lab Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="../../images/logo.png"/>
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -14,41 +14,50 @@
     integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href=" ../../css/style.css">
-    
+
+    <style>
+      .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px; /
+      }
+  </style>
+
 </head>
 
-<body id="body">
-    
+<body id="body" >
+
 <!-- main container-->
 <div class="main">
 
 <!-- sidebar-->
-<div class="sidebar">
+<div class="sidebar" style="height: 100vh;">
   <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
   <ul>
-    <li><a href="../../labDoctorDashboard .html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
-           
-    </li>
-   
-  
+    <li><a href="../../lab_doctor_dashboard" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
-    <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+    </li>
+
+
+
+
+    <li><a href="#" class="toggle-link"><i class="fas fa-medkit"></i> Analysis Requests</a>
       <ul class="sublist">
-        <li><a href="../labDoctorAppointments/all labDoc_appointment.html">All Appointments</a></li>
+        <li><a href="../anaylsisRequests/all_requests.html"> All Requests</a></li>
+
       </ul>
     </li>
-   
-   
+
+
     <li><a href="#" class="toggle-link"><i class="fa-solid fa-clipboard"></i>   Analysis Reports</a>
       <ul class="sublist">
-        <li><a href="add_analysis_report.html">Add Analysis Report</a></li>
-        <li><a href="analysis_report_details.html">Analysis Report Details</a></li>
+        <li><a href="#">Add Analysis Reports</a></li>
+
         <li><a href="all_analysis_reports.html">All Analysis Reports</a></li>
-        <li><a href="edit_analysis_report.html">Edit Analysis Report</a></li>
       </ul>
     </li>
-   
-    
+
+
 
 
   </ul>
@@ -56,10 +65,10 @@
 
 
 
-<div class="content"> 
- 
-  <div class="nav"> 
-     
+<div class="content">
+
+  <div class="nav">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
@@ -72,11 +81,11 @@
            </i></a>
          </li>
 
-        
+
          <li class="nav-item">
            <button class="nav-link btn btn-link" id="searchIcon" style="padding-top: 16px;"><i class="fa fa-search"></i></button>
          </li>
-            
+
          <li class="nav-item dropdown" style="padding-top: 10px;">
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
              <i class="fa fa-bell"></i>
@@ -88,76 +97,71 @@
              <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
            </div>
          </li>
-         <li class="nav-item dropdown" style="padding-top: 10px;">
+         <li class="nav-item-dropdown" >
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
-             <i class="fas fa-user" style="padding-right: 7px;"></i>   John Doe
+             <i class="fas fa-user" ></i>   John Doe
            </a>
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-             <a class="dropdown-item" href="../../labdoctorprofile.html" style="height: 40px;"><i class="fa fa-user" aria-hidden="true"></i> 
+             <a class="dropdown-item" href="../../labdoctorprofile.html" ><i class="fa fa-user" aria-hidden="true"></i>
                Profile</a>
-             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa fa-cog" aria-hidden="true"></i> 
+               <a class="dropdown-item" href="../../lab_doc_schedule .html"><i class="fa fa-user" aria-hidden="true"></i>
+                My schedule</a>
+             <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                Settings</a>
-             
-             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-right-from-bracket"></i>
-               logout</a> 
-               
+
+             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
+               logout</a>
+
 
            </div>
-           
+
          </li>
        </ul>
      </div>
-   
+
    </nav>
-   
-</div> 
-  
+
+</div>
+
     <h1>Add Analysis Report</h1>
     <div class="inner_content">
       <h3>Add Analysis Report</h3><br>
       <hr>
-      <form id="add-patient-form">
-        <div class="form-group">
-          <label for="patient-name">  patient Name</label><br/>
-          <input type="text" id="patient-name" name="" required placeholder=" Patient Name">
-        </div>
-        <form id="add-patient-form">
-          <div class="form-group">
-            <label for="patient-id">  patient ID</label><br/>
-            <input type="text" id="patient-id" name="" required placeholder=" Patient ID">
-          </div>
-          <form id="add-patient-form">
+
+      <form id="add-report-form">
+        <div class="grid-container">
             <div class="form-group">
-              <label for="blood-type">  blood type</label><br/>
-              <input type="text" id="blood-type" name="" required placeholder=" blood-type">
+                <label for="patient-name">Patient Name</label><br/>
+                <input type="text" id="patient-name" required placeholder="Patient Name">
             </div>
 
-      <form id="add-patient-form">
-        <div class="form-group">
-          <label for="Analysis Report">  Report description</label><br/>
-          <input type="text" id="Analysis Report" name="Analysis Report" required placeholder=" Analysis Report Description">
-        </div>
-        
-        <div class="form-group">
-          <label for="image">Medical Report</label><br/>
-          <input type="file" id="art" name="art" required placeholder=" choose File" >
-        </div><br>
-       
-      
-        <div class="form-group">
-          <input type="checkbox" id="checkbox1" name="checkbox1" value="value1" >
-          <label for="checkbox1" style="font-size: large;">Please confrim</label>
-        </div><br>
-     
+            <div class="form-group">
+                <label for="patient-id">Patient ID</label><br/>
+                <input type="text" id="patient-id" required placeholder="Patient ID">
+            </div>
 
-        <button type="submit">Add Medical Report</button>
-      </form>
-      
+            <div class="form-group">
+              <label for="doctor-Name">Doctor Name</label><br/>
+              <input type="text" id="doctor-Name" required placeholder="Doctor-Name">
+          </div>
+            <div class="form-group">
+              <label for="Report-name">Report Name</label><br/>
+              <input type="text" id="Report-name" required placeholder="Report Name">
+          </div>
+        <div class="form-group">
+          <label for="Report"></label><br/>
+          <input type="file" id="report" required placeholder="choose file">
+      </div>
+    </div>
+    </form>
 
-      
+    <button type="submit">Add Analysis Report</button>
+
+
+
 
   </div>
-  
+
 </div>
 
 
@@ -176,7 +180,7 @@
 
       </div>
       <div class="modal-body">
-        
+
         <form>
           <div class="form-group">
             <label for="searchInput">Search:</label>
@@ -191,7 +195,7 @@
   </div>
 </div>
 
- 
+
 
 
 
