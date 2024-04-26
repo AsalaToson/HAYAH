@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminStaffController;
+use App\Http\Controllers\Doctor\AppointmentController;
+use App\Http\Controllers\Doctor\DoctorPatientsController;
+use App\Http\Controllers\Doctor\DoctorProfileController;
+use App\Http\Controllers\Doctor\LabController;
+use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\PatientController;
@@ -24,9 +29,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 //*******************    admin dashboard     *****************
 Route::get('/admin_dashboard', function () {
@@ -79,6 +84,22 @@ Route::middleware('auth:admin')->group(function () {
 });
 //                   *******************************
 
+/******************************doctor permissions***********************/
+Route::middleware('auth:doctor')->group(function () {
+    Route::get('/appointments', [AppointmentController::class,'index'])->name("appointments.index");
+    Route::delete('/appointments/delete/{id}', [AppointmentController::class,'destroy'])->name("appointments.destroy");
+    Route::get('/profile/show', [DoctorProfileController::class, 'showProfile'])->name('profile.show');
+    Route::get('/profile/edit', [DoctorProfileController::class, 'editProfile'])->name('profile.edit');
+    Route::put('/profile/update',[DoctorProfileController::class,'updateProfile'])->name('profile.update');
+    Route::get('/record/create/{id}', [RecordController::class,'create'])->name("record.create");
+    Route::post('/record/store', [RecordController::class,'store'])->name("record.store");
+    Route::get('download/record/{id}', [RecordController::class,'downloadPdf'])->name("record.pdf");
+    Route::post('/laboratories', [LabController::class,'store'])->name('laboratories.store');
+    Route::resource('records',RecordController::class);
+
+    Route::get('/patients', [DoctorPatientsController::class,'index'])->name('patients.index');
+
+});
 /************************** Public Views For mother*********************/
 Route::prefix("mother/")->name("mother.")->group(function (){
     Route::get("login" , [MotherController::class , "showLoginForm"])->name("login");

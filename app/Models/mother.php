@@ -19,4 +19,13 @@ class mother extends Authenticatable
     {
         return $this->morphOne(image::class, 'imageable');
     }
+    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(appointment::class);
+    }
+    public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(record::class);
+    }
+
 }

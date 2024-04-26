@@ -28,23 +28,35 @@ class DoctorSeeder extends Seeder
             'phone' => '01017553080',
             'section_id' => '1',
             'price' => '50',
-            'gender' => 'femele',
-            'appointment' => 'الاحد',
+            'gender' => 'female',
             'details' => '.',
             'address' => '.',
         ]);
+        doctor::create([ 'name' => 'john',
+            'email' => 'john22@gmail.com',
+            'password' => bcrypt('333444555'),
+            'age' => '26',
+            'experience' => '2years',
+            'phone' => '0101755603',
+            'section_id' => '1',
+            'price' => '50',
+            'gender' => 'male',
+            'details' => '.',
+            'address' => '.',]);
+
+
         //foreach ($doctors as $doctor) {
           //  doctor::create($doctor);
         //}
         //$doctors=doctor ::all();
-        $appointments = appointment::all();
-
-
-        doctor::all()->each(function ($doctor) use ($appointments) {
-           $doctor->doctorappointments()->attach($appointments);
-           // $doctor->doctorappointments()->attach($doctor->appointment);
-
-       });
+//        $appointments = appointment::all();
+//
+//
+//        doctor::all()->each(function ($doctor) use ($appointments) {
+//           $doctor->doctorappointments()->attach($appointments);
+//           // $doctor->doctorappointments()->attach($doctor->appointment);
+//
+//       });
 
 
     }

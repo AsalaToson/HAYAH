@@ -21,10 +21,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AdminSeeder::class,
-            AppointmentSeeder::class,
+
             SectionSeeder::class,
             DoctorSeeder::class,
             MotherSeeder::class,
+            AppointmentSeeder::class,
+            RecordSeeder::class,
 
         ]);
     }

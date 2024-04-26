@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Doctor Dashboard</title>
-    <link rel="icon" type="image/png" href="images/logo.png"/>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="icon" type="image/png" href="../../images/logo.png"/>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="../../css/style.css">
+    @yield('css')
 
 
 </head>
@@ -24,7 +24,7 @@
 
     <!-- sidebar-->
     <div class="sidebar">
-        <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
+        <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
         <ul>
             <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
@@ -44,6 +44,7 @@
 
 {{--                </ul>--}}
 {{--            </li>--}}
+
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Medical Reports</a>
                 <ul class="sublist">
@@ -92,13 +93,14 @@
                                 <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
                             </div>
                         </li>
-                        <li class="nav-item-dropdown" >
+                        <li class="nav-item dropdown" style="padding-top: 10px;">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
                                 <i class="fas fa-user" ></i>
                                 {{Auth::guard('doctor')->user()->name}}
+
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-                                <a class="dropdown-item" href="{{route('profile.show')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="{{route("profile.show")}}" ><i class="fa fa-user" aria-hidden="true"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="doc_schedule.html" ><i class="fa fa-user" aria-hidden="true"></i>
                                     My schedule</a>
@@ -111,6 +113,7 @@
 
                             </div>
 
+
                         </li>
                     </ul>
                 </div>
@@ -119,45 +122,10 @@
 
         </div>
 
-
-        <h1>Home...</h1>
-        <div class="inner_content">
-            <div style="display: flex;">
-
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i></i>
-                    <div style="margin: 50px;">
-                        <h2 >340 Report</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 Appointment</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-
-        </div>
+        @yield('content')
     </div>
 </div>
+
 <!--modal-->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -189,22 +157,10 @@
 
 
 
-<script src="js/popper.min.js"></script>
-<script src="js/jquery-3.7.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/main.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/main.js"></script>
+@yield('js')
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

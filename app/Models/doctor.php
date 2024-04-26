@@ -10,7 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class doctor extends Authenticatable
 {
     use HasFactory;
-    protected $guarded=[];
+
+    protected $guarded = [];
     //protected $fillable =['name','section_id','age','phone','email','gender','details','address','experience','password'];
 
     /**
@@ -30,6 +31,23 @@ class doctor extends Authenticatable
 
     public function doctorappointments(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(appointment::class,'appointment_doctor');
+        return $this->belongsToMany(appointment::class, 'appointment_doctor');
+    }
+
+    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(appointment::class, 'mother_id');
+    }
+
+    public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(record::class);
+    }
+
+    public function mothers(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(mother::class, appointment::class, 'doctor_id', 'mother_id');
     }
 }
+//
+
