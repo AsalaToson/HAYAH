@@ -5,55 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Doctor Dashboard</title>
-    <link rel="icon" type="image/png" href="images/logo.png"/>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="icon" type="image/png" href="../../images/logo.png"/>
 
+    <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-
-
+    <link rel="stylesheet" href="../../css/style.css">
 
 </head>
 
-<body id="body">
-
+<body id="body"></body>
 <!-- main container-->
 <div class="main">
 
     <!-- sidebar-->
     <div class="sidebar">
-        <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
+        <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="../../doctorDashboard.html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
+            </li>
 
-
-
-
-            <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Upcoming Appointments</a>
+            <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> upcoming Appointments</a>
                 <ul class="sublist">
-                    <li><a href="{{route('appointments.index')}}">All Appointments</a></li>
 
+                    <li><a href="../doctorAppointments/all_doc_appointment.html">All Appointments</a></li>
                 </ul>
             </li>
-{{--            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i> My patients</a>--}}
-{{--                <ul class="sublist">--}}
-{{--                    <li><a href="{{route('patients.index')}}">All patients</a></li>--}}
-
-{{--                </ul>--}}
-{{--            </li>--}}
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Medical Reports</a>
                 <ul class="sublist">
-{{--                    <li><a href="#">Add Medical Report</a></li>--}}
-                    <li><a href="{{route('records.index')}}">All Medical Reports</a></li>
-{{--                    <li><a href="#">Medical Report Details</a></li>--}}
-
-{{--                    <li><a href="#">Edit Medical Report</a></li>--}}
+                    <li><a href="../Medical_Reports/add_medical_report_form.html">Add Medical Report</a></li>
+                    <li><a href="../Medical_Reports/medical_report_details.html">Medical Report Details</a></li>
+                    <li><a href="{{route('report.index')}}">All Medical Reports</a></li>
+                    <li><a href="../Medical_Reports/edit_medical_report.html">Edit Medical Report</a></li>
                 </ul>
             </li>
+
+
+
 
 
         </ul>
@@ -62,6 +53,7 @@
 
 
     <div class="content">
+
         <div class="nav">
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -92,20 +84,17 @@
                                 <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
                             </div>
                         </li>
-                        <li class="nav-item-dropdown" >
+                        <li class="nav-item dropdown" style="padding-top: 10px;">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
-                                <i class="fas fa-user" ></i>
-                                {{Auth::guard('doctor')->user()->name}}
+                                <i class="fas fa-user" style="padding-right: 7px;"></i>   John Doe
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-                                <a class="dropdown-item" href="{{route('profile.show')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="../../doctorprofile .html" style="height: 40px;"><i class="fa fa-user" aria-hidden="true"></i>
                                     Profile</a>
-                                <a class="dropdown-item" href="doc_schedule.html" ><i class="fa fa-user" aria-hidden="true"></i>
-                                    My schedule</a>
-                                <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-right-from-bracket"></i>
                                     logout</a>
 
 
@@ -119,45 +108,58 @@
 
         </div>
 
-
-        <h1>Home...</h1>
+        <h1>Edit Medical Report</h1>
         <div class="inner_content">
-            <div style="display: flex;">
-
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i></i>
-                    <div style="margin: 50px;">
-                        <h2 >340 Report</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
+            <h3>Edit Medical Report</h3><br>
+            <hr>
+            <form id="add-patient-form">
+                <div class="form-group">
+                    <label for="patient-name">  patient Name</label><br/>
+                    <input type="text" id="patient-name" name="" required placeholder=" Patient Name">
                 </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 Appointment</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                <form id="add-patient-form">
+                    <div class="form-group">
+                        <label for="patient-id">  patient ID</label><br/>
+                        <input type="text" id="patient-id" name="" required placeholder=" Patient ID">
                     </div>
+                    <form id="add-patient-form">
+                        <div class="form-group">
+                            <label for="blood-type">  blood type</label><br/>
+                            <input type="text" id="blood-type" name="" required placeholder=" blood-type">
+                        </div>
 
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >120 visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
+                        <form id="add-patient-form">
+                            <div class="form-group">
+                                <label for="first-name">  Report description</label><br/>
+                                <input type="text" id="Medical Report" name="Medical Report" required placeholder=" Medical Report Description">
+                            </div>
 
-                </div>
+                            <div class="form-group">
+                                <label for="image">Medical Report</label><br/>
+                                <input type="file" id="art" name="art" required placeholder=" choose File" >
+                            </div><br>
 
-            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" id="checkbox1" name="checkbox1" value="value1" >
+                                <label for="checkbox1" style="font-size: large;">Please confrim</label>
+                            </div><br>
 
 
+                            <button type="submit">Add Medical Report</button>
+                        </form>
 
 
 
         </div>
+
     </div>
+
+
+
 </div>
+
+
 <!--modal-->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -189,10 +191,10 @@
 
 
 
-<script src="js/popper.min.js"></script>
-<script src="js/jquery-3.7.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/main.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
 

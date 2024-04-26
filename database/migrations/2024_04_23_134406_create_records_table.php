@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
+            $table->integer('bloodPressure');
+            $table->string('babySize');
+            $table->decimal('weight');
+            $table->integer('sugarRate');
+            $table->string('medication');
+            $table->foreignId('doctor_id')->constrained('doctors');
+            $table->foreignId('mother_id')->constrained('mothers');
             $table->timestamps();
         });
     }

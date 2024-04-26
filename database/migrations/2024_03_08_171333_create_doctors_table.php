@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->integer('phone');
             $table->string('gender');
-            $table->string('appointment');
+            $table->string('image')->nullable();
             $table->string('address');
             $table->decimal('price');
             $table->timestamps();
