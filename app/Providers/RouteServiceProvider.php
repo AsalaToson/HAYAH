@@ -25,6 +25,8 @@ RouteServiceProvider extends ServiceProvider
 
     public const DOCTOR = '/doctor_dashboard';
 
+    public const LAB_DOCTOR = '/lab_doctor_dashboard';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */

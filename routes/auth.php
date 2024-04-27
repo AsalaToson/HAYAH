@@ -11,7 +11,9 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Doctor\Auth\DoctorAuthController;
+use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
 use App\Http\Controllers\Mother\Auth\MotherAuthController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -48,6 +50,19 @@ Route::middleware('guest')->group(function () {
     Route::post('login', [MotherAuthController::class, 'store'])
         ->name('login.mother');
                         //****************************
+
+            //*******************    lab_doctor login     *****************
+    Route::get('login/lab_doctor' , [LabDoctorAuthController::class , 'create'])->name('lab_doctor.login') ;
+
+    Route::post('login/lab_doctor', [LabDoctorAuthController::class, 'store'])
+        ->name('login.lab_doctor');
+                        //****************************
+
+
+    Route::get('/requests',[RequestController::class,'show'])->middleware(['auth:lab_doctor','verified'])->name('request.show');
+
+
+
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
