@@ -33,6 +33,10 @@ class RedirectIfAuthenticated
             return redirect(RouteServiceProvider::DOCTOR);
         }
 
+        if (auth('lab_doctor')->check()){
+            return redirect(RouteServiceProvider::LAB_DOCTOR);
+        }
+
         return $next($request);
     }
 }

@@ -7,9 +7,11 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
@@ -51,7 +53,17 @@ Route::get('/doctor_dashboard', function () {
 })->middleware(['auth:doctor', 'verified'])->name('dashboard.doctor');
 //****************************
 
+Route::get('/lab_doctor_dashboard', function () {
+    return view('lab_doctor_dashboard');
+})->middleware(['auth:lab_doctor', 'verified'])->name('dashboard.lab_doctor');
+//****************************
 
+//********************** test ***************************
+
+Route::get('/requests',[RequestController::class,'show'])->middleware(['auth:lab_doctor','verified'])->name('request.show');
+
+
+//****************************
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

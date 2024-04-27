@@ -55,6 +55,12 @@ return [
             'driver' => 'session',
             'provider' => 'doctors',
         ],
+
+        'lab_doctor' => [
+            'driver' => 'session',
+            'provider' => 'lab_doctors',
+        ],
+
     ],
 
     /*
@@ -96,6 +102,12 @@ return [
         'doctors' => [
             'driver' => 'eloquent',
             'model' => App\Models\doctor::class,
+        ],
+
+
+        'lab_doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\lab_doctor::class,
         ],
 
 
@@ -145,6 +157,12 @@ return [
         ],
         'doctors' => [
             'provider' => 'doctors',
+            'table' => 'admin_password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'lab_doctors' => [
+            'provider' => 'lab_doctors',
             'table' => 'admin_password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
