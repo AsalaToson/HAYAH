@@ -61,8 +61,9 @@ Route::get('/lab_doctor_dashboard', function () {
 
 //********************** test ***************************
 
-Route::get('/requests',[RequestController::class,'show'])->middleware(['auth:lab_doctor','verified'])->name('request.show');
-
+Route::middleware('auth:lab_doctor')->group(function () {
+    Route::get('/requests', [RequestController::class, 'show'])->name('request.show');
+});
 
 //****************************
 
