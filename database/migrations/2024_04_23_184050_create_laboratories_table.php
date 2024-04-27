@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->longText('description');
                 $table->foreignId('mother_id')->references('id')->on('mothers')->onDelete('cascade');
                 $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-                $table->foreignId('lapdoctor_id')->nullable()->references('id')->on('lapdoctors')->onDelete('cascade');
+                $table->foreignId('labdoctor_id')->nullable()->references('id')->on('lab_doctors')->onDelete('cascade');
                 $table->timestamps();
 
         });
