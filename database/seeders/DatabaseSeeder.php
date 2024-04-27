@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             MotherSeeder::class,
             AppointmentSeeder::class,
             RecordSeeder::class,
+            LabDoctorSeeder::class,
 
         ]);
     }
