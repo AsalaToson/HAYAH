@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
 
             $table->string('Mother Name');
-            $table->string('LabDoctor Name');
+            $table->string('Doctor Name');
+            $table->string('LabDoctor Name')->default('Youssef');
             $table->string('Analysis Name');
-            $table->string('Analysis Type');
-            
+
+            //upload image or file
+            //link with mother table
+            //link with doctor table
+
 
             $table->timestamps();
         });

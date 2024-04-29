@@ -54,9 +54,9 @@
 
                         <td><div class="container3" style="display: flex;">
 
-                          <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
+                          <a href="{{route('add_analysis.index')}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
                             <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                          <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
+                          <a href="{{route('all_analysis.show')}}"> <button type="button" class="btn btn-primary" id="dbutton" >
                             <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
                       </button></a>
                         </div></td>
@@ -89,9 +89,9 @@
 
                     <td><div class="container3" style="display: flex;">
 
-                      <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
+                      <a href="{{route('add_analysis.index')}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
                         <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                      <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
+                      <a href="{{route('all_analysis.show')}}"> <button type="button" class="btn btn-primary" id="dbutton" >
                         <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
                   </button></a>
                     </div></td>

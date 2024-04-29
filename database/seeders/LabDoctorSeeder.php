@@ -18,12 +18,12 @@ class LabDoctorSeeder extends Seeder
         DB::table('lab_doctors')->delete();
         //$section = section::all();
         lab_doctor::create([
-            'name' => 'asala toson',
-            'email' => 'khaterasala21@gmail.com',
+            'name' => 'Youssef Khaled',
+            'email' => 'youssef@gmail.com',
             'password' => bcrypt('123456789'),
             'age' => '21',
             'phone' => '01017553080',
-            'gender' => 'female',
+            'gender' => 'male',
             'address' => '.',
         ]);
     }

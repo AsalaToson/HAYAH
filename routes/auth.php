@@ -59,9 +59,6 @@ Route::middleware('guest')->group(function () {
                         //****************************
 
 
-    Route::get('/requests',[RequestController::class,'show'])->middleware(['auth:lab_doctor','verified'])->name('request.show');
-
-
 
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])

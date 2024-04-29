@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminStaffController;
+use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\Doctor\AppointmentController;
 use App\Http\Controllers\Doctor\DoctorPatientsController;
 use App\Http\Controllers\Doctor\DoctorProfileController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
@@ -59,11 +61,17 @@ Route::get('/lab_doctor_dashboard', function () {
 })->middleware(['auth:lab_doctor', 'verified'])->name('dashboard.lab_doctor');
 //****************************
 
-//********************** test ***************************
+//********************** LabDoctor Permissions ***************************
 
-Route::middleware('auth:lab_doctor')->group(function () {
-    Route::get('/requests', [RequestController::class, 'show'])->name('request.show');
+Route::middleware('auth:lab_doctor')->group(function (){
+
+    Route::get('/requests',[RequestsController::class,'index'])->name('requests.index');           // show all analysis requests from doctor
+    Route::get('/add_analysis',[AnalysisController::class,'index'])->name('add_analysis.index');   // show add analysis result page
+    Route::get('all_analysis',[AnalysisController::class,'show'])->name('all_analysis.show');      // show all analysis result
+    Route::get('/analysis_details',[AnalysisController::class,'show2'])->name('details.show');     // show details of report
+
 });
+
 
 //****************************
 
