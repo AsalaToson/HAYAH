@@ -1,4 +1,3 @@
-
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
@@ -56,7 +55,7 @@
 
                       </button>
 
-                <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
+                <a href="{{route('details.show')}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
                   <i class="fas far fa-eye"></i> view
               </button></a>
                     </div></td>

@@ -33,7 +33,7 @@
 
     <li><a href="#" class="toggle-link"><i class="fa fa-medkit"></i> Analysis Requests</a>
       <ul class="sublist">
-        <li><a href="{{route('request.show')}}"> All Requests</a></li>
+        <li><a href="{{route('requests.index')}}"> All Requests</a></li>
 
       </ul>
     </li>
@@ -41,8 +41,8 @@
 
     <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Analysis Reports</a>
       <ul class="sublist">
-        <li><a href="pages/Analysis_Reports/add_analysis_report.html">Add Analysis Reports</a></li>
-        <li><a href="pages/Analysis_Reports/all_analysis_reports.html">All Analysis Reports</a></li>
+        <li><a href="{{route('add_analysis.index')}}">Add Analysis Reports</a></li>
+        <li><a href="{{route('all_analysis.show')}}">All Analysis Reports</a></li>
 
       </ul>
     </li>
