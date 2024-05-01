@@ -116,7 +116,7 @@ Route::middleware('auth:doctor')->group(function () {
     Route::get('/record/create/{id}', [RecordController::class,'create'])->name("record.create");
     Route::post('/record/store', [RecordController::class,'store'])->name("record.store");
     Route::get('download/record/{id}', [RecordController::class,'downloadPdf'])->name("record.pdf");
-    Route::post('/laboratories', [LabController::class,'store'])->name('laboratories.store');
+    Route::post('/laboratorie', [LabController::class,'store'])->name("laboratorie.store");
     Route::resource('records',RecordController::class);
 
     Route::get('/patients', [DoctorPatientsController::class,'index'])->name('patients.index');
