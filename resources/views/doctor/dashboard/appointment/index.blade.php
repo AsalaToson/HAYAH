@@ -64,30 +64,29 @@
                                 <td>{{ $appointment->fee }}</td>
                                 <td>{{ $appointment->mother->details }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
-                                <td><div class="container3" style="display: flex;">
-                                        <!-- Delete Button with Delete Icon -->
-{{--                                        <form action="{{route('appointments.destroy',$appointment->id)}}" method="POST">--}}
-{{--                                            @method('DELETE')--}}
-{{--                                            @csrf--}}
-{{--                                            <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
-{{--                                                <i class="fas fa-trash-alt"></i> Cancel--}}
 
-{{--                                            </button>--}}
-{{--                                        </form>--}}
+                                <td>
+                                    <a  href="#" data-toggle="modal" data-target="#laboratorie_conversion{{$appointment->id}}">
+                                        <button type="button" class="btn btn-primary"  id="dbutton"><i class="text-warning fas fa-syringe" aria-hidden="true"></i>Test</button>
+
+                                       </a>
 
 
-                                        <button type="button" class="btn btn-danger test-button" data-bs-toggle="modal" data-bs-target="#transferModal{{$appointment->mother->id}}" id="Tbutton">
-                                            <i class="fas fa-search"></i> Test
-                                        </button>
 
-                                        <!-- Edit Button with Edit Icon -->
-                                        <a href="{{route('lRecord.show',[$appointment->mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
-                                            </button></a>
-                                    </div></td>
+
+                                    <!-- Edit Button with Edit Icon -->
+                                    <a href="{{route('lRecord.show',[$appointment->mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
+                                        </button></a>
+                                </td>
                             </tr>
+
+                            <!-- Modal -->
+                            @include('doctor.dashboard.report.modal.create')
+
                         @endforeach
                     @endif
+
                     </tbody>
 
                 </table>
@@ -106,7 +105,7 @@
             </div>
         </div>
 
-@include('doctor.dashboard.report.modal.create');
+
 
     </div>
 @endsection

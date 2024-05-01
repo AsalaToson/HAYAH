@@ -55,7 +55,7 @@ class RecordController extends Controller
     {
         $mother=mother::find($id);
         $lastRecord=$mother->records()->latest()->first();
-        if(!$lastRecord){
+        if(!$lastRecord ){
             $message="No records found for this mother.";
             return view('doctor.dashboard.report.create', compact('message','mother'));
         }

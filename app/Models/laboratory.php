@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class laboratory extends Model
 {
     use HasFactory;
-    //protected $guarded=[];
-    protected $fillable =['description','doctor_id','mother_id'];
+    protected $guarded=[];
 
     public function doctor()
     {

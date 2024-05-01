@@ -4,12 +4,8 @@
 <h1>Medical Report details</h1>
 <div class="inner_content">
     <div class="inner_content">
-        @if (isset($message))
-            <div class="alert alert-danger">
 
-                <p>{{ $message }}</p></div>
-        @else
-
+                        <div>
                         <a href="{{route('record.create',[$mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
                             </button></a>
@@ -93,5 +89,5 @@
 
 
 
-    @endif
+
 @endsection

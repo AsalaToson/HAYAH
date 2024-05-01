@@ -117,7 +117,7 @@ Route::middleware('auth:doctor')->group(function () {
     Route::get('/record/create', [RecordController::class,'createRecord']);
     Route::post('/record/store', [RecordController::class,'store'])->name("record.store");
     Route::get('download/record/{id}', [RecordController::class,'downloadPdf'])->name("record.pdf");
-    Route::post('/laboratory/store', [LabController::class,'store'])->name('laboratories.store');
+    Route::post('/laboratory/store', [LabController::class,'store'])->name("laboratory.store");
     Route::resource('records',RecordController::class);
     Route::get('/record/show/{id}', [RecordController::class, 'show'])->name('record.show');
     Route::get('/record/show/{id}', [RecordController::class, 'showLast'])->name('lRecord.show');
