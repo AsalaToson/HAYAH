@@ -7,13 +7,10 @@
         <hr>
 
         <div class="profile">
-{{--            <img src="images/R.jpg" alt="profileimage" style="height: 200px;">--}}
             @if ($doctor->image)
-{{--                <img width="400px" height="350" src="Dashboard/image/doctors/{{ $doctor->image->filename }}" alt="Doctor Image"><br>--}}
-                <img   src="{{ asset('Dashboard/image/doctors/'.$doctor->image) }}" alt="Profile Image">
+                <img  width="400px" height="350"  src="{{ asset('Dashboard/image/doctors/'.$doctor->image) }}" alt="Profile Image">
             @else
-                <img src="" alt="profileimage"
-                     style="height: 200px; width: 300px">
+                <img src="" alt="profileimage" style="height: 200px; width: 300px">
             @endif
 
             <div class="profileData">

@@ -15,14 +15,11 @@ return new class extends Migration
 
 
                 $table->id();
-                //$table->longText('description');    // no need for description
+                $table->longText('description');
                 $table->foreignId('mother_id')->references('id')->on('mothers')->onDelete('cascade');
-                // Mother Name
-                // Doctor Name
-                // Analysis Name
-                // labDoctor  default id (1)
                 $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-                $table->foreignId('labDoctor_id')->nullable()->references('id')->on('lab_doctors')->onDelete('cascade');
+                $table->unsignedBigInteger('labDoctor_id')->default(1);
+                $table->foreign('labDoctor_id')->references('id')->on('lab_doctors');
                 $table->timestamps();
 
         });

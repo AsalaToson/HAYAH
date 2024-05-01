@@ -20,8 +20,8 @@ class DoctorSeeder extends Seeder
         DB::table('doctors')->delete();
         //$section = section::all();
         doctor::create([
-            'name' => 'asala toson',
-            'email' => 'khaterasala21@gmail.com',
+            'name' => 'Walaa Mohammed',
+            'email' => 'walaaheikal44@gmail.com',
             'password' => bcrypt('123456789'),
             'age' => '21',
             'experience' => '3years',

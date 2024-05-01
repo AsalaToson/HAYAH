@@ -23,15 +23,12 @@ class StoreRecordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-//            'mother_id' => 'required'|,
-            'bloodPressure' =>'required|integer',
-            'weight' => 'required|Decimal',
-
-            'babySize' => 'required|string',
-            'sugarRate' => 'required|integer',
-            'medication' => 'required|string',
-//            'confirmation'=>'required|boolean'
+            'mother_id' => 'required|exists:mothers,id',
+            'blood_pressure' => 'required',
+            'baby_size' => 'required',
+            'Weight'=>'required',
+            'sugar_rate'=>'required',
+            'medication'=>'required'
         ];
     }
 }

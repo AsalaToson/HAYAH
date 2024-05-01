@@ -1,7 +1,7 @@
 <!-- Modal -->
 <form action="{{route('laboratories.store')}}" method="post" >
     @csrf
-<div class="modal fade" id="transferModal" tabindex="-1" aria-labelledby="transferModalLabel" aria-hidden="true">
+<div class="modal fade" id="transferModal{{$appointment->mother->id}}" tabindex="-1" aria-labelledby="transferModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -395,5 +395,19 @@ button:hover {
 h2{
     color: palevioletred;
 }
+.stable {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+.sth, .std {
+    text-align: left;
+    padding: 2px;
+}
+
+.str:nth-child(even) {
+    background-color: #D6EEEE;
+    height: 80px;
+}
 
 

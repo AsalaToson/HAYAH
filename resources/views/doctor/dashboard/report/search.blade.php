@@ -44,28 +44,28 @@
                     <tbody>
                     @if (isset($mothers))
                         @foreach ($mothers as $mother)
-                    <tr>
-                        <td>{{$mother->id}} </td>
-                        <td>{{$mother->name}}</td>
-                        <td><div class="container3" style="display: flex;">
-                                <!-- Delete Button with Delete Icon -->
-{{--                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
-{{--                                    <i class="fas fa-trash-alt"></i> Delete--}}
+                            <tr>
+                                <td>{{$mother->id}} </td>
+                                <td>{{$mother->name}}</td>
+                                <td><div class="container3" style="display: flex;">
+                                        <!-- Delete Button with Delete Icon -->
+                                        {{--                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
+                                        {{--                                    <i class="fas fa-trash-alt"></i> Delete--}}
 
-{{--                                </button>--}}
+                                        {{--                                </button>--}}
 
-{{--                                <!-- Edit Button with Edit Icon -->--}}
-{{--                                <a href="edit_medical_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >--}}
-{{--                                        <i class="fas fa-edit"></i> Edit--}}
-{{--                                    </button></a>--}}
-{{--                                </button></a>--}}
-                                <a href="{{route('records.show',[$mother->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-                                        <i class="fas far fa-eye"></i> view
-                                    </button></a>
-                            </div></td>
+                                        {{--                                <!-- Edit Button with Edit Icon -->--}}
+                                        {{--                                <a href="edit_medical_report.html"> <button type="button" class="btn btn-primary"  id="dbutton" >--}}
+                                        {{--                                        <i class="fas fa-edit"></i> Edit--}}
+                                        {{--                                    </button></a>--}}
+                                        {{--                                </button></a>--}}
+                                        <a href="{{route('records.show',[$mother->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
+                                                <i class="fas far fa-eye"></i> view
+                                            </button></a>
+                                    </div></td>
 
 
-                    </tr>
+                            </tr>
                         @endforeach
                     @endif
                     </tbody>

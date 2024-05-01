@@ -24,11 +24,8 @@ class DoctorProfileController extends Controller
     {
         $doctor = Auth::guard('doctor')->user();
 
-        $input=$request->all();
-
-        // Handle image upload and update if a new image is provided
+        $input=$request->except('image');
         if ($image=$request->File('image')) {
-//            $image = $request->file('image');
             $imagePath = 'Dashboard/image/doctors/';
             $profileImage=time() . "." . $image->getClientOriginalExtension();
             $image->move($imagePath,$profileImage);

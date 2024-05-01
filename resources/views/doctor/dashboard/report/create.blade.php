@@ -5,6 +5,10 @@
 
     <div class="inner_content">
         <div class="col-12">
+            @if (isset($message))
+                <div class="alert alert-danger">
+                    <p>{{ $message }}</p></div>
+            @endif
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -31,7 +35,7 @@
 {{--            <form id="add-patient-form">--}}
                 <div class="form-group">
                     <label for="patient-id"> patient ID</label><br />
-                    <input type="text" id="patient-id" name="" placeholder=" Patient ID"
+                    <input type="text" id="patient-id" name="mother_id" placeholder=" Patient ID"
                            value="{{ $mother->id }}">
                 </div>
                 {{--                    <form id="add-patient-form"> --}}
@@ -118,16 +122,10 @@
                         </form>
                     </form>
                 </form>
-            </form>
         </form>
-        {{--  </form> --}}
-        {{--                                    </form> --}}
-        {{--                                </form> --}}
-        {{--                            </form> --}}
-        {{--                        </form> --}}
-        {{-- </form> --}}
-        {{--                </form> --}}
+{{--        @endif--}}
 
-        {{-- </form> --}}
     </div>
+
+
 @endsection

@@ -47,7 +47,7 @@
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Medical Reports</a>
                 <ul class="sublist">
-{{--                    <li><a href="#">Add Medical Report</a></li>--}}
+                    <li><a href="/record/create">Add Medical Report</a></li>
                     <li><a href="{{route('records.index')}}">All Medical Reports</a></li>
 {{--                    <li><a href="#">Medical Report Details</a></li>--}}
 

@@ -18,8 +18,8 @@ class RecordController extends Controller
     public function index()
     {
 
-        $records = record::all();
-        return view('doctor.dashboard.report.index',compact('records'));
+        $mothers = mother::all();
+        return view('doctor.dashboard.report.index',compact('mothers'));
 
     }
 
@@ -28,9 +28,7 @@ class RecordController extends Controller
      */
     public function create($id)
     {
-        //
         $mother = mother::find($id);
-
         return view('doctor.dashboard.report.create', compact('mother'));
     }
 
@@ -39,28 +37,30 @@ class RecordController extends Controller
      */
     public function store(StoreRecordRequest $request)
     {
-        //
-
-        $input=$request->all();
-
+        $input = $request->all();
         $input['doctor_id'] = Auth::guard('doctor')->id();
         record::create($input);
         return redirect('/appointments')->with('success', 'Data inserted successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
-        $records=record::findorfail($id);
-//        dd($records);
-        if (!$records) {
-            $message = "No record found for this mother.";
-            return view('doctor.dashboard.report.show', compact('message'));
+        $mother=mother::findorfail($id);
+        $records=$mother->records;
+//       dd($records);
+        return view('doctor.dashboard.report.show-all-records',compact('records','mother'));
+    }
+    Public function showLast($id)
+    {
+        $mother=mother::find($id);
+        $lastRecord=$mother->records()->latest()->first();
+        if(!$lastRecord){
+            $message="No records found for this mother.";
+            return view('doctor.dashboard.report.create', compact('message','mother'));
         }
+        return view('doctor.dashboard.report.show',compact('lastRecord','mother'));
 
-        return view('doctor.dashboard.report.show',compact('records'));
     }
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {
@@ -68,25 +68,22 @@ class RecordController extends Controller
         $data['records']=$records;
         $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data);
 //        return $pdf->stream();
-        return $pdf->download('report.pdf');
+        return $pdf->download('reports.pdf');
 
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function createRecord()
     {
-        //
+        return view('doctor.dashboard.report.createRecord');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+
+    function search(Request $request){
+
+        $mothers=mother::where('name','like','%'.$request->input('query').'%')->get();
+        return view('doctor.dashboard.report.search',compact("mothers"));
     }
 
     /**

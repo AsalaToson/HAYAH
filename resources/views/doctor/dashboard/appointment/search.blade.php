@@ -1,12 +1,6 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-
-    @endif
     <h1>All Appointments</h1>
     <div class="inner_content">
         <h3> Appointments list </h3><br>
@@ -40,7 +34,7 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-{{--                        <th></th>--}}
+                        {{--                        <th></th>--}}
                         <th>Patient ID</th>
                         <th>patient Name</th>
                         <th>Date</th>
@@ -56,27 +50,30 @@
                     @if (isset($appointments))
                         @foreach ($appointments as $appointment)
                             <tr>
-{{--                                <td><input type="checkbox"></td>--}}
+                                {{--                                <td><input type="checkbox"></td>--}}
                                 <td>{{ $appointment->mother->id }}</td>
+                                {{--                                    <td>{{$appointment->mother_id}}</td> --}}
                                 <td>{{ $appointment->mother->name }}</td>
+                                {{--                                    <td>{{$appointment->doctor->name}} </td> --}}
                                 <td>{{ $appointment->date }}</td>
                                 <td>{{ $appointment->time }}</td>
                                 <td>{{ $appointment->fee }}</td>
+
                                 <td>{{ $appointment->mother->details }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
                                 <td><div class="container3" style="display: flex;">
                                         <!-- Delete Button with Delete Icon -->
-{{--                                        <form action="{{route('appointments.destroy',$appointment->id)}}" method="POST">--}}
-{{--                                            @method('DELETE')--}}
-{{--                                            @csrf--}}
-{{--                                            <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
-{{--                                                <i class="fas fa-trash-alt"></i> Cancel--}}
+                                        {{--                                        <form action="{{route('appointments.destroy',$appointment->id)}}" method="POST">--}}
+                                        {{--                                            @method('DELETE')--}}
+                                        {{--                                            @csrf--}}
+                                        {{--                                            <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
+                                        {{--                                                <i class="fas fa-trash-alt"></i> Cancel--}}
 
-{{--                                            </button>--}}
-{{--                                        </form>--}}
+                                        {{--                                            </button>--}}
+                                        {{--                                        </form>--}}
 
 
-                                        <button type="button" class="btn btn-danger test-button" data-bs-toggle="modal" data-bs-target="#transferModal{{$appointment->mother->id}}" id="Tbutton">
+                                        <button type="button" class="btn btn-danger test-button" data-bs-toggle="modal" data-bs-target="#transferModal" id="Tbutton">
                                             <i class="fas fa-search"></i> Test
                                         </button>
 
@@ -91,22 +88,14 @@
                     </tbody>
 
                 </table>
-
-                <div class="pag">
-
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-
-                </div>
             </div>
         </div>
 
-@include('doctor.dashboard.report.modal.create');
+{{--        @include('doctor.dashboard.report.modal.create');--}}
 
     </div>
+
+
+
+
 @endsection
