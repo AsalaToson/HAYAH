@@ -1,5 +1,6 @@
 <!-- Modal -->
-<form action="{{route('laboratories.store')}}" method="post" >
+
+<form action="{{route('laboratorie.store')}}" method="post" >
     @csrf
 <div class="modal fade" id="transferModal" tabindex="-1" aria-labelledby="transferModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -10,8 +11,8 @@
             </div>
             <div class="modal-body">
                 <textarea class="form-control" name="description" id="transferText" rows="4" placeholder="Enter transfer details..."></textarea>
-                <input type="hidden" name="doctor_id" value="{{Auth::guard('doctor')->user()->id}}">
-                <input type="hidden" name="doctor_id" value="{{$appointment->mother->id}}">
+                <input  name="doctor_id" value="{{Auth::guard('doctor')->user()->id}}">
+                <input  name="mother_id" value="{{$appointment->mother->id}}">
 
             </div>
             <div class="modal-footer">
@@ -22,3 +23,4 @@
     </div>
 </div>
 </form>
+
