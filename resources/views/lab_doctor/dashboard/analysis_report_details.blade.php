@@ -12,21 +12,19 @@
 
             <tr>
                 <th>Patient ID</th>
-                <td>45</td>
+                <td>{{$analysis -> id}}</td>
             </tr>
             <tr>
                 <th>patient Name</th>
-                <td>sara</td>
+                <td>{{$analysis -> mother->name}}</td>
             </tr>
             <tr>
               <th>Doctor Name</th>
-              <td>sara</td>
+              <td>{{$analysis -> doctor->name}}</td>
           </tr>
             <tr>
                 <th>Report Name</th>
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Quae ea maxime adipisci dignissimos tempora
-                 </td>
+                <td>{{$analysis -> analysis_Name}}</td>
             </tr>
 
         </table>

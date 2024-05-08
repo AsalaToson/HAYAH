@@ -26,7 +26,7 @@
     <div class="sidebar" >
         <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="{{route('dashboard.lab_doctor')}}" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
 
 
@@ -41,8 +41,7 @@
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Analysis Reports</a>
                 <ul class="sublist">
-                    <li><a href="{{route('add_analysis.index')}}">Add Analysis Reports</a></li>
-                    <li><a href="{{route('all_analysis.show')}}">All Analysis Reports</a></li>
+                    <li><a href="{{route('analysis.index')}}">All Analysis Reports</a></li>
 
                 </ul>
             </li>
