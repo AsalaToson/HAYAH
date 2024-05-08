@@ -14,15 +14,11 @@ return new class extends Migration
         Schema::create('analysis_results', function (Blueprint $table) {
             $table->id();
 
-            $table->string('Mother Name');
-            $table->string('Doctor Name');
-            $table->string('LabDoctor Name')->default('Youssef');
-            $table->string('Analysis Name');
-
-            //upload image or file
-            //link with mother table
-            //link with doctor table
-
+            $table->foreignId('mother_id')->constrained('mothers');
+            $table->foreignId('doctor_id')->constrained('doctors');
+            $table->foreignId('labDoctor_id')->default(1)->constrained('lab_doctors');
+            $table->string('analysis_Name');
+            $table->string('photo',300);
 
             $table->timestamps();
         });

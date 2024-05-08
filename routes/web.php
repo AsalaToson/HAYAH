@@ -61,14 +61,23 @@ Route::get('/lab_doctor_dashboard', function () {
 })->middleware(['auth:lab_doctor', 'verified'])->name('dashboard.lab_doctor');
 //****************************
 
+
+
+
+
 //********************** LabDoctor Permissions ***************************
 
 Route::middleware('auth:lab_doctor')->group(function (){
 
-    Route::get('/requests',[RequestsController::class,'index'])->name('requests.index');           // show all analysis requests from doctor
-    Route::get('/add_analysis',[AnalysisController::class,'index'])->name('add_analysis.index');   // show add analysis result page
-    Route::get('all_analysis',[AnalysisController::class,'show'])->name('all_analysis.show');      // show all analysis result
-    Route::get('/analysis_details',[AnalysisController::class,'show2'])->name('details.show');     // show details of report
+    Route::get('/requests',[RequestsController::class,'index'])->name('requests.index');
+    Route::get('/add_analysis/{request}' , [RequestsController::class , 'create'])->name('add_analysis.create');
+    Route::post('/analysis' , [RequestsController::class , 'store'])->name('analysis.store');
+
+
+    Route::get('/all_analysis',[AnalysisController::class,'index'])->name('analysis.index');
+    Route::get('/analysis_details/{analysis}',[AnalysisController::class,'show'])->name('details.show');
+    Route::delete('/analysis/{analysis}' , [AnalysisController::class , 'destroy'])->name('analysis.destroy');
+    Route::delete('/request/{request}' , [AnalysisController::class , 'delete'])->name('request.destroy');
 
 });
 

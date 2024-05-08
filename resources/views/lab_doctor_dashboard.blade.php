@@ -41,8 +41,7 @@
 
     <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Analysis Reports</a>
       <ul class="sublist">
-        <li><a href="{{route('add_analysis.index')}}">Add Analysis Reports</a></li>
-        <li><a href="{{route('all_analysis.show')}}">All Analysis Reports</a></li>
+        <li><a href="{{route('analysis.index')}}">All Analysis Reports</a></li>
 
       </ul>
     </li>

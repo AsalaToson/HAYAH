@@ -44,107 +44,32 @@
                 </thead>
                 <tbody>
 
+                @foreach($requests as $request)
                     <tr>
 
-                        <td>34</td>
-                        <td>sara</td>
-                        <td>mohamed </td>
-
-                        <td>blood</td>
+                        <td>{{$request -> id}}</td>
+                        <td>{{$request ->mother->name}} </td>
+                        <td>{{$request ->doctor->name}}</td>
+                        <td>{{$request -> description}}</td>
 
                         <td><div class="container3" style="display: flex;">
 
-                          <a href="{{route('add_analysis.index')}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
+                          <a href="{{route('add_analysis.create' , $request->id)}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
                             <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                          <a href="{{route('all_analysis.show')}}"> <button type="button" class="btn btn-primary" id="dbutton" >
-                            <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-                      </button></a>
+
+                                <form style="display: inline;" method="POST" action="{{route('request.destroy', $request->id)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="Submit" class="btn btn-danger delete-button"  id="dbutton" >
+                                        <i class="fas fa-trash-alt"></i> Done
+                                    </button>
+                                </form>
+
                         </div></td>
                     </tr>
-                    <tr>
 
-                      <td>34</td>
-                      <td>sara</td>
-                      <td>mohamed </td>
+                @endforeach
 
-                      <td>blood</td>
-
-                      <td><div class="container3" style="display: flex;">
-
-                        <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                          <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                        <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
-                          <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-                    </button></a>
-                      </div></td>
-
-                  </tr>
-                  <tr>
-
-                    <td>34</td>
-                    <td>sara</td>
-                    <td>mohamed </td>
-
-                    <td>blood</td>
-
-                    <td><div class="container3" style="display: flex;">
-
-                      <a href="{{route('add_analysis.index')}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                        <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                      <a href="{{route('all_analysis.show')}}"> <button type="button" class="btn btn-primary" id="dbutton" >
-                        <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-                  </button></a>
-                    </div></td>
-                </tr>
-                <tr>
-                  <td>34</td>
-                  <td>sara</td>
-                  <td>mohamed </td>
-
-                  <td>blood</td>
-
-                  <td><div class="container3" style="display: flex;">
-
-                    <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                      <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                    <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
-                      <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-                </button></a>
-                  </div></td>
-              </tr>
-              <tr>
-                <td>34</td>
-                <td>sara</td>
-                <td>mohamed </td>
-
-                <td>blood</td>
-
-                <td><div class="container3" style="display: flex;">
-
-                  <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                    <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                  <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
-                    <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-              </button></a>
-                </div></td>
-            </tr>
-            <tr>
-
-              <td>34</td>
-              <td>sara</td>
-              <td>mohamed </td>
-
-              <td>blood</td>
-
-              <td><div class="container3" style="display: flex;">
-
-                <a href="add_analysis_report.blade.php"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                  <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
-                <a href="all_analysis_reports.blade.php"> <button type="button" class="btn btn-primary" id="dbutton" >
-                  <i class=" fa fa-check-circle" aria-hidden="true"></i> Done
-            </button></a>
-              </div></td>
-          </tr>
                 </tbody>
             </table>
         </div>

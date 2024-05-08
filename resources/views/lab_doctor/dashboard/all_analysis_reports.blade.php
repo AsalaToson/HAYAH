@@ -33,136 +33,40 @@
           <table class="table table-bordered">
             <thead>
                 <tr>
-
-                    <th> Patient ID</th>
+                    <th>Patient ID</th>
                     <th>Patient Name</th>
                     <th>Doctor Name</th>
                     <th>Report Name</th>
+                    <th>Photo</th>
                     <th>operations</th>
                 </tr>
             </thead>
             <tbody>
 
+            @foreach($allAnalysis as $analysis)
                 <tr>
-                    <td>1</td>
-                    <td>sara </td>
-                    <td>john</td>
-                    <td>Blood</td>
+                    <td>{{$analysis -> id}}</td>
+                    <td>{{$analysis ->mother->name}}</td>
+                    <td>{{$analysis ->doctor->name}}</td>
+                    <td>{{$analysis -> analysis_Name}}</td>
+                    <td> <img src="{{asset($analysis->photo)}}"></td>
                     <td><div class="container3" style="display: flex;">
                       <!-- Delete Button with Delete Icon -->
-                      <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                          <i class="fas fa-trash-alt"></i> Delete
 
-                      </button>
+                            <form style="display: inline;" method="POST" action="{{route('analysis.destroy', $analysis->id)}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="Submit" class="btn btn-danger delete-button"  id="dbutton" >
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
 
-                <a href="{{route('details.show')}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-                  <i class="fas far fa-eye"></i> view
-              </button></a>
-                    </div></td>
+                            <a href="{{route('details.show', $analysis->id)}}" class="btn btn-info">View</a>
 
-
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>sara </td>
-                  <td>john</td>
-                  <td>Blood</td>
-                  <td><div class="container3" style="display: flex;">
-                    <!-- Delete Button with Delete Icon -->
-                    <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                        <i class="fas fa-trash-alt"></i> Delete
-
-                    </button>
-
-
-              <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-                <i class="fas far fa-eye"></i> view
-            </button></a>
-                  </div></td>
-
-
-
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>sara </td>
-                <td>john</td>
-                <td>Blood</td>
-                <td><div class="container3" style="display: flex;">
-                  <!-- Delete Button with Delete Icon -->
-                  <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                      <i class="fas fa-trash-alt"></i> Delete
-
-                  </button>
-
-
-            <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-              <i class="fas far fa-eye"></i> view
-          </button></a>
-                </div></td>
-
-
-
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>sara </td>
-              <td>john</td>
-              <td>Blood</td>
-              <td><div class="container3" style="display: flex;">
-                <!-- Delete Button with Delete Icon -->
-                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                    <i class="fas fa-trash-alt"></i> Delete
-
-                </button>
-
-
-          <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-            <i class="fas far fa-eye"></i> view
-        </button></a>
-              </div></td>
-
-
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>sara </td>
-            <td>john</td>
-            <td>Blood</td>
-            <td><div class="container3" style="display: flex;">
-              <!-- Delete Button with Delete Icon -->
-              <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                  <i class="fas fa-trash-alt"></i> Delete
-
-              </button>
-
-
-        <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-          <i class="fas far fa-eye"></i> view
-      </button></a>
-            </div></td>
-
-
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>sara </td>
-          <td>john</td>
-          <td>Blood</td>
-          <td><div class="container3" style="display: flex;">
-            <!-- Delete Button with Delete Icon -->
-            <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                <i class="fas fa-trash-alt"></i> Delete
-
-            </button>
-
-
-        <a href="analysis_report_details.html"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-          <i class="fas far fa-eye"></i> view
-      </button></a>
-          </div></td>
-
+                    </div>
+                    </td>
       </tr>
+            @endforeach
             </tbody>
         </table>
         </div>
