@@ -1,9 +1,14 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-
+    <div class="col-12">
+        @if (isset($message))
+            <div class="alert alert-danger">
+                <p>{{ $message }}</p></div>
+        @endif
     <h1>All Medical Reports</h1>
     <div class="inner_content">
+
         <h3> Medical Reports list </h3><br>
         <hr>
         <div class="container">

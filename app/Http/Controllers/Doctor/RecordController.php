@@ -9,6 +9,7 @@ use App\Models\record;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function PHPUnit\Framework\isEmpty;
 
 class RecordController extends Controller
 {
@@ -48,6 +49,10 @@ class RecordController extends Controller
     {
         $mother=mother::findorfail($id);
         $records=$mother->records;
+        if ($records->isEmpty()){
+            $message="No records found for patient.";
+            return view('doctor.dashboard.report.index',compact('message'));
+        }
 //       dd($records);
         return view('doctor.dashboard.report.show-all-records',compact('records','mother'));
     }

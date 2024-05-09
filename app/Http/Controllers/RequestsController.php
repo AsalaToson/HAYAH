@@ -21,14 +21,13 @@ class RequestsController extends Controller
 
     public function create($id){
         $request = laboratory::find($id);
-        return view('lab_doctor.dashboard.add_analysis_report',compact('request'));
+        return view('lab_doctor.dashboard.upload_test',compact('request'));
     }
 
 
 
-    public function store(Request $request){
-        //$requestData = $request->all();
-
+    public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    {
         request()->validate([
             'mother_id' => ['required' , 'min:1'],
             'doctor_id' => ['required' , 'min:1'],
@@ -36,8 +35,6 @@ class RequestsController extends Controller
             'analysis_name' => ['required' , 'min:3'],
             'photo' => ['required'],
         ]);
-
-
         $m_id = request()->mother_id;
         $d_id = request()->doctor_id;
         $l_id = request()->lab_id;
@@ -48,7 +45,6 @@ class RequestsController extends Controller
         $path = $request->file('photo')->storeAs('images',$fileName,'public');
         $photoPath = '/storage/'.$path;
 
-        //Analysis_Result::create($requestData);
 
         Analysis_Result::create([
             'mother_id' => $m_id,
@@ -58,7 +54,7 @@ class RequestsController extends Controller
             'photo' => $photoPath,
 
         ]);
-        return redirect('/requests')->with('success','Analysis Report Added');
+        return redirect('/requests')->with('success','Analysis Report Added successfully');
     }
 
 

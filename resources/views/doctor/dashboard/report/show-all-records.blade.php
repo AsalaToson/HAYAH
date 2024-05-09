@@ -3,6 +3,7 @@
 @section('content')
     <h1>Medical Report details</h1>
     <div class="inner_content">
+
         <hr>
         <h3>Personal Information</h3>
         <div class="profile" style="display: flex;" >
@@ -105,7 +106,7 @@
 {{--            </tr>--}}
 
 {{--        </table>--}}
-        <a href= "{{route('record.pdf',[$mother->id])}}"  class="btn btn-primary" >Download</a>
+        <a href= "{{route('record.pdf',[$record->id])}}"  class="btn btn-primary" >Download</a>
         <a href="../test.html" class="btn btn-primary">Home</a>
         </div>
 

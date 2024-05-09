@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Lab Doctor Dashboard</title>
-    <link rel="icon" type="image/png" href="images/logo.png"/>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 
 
 
@@ -20,11 +21,11 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main"style="height: 100vh;">
+<div class="main" style="height: 100vh;">
 
 <!-- sidebar-->
 <div class="sidebar" >
-  <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
+  <a href="#"><img src="{{asset('images/logo.png')}}" alt="" width="200" height="100"></a>
   <ul>
     <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
@@ -64,7 +65,7 @@
        <ul class="navbar-nav ml-auto" >
          <li class="nav-item">
            <a class="nav-link" href="#" style="padding-top: 18px;"><i class="fa-solid fa-toggle-on" id="dark"></i>
-           </i></a>
+           </a>
          </li>
 
 
@@ -79,18 +80,19 @@
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 350px;" >
              <p style="text-align: center;"> you have 3 notification</p><hr>
              <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> Lorem ipsum dolor sit, officia placeat,</a>
-             <a class="dropdown-item" href="edit profile" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem</a>
+             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem</a>
              <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
            </div>
          </li>
          <li class="nav-item-dropdown" >
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
-             <i class="fas fa-user" ></i>   John Doe
+             <i class="fas fa-user" ></i>
+               {{Auth::guard('lab_doctor')->user()->name}}
            </a>
            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-             <a class="dropdown-item" href="labdoctorprofile.html" ><i class="fa fa-user" aria-hidden="true"></i>
+             <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
                Profile</a>
-               <a class="dropdown-item" href="lab_doc_schedule .html" ><i class="fa fa-user" aria-hidden="true"></i>
+               <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
                 My schedule</a>
              <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                Settings</a>
@@ -115,7 +117,7 @@
       <div style="display: flex;">
 
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-         <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i></i>
+         <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
           <h2 >160 Report</h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
@@ -154,7 +156,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: none;">Search Here</h2>
+              <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
               <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
               </button>
 
@@ -179,10 +181,10 @@
 
 
 
-  <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/main.js"></script>
+  <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
 

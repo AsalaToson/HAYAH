@@ -1,6 +1,12 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+
+    @endif
       <h1>All Requests</h1>
       <div class="inner_content">
         <h3>Requests list </h3><br>

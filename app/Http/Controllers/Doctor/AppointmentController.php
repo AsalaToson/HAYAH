@@ -20,7 +20,8 @@ class AppointmentController extends Controller
         $appointment->delete();
         return view('doctor.dashboard.appointment.index' );
     }
-    function search(Request $request){
+    function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
 
         $appointments=appointment::where('mother_id','like','%'.$request->input('query').'%')->get();
         return view('doctor.dashboard.appointment.search',compact("appointments"));

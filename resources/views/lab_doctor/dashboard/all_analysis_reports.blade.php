@@ -49,7 +49,7 @@
                     <td>{{$analysis ->mother->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
-                    <td> <img src="{{asset($analysis->photo)}}"></td>
+                    <td> <img alt="" src="{{asset($analysis->photo)}}"></td>
                     <td><div class="container3" style="display: flex;">
                       <!-- Delete Button with Delete Icon -->
 

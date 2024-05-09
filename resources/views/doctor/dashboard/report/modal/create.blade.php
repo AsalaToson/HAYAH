@@ -13,11 +13,11 @@
                 <div class="modal-body">
 
 
-                    <input type="hidden" name="doctor_id" value="{{Auth::guard('doctor')->user()->id}}">
+                    <input type="hidden" name="doctor_id" value="{{$appointment->doctor->id}}">
                     <input type="hidden" name="mother_id" value="{{$appointment->mother->id}}">
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">المطلوب</label>
+                        <label for="exampleFormControlTextarea1">Required Tests</label>
                         <textarea class="form-control" name="description" rows="6"></textarea>
                     </div>
 
