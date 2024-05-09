@@ -10,6 +10,12 @@ use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
+use App\Http\Controllers\Mother\MotherAppointmentController;
+use App\Http\Controllers\Mother\MotherDoctoreController;
+use App\Http\Controllers\Mother\MotherLabController;
+use App\Http\Controllers\Mother\MotherPagesController;
+use App\Http\Controllers\Mother\MotherprofileController;
+use App\Http\Controllers\Mother\MotherRecordController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
@@ -140,6 +146,29 @@ Route::prefix("mother/")->name("mother.")->group(function (){
     Route::get("login" , [MotherController::class , "showLoginForm"])->name("login");
     Route::post("login" , [MotherController::class , "login"])->name("login");
 });
+////*********n********************mother permissions***********************/
+
+Route::middleware('auth:mother')->group(function () {
+    Route::get('/profile/show/{id}', [MotherProfileController::class, 'showProfile'])->name('profile.show');
+    Route::get('/profile/edit', [MotherProfileController::class, 'editProfile'])->name('profile.edit');
+    Route::put('/profile/update',[MotherProfileController::class,'updateProfile'])->name('profile.update');
+    Route::get('download/record/{id}', [MotherRecordController::class,'downloadPdf'])->name("record.pdf");
+    Route::get('show/record/{id}', [MotherRecordController::class,'show'])->name("record.show");
+    Route::put('appointments/approval/{id}',[MotherAppointmentController::class,'approval'])->name('appointments.approval');
+    Route::get('appointments/approval',[MotherAppointmentController::class,'index2'])->name('appointments.index2');
+    Route::resource('records',MotherRecordController::class,);
+
+    Route::get('/service/show/{id}', [MotherPagesController::class, 'service'])->name('service.show');
+    Route::get('/appointment/show/{id}', [MotherPagesController::class, 'appointment'])->name('appointment.show');
+    Route::get('/contactus/show/{id}', [MotherPagesController::class, 'contactus'])->name('contactus.show');
+    Route::get('/doctor/show/{id}', [MotherPagesController::class, 'doctor_profile'])->name('doctor.show');
+    Route::get('/doctors/show/{id}', [MotherPagesController::class, 'doctors'])->name('doctors.show');
+    Route::get('/department/show/{id}', [MotherPagesController::class, ' departments'])->name('departments.show');
+
+});
+
+
+
 
 
 /************************** End Public Views *********************/

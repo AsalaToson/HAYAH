@@ -19,6 +19,11 @@ return new class extends Migration
             $table->time('time')->nullable();
             $table->string('status')->default('pending');
             $table->decimal('fee')->nullable();
+            $table->enum('type',['Uncertain','Certain','Deadline expired'])->default('Uncertain');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->dateTime('appointment')->nullable();
             $table->timestamps();
         });
     }

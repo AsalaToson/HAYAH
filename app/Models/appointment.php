@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class appointment extends Model
 {
     use HasFactory;
+    public $fillable = ['name', 'email', 'phone', 'message', 'doctor_id', 'section_id', 'type', 'appointment'];
+
     protected $guarded=[];
     public function mother(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -17,4 +19,10 @@ class appointment extends Model
     {
         return $this->belongsTo(doctor::class);
     }
+
+    public function section(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Section::class,'section_id');
+    }
+
 }
