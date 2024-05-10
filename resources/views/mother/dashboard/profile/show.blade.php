@@ -144,7 +144,7 @@
 
             </div>
         </div>
-        <a href="{{route('profile.edit')}}">  <button class="btn btn-style btn-primary" style="width: 200px; margin-top: 25px;"  >Edit</button> </a>
+        <a href="{{route('MProfile.edit')}}">  <button class="btn btn-style btn-primary" style="width: 200px; margin-top: 25px;"  >Edit</button> </a>
 
 
 </section>

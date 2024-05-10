@@ -48,7 +48,7 @@
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="{{route('appointment.show',[Auth::guard('mother')->user()->id])}}">Our Services</a>
+                            <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('mother')->user()->id])}}">Our Services</a>
                         </li>
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
                             <a class="nav-link scroll" href="#">pregnancy</a>
@@ -70,7 +70,7 @@
                                 <i class="fa fa-user"></i> John Doe
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown2" style="height: 150px; width: 200px; display: none;" id="dropdownContent">
-                                <a class="dropdown-item" href="{{route('profile.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                                <a class="dropdown-item" href="{{route('MProfile.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                                  <a class="dropdown-item" href="{{route('record.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>

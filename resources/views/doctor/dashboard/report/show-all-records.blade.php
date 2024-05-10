@@ -106,7 +106,7 @@
 {{--            </tr>--}}
 
 {{--        </table>--}}
-        <a href= "{{route('record.pdf',[$record->id])}}"  class="btn btn-primary" >Download</a>
+        <a href= "{{route('record.pdf',[$mother->id])}}"  class="btn btn-primary" >Download</a>
         <a href="../test.html" class="btn btn-primary">Home</a>
         </div>
 

@@ -119,43 +119,52 @@
             <table>
                 <tr>
                     <th>Name</th>
-                    <td>{{$records->mother->name}}</td>
+                    <td>{{$mother->name}}</td>
                 </tr>
                 <tr>
                     <th>Age</th>
-                    <td>{{$records->mother->age}}</td>
+                    <td>{{$mother->age}}</td>
                 </tr>
-                {{--                    <tr>--}}
-                {{--                        <th>Gender</th>--}}
-                {{--                        <td>Female</td>--}}
-                {{--                    </tr>--}}
+                                    <tr>
+                                        <th>Gender</th>
+                                        <td>Female</td>
+                                    </tr>
                 <tr>
                     <th>Contact Details</th>
-                    <td>{{$records->mother->phone}}<br>{{$records->mother->email}}</td>
+                    <td>{{$mother->phone}}<br>{{$mother->email}}</td>
                 </tr>
-                {{--                    <tr>--}}
-                {{--                        <th>Emergency Contact Information</th>--}}
-                {{--                        <td>Name: Adham <br>Phone: 555-5678</td>--}}
-                {{--                    </tr>--}}
+                                    <tr>
+                                        <th>Emergency Contact Information</th>
+                                        <td>Name: Adham <br>Phone: 555-5678</td>
+                                    </tr>
             </table>
             <h2>Medical History</h2>
             <table>
-                {{--                    @if (isset($records))--}}
-                {{--                        @foreach ($records as $record)--}}
-                <tr>
-                    <th>Blood pressure</th>
-                    <td>{{$records->bloodPressure}}</td>
+
+                <tr class="str">
+                    <th class="sth">Date</th>
+                    <th class="sth">Doctor Name</th>
+                    <th class="sth">Blood Pressure</th>
+                    <th class="sth">Baby Size</th>
+                    <th class="sth">Weight</th>
+                    <th class="sth">Sugar Rate</th>
+                    <th class="sth">Medication</th>
+
                 </tr>
-                <tr>
-                    <th>Baby Size</th>
-                    <td>{{$records->babySize}}</td>
-                </tr>
-                <tr>
-                    <th>Medications</th>
-                    <td>{{$records->medication}}</td>
-                </tr>
-                {{--                        @endforeach--}}
-                {{--                    @endif--}}
+                    @foreach ($records as $record)
+                        <tr >
+                            <td class="std">{{$record->created_at}}</td>
+                            <td class="std">{{$record->doctor->name}}</td>
+                            <td class="std">{{$record->blood_pressure}}</td>
+                            <td class="std">{{$record->baby_size}}</td>
+                            <td class="std">{{$record->Weight}}</td>
+                            <td class="std">{{$record->sugar_rate}}</td>
+                            <td class="std">{{$record->medication}}</td>
+
+
+                        </tr>
+
+                    @endforeach
             </table>
             {{--                <h2>Test Results</h2>--}}
             {{--                <table>--}}

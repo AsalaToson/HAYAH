@@ -69,9 +69,9 @@ class RecordController extends Controller
     }
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {
-        $records=record::findorfail($id);
-        $data['records']=$records;
-        $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data);
+        $mother=mother::findorfail($id);
+        $data['records']=$mother->records;
+        $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data,compact('mother'));
 //        return $pdf->stream();
         return $pdf->download('reports.pdf');
 

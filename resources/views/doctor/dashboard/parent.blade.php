@@ -51,6 +51,7 @@
                 <ul class="sublist">
                     <li><a href="/record/create">Add Medical Report</a></li>
                     <li><a href="{{route('records.index')}}">All Medical Reports</a></li>
+
 {{--                    <li><a href="#">Medical Report Details</a></li>--}}
 
 {{--                    <li><a href="#">Edit Medical Report</a></li>--}}

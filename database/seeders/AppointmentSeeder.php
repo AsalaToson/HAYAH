@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\appointment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\mother;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,7 @@ class AppointmentSeeder extends Seeder
      */
     public function run(): void
     {
-//        DB::table('appointments')->delete();
+    DB::table('appointments')->delete();
 //        $appointments = [
 //            ['name' => 'السبت'],
 //            ['name' => 'الاحد'],
@@ -28,14 +28,22 @@ class AppointmentSeeder extends Seeder
 //            Appointment::create($appointment);
 //        }
         for ($i = 1; $i <= 10; $i++) {
-            appointment::create([
-                'mother_id' => random_int(1, 3),
+            $mother = Mother::find(random_int(1, 3));
+
+            Appointment::create([
+                'mother_id' => $mother->id,
                 'doctor_id' => random_int(1, 2),
-                'date' => now()->addDays($i),
+                'date' => now()->addDays($i)->format('Y-m-d'),
                 'time' => '10:00:00',
                 'status' => 'pending',
                 'fee' => 100.00,
+                'type' => 'Uncertain',
+                'name' => $mother->name,
+                'email' => $mother->email,
+                'phone' => $mother->phone,
             ]);
         }
-  }
+    }
+
+
 }

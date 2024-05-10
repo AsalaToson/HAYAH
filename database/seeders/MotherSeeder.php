@@ -16,8 +16,8 @@ class MotherSeeder extends Seeder
     {
         DB::table('mothers')->delete();
         mother::create([
-            'name' => 'asala',
-            'email' => 'khaterasala21@gmail.com',
+            'name' => 'Norhan',
+            'email' => 'nourhanibrahimkook7@gmail.com',
             'password' => bcrypt('123456789'),
             'age' => '21',
             'phone' =>'0101755603',

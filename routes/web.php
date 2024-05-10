@@ -149,15 +149,13 @@ Route::prefix("mother/")->name("mother.")->group(function (){
 ////*********n********************mother permissions***********************/
 
 Route::middleware('auth:mother')->group(function () {
-    Route::get('/profile/show/{id}', [MotherProfileController::class, 'showProfile'])->name('profile.show');
-    Route::get('/profile/edit', [MotherProfileController::class, 'editProfile'])->name('profile.edit');
-    Route::put('/profile/update',[MotherProfileController::class,'updateProfile'])->name('profile.update');
-    Route::get('download/record/{id}', [MotherRecordController::class,'downloadPdf'])->name("record.pdf");
+    Route::get('/profile/show/{id}', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
+    Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
+    Route::put('/MProfile/update',[MotherProfileController::class,'updateProfile'])->name('MProfile.update');
+    Route::get('download/MRecord/{id}', [MotherRecordController::class,'downloadPdf'])->name("MRecord.pdf");
     Route::get('show/record/{id}', [MotherRecordController::class,'show'])->name("record.show");
     Route::put('appointments/approval/{id}',[MotherAppointmentController::class,'approval'])->name('appointments.approval');
     Route::get('appointments/approval',[MotherAppointmentController::class,'index2'])->name('appointments.index2');
-    Route::resource('records',MotherRecordController::class,);
-
     Route::get('/service/show/{id}', [MotherPagesController::class, 'service'])->name('service.show');
     Route::get('/appointment/show/{id}', [MotherPagesController::class, 'appointment'])->name('appointment.show');
     Route::get('/contactus/show/{id}', [MotherPagesController::class, 'contactus'])->name('contactus.show');
