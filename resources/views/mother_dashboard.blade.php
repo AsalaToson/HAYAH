@@ -67,10 +67,12 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" aria-haspopup="true">
-                                <i class="fa fa-user"></i> John Doe
+                                <i class="fa fa-user"></i>
+                                {{Auth::guard('mother')->user()->name}}
+
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown2" style="height: 150px; width: 200px; display: none;" id="dropdownContent">
-                                <a class="dropdown-item" href="{{route('MProfile.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                                <a class="dropdown-item" href="{{route('MProfile.show')}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                                  <a class="dropdown-item" href="{{route('record.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>
@@ -383,6 +385,7 @@
         <p>- Innovate in obstetric and gynecological healthcare.</p>
         <p>- Educate mothers with relevant information and resources</p>
         <p>- Promote maternal and newborn health through personalized services .</p>
+    </div>
 </section>
 <!--Our Vision-->
 <!-- /w3l-content-3-->
@@ -499,7 +502,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team1.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>Johnson william</h3>
@@ -518,7 +521,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team2.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>Alexander sakura</h3>
@@ -537,7 +540,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team3.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>John wilson</h3>
@@ -556,7 +559,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team2.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>Julia sakura</h3>
@@ -575,7 +578,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team3.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>John wilson</h3>
@@ -594,7 +597,7 @@
                                 faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
                         </div>
                         <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                            <a class="comment-img" href="#url"><img src="{{asset('site/assets/images/team2.jpg')}}" class="img-responsive"
                                                                     alt="placeholder image"></a>
                             <div class="people-info align-self">
                                 <h3>Julia sakura</h3>

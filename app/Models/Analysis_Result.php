@@ -13,7 +13,7 @@ class Analysis_Result extends Model
 
     protected $table = 'analysis_results';
     protected $primaryKey = 'id';
-    protected $fillable = ['mother_id','doctor_id','labDoctor_id','analysis_Name','photo'];
+    //protected $fillable = ['mother_id','doctor_id','labDoctor_id','analysis_Name','photo'];
 
 
     public function labDoctor(): \Illuminate\Database\Eloquent\Relations\BelongsTo

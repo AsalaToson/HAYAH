@@ -134,6 +134,10 @@ Route::middleware('auth:doctor')->group(function () {
     Route::get('download/record/{id}', [RecordController::class,'downloadPdf'])->name("record.pdf");
     Route::post('/laboratory/store', [LabController::class,'store'])->name("laboratory.store");
     Route::resource('records',RecordController::class);
+    Route::get('/tests', [LabController::class,'index'])->name("tests.index");
+    Route::get('/test/show/{id}', [LabController::class,'show'])->name("tests.show");
+    Route::get('/test/edit', [LabController::class, 'editTest'])->name('test.edit');
+    Route::put('/test/update',[LabController::class,'updateTest'])->name('test.update');
     Route::get('/record/show/{id}', [RecordController::class, 'show'])->name('record.show');
     Route::get('/record/show/{id}', [RecordController::class, 'showLast'])->name('lRecord.show');
     Route::get('/search', [AppointmentController::class,'search']);
@@ -149,7 +153,7 @@ Route::prefix("mother/")->name("mother.")->group(function (){
 ////*********n********************mother permissions***********************/
 
 Route::middleware('auth:mother')->group(function () {
-    Route::get('/profile/show/{id}', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
+    Route::get('/MProfile/show', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
     Route::put('/MProfile/update',[MotherProfileController::class,'updateProfile'])->name('MProfile.update');
     Route::get('download/MRecord/{id}', [MotherRecordController::class,'downloadPdf'])->name("MRecord.pdf");
@@ -161,7 +165,7 @@ Route::middleware('auth:mother')->group(function () {
     Route::get('/contactus/show/{id}', [MotherPagesController::class, 'contactus'])->name('contactus.show');
     Route::get('/doctor/show/{id}', [MotherPagesController::class, 'doctor_profile'])->name('doctor.show');
     Route::get('/doctors/show/{id}', [MotherPagesController::class, 'doctors'])->name('doctors.show');
-    Route::get('/department/show/{id}', [MotherPagesController::class, ' departments'])->name('departments.show');
+    Route::get('/department/show/{id}', [MotherPagesController::class, 'departments'])->name('departments.show');
 
 });
 

@@ -37,7 +37,7 @@
                         aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                    </span>
+                </button>
 
 
         </div>
@@ -56,7 +56,9 @@
             </nav>
         </div>
         <!-- //toggle switch for light and dark theme -->
+
         </nav>
+
 </div>
 </header>
 </div>
@@ -66,7 +68,7 @@
     <div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
         <h2 class="title pt-5">Profile</h2>
         <ul class="breadcrumbs-custom-path mt-3 text-center">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/mother_dashboard">Home</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Profile </li>
         </ul>
     </div>
@@ -140,7 +142,7 @@
                 </div>
             </div>
             <div class="contact-right">
-                <img src="{{asset('Dashboard/image/mothers/')}}" alt="user image" style="width: 300px; height: 300px;">
+                <img src="{{asset('Dashboard/image/mothers/'.$mother->image)}}" alt="user image" style="width: 300px; height: 300px;">
 
             </div>
         </div>

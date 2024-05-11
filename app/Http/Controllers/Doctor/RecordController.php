@@ -49,10 +49,6 @@ class RecordController extends Controller
     {
         $mother=mother::findorfail($id);
         $records=$mother->records;
-        if ($records->isEmpty()){
-            $message="No records found for patient.";
-            return view('doctor.dashboard.report.index',compact('message'));
-        }
 //       dd($records);
         return view('doctor.dashboard.report.show-all-records',compact('records','mother'));
     }
@@ -60,11 +56,8 @@ class RecordController extends Controller
     {
         $mother=mother::find($id);
         $lastRecord=$mother->records()->latest()->first();
-        if(!$lastRecord ){
-            $message="No records found for this mother.";
-            return view('doctor.dashboard.report.create', compact('message','mother'));
-        }
-        return view('doctor.dashboard.report.show',compact('lastRecord','mother'));
+        $lastTest=$mother->analysis_results()->latest()->first();
+        return view('doctor.dashboard.report.show',compact('lastRecord',"lastTest",'mother'));
 
     }
     Public function downloadPdf(string $id): \Illuminate\Http\Response

@@ -25,8 +25,7 @@
     <h3>Medical Report details</h3><br>
 
                 <table>
-{{--                    @if (isset($records))--}}
-{{--                        @foreach ($records as $record)--}}
+                    @if($lastRecord)
 
 
                     <tr>
@@ -51,40 +50,49 @@
                                 <th>Medications</th>
                                 <td>{{$lastRecord->medication}}</td>
                             </tr>
-{{--                        @endforeach--}}
-{{--                    @endif--}}
+                    @else
+                        <div class="alert alert-danger">
+                            <p>{{ 'this patient has no medical records' }}</p></div>
+                    @endif
                 </table>
-                {{--                <h2>Test Results</h2>--}}
-                {{--                <table>--}}
-                {{--                    <tr>--}}
-                {{--                        <th>Lab Test Results</th>--}}
-                {{--                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
-                {{--                    </tr>--}}
-                {{--                    <tr>--}}
-                {{--                        <th>Radiology Reports</th>--}}
-                {{--                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
-                {{--                    </tr>--}}
+        @if($lastTest)
+                                <h2>Test Results</h2>
+                                <table>
+                                    <tr>
+                                        <th>Test Name</th>
+{{--                                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
+                                        <td>{{$lastTest->analysis_Name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Test Results</th>
+                                        <td>{{$lastTest->photo}}</td>
+                                    </tr>
 
-                {{--                </table>--}}
+                                </table>
+
+@else
+        <div class="alert alert-danger">
+            <p>{{ 'this patient has no test results' }}</p></div>
+
+@endif
 
 
-                {{--                --}}
 
-                {{--                <table>--}}
-                {{--                    <h2>Prescription</h2>--}}
-                {{--                    <tr>--}}
-                {{--                        <th>Previous Illnesses or Surgeries</th>--}}
-                {{--                        <td>None</td>--}}
-                {{--                    </tr>--}}
-                {{--                    <tr>--}}
-                {{--                        <th>Allergies</th>--}}
-                {{--                        <td>Pollen, peanuts</td>--}}
-                {{--                    </tr>--}}
-                {{--                    <tr>--}}
-                {{--                        <th>Medications</th>--}}
-                {{--                        <td>Aspirin (2 tablets every 4 hours)</td>--}}
-                {{--                    </tr>--}}
-                {{--                </table>--}}
+{{--                                <table>--}}
+{{--                                    <h2>Prescription</h2>--}}
+{{--                                    <tr>--}}
+{{--                                        <th>Previous Illnesses or Surgeries</th>--}}
+{{--                                        <td>None</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <th>Allergies</th>--}}
+{{--                                        <td>Pollen, peanuts</td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr>--}}
+{{--                                        <th>Medications</th>--}}
+{{--                                        <td>Aspirin (2 tablets every 4 hours)</td>--}}
+{{--                                    </tr>--}}
+{{--                                </table>--}}
 
 
 

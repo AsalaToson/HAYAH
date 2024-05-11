@@ -40,7 +40,8 @@
                     <th class="sth">Medication</th>
 
                 </tr>
-                @if (isset($records))
+
+                @if ($records)
                     @foreach ($records as $record)
                 <tr class="str">
                     <td class="std">{{$record->created_at}}</td>
@@ -55,6 +56,9 @@
                 </tr>
 
                     @endforeach
+                @else
+                    <div class="alert alert-danger">
+                        <p>{{ 'this patient has no medical records' }}</p></div>
                 @endif
 
             </table><br>
@@ -107,7 +111,7 @@
 
 {{--        </table>--}}
         <a href= "{{route('record.pdf',[$mother->id])}}"  class="btn btn-primary" >Download</a>
-        <a href="../test.html" class="btn btn-primary">Home</a>
+        <a href="/doctor_dashboard" class="btn btn-primary">Home</a>
         </div>
 
 @endsection

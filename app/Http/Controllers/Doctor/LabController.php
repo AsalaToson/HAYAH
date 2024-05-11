@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 class LabController extends Controller
 {
     //
-//<<<<<<< HEAD
 
     public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
@@ -28,5 +27,23 @@ class LabController extends Controller
         );
 
         return redirect('/appointments')->with('success', 'Data inserted successfully!');
+    }
+    public function index()
+    {
+        $requests = laboratory::all();
+        return view('doctor.dashboard.analysisreport.view',compact('requests'));
+
+    }
+    public function show(string $id)
+    {
+        $mother=mother::findorfail($id);
+        $tests=$mother->analysis_results;
+//       dd($records);
+        return view('doctor.dashboard.analysisreport.showTestResult',compact('tests','mother'));
+    }
+    public function editTest()
+    {
+        return view('doctor.dashboard.analysisreport.updateRequest');
+
     }
 }

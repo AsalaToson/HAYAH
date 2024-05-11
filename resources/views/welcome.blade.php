@@ -13,7 +13,6 @@
     <link href= "{{asset(' site/assets/css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset(' site/assets/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset(' site/assets/animate/animate.css')}}" rel="stylesheet">
-    @livewireStyles
 </head>
 
 <body>

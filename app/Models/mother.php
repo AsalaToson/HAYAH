@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class mother extends Authenticatable
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $fillable = ['name','age','email','phone','address','image'];
 
 
 
@@ -26,6 +26,10 @@ class mother extends Authenticatable
     public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasmany(record::class);
+    }
+    public function analysis_results(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(Analysis_Result::class);
     }
 
 }
