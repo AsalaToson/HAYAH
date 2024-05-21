@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 //use App\Models\laboratorie;
+use App\Models\Analysis_Result;
 use App\Models\laboratory;
 use App\Models\mother;
 use Illuminate\Http\Request;
@@ -30,16 +31,14 @@ class LabController extends Controller
     }
     public function index()
     {
-        $requests = laboratory::all();
+        $requests = Analysis_Result::all();
         return view('doctor.dashboard.analysisreport.view',compact('requests'));
 
     }
     public function show(string $id)
     {
-        $mother=mother::findorfail($id);
-        $tests=$mother->analysis_results;
-//       dd($records);
-        return view('doctor.dashboard.analysisreport.showTestResult',compact('tests','mother'));
+        $tests=Analysis_Result::find($id);
+        return view('doctor.dashboard.analysisreport.showTestResult',compact('tests'));
     }
     public function editTest()
     {

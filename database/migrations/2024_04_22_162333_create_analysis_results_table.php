@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('labDoctor_id')->default(1)->constrained('lab_doctors');
             $table->string('analysis_Name');
             $table->string('photo',300);
-
+            $table->Date("test_date")->nullable();
             $table->timestamps();
         });
     }

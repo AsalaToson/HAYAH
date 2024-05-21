@@ -15,13 +15,13 @@
 
 
                         <label>Patient Name :</label><br>
-                        <p>{{$lastRecord->mother->name}}</p>
+                        <p>{{$mother->name}}</p>
 
                        <label>Patient Age :</label><br>
-                       <p>{{$lastRecord->mother->age}}</p>
+                       <p>{{$mother->age}}</p>
 
                         <label>Contact Details :</label><br>
-                        <p>{{$lastRecord->mother->phone}}<br>{{$lastRecord->mother->email}}</p>
+                        <p>{{$mother->phone}}<br>{{$mother->email}}</p>
     <h3>Medical Report details</h3><br>
 
                 <table>

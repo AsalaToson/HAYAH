@@ -121,7 +121,8 @@
                 <div class="desktoplogo">
                     <a href="#hero-1"
                     ><img
-                            src="{{asset('site/images/logo2.png')}}"
+                            src="{{asset('site/assets/images/logo2.png')}}"
+
                             width="180"
                             height="40"
                             alt="header-logo"
@@ -234,7 +235,7 @@
                         <div class="content-block-img text-center">
                             <img
                                 class="img-fluid"
-                                src="{{asset('site/images/sss.jpg')}}"
+                                src="{{asset('site/assets/images/sss.jpg')}}"
                                 alt="content-image"
                             />
                         </div>
@@ -908,7 +909,7 @@
                         <!-- Footer Logo -->
                         <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80  pixels) -->
                         <img
-                            src="assets/{{asset('site/images/logo2.png')}}"
+                            src="{{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
                             alt="footer-logo"

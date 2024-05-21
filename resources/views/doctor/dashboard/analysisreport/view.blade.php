@@ -39,6 +39,7 @@
                             <th> Patient Name </th>
                             <th>Doctor Name</th>
                             <th>Test Name</th>
+                            <th>Date</th>
                             <td>Operations</td>
                         </tr>
                         </thead>
@@ -48,15 +49,17 @@
                                 <tr>
                                     <td>{{$request->mother->name}} </td>
                                     <td>{{$request->doctor->name}}</td>
-                                    <td>{{$request->description}}</td>
-                                    @if($request->doctor_id == Auth::guard('doctor')->user()->id)
+                                    <td>{{$request->analysis_Name}}</td>
+                                    <td>{{$request->test_date}}</td>
+
+                                    {{--                                    @if($request->doctor_id == Auth::guard('doctor')->user()->id)--}}
                                     <td><div class="container3" style="display: flex;">
-                                               <!-- Edit Button with Edit Icon -->
-                                                 <a href="{{route('test.edit')}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                                                    <i class="fas fa-edit"></i> Edit
-                                                  </button></a>
-                                            @endif
-                                            <a href="{{route('tests.show',[$request->mother->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
+{{--                                               <!-- Edit Button with Edit Icon -->--}}
+{{--                                                 <a href="{{route('test.edit')}}"> <button type="button" class="btn btn-primary"  id="dbutton" >--}}
+{{--                                                    <i class="fas fa-edit"></i> Edit--}}
+{{--                                                  </button></a>--}}
+{{--                                            @endif--}}
+                                            <a href="{{route('tests.show',[$request->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
                                                     <i class="fas far fa-eye"></i> view
                                                 </button></a>
                                         </div></td>

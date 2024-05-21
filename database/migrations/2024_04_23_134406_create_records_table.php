@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->integer('blood_pressure');
+            $table->string('blood_pressure');
             $table->string('baby_size');
             $table->decimal('Weight');
             $table->integer('sugar_rate');

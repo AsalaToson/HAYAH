@@ -2,13 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\mother;
-use App\Models\record;
+use App\Models\Analysis_Result;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class RecordSeeder extends Seeder
+class AnalysisResultSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +14,7 @@ class RecordSeeder extends Seeder
     public function run(): void
     {
         //
-        record::factory()->count(60)->create();
+        Analysis_Result::factory()->count(30)->create();
+
     }
 }
