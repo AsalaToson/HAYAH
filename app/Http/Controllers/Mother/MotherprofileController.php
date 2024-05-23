@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mother;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Mother\UpdateMProfileRequest;
 use App\Http\Requests\Mother\UpdateProfileRequest;
 use App\Models\mother;
 use Illuminate\Http\Request;
@@ -10,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class MotherprofileController extends Controller
 {
-    public function showProfile($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function showProfile(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother =mother::find($id);
+        $mother = Auth::guard('mother')->user();
         return view('mother.dashboard.profile.show',compact('mother'));
 
     }
@@ -22,19 +23,12 @@ class MotherprofileController extends Controller
         return view('mother.dashboard.profile.update', compact('mother'));
     }
 
-    public function updateProfile(Request $request): \Illuminate\Http\RedirectResponse
+    public function updateProfile(UpdateMProfileRequest $request): \Illuminate\Http\RedirectResponse
     {
 
         $mother = Auth::guard('mother')->user();
-        $request->validate([
-            'name' =>[ 'required,string max:255'],
-            'age' => [ 'required,string max:255'],
-            'address' =>[ 'required,string max:255'],
-            'email' => [ 'required,string max:255'],
-            'phone' => [ 'required,string max:255'],
-            'image' => 'image|mimes:jpeg,pang,jpg,gif,svg|max:2048',
-        ]);
-        $input=$request->all();
+
+        $input=$request->except('image');
         // Handle image upload and update if a new image is provided
         if ($image=$request->File('image')) {
             $imagePath = 'Dashboard/image/mothers/';
@@ -47,6 +41,6 @@ class MotherprofileController extends Controller
 
         $mother->update($input);
 
-        return redirect()->route('profile.show')->with('success', 'Profile updated successfully.');
+        return redirect()->route('MProfile.show')->with('success', 'Profile updated successfully.');
     }
 }

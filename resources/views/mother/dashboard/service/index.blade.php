@@ -1,19 +1,12 @@
 <!DOCTYPE html>
-<!-- MedService - Medical & Medical Health Landing Page Template design by Jthemes -->
-<!--[if lt IE 7]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SITE TITLE -->
-    <title>HAYAH Appointment</title>
-
-    <!-- FAVICON AND TOUCH ICONS  -->
+    <title>HAYAH Services</title>
 
     <!-- GOOGLE FONTS -->
     <link
@@ -29,14 +22,14 @@
     <link href="{{asset('site/css/bootstrap.min.css')}}" rel="stylesheet" />
 
     <!-- FONT ICONS -->
+
     <link
         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         rel="stylesheet"
         crossorigin="anonymous"
     />
-    <link href="{{asset('site/css/flaticon.css')}}" rel="stylesheet" />
-
+    <link href="{{asset("site/css/flaticon.css")}}" rel="stylesheet" />
     <!-- PLUGINS STYLESHEET -->
     <link href="{{asset('site/css/menu.css')}}" rel="stylesheet" />
     <link href="{{asset('site/css/magnific-popup.css')}}" rel="stylesheet" />
@@ -70,10 +63,10 @@
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
             <span class="smllogo"
             ><img
-                    src="{{asset('site/assets/images/logo2.png"
+                    src="{{asset('site/images/logo-grey.png')}}"
                     width="180"
                     height="40"
-                    alt="mobile-logo')}}"
+                    alt="mobile-logo"
                 /></span>
             <a href="tel:123456789" class="callusbtn"
             ><i class="fas fa-phone"></i
@@ -87,8 +80,8 @@
                 <div class="headertopleft">
                     <div class="address clearfix">
                 <span
-                ><i class="fas fa-map-marker-alt"></i>
-                  Egypt - Cairo
+                ><i class="fas fa-map-marker-alt"></i>Egypt- Cairo
+
                 </span>
                         <a href="tel:123456789" class="callusbtn"
                         ><i class="fas fa-phone"></i>(+02)123456</a
@@ -128,10 +121,11 @@
                 <div class="desktoplogo">
                     <a href="#hero-1"
                     ><img
-                            src=" {{asset('site/assets/images/logo2.png"
+                            src="{{asset('site/assets/images/logo2.png')}}"
+
                             width="180"
                             height="40"
-                            alt="header-logo')}}"
+                            alt="header-logo"
                         /></a>
                 </div>
 
@@ -140,13 +134,13 @@
                     <ul class="wsmenu-list">
                         <!-- DROPDOWN MENU -->
                         <li aria-haspopup="true">
-                            <a href="index.html">Home</a>
+                            <a href="/mother_dashboard">Home</a>
                         </li>
                         <!-- END DROPDOWN MENU -->
 
                         <!-- PAGES -->
                         <li aria-haspopup="true">
-                            <a href="{{route('doctors.show',[Auth::guard('mother')->user()->id])}}">Doctors</a>
+                            <a href="{{route('doctors.show',$mother->id)}}">Doctors</a>
 
                             <!-- End wsmegamenu -->
                         </li>
@@ -154,13 +148,13 @@
 
                         <!-- HALF MENU -->
                         <li aria-haspopup="true">
-                            <a href="{{route('departments.show',[Auth::guard('mother')->user()->id])}}">Departments </a>
+                            <a href="{{route('departments.show',$mother->id)}}">Departments </a>
                         </li>
                         <!-- END HALF MENU -->
 
                         <!-- NAVIGATION MENU BUTTON -->
                         <li class="nl-simple header-btn" aria-haspopup="true">
-                            <a href="{{route('service.show',[Auth::guard('mother')->user()->id])}}">Make an Appointment</a>
+                            <a href="{{route('appointment.show',$mother->id)}}">Make an Appointment</a>
                         </li>
                     </ul>
                 </nav>
@@ -184,14 +178,17 @@
                                 <li class="breadcrumb-item">
                                     <a href="index.html">Home</a>
                                 </li>
+                                <li class="breadcrumb-item">
+                                    <a >Our Services</a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Appointment
+                                    Service Single
                                 </li>
                             </ol>
                         </nav>
 
                         <!-- Title -->
-                        <h4 class="h4-sm steelblue-color">Appointment</h4>
+                        <h4 class="h4-sm steelblue-color">Service Single </h4>
                     </div>
                 </div>
             </div>
@@ -201,165 +198,236 @@
     </div>
     <!-- END BREADCRUMB -->
 
-    <!-- APPOINTMENT PAGE
+    <!-- SERVICE DETAILS
           ============================================= -->
-    <div
-        id="appointment-page"
-        class="wide-60 appointment-page-section division"
-    >
+    <div id="service-page" class="wide-60 service-page-section division">
         <div class="container">
             <div class="row">
-                <!-- SERVICE DETAILS -->
+                <!-- SERVICE CONTENT -->
                 <div class="col-lg-8">
-                    <div class="txt-block pr-30">
+                    <div class="s2-page pr-30 mb-40">
                         <!-- Title -->
-                        <h3 class="h3-md steelblue-color">Book an Appointment</h3>
+                        <h3 class="h3-md blue-color">Magnetic Resonance Imaging</h3>
+                        <h4 class="h4-sm blue-color">
+                            Maecenas gravida porttitor nunc, magna luctus tempor viverra
+                            cubilia laoreet augue
+                        </h4>
 
                         <!-- Text -->
                         <p>
-                            "Booking with us is quick and hassle-free. Choose a convenient time for your appointment,
-                            and our friendly team will take care of the rest. Schedule now and take the first step towards better health!"
+                            Primis cubilia laoreet augue vitae laoreet augue in cubilia
+                            risus auctor tempus dolor feugiat, felis lacinia risus auctor
+                            id viverra dolor congue ipsum mauris iaculis luctus placerat
+                            massa magna cursus amet quisque an aliquet. Feugiat primis in
+                            ultrice ligula risus auctor
                         </p>
-
-                        <!-- APPOINTMENT FORM -->
-                        <div id="appointment-form-holder" class="text-center">
-                            <form name="appointmentform" class="row appointment-form">
-                                <!-- Form Select -->
-                                <div
-                                    id="input-department"
-                                    class="col-md-12 input-department"
-                                >
-                                    <select
-                                        id="inlineFormCustomSelect1"
-                                        name="department"
-                                        class="custom-select department"
-                                        required
-                                    >
-                                        <option value="">Select Department</option>
-                                        <option>Obstetrics and Gynecology Department</option>
-                                        <option>Psychological Services Department</option>
-                                        <option>Neonatal Intensive Care Unit (NICU) Department</option>
-                                        <option>Nutrition and Dietetics Department</option>
-                                        <option>Pediatric and Neonatology Department</option>
-                                        <option>Family Planning and Contraception Department</option>
-                                        <option>Laboratory Services</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Select -->
-                                <div id="input-doctor" class="col-md-12 input-doctor">
-                                    <select
-                                        id="inlineFormCustomSelect2"
-                                        name="doctor"
-                                        class="custom-select doctor"
-                                        required
-                                    >
-                                        <option value="">Select Doctor</option>
-                                        <option>Jonathan Barnes D.M.</option>
-                                        <option>Hannah Harper D.M.</option>
-                                        <option>Matthew Anderson D.M.</option>
-                                        <option>Megan Coleman D.M.</option>
-                                        <option>Joshua Elledge D.M.</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Select -->
-                                <div id="input-patient" class="col-md-12 input-patient">
-                                    <select
-                                        id="inlineFormCustomSelect3"
-                                        name="patient"
-                                        class="custom-select patient"
-                                        required
-                                    >
-                                        <option value="">Have You Visited Us Before?*</option>
-                                        <option>New Patient</option>
-                                        <option>Returning Patient</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <!-- Contact Form Input -->
-                                <div id="input-date" class="col-lg-12">
-                                    <input
-                                        id="datetimepicker"
-                                        type="text"
-                                        name="date"
-                                        class="form-control date"
-                                        placeholder="Appointment Date"
-                                        required
-                                    />
-                                </div>
-
-                                <!-- Contact Form Input -->
-                                <div id="input-name" class="col-lg-12">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="form-control name"
-                                        placeholder="Enter Your Name*"
-                                        required
-                                    />
-                                </div>
-
-                                <div id="input-email" class="col-lg-12">
-                                    <input
-                                        type="text"
-                                        name="email"
-                                        class="form-control email"
-                                        placeholder="Enter Your Email*"
-                                        required
-                                    />
-                                </div>
-
-                                <div id="input-phone" class="col-lg-12">
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        class="form-control phone"
-                                        placeholder="Enter Your Phone Number*"
-                                        required
-                                    />
-                                </div>
-
-                                <div id="input-message" class="col-lg-12 input-message">
-                      <textarea
-                          class="form-control message"
-                          name="message"
-                          rows="6"
-                          placeholder="Your Message ..."
-                      ></textarea>
-                                </div>
-
-                                <!-- Contact Form Button -->
-                                <div class="col-lg-12 form-btn">
-                                    <button
-                                        type="submit"
-                                        class="btn btn-blue blue-hover submit"
-                                    >
-                                        Request an Appointment
-                                    </button>
-                                </div>
-
-                                <!-- Contact Form Message -->
-                                <div class="col-lg-12 appointment-form-msg text-center">
-                                    <div class="sending-msg">
-                                        <span class="loading"></span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- END APPOINTMENT FORM -->
 
                         <!-- Text -->
-                        <p class="p-sm grey-color mb-30">
-                            " You'll receive a confirmation,
-                            and our team will be ready to welcome you at your chosen time. We look forward to providing you with excellent care!"
+                        <p>
+                            Ligula risus auctor tempus dolor feugiat, felis lacinia risus
+                            interdum auctor id viverra dolor iaculis luctus bibendum
+                            luctus neque rhoncus ipsum tempor varius iaculis at luctus
+                            neque rhoncus ipsum tempor varius cubilia laoreet augue vitae
+                            laoreet augue undo cubilia feugiat suscipit emper lacus
                         </p>
+
+                        <!-- Image -->
+                        <div class="content-block-img text-center">
+                            <img
+                                class="img-fluid"
+                                src="{{asset('site/assets/images/sss.jpg')}}"
+                                alt="content-image"
+                            />
+                        </div>
+
+                        <!-- Text -->
+                        <p>
+                            Ligula risus auctor tempus dolor feugiat, felis lacinia risus
+                            interdum auctor id viverra dolor iaculis luctus bibendum
+                            luctus neque rhoncus ipsum tempor varius iaculis at luctus
+                            neque rhoncus ipsum tempor varius cubilia laoreet augue vitae
+                            laoreet augue undo cubilia feugiat suscipit emper lacus
+                        </p>
+
+                        <!-- Options List -->
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <!-- Option #1 -->
+                                <div class="box-list m-top-15">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>
+                                        Nemo ipsam egestas volute turpis dolores quaerat massa
+                                        suscipit, luctus neque
+                                    </p>
+                                </div>
+
+                                <!-- Option #2 -->
+                                <div class="box-list">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>
+                                        Magna massa suscipit, luctus neque purus and ipsum neque
+                                        dolor primis
+                                    </p>
+                                </div>
+
+                                <!-- Option #3 -->
+                                <div class="box-list">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>An enim nullam tempor at pretium blandit</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <!-- Option #4 -->
+                                <div class="box-list">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>
+                                        Magna massa suscipit, luctus neque purus and ipsum neque
+                                        dolor primis luctus
+                                    </p>
+                                </div>
+
+                                <!-- Option #5 -->
+                                <div class="box-list m-top-15">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>An enim nullam tempor at pretium blandit</p>
+                                </div>
+
+                                <!-- Option #6 -->
+                                <div class="box-list">
+                                    <div class="box-list-icon blue-color">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <p>
+                                        Magna massa suscipit, luctus neque purus and ipsum neque
+                                        dolor at tempor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Options List -->
+
+                        <!-- Small Title -->
+                        <h5 class="h5-md blue-color">
+                            Rhoncus ipsum tempor varius iaculis
+                        </h5>
+
+                        <!-- CONTENT BOX #1 -->
+                        <div class="box-list">
+                            <div class="box-list-icon">
+                                <i class="fas fa-genderless"></i>
+                            </div>
+                            <p>
+                                Fringilla risus nec, luctus mauris orci auctor purus euismod
+                                pretium purus pretium ligula rutrum tempor sapien at pretium
+                                luctus ligula rutrum luctus risus ultrice lacinia risus
+                                auctor id viverra dolor congue ipsum mauris iaculis luctus
+                                placerat massa magna cursus amet
+                            </p>
+                        </div>
+
+                        <!-- CONTENT BOX #2 -->
+                        <div class="box-list">
+                            <div class="box-list-icon">
+                                <i class="fas fa-genderless"></i>
+                            </div>
+                            <p>
+                                Quaerat sodales sapien undo euismod purus a blandit pretium
+                            </p>
+                        </div>
+
+                        <!-- CONTENT BOX #3 -->
+                        <div class="box-list">
+                            <div class="box-list-icon">
+                                <i class="fas fa-genderless"></i>
+                            </div>
+                            <p>
+                                Nemo ipsam egestas volute turpis dolores ut aliquam quaerat
+                                sodales sapien undo pretium purus feugiat dolor impedit
+                                magna purus pretium gravida donec quisque an aliquet
+                            </p>
+                        </div>
+
+                        <!-- Picing Table -->
+                        <div class="pricing-table">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Bronchoscopy</td>
+                                    <td>From <span>$1340.00</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Parathyroid Scan</td>
+                                    <td>From <span>$765.00</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Echocardiography</td>
+                                    <td>From <span>$1075.00</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Full Blood Picture</td>
+                                    <td>From <span>$950.00</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>CT & Ultrasound Diagnostic</td>
+                                    <td>From <span>$885.00</span></td>
+                                </tr>
+                                <tr class="last-tr">
+                                    <th scope="row">6</th>
+                                    <td>MRI & X-Ray</td>
+                                    <td>From <span>$1050.00</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Text -->
+                        <p>
+                            Primis cubilia laoreet augue vitae laoreet augue in cubilia
+                            risus auctor tempus dolor feugiat, felis lacinia risus auctor
+                            id viverra dolor congue ipsum mauris iaculis luctus placerat
+                            massa magna cursus amet quisque an aliquet. Feugiat primis in
+                            ultrice ligula risus auctor
+                        </p>
+
+                        <!-- Text -->
+                        <p>
+                            Ligula risus auctor tempus dolor feugiat, felis lacinia risus
+                            interdum auctor id viverra dolor iaculis luctus bibendum
+                            luctus neque rhoncus ipsum tempor varius iaculis at luctus
+                            neque rhoncus ipsum tempor varius cubilia laoreet augue vitae
+                            laoreet augue undo cubilia feugiat suscipit
+                        </p>
+
+                        <!-- Button -->
+                        <a href="{{route('appointment.show',[Auth::guard('mother')->user()->id])}}" class="btn btn-blue blue-hover"
+                        >Book an Appointment</a
+                        >
                     </div>
                 </div>
-                <!-- END SERVICE DETAILS -->
+                <!-- END SERVICE CONTENT -->
 
                 <!-- SIDEBAR -->
                 <aside id="sidebar" class="col-lg-4">
@@ -375,8 +443,8 @@
                             <!-- Avatar -->
                             <div class="txt-widget-avatar">
                                 <img
-                                    src="{{asset('site/images/head-of-clinic.jpg"
-                                    alt="testimonial-avatar')}}"
+                                    src="{{asset('site/images/head-of-clinic.jpg')}}"
+                                    alt="testimonial-avatar"
                                 />
                             </div>
 
@@ -450,6 +518,25 @@
                         </p>
                     </div>
                     <!-- END SIDEBAR TABLE -->
+
+                    <!-- SIDEBAR TIMETABLE -->
+                    <div class="sidebar-timetable sidebar-div mb-50">
+                        <!-- Title -->
+                        <h5 class="h5-md mb-20">Doctors Timetable</h5>
+
+                        <!-- Text -->
+                        <p class="p-sm">
+                            Porta semper lacus cursus, feugiat primis ultrice ligula risus
+                            auctor at tempus feugiat dolor lacinia cursus nulla vitae
+                            massa
+                        </p>
+
+                        <!-- Button -->
+                        <a href="about.html" class="btn btn-blue blue-hover mt-10"
+                        >View Timetable</a
+                        >
+                    </div>
+                    <!-- END SIDEBAR TABLE -->
                 </aside>
                 <!-- END SIDEBAR -->
             </div>
@@ -457,8 +544,359 @@
         </div>
         <!-- End container -->
     </div>
-    <!-- END APPOINTMENT PAGE -->
+    <!-- END SERVICE DETAILS -->
 
+    <!-- TESTIMONIALS-2
+          ============================================= -->
+    <section
+        id="reviews-2"
+        class="bg-lightgrey wide-100 reviews-section division"
+    >
+        <div class="container">
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 section-title">
+                    <!-- Title 	-->
+                    <h3 class="h3-md steelblue-color">What Our Patients Say</h3>
+
+                    <!-- Text -->
+                    <p>
+                        Aliquam a augue suscipit, luctus neque purus ipsum neque dolor
+                        primis libero at tempus, blandit posuere ligula varius congue
+                        cursus porta feugiat
+                    </p>
+                </div>
+            </div>
+            <!-- END SECTION TITLE -->
+
+            <!-- TESTIMONIALS CONTENT -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme reviews-holder">
+                        <!-- TESTIMONIAL #1 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-1.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Etiam sapien sem at sagittis congue an augue massa varius
+                                    egestas a suscipit magna undo tempus aliquet porta vitae
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Scott Boxer</h5>
+                                    <span>Programmer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END  TESTIMONIAL #1 -->
+
+                        <!-- TESTIMONIAL #2 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-2.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Mauris donec ociis magnisa a sapien etiam sapien congue
+                                    augue egestas et ultrice vitae purus diam integer congue
+                                    magna ligula egestas
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Penelopa Peterson</h5>
+                                    <span>Project Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #2 -->
+
+                        <!-- TESTIMONIAL #3 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-3.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    At sagittis congue augue an egestas magna ipsum vitae
+                                    purus ipsum primis undo cubilia laoreet augue
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">M.Scanlon</h5>
+                                    <span>Photographer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #3 -->
+
+                        <!-- TESTIMONIAL #4 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-4.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Mauris donec ociis magnis sapien etiam sapien congue augue
+                                    pretium ligula a lectus aenean magna mauris
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Jeremy Kruse</h5>
+                                    <span>Graphic Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #4 -->
+
+                        <!-- TESTIMONIAL #5 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-5.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    An augue in cubilia laoreet magna suscipit egestas magna
+                                    ipsum at purus ipsum primis in augue ulta ligula egestas
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Evelyn Martinez</h5>
+                                    <span>Senior UX/UI Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #5 -->
+
+                        <!-- TESTIMONIAL #6 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-6.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    An augue cubilia laoreet undo magna at risus suscipit
+                                    egestas magna an ipsum ligula vitae and purus ipsum primis
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Dan Hodges</h5>
+                                    <span>Internet Surfer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #6 -->
+
+                        <!-- TESTIMONIAL #7 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-7.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Augue egestas volutpat egestas augue in cubilia laoreet
+                                    magna suscipit luctus and dolor blandit vitae
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Isabel M.</h5>
+                                    <span>SEO Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #7 -->
+
+                        <!-- TESTIMONIAL #8 -->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-8.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Augue egestas volutpat egestas augue in cubilia laoreet
+                                    magna suscipit luctus and dolor blandit vitae
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Alex Ross</h5>
+                                    <span>Patient</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #8 -->
+
+                        <!-- TESTIMONIAL #9-->
+                        <div class="review-2">
+                            <div class="review-txt text-center">
+                                <!-- Quote -->
+                                <div class="quote">
+                                    <img src="{{asset('site/images/quote.png')}}" alt="quote-img" />
+                                </div>
+
+                                <!-- Author Avatar -->
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="{{asset('site/images/review-author-9.jpg')}}"
+                                        alt="testimonial-avatar"
+                                    />
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p>
+                                    Augue egestas volutpat egestas augue in cubilia laoreet
+                                    magna suscipit luctus magna dolor neque vitae
+                                </p>
+
+                                <!-- Testimonial Author -->
+                                <div class="review-author">
+                                    <h5 class="h5-sm">Alisa Milano</h5>
+                                    <span>Housewife</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #9 -->
+                    </div>
+                </div>
+            </div>
+            <!-- END TESTIMONIALS CONTENT -->
+        </div>
+        <!-- End container -->
+    </section>
+    <!-- END TESTIMONIALS-2 -->
+
+    <!-- BANNER-5
+          ============================================= -->
+    <section id="banner-5" class="pt-100 banner-section division">
+        <div class="container">
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 section-title">
+                    <!-- Title 	-->
+                    <h3 class="h3-md steelblue-color">
+                        Certified and Experienced Doctors
+                    </h3>
+
+                    <!-- Text -->
+                    <p>
+                        Aliquam a augue suscipit, luctus neque purus ipsum neque dolor
+                        primis libero at tempus, blandit posuere ligula varius congue
+                        cursus porta feugiat
+                    </p>
+                </div>
+            </div>
+            <!-- BANNER IMAGE -->
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="banner-5-img wow fadeInUp" data-wow-delay="0.4s">
+                        <img
+                            class="img-fluid"
+                            src="{{asset('site/images/image-07.png')}}"
+                            alt="banner-image"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End container -->
+    </section>
+    <!-- END BANNER-5 -->
     <!-- FOOTER-1
           ============================================= -->
     <footer id="footer-1" class="bg-image wide-40 footer division">
@@ -471,10 +909,10 @@
                         <!-- Footer Logo -->
                         <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80  pixels) -->
                         <img
-                            src="{{asset('site/assets/images/logo2.png"
+                            src="{{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
-                            alt="footer-logo')}}"
+                            alt="footer-logo"
                         />
 
                         <!-- Text -->
@@ -586,9 +1024,25 @@
     ============================================= -->
 <script src="{{asset('site/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('site/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('site/js/modernizr.custom.js')}}"></script>
+<script src="{{asset('site/js/jquery.easing.js')}}"></script>
+<script src="{{asset('site/js/jquery.appear.js')}}"></script>
+<script src="{{asset('site/js/jquery.stellar.min.js')}}"></script>
+<script src="{{asset('site/js/menu.js')}}"></script>
 <script src="{{asset('site/js/sticky.js')}}"></script>
+<script src="{{asset('site/js/jquery.scrollto.js')}}"></script>
 <script src="{{asset('site/js/materialize.js')}}"></script>
 <script src="{{asset('site/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('site/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('site/js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('site/js/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('site/js/hero-form.js')}}"></script>
+<script src="{{asset('site/js/contact-form.js')}}"></script>
+<script src="{{asset('site/js/comment-form.js')}}"></script>
+<script src="{{asset('site/js/appointment-form.js')}}"></script>
+<script src="{{asset('site/js/jquery.datetimepicker.full.js')}}"></script>
+<script src="{{asset('site/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('site/js/jquery.ajaxchimp.min.js')}}"></script>
 <script src="{{asset('site/js/wow.js')}}"></script>
 
 <!-- Custom Script -->
@@ -599,8 +1053,6 @@
 </script>
 
 <script src="{{asset('site/js/changer.js')}}"></script>
+<script defer src="{{asset('site/js/styleswitch.js')}}"></script>
 </body>
 </html>
-
-
-

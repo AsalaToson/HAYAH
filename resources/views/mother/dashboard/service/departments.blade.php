@@ -125,11 +125,10 @@
                 <div class="desktoplogo">
                     <a href="#hero-1"
                     ><img
-                            src="{{asset('site/assets/images/logo2')}}"
+                            src="{{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
-                            alt="header-logo"
-                        /></a>
+                            alt="header-logo"/></a>
                 </div>
 
                 <!-- MAIN MENU -->
@@ -137,13 +136,13 @@
                     <ul class="wsmenu-list">
                         <!-- DROPDOWN MENU -->
                         <li aria-haspopup="true">
-                            <a href="index.html">Home</a>
+                            <a href="/mother_dashboard">Home</a>
                         </li>
                         <!-- END DROPDOWN MENU -->
 
                         <!-- PAGES -->
                         <li aria-haspopup="true">
-                            <a href="doctors.html">Doctors</a>
+                            <a href="{{route('doctors.show',$mother->id)}}">Doctors</a>
 
                             <!-- End wsmegamenu -->
                         </li>
@@ -151,13 +150,13 @@
 
                         <!-- HALF MENU -->
                         <li aria-haspopup="true">
-                            <a href="departments.html">Departments </a>
+                            <a href="{{route('departments.show',$mother->id)}}">Departments </a>
                         </li>
                         <!-- END HALF MENU -->
 
                         <!-- NAVIGATION MENU BUTTON -->
                         <li class="nl-simple header-btn" aria-haspopup="true">
-                            <a href="appointment.html">Make an Appointment</a>
+                            <a href="{{route('appointment.show',$mother->id)}}">Make an Appointment</a>
                         </li>
                     </ul>
                 </nav>
@@ -179,7 +178,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="/mother_dashboard">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Our Departments
@@ -210,6 +209,7 @@
                 <div class="col-lg-8">
                     <div class="row">
                         <!-- SERVICE BOX #1 -->
+                        @foreach($departments as $department)
                         <div class="col-md-6">
                             <div
                                 class="sbox-7 icon-xs wow fadeInUp"
@@ -222,203 +222,202 @@
                                     <!-- Text -->
                                     <div class="sbox-7-txt">
                                         <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Obstetrics and Gynecology</h5>
+                                        <h5 class="h5-sm steelblue-color">{{$department->name}}</h5>
 
                                         <!-- Text -->
                                         <p class="p-sm">
-                                            Obstetrics: Provides prenatal care, labor and delivery services, and postnatal care for expectant mothers.
-                                            Gynecology: Offers a range of services including routine examinations, gynecological surgeries,
-                                            and treatments for women's health issues
+                                            {{$department->description}}
                                         </p>
                                     </div>
                                 </a>
                             </div>
                         </div>
+                        @endforeach
                         <!-- END SERVICE BOX #1 -->
 
-                        <!-- SERVICE BOX #2 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.6s"
-                            >
-                                <a href="service-2.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-047-head blue-color"></span>
+{{--                        <!-- SERVICE BOX #2 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.6s"--}}
+{{--                            >--}}
+{{--                                <a href="service-2.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-047-head blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Psychological Services</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Psychological Services</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Psychological Counseling: Provides mental health support for expectant mothers, new mothers,
-                                            and families dealing with pregnancy-related stress, postpartum depression, or other emotional challenges.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #2 -->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Psychological Counseling: Provides mental health support for expectant mothers, new mothers,--}}
+{{--                                            and families dealing with pregnancy-related stress, postpartum depression, or other emotional challenges.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #2 -->--}}
 
-                        <!-- SERVICE BOX #3 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.4s"
-                            >
-                                <a href="service-1.html">
-                                    <!-- Icon -->
-                                    <span
-                                        class="flaticon-015-blood-donation-1 blue-color"
-                                    ></span>
+{{--                        <!-- SERVICE BOX #3 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.4s"--}}
+{{--                            >--}}
+{{--                                <a href="service-1.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span--}}
+{{--                                        class="flaticon-015-blood-donation-1 blue-color"--}}
+{{--                                    ></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Nutrition and Dietetics</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Nutrition and Dietetics</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Nutritional Counseling: Offers personalized diet plans and nutritional advice for pregnant women, new mothers, and families.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #3-->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Nutritional Counseling: Offers personalized diet plans and nutritional advice for pregnant women, new mothers, and families.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #3-->--}}
 
-                        <!-- SERVICE BOX #4 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.6s"
-                            >
-                                <a href="service-2.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-048-lungs blue-color"></span>
+{{--                        <!-- SERVICE BOX #4 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.6s"--}}
+{{--                            >--}}
+{{--                                <a href="service-2.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-048-lungs blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Neonatal Intensive Care Unit (NICU)</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Neonatal Intensive Care Unit (NICU)</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Neonatology: Specialized care for premature or sick newborns.
-                                            Pediatric Care: Ongoing care for infants and children.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #4 -->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Neonatology: Specialized care for premature or sick newborns.--}}
+{{--                                            Pediatric Care: Ongoing care for infants and children.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #4 -->--}}
 
-                        <!-- SERVICE BOX #5 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.4s"
-                            >
-                                <a href="service-1.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-060-cardiogram-4 blue-color"></span>
+{{--                        <!-- SERVICE BOX #5 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.4s"--}}
+{{--                            >--}}
+{{--                                <a href="service-1.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-060-cardiogram-4 blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Family Planning and Contraception</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Family Planning and Contraception</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Family Planning Services: Provides counseling on birth control methods,
-                                            and offers services like insertion and removal of contraceptive devices.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #5 -->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Family Planning Services: Provides counseling on birth control methods,--}}
+{{--                                            and offers services like insertion and removal of contraceptive devices.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #5 -->--}}
 
-                        <!-- SERVICE BOX #6 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.6s"
-                            >
-                                <a href="service-2.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-031-scanner blue-color"></span>
+{{--                        <!-- SERVICE BOX #6 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.6s"--}}
+{{--                            >--}}
+{{--                                <a href="service-2.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-031-scanner blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Physical Therapy and Rehabilitation</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Physical Therapy and Rehabilitation</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Provides exercises and therapies to address pregnancy-related discomforts and postpartum recovery.
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Provides exercises and therapies to address pregnancy-related discomforts and postpartum recovery.--}}
 
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #6 -->
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #6 -->--}}
 
-                        <!-- SERVICE BOX #7 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.4s"
-                            >
-                                <a href="service-1.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-076-microscope blue-color"></span>
+{{--                        <!-- SERVICE BOX #7 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.4s"--}}
+{{--                            >--}}
+{{--                                <a href="service-1.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-076-microscope blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">
-                                            Laboratory Services
-                                        </h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">--}}
+{{--                                            Laboratory Services--}}
+{{--                                        </h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Offers blood tests, screenings, and other diagnostic tests
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #7 -->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Offers blood tests, screenings, and other diagnostic tests--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #7 -->--}}
 
-                        <!-- SERVICE BOX #8 -->
-                        <div class="col-md-6">
-                            <div
-                                class="sbox-7 icon-xs wow fadeInUp"
-                                data-wow-delay="0.6s"
-                            >
-                                <a href="service-2.html">
-                                    <!-- Icon -->
-                                    <span class="flaticon-068-ambulance-3 blue-color"></span>
+{{--                        <!-- SERVICE BOX #8 -->--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div--}}
+{{--                                class="sbox-7 icon-xs wow fadeInUp"--}}
+{{--                                data-wow-delay="0.6s"--}}
+{{--                            >--}}
+{{--                                <a href="service-2.html">--}}
+{{--                                    <!-- Icon -->--}}
+{{--                                    <span class="flaticon-068-ambulance-3 blue-color"></span>--}}
 
-                                    <!-- Text -->
-                                    <div class="sbox-7-txt">
-                                        <!-- Title -->
-                                        <h5 class="h5-sm steelblue-color">Emergency Help</h5>
+{{--                                    <!-- Text -->--}}
+{{--                                    <div class="sbox-7-txt">--}}
+{{--                                        <!-- Title -->--}}
+{{--                                        <h5 class="h5-sm steelblue-color">Emergency Help</h5>--}}
 
-                                        <!-- Text -->
-                                        <p class="p-sm">
-                                            Porta semper lacus at cursus primis ultrice in ligula
-                                            risus an auctor tempus feugiat dolor
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END SERVICE BOX #8 -->
+{{--                                        <!-- Text -->--}}
+{{--                                        <p class="p-sm">--}}
+{{--                                            Porta semper lacus at cursus primis ultrice in ligula--}}
+{{--                                            risus an auctor tempus feugiat dolor--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <!-- END SERVICE BOX #8 -->--}}
                     </div>
                 </div>
                 <!-- END SERVICE BOXES -->

@@ -30,14 +30,14 @@
 
                     <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                            aria-label="Toggle navigation">
+                            aria-label="Toggle navigation"></button>
                         <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                         <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                        </span>
+                </nav>
 
 
             </div>
-            <!-- toggle switch for light and dark theme -->
+                      <!-- toggle switch for light and dark theme -->
             <div class="mobile-position">
                 <nav class="navigation">
                     <div class="theme-switch-wrapper">
@@ -52,9 +52,8 @@
                 </nav>
             </div>
             <!-- //toggle switch for light and dark theme -->
-            </nav>
-    </div>
-    </header>
+
+        </header>
     </div>
     <!-- //header -->
 
@@ -62,7 +61,7 @@
         <div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
             <h2 class="title pt-5">Contact Us</h2>
             <ul class="breadcrumbs-custom-path mt-3 text-center">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/mother_dashboard">Home</a></li>
                 <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Contact </li>
             </ul>
         </div>
@@ -147,6 +146,7 @@
                     </form>
                 </div>
             </div>
+        </div>
     </section>
     <!-- /map-->
     <!-- <div class="map-iframe">
@@ -163,7 +163,7 @@
                 <div class="row footer-top-29">
                     <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
                         <div class="footer-logo mb-3">
-                            <a class="navbar-brand" href="index.html">HAYAH</a>
+                            <a class="navbar-brand" href="/mother_dashboard">HAYAH</a>
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur ipsum elit. Lorem ipsum dolor sit amet elit.</p>
                         <ul class="mt-3">

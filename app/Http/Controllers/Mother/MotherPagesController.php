@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Mother;
 
 use App\Http\Controllers\Controller;
+use App\Models\doctor;
 use App\Models\mother;
+use App\Models\section;
 use Illuminate\Http\Request;
 
 class MotherPagesController extends Controller
@@ -30,19 +32,21 @@ class MotherPagesController extends Controller
     public function departments($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $mother =mother::find($id);
-        return view('mother.dashboard.service.departments',compact('mother'));
+        $departments =section::all();
+        return view('mother.dashboard.service.departments',compact('departments','mother'));
 
     }
     public function doctor_profile($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother =mother::find($id);
-        return view('mother.dashboard.service.doctorprofile',compact('mother'));
+        $doctor =doctor::find($id);
+        return view('mother.dashboard.service.doctorprofile',compact('doctor'));
 
     }
     public function doctors($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $mother =mother::find($id);
-        return view('mother.dashboard.service.doctors',compact('mother'));
+        $doctors =doctor::all();
+        return view('mother.dashboard.service.doctors',compact('mother','doctors'));
 
     }
 

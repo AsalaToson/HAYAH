@@ -1,12 +1,7 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <div class="col-12">
-        @if (isset($message))
-            <div class="alert alert-danger">
-                <p>{{ $message }}</p></div>
-        @endif
-    <h1>All Medical Reports</h1>
+    <h1>All Analysis Reports</h1>
     <div class="inner_content">
 
         <h3> Medical Reports list </h3><br>
@@ -52,6 +47,7 @@
                     <tr>
                         <td>{{$mother->id}} </td>
                         <td>{{$mother->name}}</td>
+
                         <td><div class="container3" style="display: flex;">
                                 <!-- Delete Button with Delete Icon -->
 {{--                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 //use App\Models\laboratorie;
+use App\Models\Analysis_Result;
 use App\Models\laboratory;
 use App\Models\mother;
 use Illuminate\Http\Request;
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class LabController extends Controller
 {
     //
-//<<<<<<< HEAD
 
     public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
@@ -28,5 +28,21 @@ class LabController extends Controller
         );
 
         return redirect('/appointments')->with('success', 'Data inserted successfully!');
+    }
+    public function index()
+    {
+        $requests = Analysis_Result::all();
+        return view('doctor.dashboard.analysisreport.view',compact('requests'));
+
+    }
+    public function show(string $id)
+    {
+        $tests=Analysis_Result::find($id);
+        return view('doctor.dashboard.analysisreport.showTestResult',compact('tests'));
+    }
+    public function editTest()
+    {
+        return view('doctor.dashboard.analysisreport.updateRequest');
+
     }
 }

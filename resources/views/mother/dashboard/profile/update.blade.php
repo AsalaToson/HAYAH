@@ -86,7 +86,7 @@
                         </ul>
                     </div>
                 @endif
-              <form action="{{route('profile.update',$mother->id)}}" method="post" class="signin-form">
+              <form action="{{route('MProfile.update',$mother->id)}}" method="post" class="signin-form">
                   @csrf
                   @method('PUT')
                 <div class="input-grids">
@@ -133,7 +133,7 @@
             <div class="row footer-top-29">
               <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
                 <div class="footer-logo mb-3">
-                  <a class="navbar-brand" href="index.html">HAYAH</a>
+                  <a class="navbar-brand" href="/mother_dashboard">HAYAH</a>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur ipsum elit. Lorem ipsum dolor sit amet elit.</p>
                 <ul class="mt-3">

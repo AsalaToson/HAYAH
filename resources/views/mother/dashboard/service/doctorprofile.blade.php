@@ -29,22 +29,28 @@
         rel="stylesheet"
         crossorigin="anonymous"
     />
+    <link
+        href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        rel="stylesheet"
+        crossorigin="anonymous"
+    />
+
     <link href="{{asset('site/css/flaticon.css')}}" rel="stylesheet" />
 
-
     <!-- PLUGINS STYLESHEET -->
-    <link href="{{asset('site/css/menucss')}}" rel="stylesheet" />
-    <link href="{{asset('site/css/magnific-popupcss')}}" rel="stylesheet" />
-    <link href="{{asset('site/css/owl.carousel.mincss')}}" rel="stylesheet" />
-    <link href="{{asset('site/css/owl.theme.default.mincss')}}" rel="stylesheet" />
-    <link href="{{asset('site/css/animatecss')}}" rel="stylesheet" />
-    <link href="{{asset('site/css/jquery.datetimepicker.mincss')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/menu.css')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/magnific-popup.css')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/owl.carousel.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/owl.theme.default.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/animate.css')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/jquery.datetimepicker.min.css')}}"rel="stylesheet" />
 
     <!-- TEMPLATE CSS -->
-    <link href="{{asset('site/css/stylecss')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/style.css')}}" rel="stylesheet" />
 
     <!-- RESPONSIVE CSS -->
-    <link href="{{asset('site/css/responsivecss')}}" rel="stylesheet" />
+    <link href="{{asset('site/css/responsive.css')}}" rel="stylesheet" />
 </head>
 
 <body>
@@ -135,13 +141,13 @@
                     <ul class="wsmenu-list">
                         <!-- DROPDOWN MENU -->
                         <li aria-haspopup="true">
-                            <a href="index.html">Home</a>
+                            <a href="/mother_dashboard">Home</a>
                         </li>
                         <!-- END DROPDOWN MENU -->
 
                         <!-- PAGES -->
                         <li aria-haspopup="true">
-                            <a href="doctors.html">Doctors</a>
+                            <a href="#">Doctors</a>
 
                             <!-- End wsmegamenu -->
                         </li>
@@ -149,13 +155,13 @@
 
                         <!-- HALF MENU -->
                         <li aria-haspopup="true">
-                            <a href="departments.html">Departments </a>
+                            <a href="#">Departments </a>
                         </li>
                         <!-- END HALF MENU -->
 
                         <!-- NAVIGATION MENU BUTTON -->
                         <li class="nl-simple header-btn" aria-haspopup="true">
-                            <a href="appointment.html">Make an Appointment</a>
+                            <a href="#">Make an Appointment</a>
                         </li>
                     </ul>
                 </nav>
@@ -177,7 +183,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="/mother_dashboard">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Meet the Doctors
@@ -198,15 +204,15 @@
 
     <!-- DOCTORS-3 -->
     <div class="profile" style="display: flex; margin: 30px; height: 400px;">
-        <img src="{{asset('site/assets/images/team2.jpg')}}" alt="profileimage" style="height: 300px;">
+        <img src="{{asset('Dashboard/image/doctors/'.$doctor->image)}}" alt="profileimage" style="height: 300px;">
         <div class="profileData" style="margin: 40px;">
-            <h2>John Doe</h2>
-            <p><b>Name:</b>john</p>
-            <p><b>Age:</b>55</p>
-            <p><b>Email:</b>sdnfk@gmail</p>
-            <p><b>Experience:</b>30years</p>
+            <h2>{{$doctor->name}}  </h2>
+            <p><b>Name:</b>{{$doctor->name}}</p>
+            <p><b>Age:</b>{{$doctor->age}}</p>
+            <p><b>Email:</b>{{$doctor->email}}</p>
+            <p><b>Experience:</b>{{$doctor->experience}}</p>
             <a href="doctors.html"><button type="button" class="btn btn-secondary"  id="dbutton" >
-                    <i class="fas fa-backward"></i>Back </a>
+                    <i class="fas fa-backward"></i>Back</button> </a>
         </div>
 
 

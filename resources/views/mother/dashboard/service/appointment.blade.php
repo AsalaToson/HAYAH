@@ -53,7 +53,7 @@
 
 
 
-    @livewireStyles
+
 </head>
 
 <body>
@@ -132,10 +132,10 @@
                 <div class="desktoplogo">
                     <a href="#hero-1"
                     ><img
-                            src=" {{asset('site/assets/images/logo2.png"
+                            src=" {{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
-                            alt="header-logo')}}"
+                            alt="header-logo"
                         /></a>
                 </div>
 
@@ -144,13 +144,13 @@
                     <ul class="wsmenu-list">
                         <!-- DROPDOWN MENU -->
                         <li aria-haspopup="true">
-                            <a href="index.html">Home</a>
+                            <a href="/mother_dashboard">Home</a>
                         </li>
                         <!-- END DROPDOWN MENU -->
 
                         <!-- PAGES -->
                         <li aria-haspopup="true">
-                            <a href="doctors.html">Doctors</a>
+                            <a href="{{route('doctors.show',$mother->id)}}">Doctors</a>
 
                             <!-- End wsmegamenu -->
                         </li>
@@ -158,13 +158,13 @@
 
                         <!-- HALF MENU -->
                         <li aria-haspopup="true">
-                            <a href="departments.html">Departments </a>
+                            <a href="{{route('departments.show',$mother->id)}}">Departments </a>
                         </li>
                         <!-- END HALF MENU -->
 
                         <!-- NAVIGATION MENU BUTTON -->
                         <li class="nl-simple header-btn" aria-haspopup="true">
-                            <a href="appointment.html">Make an Appointment</a>
+                            <a href="#">Make an Appointment</a>
                         </li>
                     </ul>
                 </nav>
@@ -379,8 +379,8 @@
                             <!-- Avatar -->
                             <div class="txt-widget-avatar">
                                 <img
-                                    src="{{asset('site/images/head-of-clinic.jpg"
-                                    alt="testimonial-avatar')}}"
+                                    src="{{asset('site/images/head-of-clinic.jpg')}}"
+                                    alt="testimonial-avatar"
                                 />
                             </div>
 
@@ -475,10 +475,10 @@
                         <!-- Footer Logo -->
                         <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80  pixels) -->
                         <img
-                            src="{{asset('site/assets/images/logo2.png"
+                            src="{{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
-                            alt="footer-logo')}}"
+                            alt="footer-logo"
                         />
 
                         <!-- Text -->
