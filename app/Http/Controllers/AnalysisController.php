@@ -39,6 +39,16 @@ class AnalysisController extends Controller
         return to_route('analysis.index');
     }
 
+
+            // not completed
+    public function search(){
+        $search_text = $_GET['query'];
+        $analysis = Analysis_Result::where('title','LIKE','%'.$search_text.'%')->get();
+        return view('');
+    }
+
+
+
                 // not working
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {

@@ -10,6 +10,7 @@ use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
+use App\Http\Controllers\LiveSearch;
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
 use App\Http\Controllers\Mother\MotherLabController;
@@ -84,6 +85,19 @@ Route::middleware('auth:lab_doctor')->group(function (){
     Route::get('/analysis_details/{analysis}',[AnalysisController::class,'show'])->name('details.show');
     Route::delete('/analysis/{analysis}' , [AnalysisController::class , 'destroy'])->name('analysis.destroy');
     Route::delete('/request/{request}' , [AnalysisController::class , 'delete'])->name('request.destroy');
+
+    //search
+    //Route::get('/search' , [AnalysisController::class , 'search'])->name('analysis.search');
+
+
+    Route::get('/live_search',[LiveSearch::class , 'index'])->name('live_search.index');
+    Route::get('/live_search/action',[LiveSearch::class , 'search'])->name('live_search.search');
+
+
+
+    //Route::get('/live_search', 'LiveSearch@index');
+    //Route::get('/live_search/action', 'LiveSearch@search')->name('live_search.search');
+
 
 });
 

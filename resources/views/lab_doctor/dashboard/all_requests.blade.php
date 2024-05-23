@@ -26,9 +26,8 @@
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="form-groups">
-                      <label for="search" id="Slabel">Search </label>
-                      <input type="text" class="form-control" id="search" placeholder="search ...">
+                  <div class="panel-body">
+                      <input type="text" class="form-control" name="search" id="search" placeholder="search ...">
                   </div>
               </div>
           </div>
@@ -37,7 +36,10 @@
       <div class="container2">
 
         <div class="table-responsive">
-            <table class="table table-bordered">
+
+            <h3 align="center">Total Data : <span id="total_records"></span></h3>
+
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
 
@@ -92,7 +94,47 @@
 
  </div>
 
-
-
     </div>
 @endsection
+
+<script>
+
+    $(document).ready(function(){
+
+        /*
+        $(document).on('keyup','#search' , function(){
+            var query = $(this).val();
+            fetch_request_data(query);
+        });
+
+         */
+
+        fetch_request_data();
+
+        function fetch_request_data(query = '')
+        {
+            $.ajax({
+                url:"{{route('live_search.search')}}",
+                method:'GET',
+                //data:{query:query},
+                data: {
+                    query: query,
+                    _token: "{{ csrf_token() }}"
+                },
+                dataType:'json',
+                success:function(data){
+                    $('tbody').html(data.table_data);
+                    $('#total_records').text(data.total_data);
+                }
+            })
+        }
+
+        $(document).on('keyup','#search' , function(){
+            var query = $(this).val();
+            fetch_request_data(query);
+        });
+
+
+    });
+
+</script>
