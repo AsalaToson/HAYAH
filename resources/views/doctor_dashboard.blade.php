@@ -7,6 +7,10 @@
     <title>HAYAH Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
     <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
@@ -158,7 +162,31 @@
 
             </div>
 
+            <div class="container-fluid dashboard-container" >
+                <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
+                <div class="row">
 
+                    <div class="col-md-4.5">
+                        <div class="chart-container">
+                            <h5>Successful Operations</h5>
+                            <canvas id="successfulOperationsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="chart-container">
+                            <h5>Medical Reports</h5>
+                            <canvas id="medicalReportsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="chart-container">
+                            <h5>Doctor Consultations</h5>
+                            <canvas id="doctorConsultationsChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 
@@ -190,10 +218,84 @@
         </div>
     </div>
 </div>
+        <script>
+
+            // Doctor Consultations Chart
+            const doctorConsultationsCtx = document.getElementById('doctorConsultationsChart').getContext('2d');
+            const doctorConsultationsChart = new Chart(doctorConsultationsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    datasets: [{
+                        label: 'Consultations',
+                        data: [120, 190, 300, 500, 230, 350],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            // Medical Reports Chart
+            const medicalReportsCtx = document.getElementById('medicalReportsChart').getContext('2d');
+            const medicalReportsChart = new Chart(medicalReportsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    datasets: [{
+                        label: 'Reports',
+                        data: [100, 120, 150, 200, 180, 160],
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            // Successful Operations Chart
+            const successfulOperationsCtx = document.getElementById('successfulOperationsChart').getContext('2d');
+            const successfulOperationsChart = new Chart(successfulOperationsCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Successful', 'Unsuccessful'],
+                    datasets: [{
+                        label: 'Operations',
+                        data: [90, 10],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+        </script>
 
 
 
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>

@@ -7,7 +7,10 @@
     <title>HAYAH Lab Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
     <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
-
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -119,7 +122,7 @@
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
          <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
-          <h2 >160 Report</h2>
+          <h2 >{{App\Models\doctor::count()}} Doctor </h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
         </div>
 
@@ -127,7 +130,7 @@
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
         <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
-          <h2 >400 patient</h2>
+          <h2 >{{App\Models\User::count()}}  patient</h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
         </div>
 
@@ -135,13 +138,28 @@
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
         <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
-          <h2 >120 visit</h2>
+          <h2 >{{App\Models\appointment::count()}}  visit</h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
         </div>
 
       </div>
 
     </div>
+        <div class="container-fluid dashboard-container">
+
+            <!-- Row 2: Admin Activity and Lab Tests Conducted -->
+            <div class="row">
+                <div class="col-md-6 chart-container">
+                    <h5>Visits and Appointments</h5>
+                    <canvas id="visitsAppointmentsChart"></canvas>
+                </div>
+                <div class="col-md-5 chart-container">
+                    <h5>Lab Tests Conducted</h5>
+                    <canvas id="labTestsChart"></canvas>
+                </div>
+            </div>
+
+        </div>
 
 
 
@@ -176,7 +194,67 @@
           </div>
         </div>
       </div>
+<script>
+    // Lab Tests Conducted Chart
+    const labTestsCtx = document.getElementById('labTestsChart').getContext('2d');
+    const labTestsChart = new Chart(labTestsCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Blood Tests', 'Ultrasounds', 'X-Rays', 'MRIs'],
+            datasets: [{
+                label: 'Lab Tests',
+                data: [300, 150, 100, 50],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+    // Visits and Appointments Chart
+    const visitsAppointmentsCtx = document.getElementById('visitsAppointmentsChart').getContext('2d');
+    const visitsAppointmentsChart = new Chart(visitsAppointmentsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
+            datasets: [{
+                label: 'Visits',
+                data: [120, 100, 140, 130, 110, 150],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                tension: 0.1,
+                fill: false
+            }, {
+                label: 'Appointments',
+                data: [80, 90, 70, 100, 90, 80],
+                borderColor: 'rgba(255, 99, 132, 1)',
+                tension: 0.1,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 
+
+</script>
 
 
 

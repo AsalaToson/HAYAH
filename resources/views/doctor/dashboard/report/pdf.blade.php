@@ -90,6 +90,11 @@
 <body>
 <div class="container">
     <div class="container">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; ">
+            <img src="{{asset('site/assets/images/logo2.png')}}" alt="1" style="height: 75px; width: 200px;">
+            <div style="display: flex;"><img src="{{asset("../site/assets/images/care.png")}}" alt="2" style="height: 75px; width: 80px;">
+                <h3 style="text-align: center;"> Mother Care <br>Hospital Mangaement System</h3></div>
+        </div>
 
             <h1>My Medical Records </h1>
             <div class="container3" style="display: flex;">

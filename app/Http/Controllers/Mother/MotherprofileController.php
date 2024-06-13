@@ -9,24 +9,24 @@ use App\Models\mother;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MotherprofileController extends Controller
+class MotherProfileController extends Controller
 {
     public function showProfile(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother = Auth::guard('mother')->user();
+        $mother = Auth::guard('user')->user();
         return view('mother.dashboard.profile.show',compact('mother'));
 
     }
     public function editProfile(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother = Auth::guard('mother')->user();
+        $mother = Auth::guard('user')->user();
         return view('mother.dashboard.profile.update', compact('mother'));
     }
 
     public function updateProfile(UpdateMProfileRequest $request): \Illuminate\Http\RedirectResponse
     {
 
-        $mother = Auth::guard('mother')->user();
+        $mother = Auth::guard('user')->user();
 
         $input=$request->except('image');
         // Handle image upload and update if a new image is provided

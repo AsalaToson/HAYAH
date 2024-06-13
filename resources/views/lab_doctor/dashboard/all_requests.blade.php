@@ -5,7 +5,7 @@
         <div class="alert alert-success">
             {{ session('success') }}
             @if(session('name'))
-                - {{ session('name') }}
+                -> {{ session('name') }}
             @endif
         </div>
     @endif
@@ -27,12 +27,12 @@
                       </select>
                   </div>
               </div>
-              <div class="col-md-4">
+              <form action="#" class="col-md-4">
                   <div class="form-groups">
                       <label for="search" id="Slabel">Search </label>
-                      <input type="text" class="form-control" id="search" placeholder="search ...">
+                      <input type="text" name="query" class="form-control" id="search">
                   </div>
-              </div>
+              </form>
           </div>
       </div>
 
@@ -60,7 +60,7 @@
 
                     <tr>
                         <td>{{$number++}}</td>
-                        <td>{{$request ->mother->name}} </td>
+                        <td>{{$request ->User->name}} </td>
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
 

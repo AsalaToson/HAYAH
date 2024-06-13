@@ -52,7 +52,7 @@
             @foreach($allAnalysis as $analysis)
                 <tr>
                     <td>{{$number++}}</td>
-                    <td>{{$analysis ->mother->name}}</td>
+                    <td>{{$analysis ->User->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
                     <td> <img alt="" src="{{asset($analysis->photo)}}"></td>

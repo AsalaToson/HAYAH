@@ -9,11 +9,8 @@ use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
-use App\Http\Controllers\LabDoctor\RequestController;
-use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
-use App\Http\Controllers\Mother\MotherLabController;
 use App\Http\Controllers\Mother\BrowsePagesController;
 use App\Http\Controllers\Mother\MotherprofileController;
 use App\Http\Controllers\Mother\MotherRecordController;
@@ -79,6 +76,7 @@ Route::middleware('auth:lab_doctor')->group(function (){
     Route::get('/requests',[RequestsController::class,'index'])->name('requests.index');
     Route::get('/add_analysis/{request}' , [RequestsController::class , 'create'])->name('add_analysis.create');
     Route::post('/analysis' , [RequestsController::class , 'store'])->name('analysis.store');
+    Route::get('download/LTest/{id}', [AnalysisController::class,'downloadPdf'])->name("LTest.pdf");
 
 
     Route::get('/all_analysis',[AnalysisController::class,'index'])->name('analysis.index');
