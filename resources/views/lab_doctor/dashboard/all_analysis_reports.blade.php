@@ -21,7 +21,7 @@
               </div>
               <div class="col-md-4">
                   <div class="form-groups">
-                      <form class="form-inline my-2 my-lg-0" method="get" action="{{route('live_search.action')}}">
+                      <form class="form-inline my-2 my-lg-0" method="get" action="#">
                       <input type="text" class="form-control" name="search" id="search" placeholder="Search ">
                       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                       </form>
@@ -45,9 +45,13 @@
             </thead>
             <tbody>
 
+            @php
+                $number = 1;
+            @endphp
+
             @foreach($allAnalysis as $analysis)
                 <tr>
-                    <td>{{$analysis -> id}}</td>
+                    <td>{{$number++}}</td>
                     <td>{{$analysis ->mother->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
@@ -89,41 +93,3 @@
 
     </div>
 @endsection
-
-
-@php
-/*
-<script>
-
-    $(document).ready(function(){
-
-        $(document).on('keyup','#search' , function(){
-            var query = $(this).val();
-            fetch_request_data(query);
-        });
-
-        fetch_request_data();
-
-        function fetch_request_data(query = '')
-        {
-            $.ajax({
-                url:"{{route('live_search.action')}}",
-                method:'GET',
-                data:{query:query},
-                dataType:'json',
-                success:function(data){
-                    $('tbody').html(data.table_data);
-                    $('#total_records').text(data.total_data);
-                }
-            })
-        }
-        /*
-        $(document).on('keyup','#search' , function(){
-            var query = $(this).val();
-            fetch_request_data(query);
-        });
-
-         */
-
-@endphp
-

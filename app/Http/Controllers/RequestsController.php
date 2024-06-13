@@ -40,6 +40,8 @@ class RequestsController extends Controller
         $l_id = request()->lab_id;
         $a_name = request()->analysis_name;
 
+        $m_name = request()->mother_name;
+
                 // upload photo
         $fileName = time().$request->file('photo')->getClientOriginalName();
         $path = $request->file('photo')->storeAs('images',$fileName,'public');
@@ -54,7 +56,10 @@ class RequestsController extends Controller
             'photo' => $photoPath,
 
         ]);
-        return redirect('/requests')->with('success','Analysis Report Added successfully');
+        return redirect('/requests')->with([
+            'success' => 'Analysis Report Added successfully for patient number ',
+            'name' => $m_name
+        ]);
     }
 
 

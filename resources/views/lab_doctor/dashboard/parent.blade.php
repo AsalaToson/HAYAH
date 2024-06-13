@@ -92,7 +92,7 @@
 
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-                                <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="{{route("labProfile.show")}}" ><i class="fa fa-user" aria-hidden="true"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
                                     My schedule</a>

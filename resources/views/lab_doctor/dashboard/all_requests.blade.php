@@ -1,11 +1,13 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
-    @if (session('success'))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+            @if(session('name'))
+                - {{ session('name') }}
+            @endif
         </div>
-
     @endif
       <h1>All Requests</h1>
       <div class="inner_content">
@@ -26,8 +28,9 @@
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="panel-body">
-                      <input type="text" class="form-control" name="search" id="search" placeholder="search ...">
+                  <div class="form-groups">
+                      <label for="search" id="Slabel">Search </label>
+                      <input type="text" class="form-control" id="search" placeholder="search ...">
                   </div>
               </div>
           </div>
@@ -36,10 +39,7 @@
       <div class="container2">
 
         <div class="table-responsive">
-
-            <h3 align="center">Total Data : <span id="total_records"></span></h3>
-
-            <table class="table table-striped table-bordered">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
 
@@ -52,10 +52,14 @@
                 </thead>
                 <tbody>
 
-                @foreach($requests as $request)
-                    <tr>
+                @php
+                    $number = 1;
+                @endphp
 
-                        <td>{{$request -> id}}</td>
+                @foreach($requests as $request)
+
+                    <tr>
+                        <td>{{$number++}}</td>
                         <td>{{$request ->mother->name}} </td>
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
@@ -95,46 +99,5 @@
  </div>
 
     </div>
+
 @endsection
-
-<script>
-
-    $(document).ready(function(){
-
-        /*
-        $(document).on('keyup','#search' , function(){
-            var query = $(this).val();
-            fetch_request_data(query);
-        });
-
-         */
-
-        fetch_request_data();
-
-        function fetch_request_data(query = '')
-        {
-            $.ajax({
-                url:"{{route('live_search.search')}}",
-                method:'GET',
-                //data:{query:query},
-                data: {
-                    query: query,
-                    _token: "{{ csrf_token() }}"
-                },
-                dataType:'json',
-                success:function(data){
-                    $('tbody').html(data.table_data);
-                    $('#total_records').text(data.total_data);
-                }
-            })
-        }
-
-        $(document).on('keyup','#search' , function(){
-            var query = $(this).val();
-            fetch_request_data(query);
-        });
-
-
-    });
-
-</script>

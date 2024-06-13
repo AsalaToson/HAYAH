@@ -22,6 +22,7 @@ class AnalysisController extends Controller
     }
 
 
+
     public function destroy($analysisId){
         $report = Analysis_Result::find($analysisId);
         $report->delete();
@@ -32,21 +33,13 @@ class AnalysisController extends Controller
     }
 
 
+
     public function delete($requestId){
         $request = laboratory::find($requestId);
         $request -> delete();
 
         return to_route('analysis.index');
     }
-
-
-            // not completed
-    public function search(){
-        $search_text = $_GET['query'];
-        $analysis = Analysis_Result::where('title','LIKE','%'.$search_text.'%')->get();
-        return view('');
-    }
-
 
 
                 // not working
