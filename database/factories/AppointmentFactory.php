@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\appointment;
 use App\Models\doctor;
-use App\Models\mother;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,11 +21,11 @@ class AppointmentFactory extends Factory
 
     public function definition()
     {
-        $mother = mother::inRandomOrder()->first();
+        $mother = User::inRandomOrder()->first();
         $doctor = doctor::inRandomOrder()->first();
 
         return [
-            'mother_id' => $mother->id,
+            'user_id' => $mother->id,
             'doctor_id' => $doctor->id,
             'date' => $this->faker->date(),
             'time' => $this->faker->time(),

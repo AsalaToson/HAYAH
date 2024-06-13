@@ -15,6 +15,7 @@
 
 
 
+
 </head>
 
 <body id="body">
@@ -26,7 +27,7 @@
     <div class="sidebar">
         <a href="#"><img src="{{asset('images/logo.png')}}" alt=""  width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="/doctor_dashboard" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
 
 
@@ -133,7 +134,7 @@
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
                     <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
                     <div style="margin: 50px;">
-                        <h2 >340 Report</h2>
+                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
                         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
 
@@ -141,7 +142,7 @@
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
                     <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
                     <div style="margin: 50px;">
-                        <h2 >120 Appointment</h2>
+                        <h2 >{{App\Models\User::count()}} Patient</h2>
                         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
 
@@ -149,7 +150,7 @@
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
                     <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
                     <div style="margin: 50px;">
-                        <h2 >120 visits</h2>
+                        <h2 >{{App\Models\appointment::count()}} visits</h2>
                         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
 
@@ -161,8 +162,7 @@
 
 
 
-        </div>
-    </div>
+
 </div>
 <!--modal-->
 

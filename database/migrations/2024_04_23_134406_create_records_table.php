@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('sugar_rate');
             $table->string('medication');
             $table->foreignId('doctor_id')->constrained('doctors');
-            $table->foreignId('mother_id')->constrained('mothers');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
 
         });

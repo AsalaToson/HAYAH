@@ -14,11 +14,11 @@
 
 
                     <input type="hidden" name="doctor_id" value="{{$appointment->doctor->id}}">
-                    <input type="hidden" name="mother_id" value="{{$appointment->mother->id}}">
+                    <input type="hidden" name="user_id" value="{{$appointment->user->id}}">
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Required Tests</label>
-                        <textarea class="form-control" name="description" rows="6"></textarea>
+                        <textarea class="form-control col-md-10" name="description" rows="6"  ></textarea>
                     </div>
 
                 </div>

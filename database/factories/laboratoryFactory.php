@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\doctor;
 use App\Models\lab_doctor;
 use App\Models\laboratory;
-use App\Models\mother;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,13 +22,13 @@ class laboratoryFactory extends Factory
 
     public function definition()
     {
-        $mother = mother::inRandomOrder()->first();
+        $mother = User::inRandomOrder()->first();
         $doctor = doctor::inRandomOrder()->first();
         $lab_doctor = lab_doctor::inRandomOrder()->first();
 
         return [
             'description' => $this->generateDescription(),
-            'mother_id' => $mother->id,
+            'user_id' => $mother->id,
             'doctor_id' => $doctor->id,
             'labDoctor_id' => $lab_doctor->id,
         ];

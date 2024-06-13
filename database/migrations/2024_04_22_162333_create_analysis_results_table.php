@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('analysis_results', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('mother_id')->constrained('mothers');
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('doctor_id')->constrained('doctors');
             $table->foreignId('labDoctor_id')->default(1)->constrained('lab_doctors');
             $table->string('analysis_Name');

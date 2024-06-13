@@ -26,9 +26,9 @@ class Analysis_Result extends Model
         return $this->belongsTo(doctor::class, 'doctor_id');
     }
 
-    public function mother()
+    public function user()
     {
-        return $this->belongsTo(mother::class, 'mother_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

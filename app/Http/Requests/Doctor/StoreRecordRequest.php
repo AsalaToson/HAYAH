@@ -23,7 +23,7 @@ class StoreRecordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'mother_id' => 'required|exists:mothers,id',
+            'user_id' => 'required|exists:users,id',
             'blood_pressure' => 'required',
             'baby_size' => 'required',
             'Weight'=>'required',

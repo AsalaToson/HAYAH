@@ -50,59 +50,40 @@
             padding: 10px;
             margin-bottom: 20px;
         }
-        /*form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {*/
-        /*    width: 100%;*/
-        /*    padding: 12px;*/
-        /*    border: 1px solid #ccc;*/
-        /*    border-radius: 4px;*/
-        /*    box-sizing: border-box;*/
-        /*    margin-bottom: 20px;*/
-        /*    resize: vertical;*/
-        /*}*/
-        /*form input[type=submit] {*/
-        /*    background-color: #4CAF50;*/
-        /*    color: #fff;*/
-        /*    padding: 12px 20px;*/
-        /*    border: none;*/
-        /*    border-radius: 4px;*/
-        /*    cursor: pointer;*/
-        /*}*/
-        /*form input[type=submit]:hover {*/
-        /*    background-color: #3e8e41;*/
-        /*}*/
-        /*.download-button {*/
-        /*    background-color: #4CAF50; !* Green *!*/
-        /*    border: none;*/
-        /*    color: white;*/
-        /*    padding: 15px 32px;*/
-        /*    text-align: center;*/
-        /*    text-decoration: none;*/
 
-        /*    display: inline-block;*/
-        /*    font-size: 16px;*/
-        /*    margin: 4px 2px;*/
-        /*    cursor: pointer;*/
-        /*}*/
+        .download-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
 
-        /*.download-button:hover {*/
-        /*    background-color: #3e8e41;*/
-        /*}*/
-        /*.home-button {*/
-        /*    background-color: #4CAF50; !* Green *!*/
-        /*    border: none;*/
-        /*    color: white;*/
-        /*    padding: 15px 32px;*/
-        /*    text-align: center;*/
-        /*    text-decoration: none;*/
-        /*    display: inline-block;*/
-        /*    font-size: 16px;*/
-        /*    margin: 4px 2px;*/
-        /*    cursor: pointer;*/
-        /*}*/
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
 
-        /*.home-button:hover {*/
-        /*    background-color: #3e8e41;*/
-        /*}*/
+        .download-button:hover {
+            background-color: #3e8e41;
+        }
+        .home-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background-color: #3e8e41;
+        }
 
     </style>
 </head>
@@ -198,18 +179,18 @@
             {{--                    </tr>--}}
             {{--                </table>--}}
 
-            <table>
-                <h2>Billing Information</h2>
-                <tr>
-                    <th>Medical Bills</th>
-                    <td>100 LE</td>
-                </tr>
-                <tr>
-                    <th>Insurance Coverage</th>
-                    <td>60%</td>
-                </tr>
+{{--            <table>--}}
+{{--                <h2>Billing Information</h2>--}}
+{{--                <tr>--}}
+{{--                    <th>Medical Bills</th>--}}
+{{--                    <td>100 LE</td>--}}
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <th>Insurance Coverage</th>--}}
+{{--                    <td>60%</td>--}}
+{{--                </tr>--}}
 
-            </table>
+{{--            </table>--}}
 
     </div>
 </div>

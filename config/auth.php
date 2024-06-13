@@ -46,9 +46,9 @@ return [
             'provider' => 'admins',
         ],
 
-        'mother' => [
+        'user' => [
             'driver' => 'session',
-            'provider' => 'mothers',
+            'provider' => 'users',
         ],
 
         'doctor' => [

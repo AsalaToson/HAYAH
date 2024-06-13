@@ -2,26 +2,33 @@
 
 @section('content')
 <h1>Medical Report details</h1>
-<div class="inner_content">
     <div class="inner_content">
 
-                        <div>
-                        <a href="{{route('record.create',[$mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                                <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
-                            </button></a>
-                        </div>
+
 
                 <h3>Personal Information</h3><br>
+        <div class="dbody" style="display: flex; flex-direction: column;">
+            <table style="width: 100%;">
+                <tr>
+                    <th>Patient Name</th>
+                    <td>{{$mother->name}}</td>
+                </tr>
+                <tr>
+                    <th>Patient Age</th>
+                    <td>{{$mother->age}}</td>
+                </tr>
+                <tr>
+                    <th>Patient Phone</th>
+                    <td>{{$mother->phone}}</td>
+                </tr>
+                <tr>
+                    <th>Contact Details</th>
+                    <td>{{$mother->phone}}<br>{{$mother->email}}
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-
-                        <label>Patient Name :</label><br>
-                        <p>{{$mother->name}}</p>
-
-                       <label>Patient Age :</label><br>
-                       <p>{{$mother->age}}</p>
-
-                        <label>Contact Details :</label><br>
-                        <p>{{$mother->phone}}<br>{{$mother->email}}</p>
     <h3>Medical Report details</h3><br>
 
                 <table>
@@ -55,47 +62,25 @@
                             <p>{{ 'this patient has no medical records' }}</p></div>
                     @endif
                 </table>
+
         @if($lastTest)
-                                <h2>Test Results</h2>
-                                <table>
-                                    <tr>
-                                        <th>Test Name</th>
-{{--                                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
-                                        <td>{{$lastTest->analysis_Name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Test Results</th>
-                                        <td>{{$lastTest->photo}}</td>
-                                    </tr>
+                                <h3>Test Results</h3>
+<br>
+            <p><b>Test Name:</b>{{$lastTest->analysis_Name}}</p>
+            <!-- Add the image here -->
+            <img src="{{ asset($lastTest->photo) }}" alt="Report Image" class="img-fluid mt-3">
 
-                                </table>
 
-@else
+        @else
         <div class="alert alert-danger">
             <p>{{ 'this patient has no test results' }}</p></div>
 
 @endif
-
-
-
-{{--                                <table>--}}
-{{--                                    <h2>Prescription</h2>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>Previous Illnesses or Surgeries</th>--}}
-{{--                                        <td>None</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>Allergies</th>--}}
-{{--                                        <td>Pollen, peanuts</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>Medications</th>--}}
-{{--                                        <td>Aspirin (2 tablets every 4 hours)</td>--}}
-{{--                                    </tr>--}}
-{{--                                </table>--}}
-
-
-
+        <div>
+            <a href="{{route('record.create',[$mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                    <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
+                </button></a>
+        </div>
 
 
 @endsection

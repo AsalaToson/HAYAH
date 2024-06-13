@@ -25,8 +25,8 @@ class RedirectIfAuthenticated
             return redirect(RouteServiceProvider::ADMIN);
         }
 
-        if (auth('mother')->check()){
-            return redirect(RouteServiceProvider::MOTHER);
+        if (auth('user')->check()){
+            return redirect(RouteServiceProvider::User);
         }
 
         if (auth('doctor')->check()){

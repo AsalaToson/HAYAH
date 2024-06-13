@@ -409,5 +409,39 @@ h2{
     background-color: #D6EEEE;
     height: 80px;
 }
+.report-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
 
+.report-photo {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.dbody {
+
+    display: flex;
+
+    flex-direction: column; /* Ensure content stacks vertically */
+
+}
+
+/* Optional: If you want to add some padding to the image */
+
+.dbody img {
+
+    padding-top: 10px;
+
+    width: 50%;
+
+}
+
+table{
+
+    border: none;
+
+}
 

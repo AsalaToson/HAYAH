@@ -36,7 +36,7 @@ class doctor extends Authenticatable
 
     public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasmany(appointment::class, 'mother_id');
+        return $this->hasmany(appointment::class, 'user_id');
     }
 
     public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -44,9 +44,9 @@ class doctor extends Authenticatable
         return $this->hasmany(record::class);
     }
 
-    public function mothers(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    public function users(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
     {
-        return $this->hasManyThrough(mother::class, appointment::class, 'doctor_id', 'mother_id');
+        return $this->hasManyThrough(User::class, appointment::class, 'doctor_id', 'user_id');
     }
 }
 //

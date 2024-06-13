@@ -14,6 +14,19 @@ class AppointmentController extends Controller
         $appointments = appointment::all();
         return view('doctor.dashboard.appointment.index',compact('appointments'));
     }
+    public function month()
+    {
+        $currentMonth = date('m');
+        $appointments = appointment::where('date', 'like', '%' . $currentMonth . '%')->get();
+        return view('doctor.dashboard.appointment.index', compact('appointments'));
+    }
+
+    public function today()
+    {
+        $currentDate = date('Y-m-d');
+        $appointments = appointment::where('date', $currentDate)->get();
+        return view('doctor.dashboard.appointment.index', compact('appointments'));
+    }
     public function destroy($id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
         $appointment=appointment::findorFail($id);
