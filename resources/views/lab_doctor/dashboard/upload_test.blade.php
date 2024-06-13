@@ -11,6 +11,7 @@
             @csrf
             <div>
                 <input type="hidden" name="mother_id" id="mother-id" value="{{$request->mother_id}}" required >
+                <input type="hidden" name="mother_name" id="mother-name" value="{{$request->mother->name}}" required >
                 <input type="hidden" name="doctor_id" id="doctor-id" value="{{$request->doctor_id}}" required >
                 <input type="hidden" name="lab_id" id="lab_doctor-id" value="{{$request->labDoctor_id}}" required >
                 <input type="hidden" name="analysis_name" id="analysis-name" value="{{$request->description}}" required >

@@ -21,8 +21,10 @@
               </div>
               <div class="col-md-4">
                   <div class="form-groups">
-                      <label for="search" id="Slabel">Search </label>
-                      <input type="text" class="form-control" id="search" placeholder="search ">
+                      <form class="form-inline my-2 my-lg-0" method="get" action="#">
+                      <input type="text" class="form-control" name="search" id="search" placeholder="Search ">
+                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                      </form>
                   </div>
               </div>
           </div>
@@ -43,9 +45,13 @@
             </thead>
             <tbody>
 
+            @php
+                $number = 1;
+            @endphp
+
             @foreach($allAnalysis as $analysis)
                 <tr>
-                    <td>{{$analysis -> id}}</td>
+                    <td>{{$number++}}</td>
                     <td>{{$analysis ->mother->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
@@ -61,10 +67,10 @@
                                 </button>
                             </form>
 
-                            <a href="{{route('details.show', $analysis->id)}}" class="btn btn-info">View</a>
-
-                    </div>
-                    </td>
+                            <a href="{{route('details.show' , $analysis->id)}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
+                                    <i class="fas far fa-eye"></i> view
+                                </button></a>
+                        </div></td>
       </tr>
             @endforeach
             </tbody>

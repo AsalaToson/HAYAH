@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('phone');
             $table->string('gender');
             $table->string('address');
+            $table->string('image')->nullable();
+            $table->string('experience');
             $table->timestamps();
         });
     }
