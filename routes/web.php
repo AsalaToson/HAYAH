@@ -1,13 +1,16 @@
 <?php
 
+
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AnalysisController;
+use App\Http\Controllers\AppointmentMotherController;
 use App\Http\Controllers\Doctor\AppointmentController;
 use App\Http\Controllers\Doctor\DoctorPatientsController;
 use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\Mother\MotherAppointmentController;
@@ -22,6 +25,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SectionController;
+use App\Models\doctor;
+use App\Models\schedule;
+use App\Models\section;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,9 +45,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/test1', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+Route::get('/home{id?}',[HomeController::class,'index'])->name('home');
 
 //*******************    admin dashboard     *****************
 Route::get('/admin_dashboard', function () {
@@ -51,7 +61,10 @@ Route::get('/admin_dashboard', function () {
 
 //*******************    mother dashboard     *****************
 Route::get('/mother_dashboard', function () {
-    return view('mother_dashboard');
+    $section = section::all();
+    $doctor = doctor::all();
+//    $schedule = schedule::all();
+    return view('mother_dashboard',compact('section','doctor'));
 })->middleware(['auth:mother', 'verified'])->name('dashboard.mother');
 //****************************
 
@@ -117,6 +130,13 @@ Route::middleware('auth:admin')->group(function () {
            //***********   for add or edit or show resources    **********
     Route::resource('resources', ResourcesController::class);
                             //**************
+    //***********   for add or edit or show appointment    **********
+    Route::get('/AppointmentMother', [AppointmentMotherController::class,"index"])->name("AppointmentMother.index");
+    Route::get('/AppointmentApproval/{id}', [AppointmentMotherController::class,"approval"])->name("AppointmentApproval.approval");
+    Route::get('/AppointmentMotherDisplay', [AppointmentMotherController::class,"display"])->name("AppointmentMother.display");
+    Route::post('/AppointmentMother/store', [AppointmentMotherController::class,"store"])->name("AppointmentMother.store");
+    Route::get('/AppointmentUnpproval/{id}', [AppointmentMotherController::class,"unapproval"])->name("AppointmentApproval.unapproval");
+    //**************
 
 });
 //                   *******************************
@@ -167,6 +187,8 @@ Route::middleware('auth:mother')->group(function () {
     Route::get('/doctors/show/{id}', [MotherPagesController::class, 'doctors'])->name('doctors.show');
     Route::get('/department/show/{id}', [MotherPagesController::class, 'departments'])->name('departments.show');
 
+
+    Route::post('/MotherAppointment', [MotherAppointmentController::class,"store"])->name("MotherAppointment.store");
 });
 
 
