@@ -18,44 +18,45 @@ class AppointmentConfirmation extends Mailable
      * Create a new message instance.
      */
 
-    public function __construct($name, $appointment)
-    {
+    public function __construct($name,$appointment)
+   {
         $this->name = $name;
         $this->appointment = $appointment;
-    }
+  }
     /**
      * Get the message envelope.
      */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Appointment Confirmation',
-        );
-    }
+//    public function envelope(): Envelope
+//    {
+//        return new Envelope(
+//            subject: 'Appointment Confirmation',
+//        );
+//    }
 
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            markdown: 'emails.appointments',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
-    }
+//    /**
+//     * Get the message content definition.
+//     */
+//    public function content(): Content
+//    {
+//        return new Content(
+//            markdown: 'emails.appointments',
+//        );
+//    }
+//
+//    /**
+//     * Get the attachments for the message.
+//     *
+//     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+//     */
+//    public function attachments(): array
+//    {
+//        return [];
+//    }
 
     public function build(): AppointmentConfirmation
     {
         return $this->markdown('emails.appointments')->subject('Confirm appointment');
+//        return $this->view('emails.appointments');
     }
 
 }
