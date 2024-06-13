@@ -1,11 +1,13 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
-    @if (session('success'))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+            @if(session('name'))
+                - {{ session('name') }}
+            @endif
         </div>
-
     @endif
       <h1>All Requests</h1>
       <div class="inner_content">
@@ -50,10 +52,14 @@
                 </thead>
                 <tbody>
 
-                @foreach($requests as $request)
-                    <tr>
+                @php
+                    $number = 1;
+                @endphp
 
-                        <td>{{$request -> id}}</td>
+                @foreach($requests as $request)
+
+                    <tr>
+                        <td>{{$number++}}</td>
                         <td>{{$request ->mother->name}} </td>
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
@@ -92,7 +98,6 @@
 
  </div>
 
-
-
     </div>
+
 @endsection

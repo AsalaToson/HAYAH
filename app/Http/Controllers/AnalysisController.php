@@ -22,6 +22,7 @@ class AnalysisController extends Controller
     }
 
 
+
     public function destroy($analysisId){
         $report = Analysis_Result::find($analysisId);
         $report->delete();
@@ -32,12 +33,14 @@ class AnalysisController extends Controller
     }
 
 
+
     public function delete($requestId){
         $request = laboratory::find($requestId);
         $request -> delete();
 
         return to_route('analysis.index');
     }
+
 
                 // not working
     Public function downloadPdf(string $id): \Illuminate\Http\Response

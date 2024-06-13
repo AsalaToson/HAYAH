@@ -25,6 +25,7 @@ class LabDoctorSeeder extends Seeder
             'phone' => '01017553080',
             'gender' => 'male',
             'address' => '.',
+            'experience' => '2 years',
         ]);
     }
 }

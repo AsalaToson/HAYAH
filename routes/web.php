@@ -8,6 +8,7 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\Mother\MotherAppointmentController;
@@ -84,6 +85,12 @@ Route::middleware('auth:lab_doctor')->group(function (){
     Route::get('/analysis_details/{analysis}',[AnalysisController::class,'show'])->name('details.show');
     Route::delete('/analysis/{analysis}' , [AnalysisController::class , 'destroy'])->name('analysis.destroy');
     Route::delete('/request/{request}' , [AnalysisController::class , 'delete'])->name('request.destroy');
+
+    //profile
+    Route::get('/labProfile/show', [LabDoctorProfileController::class, 'show'])->name('labProfile.show');
+    Route::get('/labProfile/edit', [LabDoctorProfileController::class, 'edit'])->name('labProfile.edit');
+    Route::put('/labProfile/update',[LabDoctorProfileController::class,'update'])->name('labProfile.update');
+
 
 });
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Lab Doctor Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="icon" type="image/png" href="{{asset('../../images/logo.png')}}"/>
     <link rel="stylesheet" href="{{asset("../../css/bootstrap.css")}}">
 
@@ -91,7 +92,7 @@
 
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
-                                <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
+                                <a class="dropdown-item" href="{{route("labProfile.show")}}" ><i class="fa fa-user" aria-hidden="true"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
                                     My schedule</a>
