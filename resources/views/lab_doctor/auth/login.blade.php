@@ -4,40 +4,58 @@
 	<title>Login Form</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/iconic/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animation/css/animation.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
 </head>
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../assets/images/ff.jpg');">
+		<div class="container-login100" style="background-image: url('{{ asset('assets/images/ff.jpg') }}');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
+
 				<form class="login100-form validate-form" method="POST" action="{{ route('login.lab_doctor') }}" >
                     @csrf
 					<span class="login100-form-title p-b-49">
-						HAYAH Login
+						HAYAH Login as Lab Doctor
 					</span>
+
+                    <!-- Display error messages -->
+                    @if ($errors->any())
+                        <div>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
 						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Type your username">
+						<input class="input100" type="email" name="email" :value="old('email')" placeholder="Enter your username" autocomplete="username">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Type your password">
+						<input class="input100" type="password" name="password" placeholder="Enter your password" autocomplete="current-password">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
 					</div>
 
 
@@ -76,21 +94,15 @@
 
 	<div id="dropDownSelect1"></div>
 
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<script src="vendor/select2/select2.min.js"></script>
-
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-
-	<script src="js/main.js"></script>
+    <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/animation/js/animation.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
 </body>
 </html>
