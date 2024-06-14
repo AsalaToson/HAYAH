@@ -46,10 +46,13 @@ Route::middleware('guest')->group(function () {
                            //****************************
 
               //*******************    mother login     *****************
+
 //    Route::get('login/user' , [UserAuthController::class , 'create'])->name('user.login') ;
 //
 //    Route::post('login', [UserAuthController::class, 'store'])
 //        ->name('login.user');
+=======
+
                         //****************************
 
             //*******************    lab_doctor login     *****************

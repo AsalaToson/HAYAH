@@ -22,7 +22,8 @@ RouteServiceProvider extends ServiceProvider
     public const HOME = '/mother_dashboard';
     public const ADMIN = '/admin_dashboard';
 
-//    public const User = '/mother_dashboard';
+
+  
 
     public const DOCTOR = '/doctor_dashboard';
 
