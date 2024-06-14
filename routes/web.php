@@ -10,6 +10,7 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+//use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\RequestController;
@@ -45,7 +46,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/test1', function () {
+//Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
 

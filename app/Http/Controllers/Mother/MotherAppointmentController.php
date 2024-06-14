@@ -43,7 +43,7 @@ class MotherAppointmentController extends Controller
             ]);
 
             // send email
-            Mail::to($appointment->email)->send(new AppointmentConfirmation($appointment->name, $appointment->appointment));
+         Mail::to($appointment->email)->send(new AppointmentConfirmation($appointment->name, $appointment->appointment));
 
             session()->flash('add');
             return back();
@@ -66,16 +66,8 @@ class MotherAppointmentController extends Controller
         session()->flash('add');
         return redirect()->route('dashboard.mother');
     }
-
-
-
-    public function chatify()
-    {
-
-    }
 }
 
-//
 // public function destroy($id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
 // {
 //     Appointment::destroy($id);
