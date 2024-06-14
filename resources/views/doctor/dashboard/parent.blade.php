@@ -24,7 +24,7 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">

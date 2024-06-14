@@ -22,7 +22,7 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main" style="height: 100vh;">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar" >
