@@ -48,7 +48,7 @@
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('mother')->user()->id])}}">Our Services</a>
+                            <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('web')->user()->id])}}">Our Services</a>
                         </li>
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
                             <a class="nav-link scroll" href="#">pregnancy</a>
@@ -61,19 +61,24 @@
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="{{route('contactus.show',[Auth::guard('mother')->user()->id])}}">contact us</a>
+                            <a class="nav-link scroll" href="{{route('contactus.show',[Auth::guard('web')->user()->id])}}">contact us</a>
+                        </li>
+
+
+                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
+                            <a class="nav-link scroll" href="{{route('chatify')}}">Community Chating </a>
                         </li>
 
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" aria-haspopup="true">
                                 <i class="fa fa-user"></i>
-                                {{Auth::guard('mother')->user()->name}}
+                                {{Auth::guard('web')->user()->name}}
 
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown2" style="height: 150px; width: 200px; display: none;" id="dropdownContent">
                                 <a class="dropdown-item" href="{{route('MProfile.show')}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-                                 <a class="dropdown-item" href="{{route('record.show',[Auth::guard('mother')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
+                                 <a class="dropdown-item" href="{{route('record.show',[Auth::guard('web')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>
                             </div>

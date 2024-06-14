@@ -16,7 +16,7 @@ return new class extends Migration
 
                 $table->id();
                 $table->longText('description');
-                $table->foreignId('mother_id')->references('id')->on('mothers')->onDelete('cascade');
+                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
                 $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
                 $table->unsignedBigInteger('labDoctor_id')->default(1);
                 $table->foreign('labDoctor_id')->references('id')->on('lab_doctors');

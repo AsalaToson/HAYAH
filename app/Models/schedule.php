@@ -22,8 +22,14 @@ class schedule extends Model
         return $this->belongsTo(section::class,'section_id');
     }
 
+//    public function mother()
+//    {
+//        return $this->belongsTo(mother::class,'mother_id');
+//    }
+
+
     public function mother()
     {
-        return $this->belongsTo(mother::class,'mother_id');
+        return $this->belongsTo(User::class,'mother_id');
     }
 }

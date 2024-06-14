@@ -23,14 +23,20 @@
                     <form action="/search" class="col-md-4">
                         <div class="form-groups">
                             <label for="search" id="Slabel">Search </label>
-                            <input type="text"  name="query" class="form-control" id="search" placeholder="search.... ">
+                            <input type="text" name="query" class="form-control" id="search">
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="container2">
-
+                <div class="row mb-3">
+                    <div class="col-md-12 text-right">
+                        <a href="{{ route('tests.index') }}" class="btn btn-primary">All</a>
+                        <a href="{{ route('tests.month') }}" class="btn btn-primary">This Month</a>
+                        <a href="{{ route('tests.today') }}" class="btn btn-primary">Today</a>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
 
@@ -39,6 +45,7 @@
                             <th> Patient Name </th>
                             <th>Doctor Name</th>
                             <th>Test Name</th>
+                            <th>Date</th>
                             <td>Operations</td>
                         </tr>
                         </thead>
@@ -46,17 +53,19 @@
                         @if (isset($requests))
                             @foreach ($requests as $request)
                                 <tr>
-                                    <td>{{$request->mother->name}} </td>
+                                    <td>{{$request->user->name}} </td>
                                     <td>{{$request->doctor->name}}</td>
-                                    <td>{{$request->description}}</td>
-                                    @if($request->doctor_id == Auth::guard('doctor')->user()->id)
+                                    <td>{{$request->analysis_Name}}</td>
+                                    <td>{{$request->test_date}}</td>
+
+                                    {{--                                    @if($request->doctor_id == Auth::guard('doctor')->user()->id)--}}
                                     <td><div class="container3" style="display: flex;">
-                                               <!-- Edit Button with Edit Icon -->
-                                                 <a href="{{route('test.edit')}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
-                                                    <i class="fas fa-edit"></i> Edit
-                                                  </button></a>
-                                            @endif
-                                            <a href="{{route('tests.show',[$request->mother->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
+{{--                                               <!-- Edit Button with Edit Icon -->--}}
+{{--                                                 <a href="{{route('test.edit')}}"> <button type="button" class="btn btn-primary"  id="dbutton" >--}}
+{{--                                                    <i class="fas fa-edit"></i> Edit--}}
+{{--                                                  </button></a>--}}
+{{--                                            @endif--}}
+                                            <a href="{{route('tests.show',[$request->id])}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
                                                     <i class="fas far fa-eye"></i> view
                                                 </button></a>
                                         </div></td>

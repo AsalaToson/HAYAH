@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Analysis_Result;
 use App\Models\laboratory;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class AnalysisController extends Controller
@@ -22,6 +23,7 @@ class AnalysisController extends Controller
     }
 
 
+
     public function destroy($analysisId){
         $report = Analysis_Result::find($analysisId);
         $report->delete();
@@ -32,6 +34,7 @@ class AnalysisController extends Controller
     }
 
 
+
     public function delete($requestId){
         $request = laboratory::find($requestId);
         $request -> delete();
@@ -39,14 +42,15 @@ class AnalysisController extends Controller
         return to_route('analysis.index');
     }
 
-                // not working
+
+                //working
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {
-        $analysis = Analysis_Result::findorfail($id);
-        $data['analysis'] = $analysis;
-        $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data);
+        $tests=Analysis_Result::find($id);
+        $data['analysis_results']=$tests->analysis_results;
+        $pdf=Pdf::loadview('doctor.dashboard.analysisreport.pdf',$data,compact('tests'));
 //        return $pdf->stream();
-        return $pdf->download('reports.pdf');
+        return $pdf->download('TestReport.pdf');
 
     }
 

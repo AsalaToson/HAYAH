@@ -24,10 +24,12 @@ class DatabaseSeeder extends Seeder
 
             SectionSeeder::class,
             DoctorSeeder::class,
-            MotherSeeder::class,
+            UserSeeder::class,
             AppointmentSeeder::class,
-//            RecordSeeder::class,
+            RecordSeeder::class,
             LabDoctorSeeder::class,
+            AnalysisResultSeeder::class,
+            LaboratoriesSeeder::class,
 
         ]);
     }

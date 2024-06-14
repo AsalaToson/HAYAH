@@ -1,70 +1,86 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <h1>Medical Analysis Results</h1>
+    <h1>Analysis Report  Details</h1>
+
     <div class="inner_content">
-
+        <h3>Report Details</h3>
+        <br>
         <hr>
-        <h3>Medical Analysis Results</h3>
-        <div class="profile" style="display: flex;" >
-            <div class="profileData">
-                <h2>{{$mother->name}}</h2>
-                @if ($tests)
-                    @foreach ($tests as $test)
-                <p><b>Date:</b>{{$test->created_at}}</p>
-                <p><b>Doctor Name:</b>{{$test->doctor->name}}</p>
+        <div class="dbody" style="display: flex; flex-direction: column;">
+            <table style="height: 100%;">
+                <tr>
+                    <th>Patient Name</th>
+                    <td>{{$tests->user->name}}</td>
+                </tr>
+                <tr>
+                    <th>Test Date</th>
+                    <td>{{$tests->created_at}}</td>
+                </tr>
+                <tr>
+                    <th>Doctor Name</th>
+                    <td>{{$tests->doctor->name}}</td>
+                </tr>
+                <tr>
+                    <th>Analysis Name</th>
+                    <td>{{$tests->analysis_Name}}
+                    </td>
+                </tr>
+            </table>
+            <br>
+          <h3>Test Result</h3>
+            <!-- Add the image here -->
+            <img src="{{ asset($tests->photo) }}" alt="Report Image" class="img-fluid mt-3">
+
+        </div>
+        <a href="{{route('test.pdf',[$tests->user->id])}}">
+            <button type="button" class="btn btn-close" id="dbutton">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                PDF
+            </button>
+        </a>
+        <a href="/doctor_dashboard"  class="btn btn-primary"  id="dbutton">Home</a>
+
+    </div>
+
+{{--    </div>--}}
+
+{{--    <h1>Medical Analysis Results</h1>--}}
+{{--    <div class="inner_content">--}}
+
+{{--        <hr>--}}
+{{--        <h3>Medical Analysis Results</h3>--}}
+{{--        <div class="profile" style="display: flex;" >--}}
+{{--            <div class="profileData">--}}
+{{--                <h2>{{$tests->user->name}}</h2>--}}
+{{--                <p><b>Date:</b>{{$tests->created_at}}</p>--}}
+{{--                <p><b>Doctor Name:</b>{{$tests->doctor->name}}</p>--}}
 {{--                <p><b>Lab Doctor Name:</b>{{$test->lab_doctor->name}}</p>--}}
-                <p><b>Analysis Name:</b>{{$test->analysis_Name}}</p>
-                        <img alt="" src="{{asset('app/public/'.$test->photo)}}">
+{{--                <p><b>Analysis Name:</b>{{$tests->analysis_Name}}</p>--}}
+{{--                    <h1>Anlaysis Report</h1>--}}
 
-                    @endforeach
-                @else
-                    <div class="alert alert-danger">
-                        <p>{{ 'this patient has no medical records' }}</p></div>
-                @endif
-            </div>
+{{--                        <!-- Add the image here -->--}}
+{{--                        <img src="{{ asset($tests->photo) }}" alt="Report Image" style="padding-top: 10px;--}}
+{{--        width: 50%;--}}
+{{--        " class="img-fluid mt-3">--}}
+
+{{--                    </div>--}}
+{{--                    <a href="#">--}}
+{{--                        <button type="button" class="btn btn-close" id="dbutton">--}}
+{{--                            <i class="fa fa-download" aria-hidden="true"></i>--}}
+{{--                            PDF--}}
+{{--                        </button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
 
-        </div>
-{{--        <div class="inner_content">--}}
+{{--        </div>--}}
 
-{{--            <h3>Medical Analysis Results</h3><br>--}}
-{{--            <p></p>--}}
 
-{{--            <table class="stable">--}}
-{{--                <tr class="str">--}}
-{{--                    <th class="sth">Date</th>--}}
-{{--                    <th class="sth">Doctor Name</th>--}}
-{{--                    <th class="sth">Lab Doctor Name</th>--}}
-{{--                    <th class="sth">Analysis Name</th>--}}
-
-{{--                </tr>--}}
-
-{{--                @if ($tests)--}}
-{{--                    @foreach ($tests as $test)--}}
-{{--                        <tr class="str">--}}
-{{--                            <td class="std">{{$test->created_at}}</td>--}}
-{{--                            <td class="std">{{$test->doctor->name}}</td>--}}
-{{--                            <td class="std">{{$test->lab_doctor->name}}</td>--}}
-{{--                            <td class="std">{{$test->analysis_Name}}</td>--}}
+{{--    </div>--}}
 
 
 
-{{--                        </tr>--}}
-
-{{--                    @endforeach--}}
-{{--                @else--}}
-{{--                    <div class="alert alert-danger">--}}
-{{--                        <p>{{ 'this patient has no medical records' }}</p></div>--}}
-{{--                @endif--}}
-
-{{--            </table><br>--}}
-
-
-
-
-{{--            <a href= "{{route('record.pdf',[$mother->id])}}"  class="btn btn-primary" >Download</a>--}}
-            <a href="/doctor_dashboard" class="btn btn-primary">Home</a>
-        </div>
 
 @endsection

@@ -46,10 +46,10 @@ return [
             'provider' => 'admins',
         ],
 
-        'mother' => [
-            'driver' => 'session',
-            'provider' => 'mothers',
-        ],
+//        'user' => [
+//            'driver' => 'session',
+//            'provider' => 'users',
+//        ],
 
         'doctor' => [
             'driver' => 'session',

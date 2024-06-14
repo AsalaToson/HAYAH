@@ -1,11 +1,13 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
-    @if (session('success'))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+            @if(session('name'))
+                -> {{ session('name') }}
+            @endif
         </div>
-
     @endif
       <h1>All Requests</h1>
       <div class="inner_content">
@@ -25,12 +27,12 @@
                       </select>
                   </div>
               </div>
-              <div class="col-md-4">
+              <form action="#" class="col-md-4">
                   <div class="form-groups">
                       <label for="search" id="Slabel">Search </label>
-                      <input type="text" class="form-control" id="search" placeholder="search ...">
+                      <input type="text" name="query" class="form-control" id="search">
                   </div>
-              </div>
+              </form>
           </div>
       </div>
 
@@ -50,11 +52,15 @@
                 </thead>
                 <tbody>
 
-                @foreach($requests as $request)
-                    <tr>
+                @php
+                    $number = 1;
+                @endphp
 
-                        <td>{{$request -> id}}</td>
-                        <td>{{$request ->mother->name}} </td>
+                @foreach($requests as $request)
+
+                    <tr>
+                        <td>{{$number++}}</td>
+                        <td>{{$request ->User->name}} </td>
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
 
@@ -92,7 +98,6 @@
 
  </div>
 
-
-
     </div>
+
 @endsection

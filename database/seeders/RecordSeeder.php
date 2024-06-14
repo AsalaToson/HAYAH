@@ -16,16 +16,6 @@ class RecordSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('records')->delete();
-        record::create([
-        'mother_id' => 1,
-                'bloodPressure' => 120,
-                'weight' => 65.5,
-                'babySize' => 'Normal',
-
-                'sugarRate' => 80,
-                'medication' => 'None',
-//                'confirmation' => 1,
-                'doctor_id' => 1,]);
+        record::factory()->count(60)->create();
     }
 }

@@ -10,13 +10,13 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
-use App\Http\Controllers\Mother\MotherLabController;
-use App\Http\Controllers\Mother\MotherPagesController;
+use App\Http\Controllers\Mother\BrowsePagesController;
 use App\Http\Controllers\Mother\MotherprofileController;
 use App\Http\Controllers\Mother\MotherRecordController;
 use App\Http\Controllers\MotherController;
@@ -45,9 +45,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test1', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/test1', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -65,7 +65,7 @@ Route::get('/mother_dashboard', function () {
     $doctor = doctor::all();
 //    $schedule = schedule::all();
     return view('mother_dashboard',compact('section','doctor'));
-})->middleware(['auth:mother', 'verified'])->name('dashboard.mother');
+})->middleware(['auth:web', 'verified'])->name('dashboard.mother');
 //****************************
 
 //*******************    doctor dashboard     *****************
@@ -91,12 +91,19 @@ Route::middleware('auth:lab_doctor')->group(function (){
     Route::get('/requests',[RequestsController::class,'index'])->name('requests.index');
     Route::get('/add_analysis/{request}' , [RequestsController::class , 'create'])->name('add_analysis.create');
     Route::post('/analysis' , [RequestsController::class , 'store'])->name('analysis.store');
+    Route::get('download/LTest/{id}', [AnalysisController::class,'downloadPdf'])->name("LTest.pdf");
 
 
     Route::get('/all_analysis',[AnalysisController::class,'index'])->name('analysis.index');
     Route::get('/analysis_details/{analysis}',[AnalysisController::class,'show'])->name('details.show');
     Route::delete('/analysis/{analysis}' , [AnalysisController::class , 'destroy'])->name('analysis.destroy');
     Route::delete('/request/{request}' , [AnalysisController::class , 'delete'])->name('request.destroy');
+
+    //profile
+    Route::get('/labProfile/show', [LabDoctorProfileController::class, 'show'])->name('labProfile.show');
+    Route::get('/labProfile/edit', [LabDoctorProfileController::class, 'edit'])->name('labProfile.edit');
+    Route::put('/labProfile/update',[LabDoctorProfileController::class,'update'])->name('labProfile.update');
+
 
 });
 
@@ -144,6 +151,8 @@ Route::middleware('auth:admin')->group(function () {
 /******************************doctor permissions***********************/
 Route::middleware('auth:doctor')->group(function () {
     Route::get('/appointments', [AppointmentController::class,'index'])->name("appointments.index");
+    Route::get('/appointments/month', [AppointmentController::class,'month'])->name('appointments.month');
+    Route::get('/appointments/today', [AppointmentController::class,'today'])->name('appointments.today');
     Route::delete('/appointments/delete/{id}', [AppointmentController::class,'destroy'])->name("appointments.destroy");
     Route::get('/profile/show', [DoctorProfileController::class, 'showProfile'])->name('profile.show');
     Route::get('/profile/edit', [DoctorProfileController::class, 'editProfile'])->name('profile.edit');
@@ -155,24 +164,28 @@ Route::middleware('auth:doctor')->group(function () {
     Route::post('/laboratory/store', [LabController::class,'store'])->name("laboratory.store");
     Route::resource('records',RecordController::class);
     Route::get('/tests', [LabController::class,'index'])->name("tests.index");
+    Route::get('/tests/month', [LabController::class,'month'])->name("tests.month");
+    Route::get('/tests/today', [LabController::class,'today'])->name("tests.today");
     Route::get('/test/show/{id}', [LabController::class,'show'])->name("tests.show");
     Route::get('/test/edit', [LabController::class, 'editTest'])->name('test.edit');
     Route::put('/test/update',[LabController::class,'updateTest'])->name('test.update');
+    Route::get('download/Test/{id}', [LabController::class,'downloadPdf'])->name("test.pdf");
     Route::get('/record/show/{id}', [RecordController::class, 'show'])->name('record.show');
     Route::get('/record/show/{id}', [RecordController::class, 'showLast'])->name('lRecord.show');
     Route::get('/search', [AppointmentController::class,'search']);
-    Route::get('/search', [RecordController::class,'search']);
+    Route::get('/rsearch', [RecordController::class,'search']);
+    Route::get('/search', [LabController::class,'search']);
     Route::get('/patients', [DoctorPatientsController::class,'index'])->name('patients.index');
 
 });
 /************************** Public Views For mother*********************/
-Route::prefix("mother/")->name("mother.")->group(function (){
+Route::prefix("user/")->name("user.")->group(function (){
     Route::get("login" , [MotherController::class , "showLoginForm"])->name("login");
     Route::post("login" , [MotherController::class , "login"])->name("login");
 });
 ////*********n********************mother permissions***********************/
 
-Route::middleware('auth:mother')->group(function () {
+Route::middleware('auth:web')->group(function () {
     Route::get('/MProfile/show', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
     Route::put('/MProfile/update',[MotherProfileController::class,'updateProfile'])->name('MProfile.update');
@@ -180,15 +193,17 @@ Route::middleware('auth:mother')->group(function () {
     Route::get('show/record/{id}', [MotherRecordController::class,'show'])->name("record.show");
     Route::put('appointments/approval/{id}',[MotherAppointmentController::class,'approval'])->name('appointments.approval');
     Route::get('appointments/approval',[MotherAppointmentController::class,'index2'])->name('appointments.index2');
-    Route::get('/service/show/{id}', [MotherPagesController::class, 'service'])->name('service.show');
-    Route::get('/appointment/show/{id}', [MotherPagesController::class, 'appointment'])->name('appointment.show');
-    Route::get('/contactus/show/{id}', [MotherPagesController::class, 'contactus'])->name('contactus.show');
-    Route::get('/doctor/show/{id}', [MotherPagesController::class, 'doctor_profile'])->name('doctor.show');
-    Route::get('/doctors/show/{id}', [MotherPagesController::class, 'doctors'])->name('doctors.show');
-    Route::get('/department/show/{id}', [MotherPagesController::class, 'departments'])->name('departments.show');
+    Route::get('/service/show/{id}', [BrowsePagesController::class, 'service'])->name('service.show');
+    Route::get('/appointment/show/{id}', [BrowsePagesController::class, 'appointment'])->name('appointment.show');
+    Route::get('/contactus/show/{id}', [BrowsePagesController::class, 'contactus'])->name('contactus.show');
+    Route::get('/doctor/show/{id}', [BrowsePagesController::class, 'doctor_profile'])->name('doctor.show');
+    Route::get('/doctors/show/{id}', [BrowsePagesController::class, 'doctors'])->name('doctors.show');
+    Route::get('/department/show/{id}', [BrowsePagesController::class, 'departments'])->name('departments.show');
 
 
     Route::post('/MotherAppointment', [MotherAppointmentController::class,"store"])->name("MotherAppointment.store");
+
+//    Route::get('/chatify', [MotherAppointmentController::class, 'chatify'])->name('chatify');
 });
 
 

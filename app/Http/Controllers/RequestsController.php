@@ -29,16 +29,18 @@ class RequestsController extends Controller
     public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         request()->validate([
-            'mother_id' => ['required' , 'min:1'],
+            'user_id' => ['required' , 'min:1'],
             'doctor_id' => ['required' , 'min:1'],
             'lab_id' => ['required' , 'min:1'],
             'analysis_name' => ['required' , 'min:3'],
             'photo' => ['required'],
         ]);
-        $m_id = request()->mother_id;
+        $m_id = request()->user_id;
         $d_id = request()->doctor_id;
         $l_id = request()->lab_id;
         $a_name = request()->analysis_name;
+
+        $m_name = request()->user_name;
 
                 // upload photo
         $fileName = time().$request->file('photo')->getClientOriginalName();
@@ -47,14 +49,17 @@ class RequestsController extends Controller
 
 
         Analysis_Result::create([
-            'mother_id' => $m_id,
+            'user_id' => $m_id,
             'doctor_id' => $d_id,
             'labDoctor_id' => $l_id,
             'analysis_Name' => $a_name,
             'photo' => $photoPath,
 
         ]);
-        return redirect('/requests')->with('success','Analysis Report Added successfully');
+        return redirect('/requests')->with([
+            'success' => 'Analysis Report Added successfully for patient number ',
+            'name' => $m_name
+        ]);
     }
 
 

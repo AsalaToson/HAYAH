@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mother_id')->constrained('mothers');
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('doctor_id')->constrained('doctors');
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->string('status')->default('pending');
             $table->decimal('fee')->nullable();
-            $table->enum('type',['Uncertain','Certain','Deadline expired'])->default('Uncertain');
-            $table->string('name');
+//            $table->enum('type',['Uncertain','Certain','Deadline expired'])->default('Uncertain');
+//            $table->string('name');
             $table->string('email');
             $table->string('phone');
            // $table->dateTime('appointment')->nullable();

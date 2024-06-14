@@ -121,7 +121,8 @@
                 <div class="desktoplogo">
                     <a href="#hero-1"
                     ><img
-                            src="{{asset('site/images/logo2.png')}}"
+                            src="{{asset('site/assets/images/logo2.png')}}"
+
                             width="180"
                             height="40"
                             alt="header-logo"
@@ -234,7 +235,7 @@
                         <div class="content-block-img text-center">
                             <img
                                 class="img-fluid"
-                                src="{{asset('site/images/sss.jpg')}}"
+                                src="{{asset('site/assets/images/sss.jpg')}}"
                                 alt="content-image"
                             />
                         </div>
@@ -418,10 +419,10 @@
                             luctus neque rhoncus ipsum tempor varius iaculis at luctus
                             neque rhoncus ipsum tempor varius cubilia laoreet augue vitae
                             laoreet augue undo cubilia feugiat suscipit
-                        </p>
+                        </p>+++++++++++++++++++++++++++++
 
                         <!-- Button -->
-                        <a href="{{route('appointment.show',[Auth::guard('mother')->user()->id])}}" class="btn btn-blue blue-hover"
+                        <a href="{{route('appointment.show',[Auth::guard('user')->user()->id])}}" class="btn btn-blue blue-hover"
                         >Book an Appointment</a
                         >
                     </div>
@@ -908,7 +909,7 @@
                         <!-- Footer Logo -->
                         <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80  pixels) -->
                         <img
-                            src="assets/{{asset('site/images/logo2.png')}}"
+                            src="{{asset('site/assets/images/logo2.png')}}"
                             width="180"
                             height="40"
                             alt="footer-logo"

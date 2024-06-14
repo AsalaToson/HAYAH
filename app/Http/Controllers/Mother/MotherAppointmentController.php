@@ -66,6 +66,13 @@ class MotherAppointmentController extends Controller
         session()->flash('add');
         return redirect()->route('dashboard.mother');
     }
+
+
+
+    public function chatify()
+    {
+
+    }
 }
 
 //

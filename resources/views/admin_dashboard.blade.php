@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -118,15 +121,147 @@
 
         </div>
 
-        <h1>دي داش بورد</h1>
+        <h1>Home...</h1>
+        <div class="inner_content">
+            <div style="display: flex;">
+
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                    </div>
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\User::count()}} Patient</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                    </div>
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\appointment::count()}} visits</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                    </div>
+
+                </div>
+
+            </div>
 
 
-    </div>
+            <div class="container-fluid dashboard-container">
+
+
+                <!-- Row 3: Medical Reports and Visits/Appointments -->
+                <div class="row">
+                    <div class="col-md-5 chart-container">
+                        <h5>Patient Demographics</h5>
+                        <canvas id="patientDemographicsChart"></canvas>
+                    </div>
+                    <div class="col-md-6 chart-container">
+                        <h5>Admin Activity</h5>
+                        <canvas id="adminActivityChart"></canvas>
+                    </div>
+                    <div class="col-md-6 chart-container">
+                        <h5>Satisfied Patients</h5>
+                        <canvas id="satisfiedPatientsChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
 
 
 </div>
+<script>  // Satisfied Patients Chart
+    const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
+    const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
+            datasets: [{
+                label: 'Patient Satisfaction',
+                data: [85, 10, 5],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
 
+    // Patient Demographics Chart
+    const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
+    const patientDemographicsChart = new Chart(patientDemographicsCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
+            datasets: [{
+                label: 'Demographics',
+                data: [200, 150, 80, 20],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+    // Admin Activity Chart
+    const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
+    const adminActivityChart = new Chart(adminActivityCtx, {
+        type: 'line',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+                label: 'Tasks Completed',
+                data: [50, 70, 80, 60],
+                fill: false,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+
+
+</script>
 
 
 
