@@ -15,13 +15,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main_2.css') }}">
 
 </head>
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('{{ asset('assets/images/ff.jpg') }}');">
+		<div class="container-login100" style="background-image: url('{{ asset('images/ff.jpg') }}');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
                 <!-- Session Status -->
@@ -102,7 +102,7 @@
     <script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
     <script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main_2.js') }}"></script>
 
 </body>
 </html>

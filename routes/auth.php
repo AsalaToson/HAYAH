@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
 
          //*******************    user login     *****************
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+                ->name('user.login');
 
     Route::post('login/user', [AuthenticatedSessionController::class, 'store'])->name('login.user');
                          //****************************
@@ -51,7 +51,7 @@ Route::middleware('guest')->group(function () {
 //
 //    Route::post('login', [UserAuthController::class, 'store'])
 //        ->name('login.user');
-=======
+
 
                         //****************************
 
