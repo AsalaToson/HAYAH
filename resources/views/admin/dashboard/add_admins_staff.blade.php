@@ -21,41 +21,33 @@
 
     <!-- sidebar-->
     <div class="sidebar">
-        <a href="#"><img src="../../images/logo.png" alt="" width="200" height="100"></a>
+        <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="../../dashboard.html" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-user-md"></i>     Doctors</a>
                 <ul class="sublist">
                     <li><a href="{{route('doctors.create')}}">Add Doctor</a></li>
-                    <li><a href="pages/Doctor/doctor_details.html">Doctor Details</a></li>
                     <li><a href="{{route('doctors.index')}}">All Doctors</a></li>
-                    <li><a href="pages/Doctor/edit_doctor.html">Edit Doctor</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="pages/Patients/all_patients.html">Patient Details</a></li>
                     <li><a href="{{route('patients.index')}}">All Patient</a></li>
-                    <li><a href="pages/Patients/edit_patient.html">Edit Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
                     <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
-                    <li><a href="pages/Stuff/stuff_details.html">Stuff Details</a></li>
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
-                    <li><a href="pages/Stuff/edit_stuff.html">EditStuff</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
-                    <li><a href="pages/appointments/add_appointment_form.html">Add Appointment </a></li>
-                    <li><a href="pages/appointments/appointment_details.html">Appointment Details</a></li>
-                    <li><a href="pages/appointments/all_appointment.html">All Appointments</a></li>
-                    <li><a href="pages/appointments/edit_appointment.html">Edit Appointment</a></li>
+                    <li><a href="{{route('AppointmentMother.display')}}">Add Appointment </a></li>
+                    <li><a href="{{route('AppointmentMother.index')}}">All Appointments</a></li>
                 </ul>
             </li>
 
@@ -63,9 +55,7 @@
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Departments</a>
                 <ul class="sublist">
                     <li><a href="{{route('sections.create')}}">Add department</a></li>
-                    <li><a href="pages/Department/department_details.html">Department Details</a></li>
                     <li><a href="{{route('sections.index')}}">All Departments</a></li>
-                    <li><a href="pages/Department/edit_department.html">Edit Department</a></li>
                 </ul>
             </li>
             <!-- <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Analysis Report</a>
@@ -79,16 +69,13 @@
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>
                 <ul class="sublist">
                     <li><a href="{{route('resources.create')}}">Add Resources</a></li>
-                    <li><a href="pages/Resources/resources_details.html">Resources Details</a></li>
                     <li><a href="{{route('resources.index')}}">All Resources</a></li>
-                    <li><a href="pages/Resources/edit_resources.html">Edit Resources</a></li>
                 </ul>
             </li>
 
-
-
         </ul>
     </div>
+
 
 
 

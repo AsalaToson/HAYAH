@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('details');
             $table->integer('phone');
             $table->string('address');
+
+//            $table->tinyInteger('is_online')->default(0);
+=======
+
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,14 +1,23 @@
 <?php
 
+
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AnalysisController;
+use App\Http\Controllers\AppointmentMotherController;
 use App\Http\Controllers\Doctor\AppointmentController;
 use App\Http\Controllers\Doctor\DoctorPatientsController;
 use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
+t
+//use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LabDoctor\RequestController;
+use App\Http\Controllers\LabDoctorController;
+=======
+
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
 use App\Http\Controllers\Mother\BrowsePagesController;
@@ -20,6 +29,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SectionController;
+use App\Models\doctor;
+use App\Models\schedule;
+use App\Models\section;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +53,10 @@ Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+Route::get('/home{id?}',[HomeController::class,'index'])->name('home');
+
 //*******************    admin dashboard     *****************
 Route::get('/admin_dashboard', function () {
     return view('admin_dashboard');
@@ -49,8 +65,14 @@ Route::get('/admin_dashboard', function () {
 
 //*******************    mother dashboard     *****************
 Route::get('/mother_dashboard', function () {
-    return view('mother_dashboard');
-})->middleware(['auth:user', 'verified'])->name('dashboard.mother');
+
+    $section = section::all();
+    $doctor = doctor::all();
+//    $schedule = schedule::all();
+    return view('mother_dashboard',compact('section','doctor'));
+})->middleware(['auth:web', 'verified'])->name('dashboard.mother');
+=======
+
 //****************************
 
 //*******************    doctor dashboard     *****************
@@ -122,6 +144,13 @@ Route::middleware('auth:admin')->group(function () {
            //***********   for add or edit or show resources    **********
     Route::resource('resources', ResourcesController::class);
                             //**************
+    //***********   for add or edit or show appointment    **********
+    Route::get('/AppointmentMother', [AppointmentMotherController::class,"index"])->name("AppointmentMother.index");
+    Route::get('/AppointmentApproval/{id}', [AppointmentMotherController::class,"approval"])->name("AppointmentApproval.approval");
+    Route::get('/AppointmentMotherDisplay', [AppointmentMotherController::class,"display"])->name("AppointmentMother.display");
+    Route::post('/AppointmentMother/store', [AppointmentMotherController::class,"store"])->name("AppointmentMother.store");
+    Route::get('/AppointmentUnpproval/{id}', [AppointmentMotherController::class,"unapproval"])->name("AppointmentApproval.unapproval");
+    //**************
 
 });
 //                   *******************************
@@ -163,7 +192,10 @@ Route::prefix("user/")->name("user.")->group(function (){
 });
 ////*********n********************mother permissions***********************/
 
-Route::middleware('auth:user')->group(function () {
+
+Route::middleware('auth:web')->group(function () {
+=======
+
     Route::get('/MProfile/show', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
     Route::put('/MProfile/update',[MotherProfileController::class,'updateProfile'])->name('MProfile.update');
@@ -178,6 +210,13 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/doctors/show/{id}', [BrowsePagesController::class, 'doctors'])->name('doctors.show');
     Route::get('/department/show/{id}', [BrowsePagesController::class, 'departments'])->name('departments.show');
 
+
+
+    Route::post('/MotherAppointment', [MotherAppointmentController::class,"store"])->name("MotherAppointment.store");
+=======
+
+
+//    Route::get('/chatify', [MotherAppointmentController::class, 'chatify'])->name('chatify');
 });
 
 
