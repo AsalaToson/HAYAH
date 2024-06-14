@@ -15,7 +15,6 @@
     <link href="{{asset(' site/assets/animate/animate.css')}}" rel="stylesheet">
 </head>
 
-<body>
 <div id="loader-wrapper">
     <div id="loader"><div class="loader-inner"></div></div>
 </div>
@@ -65,7 +64,7 @@
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="{{route('login')}}">login</a>
+                            <a class="nav-link scroll" href="{{route('login.page')}}">login</a>
                         </li>
 
 
@@ -358,433 +357,428 @@
 </section>
 <!-- //stats -->
 <!--/Our Vision-->
-<section class="w3l-blog py-5" id="blog">
-    <div class="container py-lg-5 py-md-4 py-2">
-        <div class="title-content text-center">
-            <h6 class="title-subhny text-center">Latest News</h6>
-            <h3 class="title-w3l pb-sm-o pb-2 text-center">Our Vision</h3>
-        </div>
-        <p> "Our vision is to be a top maternity hospital, offering compassionate and innovative care to empower expectant mothers and ensure the well-being of every mother and newborn. We aim to set high standards in
-            obstetric and gynecological healthcare through collaboration and continuous improvement, making a positive impact in our community."</p>
-        <h3 class="title-w3l pb-sm-o pb-2 text-center">Our Mission</h3>
-        <p>- Provide exceptional maternity care</p>
-        <p>- Support expectant mothers with compassion and expertise</p>
-        <p>- Innovate in obstetric and gynecological healthcare.</p>
-        <p>- Educate mothers with relevant information and resources</p>
-        <p>- Promote maternal and newborn health through personalized services .</p>
-</section>
-<!--Our Vision-->
-<!-- /w3l-content-3-->
-<section class="w3l-content-3 py-5">
-    <!-- /content-6-section -->
-    <div class="content-3-info py-3">
-        <div class="container py-lg-4">
-            <div class="row appointment-formw3">
-                <div class="col-lg-6 welcome-left">
-                    <h6 class="title-subhny mb-2">Free Appointment</h6>
-                    <h3 class="title-w3l two mb-3">Make an Appointment</h3>
-                    <livewire:appointment.create/>
-{{--                    <p class="mb-3">--}}
-{{--                        We believe in providing the best possible care to all our existing patients and welcomenew patients to--}}
-{{--                        sample.</p>--}}
-{{--                    <p>Lorem ipsum dolor sit amet,Ea consequuntur illum facere aperiam sequi optio adipisicing.</p>--}}
-{{--                    <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="contact.html">--}}
-{{--                        Contact Us</a>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-6 free-appointment pl-lg-5 mt-5">--}}
-{{--                    <div class="appointment-form">--}}
-{{--                        <form action="#" method="post">--}}
-{{--                            <div class="fields-grid">--}}
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <input type="text" name="fullname" placeholder="Full Name" required="">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <input type="email" name="email" placeholder="Enter Email" required="">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <input type="text" name="phone" placeholder="Enter Number" required="">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <input type="date" name="date" placeholder="Set a Date" required="">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <select id="department" required="Specialization">--}}
-{{--                                            <option value="">Specialization*</option>--}}
-{{--                                            <option value="">Obstetrics and Gynecology </option>--}}
-{{--                                            <option value="">Psychological Services</option>--}}
-{{--                                            <option value="">Neonatal Intensive Care Unit (NICU)</option>--}}
-{{--                                            <option value="">Nutrition and Dietetics</option>--}}
-{{--                                            <option value="">Pediatric and Neonatology </option>--}}
-{{--                                            <option value="">Family Planning and Contraception</option>--}}
-{{--                                            <option value="">Diagnostic Services</option>--}}
-{{--                                            <option value="">Physical Therapy and Rehabilitation</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="styled-input">--}}
-
-{{--                                    <div class="appointment-form-field">--}}
-
-{{--                                        <select id="doctor" required="Select Doctor">--}}
-{{--                                            <option value="">Select Doctor</option>--}}
-{{--                                            <option value="">Doctor 1</option>--}}
-{{--                                            <option value="">Doctor 2</option>--}}
-{{--                                            <option value="">Doctor 3</option>--}}
-{{--                                            <option value="">Doctor 4</option>--}}
-{{--                                            <option value="">Doctor 5</option>--}}
-{{--                                            <option value="">Doctor 6</option>--}}
-{{--                                            <option value="">Doctor 7</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                            </div>--}}
-{{--                            <div class="appointment-btn text-lg-right">--}}
-{{--                                <button type="submit" class="btn btn-style btn-primary mt-4">Book Appointment</button>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-<!-- //w3l-content-3-->
-<!-- testimonials section -->
-<section class="w3l-clients w3l-test pb-5" id="testimonials">
-    <div class="midd-w3 py-5">
-        <div class="container py-lg-5 py-md-4 pt-2 pb-lg-5">
-            <div class="title-content text-center">
-                <h6 class="title-subhny text-center">Happy Clients</h6>
-                <h3 class="title-w3l mb-sm-5 mb-4 pb-sm-o pb-2 text-center">What Our Clients Say</h3>
-            </div>
-            <div id="owl-demo2" class="owl-carousel owl-theme mt-4 py-md-2 mb-md-4">
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Pellen tesque libero ut justo</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>Johnson william</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Lorem ipsum dolor sit amet</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>Alexander sakura</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Pellen tesque libero ut justo</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>John wilson</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Lorem ipsum dolor sit amet</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>Julia sakura</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Pellen tesque libero ut justo</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>John wilson</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q>Lorem ipsum dolor sit amet.</q>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
-                                faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
-                                                                    alt="placeholder image"></a>
-                            <div class="people-info align-self">
-                                <h3>Julia sakura</h3>
-                                <p class="identity">Example City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container py-lg-5 py-md-4 py-2">
+    <div class="title-content text-center">
+        <h6 class="title-subhny text-center">Latest News</h6>
+        <h3 class="title-w3l pb-sm-o pb-2 text-center">Our Vision</h3>
     </div>
-</section>
-<!-- //testimonials section -->
+    <p> "Our vision is to be a top maternity hospital, offering compassionate and innovative care to empower expectant mothers and ensure the well-being of every mother and newborn. We aim to set high standards in
+        obstetric and gynecological healthcare through collaboration and continuous improvement, making a positive impact in our community."</p>
+    <h3 class="title-w3l pb-sm-o pb-2 text-center">Our Mission</h3>
+    <p>- Provide exceptional maternity care</p>
+    <p>- Support expectant mothers with compassion and expertise</p>
+    <p>- Innovate in obstetric and gynecological healthcare.</p>
+    <p>- Educate mothers with relevant information and resources</p>
+    <p>- Promote maternal and newborn health through personalized services .</p>
+    <!--Our Vision-->
+    <!-- /w3l-content-3-->
+    <section class="w3l-content-3 py-5">
+        <!-- /content-6-section -->
+        <div class="content-3-info py-3">
+            <div class="container py-lg-4">
+                <div class="row appointment-formw3">
+                    <div class="col-lg-6 welcome-left">
+                        <h6 class="title-subhny mb-2">Free Appointment</h6>
+                        <h3 class="title-w3l two mb-3">Make an Appointment</h3>
+                        {{--                    <p class="mb-3">--}}
+                        {{--                        We believe in providing the best possible care to all our existing patients and welcomenew patients to--}}
+                        {{--                        sample.</p>--}}
+                        {{--                    <p>Lorem ipsum dolor sit amet,Ea consequuntur illum facere aperiam sequi optio adipisicing.</p>--}}
+                        {{--                    <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="contact.html">--}}
+                        {{--                        Contact Us</a>--}}
+                        {{--                </div>--}}
+                        {{--                <div class="col-lg-6 free-appointment pl-lg-5 mt-5">--}}
+                        {{--                    <div class="appointment-form">--}}
+                        {{--                        <form action="#" method="post">--}}
+                        {{--                            <div class="fields-grid">--}}
+                        {{--                                <div class="styled-input">--}}
 
-<!-- footer -->
-<section class="w3l-footer-29-main">
-    <div class="footer-29 py-5">
-        <div class="container py-lg-4">
-            <div class="row footer-top-29">
-                <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
-                    <div class="footer-logo mb-3">
-                        <a class="navbar-brand" href="index.html"><span class="fa fa-heartbeat"></span>HAYAH</a>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur ipsum elit. Lorem ipsum dolor sit amet elit.</p>
-                    <ul class="mt-3">
-                        <li><a href="tel:+(21) 255 999 8888"><span class="fa fa-phone"></span> +(02) 123456789</a></li>
-                        <li><a href="HAYAH@gmail.com" class="mail"><span class="fa fa-envelope-open-o"></span>
-                                HAYAH</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+                        {{--                                    <div class="appointment-form-field">--}}
 
-                    <ul>
-                        <h6 class="footer-title-29">History</h6>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html"> Blog Posts</a></li>
-                        <li><a href="services.html">Departments</a></li>
-                        <li><a href="#careers"> Careers</a></li>
-                        <li><a href="about.html">Team</a></li>
-                        <li><a href="contact.html">Contact us</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-                    <h6 class="footer-title-29">Useful Links</h6>
-                    <ul>
-                        <li><a href="#terms">Terms of service</a></li>
-                        <li><a href="#privacy"> Privacy policy</a></li>
-                        <li><a href="#doc"> Documentation</a></li>
-                        <li><a href="#support"> Support</a></li>
-                        <li><a href="#components"> Components</a></li>
-                        <li><a href="#changelog"> Changelog</a></li>
-                    </ul>
+                        {{--                                        <input type="text" name="fullname" placeholder="Full Name" required="">--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="styled-input">--}}
 
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
-                    <h6 class="footer-title-29">Subscribe to our Newsletter </h6>
-                    <p>Enter your email and receive the latest news, updates and special offers from us.</p>
+                        {{--                                    <div class="appointment-form-field">--}}
 
-                    <form action="#" class="subscribe" method="post">
-                        <input type="email" name="email" placeholder="Your Email Address" required="">
-                        <button class="btn btn-style btn-primary w-100 mt-3">Subscibe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //footer -->
+                        {{--                                        <input type="email" name="email" placeholder="Enter Email" required="">--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="styled-input">--}}
 
-<!-- copyright -->
-<section class="w3l-copyright">
-    <div class="container">
-        <div class="row bottom-copies">
-            <p class="col-lg-8 copy-footer-29">© 2024 Design By HAYAH Team <a
-                    href="#" target="_blank">
-                    HAYAH</a></p>
+                        {{--                                    <div class="appointment-form-field">--}}
 
-            <div class="col-lg-4 main-social-footer-29">
-                <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
-                <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
-                <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
-                <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
-            </div>
+                        {{--                                        <input type="text" name="phone" placeholder="Enter Number" required="">--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
 
-        </div>
-    </div>
+                        {{--                                <div class="styled-input">--}}
 
-    <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        &#10548;
-    </button>
-    <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction()
-        };
+                        {{--                                    <div class="appointment-form-field">--}}
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("movetop").style.display = "block";
-            } else {
-                document.getElementById("movetop").style.display = "none";
-            }
-        }
+                        {{--                                        <input type="date" name="date" placeholder="Set a Date" required="">--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="styled-input">--}}
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-    <!-- /move top -->
-</section>
-<!-- //copyright -->
-<!--//footer-->
-<!-- Template JavaScript -->
-<script src=" {{asset('site/assets/js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{asset('site/assets/js/theme-change.js')}}></script>
+                        {{--                                    <div class="appointment-form-field">--}}
+
+                        {{--                                        <select id="department" required="Specialization">--}}
+                        {{--                                            <option value="">Specialization*</option>--}}
+                        {{--                                            <option value="">Obstetrics and Gynecology </option>--}}
+                        {{--                                            <option value="">Psychological Services</option>--}}
+                        {{--                                            <option value="">Neonatal Intensive Care Unit (NICU)</option>--}}
+                        {{--                                            <option value="">Nutrition and Dietetics</option>--}}
+                        {{--                                            <option value="">Pediatric and Neonatology </option>--}}
+                        {{--                                            <option value="">Family Planning and Contraception</option>--}}
+                        {{--                                            <option value="">Diagnostic Services</option>--}}
+                        {{--                                            <option value="">Physical Therapy and Rehabilitation</option>--}}
+                        {{--                                        </select>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="styled-input">--}}
+
+                        {{--                                    <div class="appointment-form-field">--}}
+
+                        {{--                                        <select id="doctor" required="Select Doctor">--}}
+                        {{--                                            <option value="">Select Doctor</option>--}}
+                        {{--                                            <option value="">Doctor 1</option>--}}
+                        {{--                                            <option value="">Doctor 2</option>--}}
+                        {{--                                            <option value="">Doctor 3</option>--}}
+                        {{--                                            <option value="">Doctor 4</option>--}}
+                        {{--                                            <option value="">Doctor 5</option>--}}
+                        {{--                                            <option value="">Doctor 6</option>--}}
+                        {{--                                            <option value="">Doctor 7</option>--}}
+                        {{--                                        </select>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+
+                        {{--                            </div>--}}
+                        {{--                            <div class="appointment-btn text-lg-right">--}}
+                        {{--                                <button type="submit" class="btn btn-style btn-primary mt-4">Book Appointment</button>--}}
+                        {{--                            </div>--}}
+                        {{--                        </form>--}}
+                        {{--                    </div>--}}
+                        {{--                </div>--}}
+                        {{--            </div>--}}
+                        {{--        </div>--}}
+                        {{--    </div>--}}
+                        {{--</section>--}}
+                        <!-- //w3l-content-3-->
+                        <!-- testimonials section -->
+                        <section class="w3l-clients w3l-test pb-5" id="testimonials">
+                            <div class="midd-w3 py-5">
+                                <div class="container py-lg-5 py-md-4 pt-2 pb-lg-5">
+                                    <div class="title-content text-center">
+                                        <h6 class="title-subhny text-center">Happy Clients</h6>
+                                        <h3 class="title-w3l mb-sm-5 mb-4 pb-sm-o pb-2 text-center">What Our Clients Say</h3>
+                                    </div>
+                                    <div id="owl-demo2" class="owl-carousel owl-theme mt-4 py-md-2 mb-md-4">
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Pellen tesque libero ut justo</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>Johnson william</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Lorem ipsum dolor sit amet</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>Alexander sakura</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Pellen tesque libero ut justo</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>John wilson</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Lorem ipsum dolor sit amet</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>Julia sakura</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Pellen tesque libero ut justo</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>John wilson</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="testimonial-content">
+                                                <div class="testimonial">
+                                                    <blockquote>
+                                                        <q>Lorem ipsum dolor sit amet.</q>
+                                                    </blockquote>
+                                                    <p>Lorem ipsum dolor sit amet elit. hic odio tenetur. ante ipsum primis in
+                                                        faucibus orci luctus.Vivamus a ligula quam tesque et libero ut justo, ultrices in. </p>
+                                                </div>
+                                                <div class="bottom-info mt-4">
+                                                    <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                                                                                            alt="placeholder image"></a>
+                                                    <div class="people-info align-self">
+                                                        <h3>Julia sakura</h3>
+                                                        <p class="identity">Example City</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- //testimonials section -->
+
+                        <!-- footer -->
+                        <section class="w3l-footer-29-main">
+                            <div class="footer-29 py-5">
+                                <div class="container py-lg-4">
+                                    <div class="row footer-top-29">
+                                        <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+                                            <div class="footer-logo mb-3">
+                                                <a class="navbar-brand" href="index.html"><span class="fa fa-heartbeat"></span>HAYAH</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet consectetur ipsum elit. Lorem ipsum dolor sit amet elit.</p>
+                                            <ul class="mt-3">
+                                                <li><a href="tel:+(21) 255 999 8888"><span class="fa fa-phone"></span> +(02) 123456789</a></li>
+                                                <li><a href="HAYAH@gmail.com" class="mail"><span class="fa fa-envelope-open-o"></span>
+                                                        HAYAH</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+
+                                            <ul>
+                                                <h6 class="footer-title-29">History</h6>
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="blog.html"> Blog Posts</a></li>
+                                                <li><a href="services.html">Departments</a></li>
+                                                <li><a href="#careers"> Careers</a></li>
+                                                <li><a href="about.html">Team</a></li>
+                                                <li><a href="contact.html">Contact us</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+                                            <h6 class="footer-title-29">Useful Links</h6>
+                                            <ul>
+                                                <li><a href="#terms">Terms of service</a></li>
+                                                <li><a href="#privacy"> Privacy policy</a></li>
+                                                <li><a href="#doc"> Documentation</a></li>
+                                                <li><a href="#support"> Support</a></li>
+                                                <li><a href="#components"> Components</a></li>
+                                                <li><a href="#changelog"> Changelog</a></li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+                                            <h6 class="footer-title-29">Subscribe to our Newsletter </h6>
+                                            <p>Enter your email and receive the latest news, updates and special offers from us.</p>
+
+                                            <form action="#" class="subscribe" method="post">
+                                                <input type="email" name="email" placeholder="Your Email Address" required="">
+                                                <button class="btn btn-style btn-primary w-100 mt-3">Subscibe</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- //footer -->
+
+                        <!-- copyright -->
+                        <section class="w3l-copyright">
+                            <div class="container">
+                                <div class="row bottom-copies">
+                                    <p class="col-lg-8 copy-footer-29">© 2024 Design By HAYAH Team <a
+                                            href="#" target="_blank">
+                                            HAYAH</a></p>
+
+                                    <div class="col-lg-4 main-social-footer-29">
+                                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- move top -->
+                            <button onclick="topFunction()" id="movetop" title="Go to top">
+                                &#10548;
+                            </button>
+                            <script>
+                                // When the user scrolls down 20px from the top of the document, show the button
+                                window.onscroll = function () {
+                                    scrollFunction()
+                                };
+
+                                function scrollFunction() {
+                                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                                        document.getElementById("movetop").style.display = "block";
+                                    } else {
+                                        document.getElementById("movetop").style.display = "none";
+                                    }
+                                }
+
+                                // When the user clicks on the button, scroll to the top of the document
+                                function topFunction() {
+                                    document.body.scrollTop = 0;
+                                    document.documentElement.scrollTop = 0;
+                                }
+                            </script>
+                            <!-- /move top -->
+                        </section>
+                        <!-- //copyright -->
+                        <!--//footer-->
+                        <!-- Template JavaScript -->
+                        <script src=" {{asset('site/assets/js/jquery-3.3.1.min.js')}}"></script>
+                        <script src="{{asset('site/assets/js/theme-change.js')}}></script>
 <!-- owl carousel -->
 <script src="{{asset('site/assets/js/owl.carousel.js')}}></script>
-<!-- script for tesimonials carousel slider -->
-<script>
-    $(document).ready(function () {
-        $("#owl-demo2").owlCarousel({
-            loop: true,
-            nav: false,
-            margin: 50,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: false
-                },
-                736: {
-                    items: 1,
-                    nav: false
-                },
-                991: {
-                    items: 2,
-                    margin: 30,
-                    nav: false
-                },
-                1080: {
-                    items: 3,
-                    nav: false
-                }
-            }
-        })
-    })
-</script>
-<!-- //script for tesimonials carousel slider -->
-<!-- stats number counter-->
-<script src="{{asset('site/assetassets/js/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('site/assets/js/jquery.countup.js')}}"></script>
-<script>
-    $('.counter').countUp();
-</script>
-<!-- //stats number counter -->
-<!-- disable body scroll which navbar is in active -->
-<script>
-    $(function () {
-        $('.navbar-toggler').click(function () {
-            $('body').toggleClass('noscroll');
-        })
-    });
-</script>
-<!-- disable body scroll which navbar is in active -->
+                        <!-- script for tesimonials carousel slider -->
+                        <script>
+                            $(document).ready(function () {
+                                $("#owl-demo2").owlCarousel({
+                                    loop: true,
+                                    nav: false,
+                                    margin: 50,
+                                    responsiveClass: true,
+                                    responsive: {
+                                        0: {
+                                            items: 1,
+                                            nav: false
+                                        },
+                                        736: {
+                                            items: 1,
+                                            nav: false
+                                        },
+                                        991: {
+                                            items: 2,
+                                            margin: 30,
+                                            nav: false
+                                        },
+                                        1080: {
+                                            items: 3,
+                                            nav: false
+                                        }
+                                    }
+                                })
+                            })
+                        </script>
+                        <!-- //script for tesimonials carousel slider -->
+                        <!-- stats number counter-->
+                        <script src="{{asset('site/assetassets/js/jquery.waypoints.min.js')}}"></script>
+                        <script src="{{asset('site/assets/js/jquery.countup.js')}}"></script>
+                        <script>
+                            $('.counter').countUp();
+                        </script>
+                        <!-- //stats number counter -->
+                        <!-- disable body scroll which navbar is in active -->
+                        <script>
+                            $(function () {
+                                $('.navbar-toggler').click(function () {
+                                    $('body').toggleClass('noscroll');
+                                })
+                            });
+                        </script>
+                        <!-- disable body scroll which navbar is in active -->
 
-<!--/MENU-JS-->
-<script>
-    $(window).on("scroll", function () {
-        var scroll = $(window).scrollTop();
+                        <!--/MENU-JS-->
+                        <script>
+                            $(window).on("scroll", function () {
+                                var scroll = $(window).scrollTop();
 
-        if (scroll >= 80) {
-            $("#site-header").addClass("nav-fixed");
-        } else {
-            $("#site-header").removeClass("nav-fixed");
-        }
-    });
+                                if (scroll >= 80) {
+                                    $("#site-header").addClass("nav-fixed");
+                                } else {
+                                    $("#site-header").removeClass("nav-fixed");
+                                }
+                            });
 
-    //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
-        $("header").toggleClass("active");
-    });
-    $(document).on("ready", function () {
-        if ($(window).width() > 991) {
-            $("header").removeClass("active");
-        }
-        $(window).on("resize", function () {
-            if ($(window).width() > 991) {
-                $("header").removeClass("active");
-            }
-        });
-    });
-</script>
-<!--//MENU-JS-->
+                            //Main navigation Active Class Add Remove
+                            $(".navbar-toggler").on("click", function () {
+                                $("header").toggleClass("active");
+                            });
+                            $(document).on("ready", function () {
+                                if ($(window).width() > 991) {
+                                    $("header").removeClass("active");
+                                }
+                                $(window).on("resize", function () {
+                                    if ($(window).width() > 991) {
+                                        $("header").removeClass("active");
+                                    }
+                                });
+                            });
+                        </script>
+                        <!--//MENU-JS-->
 
 
-<script src="{{asset('site/assets/js/bootstrap.min.js')}}"></script>
+                        <script src="{{asset('site/assets/js/bootstrap.min.js')}}"></script>
 
-</body>
-@livewireScripts
-</html>
+                        </div>
