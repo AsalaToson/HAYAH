@@ -14,6 +14,7 @@ use App\Http\Controllers\Doctor\Auth\DoctorAuthController;
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\Mother\Auth\MotherAuthController;
+use App\Http\Controllers\Mother\Auth\UserAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -45,10 +46,13 @@ Route::middleware('guest')->group(function () {
                            //****************************
 
               //*******************    mother login     *****************
-    Route::get('login/mother' , [MotherAuthController::class , 'create'])->name('mother.login') ;
 
-    Route::post('login', [MotherAuthController::class, 'store'])
-        ->name('login.mother');
+//    Route::get('login/user' , [UserAuthController::class , 'create'])->name('user.login') ;
+//
+//    Route::post('login', [UserAuthController::class, 'store'])
+//        ->name('login.user');
+=======
+
                         //****************************
 
             //*******************    lab_doctor login     *****************

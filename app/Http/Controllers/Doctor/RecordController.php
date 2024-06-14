@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Doctor\StoreRecordRequest;
-use App\Models\mother;
+use App\Models\User;
 use App\Models\record;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class RecordController extends Controller
     public function index()
     {
 
-        $mothers = mother::all();
+        $mothers = User::all();
         return view('doctor.dashboard.report.index',compact('mothers'));
 
     }
@@ -29,7 +29,7 @@ class RecordController extends Controller
      */
     public function create($id)
     {
-        $mother = mother::find($id);
+        $mother = User::find($id);
         return view('doctor.dashboard.report.create', compact('mother'));
     }
 
@@ -47,14 +47,14 @@ class RecordController extends Controller
 
     public function show(string $id)
     {
-        $mother=mother::findorfail($id);
+        $mother=User::findorfail($id);
         $records=$mother->records;
 //       dd($records);
         return view('doctor.dashboard.report.show-all-records',compact('records','mother'));
     }
     Public function showLast($id)
     {
-        $mother=mother::find($id);
+        $mother=User::find($id);
         $lastRecord=$mother->records()->latest()->first();
         $lastTest=$mother->analysis_results()->latest()->first();
         return view('doctor.dashboard.report.show',compact('lastRecord',"lastTest",'mother'));
@@ -62,7 +62,7 @@ class RecordController extends Controller
     }
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {
-        $mother=mother::findorfail($id);
+        $mother=User::findorfail($id);
         $data['records']=$mother->records;
         $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data,compact('mother'));
 //        return $pdf->stream();
@@ -80,7 +80,7 @@ class RecordController extends Controller
 
     function search(Request $request){
 
-        $mothers=mother::where('name','like','%'.$request->input('query').'%')->get();
+        $mothers=User::where('name','like','%'.$request->input('query').'%')->get();
         return view('doctor.dashboard.report.search',compact("mothers"));
     }
 

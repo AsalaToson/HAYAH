@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\doctor;
-use App\Models\mother;
+use App\Models\User;
 use App\Models\record;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +21,7 @@ class RecordFactory extends Factory
 
     public function definition(): array
     {
-        $mother = mother::inRandomOrder()->first();
+        $mother = User::inRandomOrder()->first();
         $doctor = doctor::inRandomOrder()->first();
 
         return [
@@ -31,7 +31,7 @@ class RecordFactory extends Factory
             'sugar_rate' => $this->faker->numberBetween(80, 120),
             'medication' => $this->faker->sentence,
             'doctor_id' => $doctor->id,
-            'mother_id' => $mother->id,
+            'user_id' => $mother->id,
         ];
     }
 }

@@ -12,16 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +34,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $fillable = ['name','age','email','phone','address','image'];
+
+
+
+
+    public function image(): \Illuminate\Database\Eloquent\Relations\MorphOne
+    {
+        return $this->morphOne(image::class, 'imageable');
+    }
+    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(appointment::class);
+    }
+    public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(record::class);
+
+    }
+    public function analysis_results(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasmany(Analysis_Result::class);
+    }
 }

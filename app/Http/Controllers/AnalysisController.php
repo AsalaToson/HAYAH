@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Analysis_Result;
 use App\Models\laboratory;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class AnalysisController extends Controller
@@ -42,14 +43,14 @@ class AnalysisController extends Controller
     }
 
 
-                // not working
+                //working
     Public function downloadPdf(string $id): \Illuminate\Http\Response
     {
-        $analysis = Analysis_Result::findorfail($id);
-        $data['analysis'] = $analysis;
-        $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data);
+        $tests=Analysis_Result::find($id);
+        $data['analysis_results']=$tests->analysis_results;
+        $pdf=Pdf::loadview('doctor.dashboard.analysisreport.pdf',$data,compact('tests'));
 //        return $pdf->stream();
-        return $pdf->download('reports.pdf');
+        return $pdf->download('TestReport.pdf');
 
     }
 

@@ -35,13 +35,19 @@
         </div>
 
         <div class="container2">
+            <div class="row mb-3">
+                <div class="col-md-12 text-right">
+                    <a href="{{ route('appointments.index') }}" class="btn btn-primary">All</a>
+                    <a href="{{ route('appointments.month') }}" class="btn btn-primary">This Month</a>
+                    <a href="{{ route('appointments.today') }}" class="btn btn-primary">Today</a>
+                </div>
+            </div>
 
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
 {{--                        <th></th>--}}
-                        <th>Patient ID</th>
                         <th>patient Name</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -57,12 +63,11 @@
                         @foreach ($appointments as $appointment)
                             <tr>
 {{--                                <td><input type="checkbox"></td>--}}
-                                <td>{{ $appointment->mother->id }}</td>
-                                <td>{{ $appointment->mother->name }}</td>
+                                <td>{{ $appointment->user->name }}</td>
                                 <td>{{ $appointment->date }}</td>
                                 <td>{{ $appointment->time }}</td>
                                 <td>{{ $appointment->fee }}</td>
-                                <td>{{ $appointment->mother->details }}</td>
+                                <td>{{ $appointment->user->details }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
 
                                 <td>
@@ -75,7 +80,7 @@
 
 
                                     <!-- Edit Button with Edit Icon -->
-                                    <a href="{{route('lRecord.show',[$appointment->mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                    <a href="{{route('lRecord.show',[$appointment->user->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                             <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
                                         </button></a>
                                 </td>

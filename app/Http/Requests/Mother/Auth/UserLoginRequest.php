@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
-class MotherLoginRequest extends FormRequest
+class UserLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,7 +37,7 @@ class MotherLoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (auth('mother')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (auth('user')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

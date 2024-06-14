@@ -23,14 +23,20 @@
                     <form action="/search" class="col-md-4">
                         <div class="form-groups">
                             <label for="search" id="Slabel">Search </label>
-                            <input type="text"  name="query" class="form-control" id="search" placeholder="search.... ">
+                            <input type="text" name="query" class="form-control" id="search">
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="container2">
-
+                <div class="row mb-3">
+                    <div class="col-md-12 text-right">
+                        <a href="{{ route('tests.index') }}" class="btn btn-primary">All</a>
+                        <a href="{{ route('tests.month') }}" class="btn btn-primary">This Month</a>
+                        <a href="{{ route('tests.today') }}" class="btn btn-primary">Today</a>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
 
@@ -47,7 +53,7 @@
                         @if (isset($requests))
                             @foreach ($requests as $request)
                                 <tr>
-                                    <td>{{$request->mother->name}} </td>
+                                    <td>{{$request->user->name}} </td>
                                     <td>{{$request->doctor->name}}</td>
                                     <td>{{$request->analysis_Name}}</td>
                                     <td>{{$request->test_date}}</td>

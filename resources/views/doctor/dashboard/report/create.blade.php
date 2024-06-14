@@ -35,7 +35,7 @@
 {{--            <form id="add-patient-form">--}}
                 <div class="form-group">
                     <label for="patient-id"> patient ID</label><br />
-                    <input type="text" id="patient-id" name="mother_id" placeholder=" Patient ID"
+                    <input type="text" id="patient-id" name="user_id" placeholder=" Patient ID"
                            value="{{ $mother->id }}">
                 </div>
                 {{--                    <form id="add-patient-form"> --}}

@@ -6,7 +6,7 @@ use App\Models\Analysis_Result;
 use App\Models\doctor;
 use App\Models\lab_doctor;
 use App\Models\laboratory;
-use App\Models\mother;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
@@ -24,11 +24,11 @@ class Analysis_ResultFactory extends Factory
 
     public function definition()
     {
-        $mother = mother::inRandomOrder()->first();
+        $mother = User::inRandomOrder()->first();
         $lab_doctor = lab_doctor::inRandomOrder()->first();
         $doctor = doctor::inRandomOrder()->first();
         return [
-            'mother_id' => $mother->id,
+            'User_id' => $mother->id,
             'labDoctor_id' => $lab_doctor->id,
             'doctor_id' => $doctor->id,
             'analysis_Name' => $this->faker->randomElement([ 'Blood Test',

@@ -46,10 +46,17 @@ return [
             'provider' => 'admins',
         ],
 
-        'mother' => [
+ branch-for-mail-chat
+//        'user' => [
+//            'driver' => 'session',
+//            'provider' => 'users',
+//        ],
+=======
+        'user' => [
             'driver' => 'session',
-            'provider' => 'mothers',
+            'provider' => 'users',
         ],
+
 
         'doctor' => [
             'driver' => 'session',

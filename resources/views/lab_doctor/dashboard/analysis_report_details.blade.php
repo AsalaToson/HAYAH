@@ -53,7 +53,7 @@
               </tr>
               <tr>
                   <th>Patient Name</th>
-                  <td>{{$analysis -> mother->name}}</td>
+                  <td>{{$analysis -> User->name}}</td>
               </tr>
               <tr>
                   <th>Doctor Name</th>
@@ -69,7 +69,7 @@
           <img src="{{asset($analysis->photo)}}" alt="Report Image" class="img-fluid mt-3">
 
       </div>
-      <a href="#">
+      <a href="{{route('LTest.pdf',[$analysis -> id])}}">
           <button type="button" class="btn btn-close" id="dbutton">
               <i class="fa fa-download" aria-hidden="true"></i>
               PDF

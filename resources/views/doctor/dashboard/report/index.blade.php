@@ -20,7 +20,7 @@
                         </select>
                     </div>
                 </div>
-                <form action="/search" class="col-md-4">
+                <form action="/rsearch" class="col-md-4">
                     <div class="form-groups">
                         <label for="search" id="Slabel">Search </label>
                         <input type="text"  name="query" class="form-control" id="search" placeholder="search.... ">
@@ -36,8 +36,8 @@
 
                     <thead>
                     <tr>
-                        <th> Patient ID </th>
-                        <th>Patient Name</th>
+                        <th> Patient Name </th>
+                        <th> Patient Age</th>
                         <th>operations</th>
                     </tr>
                     </thead>
@@ -45,8 +45,8 @@
                     @if (isset($mothers))
                         @foreach ($mothers as $mother)
                     <tr>
-                        <td>{{$mother->id}} </td>
-                        <td>{{$mother->name}}</td>
+                        <td>{{$mother->name}} </td>
+                        <td>{{$mother->age}}</td>
 
                         <td><div class="container3" style="display: flex;">
                                 <!-- Delete Button with Delete Icon -->

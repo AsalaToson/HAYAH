@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Mother\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mother\Auth\MotherLoginRequest;
+
+
+
+use App\Http\Requests\Mother\Auth\UserLoginRequest;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\View\Factory;
@@ -12,7 +15,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
-class MotherAuthController extends Controller
+class UserAuthController extends Controller
 {
     public function create(): View|Application|Factory
     {
@@ -20,19 +23,19 @@ class MotherAuthController extends Controller
     }
 
 
-    public function store(MotherLoginRequest $request): RedirectResponse
+    public function store(UserLoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::MOTHER);
+        return redirect()->intended(RouteServiceProvider::User);
     }
 
 
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('mother')->logout();
+        Auth::guard('user')->logout();
 
         $request->session()->invalidate();
 
