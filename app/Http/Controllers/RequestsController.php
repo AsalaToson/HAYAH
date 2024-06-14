@@ -57,7 +57,7 @@ class RequestsController extends Controller
 
         ]);
         return redirect('/requests')->with([
-            'success' => 'Analysis Report Added successfully for patient number ',
+            'success' => 'Analysis Report Added successfully for ',
             'name' => $m_name
         ]);
     }

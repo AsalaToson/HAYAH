@@ -1,54 +1,108 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/iconic/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animation/css/animation.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main_2.css') }}">
+
+</head>
+<body>
+
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('{{ asset('images/ff.jpg') }}');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+            <!-- Session Status -->
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+
+            <form class="login100-form validate-form" method="POST" action="{{ route('login.admin') }}" >
+                @csrf
+                <span class="login100-form-title p-b-49">
+						HAYAH Login as Admin
+					</span>
+
+                <!-- Display error messages -->
+                @if ($errors->any())
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="email" name="email" :value="old('email')" placeholder="Enter your username" autocomplete="username">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="password" placeholder="Enter your password" autocomplete="current-password">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
 
 
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Login As Admin</label>
+
+                <div class="text-right p-t-8 p-b-31">
+
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+                </div>
+
+
+
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+
+                        <button class="login100-form-btn">
+
+                            Login
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
     </div>
+</div>
 
 
+<div id="dropDownSelect1"></div>
 
-    <form method="POST" action="{{ route('login.admin') }}">
-        @csrf
+<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('vendor/animation/js/animation.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+<script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
+<script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
+<script src="{{ asset('js/main_2.js') }}"></script>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="  (' Admin Email' )" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                          type="password"
-                          name="password"
-                          required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</body>
+</html>

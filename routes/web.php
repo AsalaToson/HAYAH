@@ -10,13 +10,12 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
-t
+
 //use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
-=======
 
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
@@ -71,7 +70,6 @@ Route::get('/mother_dashboard', function () {
 //    $schedule = schedule::all();
     return view('mother_dashboard',compact('section','doctor'));
 })->middleware(['auth:web', 'verified'])->name('dashboard.mother');
-=======
 
 //****************************
 
@@ -113,6 +111,12 @@ Route::middleware('auth:lab_doctor')->group(function (){
 
 
 });
+
+// show login page for any user
+
+Route::get('login/page',function (){
+    return view('options');
+})->name('login.page');
 
 
 //****************************
@@ -194,7 +198,7 @@ Route::prefix("user/")->name("user.")->group(function (){
 
 
 Route::middleware('auth:web')->group(function () {
-=======
+
 
     Route::get('/MProfile/show', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
@@ -213,7 +217,6 @@ Route::middleware('auth:web')->group(function () {
 
 
     Route::post('/MotherAppointment', [MotherAppointmentController::class,"store"])->name("MotherAppointment.store");
-=======
 
 
 //    Route::get('/chatify', [MotherAppointmentController::class, 'chatify'])->name('chatify');

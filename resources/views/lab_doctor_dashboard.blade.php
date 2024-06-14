@@ -17,11 +17,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-
-
 </head>
 
-<body id="body">
+<body id="body" style="height: auto">
 
 <!-- main container-->
 <div class="main" style="height: auto;">
