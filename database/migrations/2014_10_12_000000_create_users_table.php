@@ -15,16 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('age');
-            $table->string('image')->nullable();
+            $table->string('blood_type');
+            $table->string('surgical_history');
+            $table->string('allergies');
+            $table->string('chronic_diseases');
             $table->string('details');
             $table->integer('phone');
             $table->string('address');
+            $table->string('image')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+
 
 //            $table->tinyInteger('is_online')->default(0);
-=======
+
 
             $table->rememberToken();
             $table->timestamps();

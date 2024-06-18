@@ -34,13 +34,20 @@
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
                     <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
@@ -129,6 +136,26 @@
                 <div class="form-group">
                     <label for="first-name">Patient Name</label><br/>
                     <input type="text" id="first-name" name="name" value="{{$patients->name}}" required placeholder="Patient name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">blood_type</label><br/>
+                    <input type="text" id="email" name="blood_type" value="{{$patients->blood_type}}" required placeholder="blood_type">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">surgical_history</label><br/>
+                    <input type="text" id="email" name="surgical_history" value="{{$patients->surgical_history}}" required placeholder="surgical_history">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">allergies</label><br/>
+                    <input type="text" id="email" name="allergies" value="{{$patients->allergies}}" required placeholder="allergies">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">chronic_diseases</label><br/>
+                    <input type="text" id="email" name="chronic_diseases" value="{{$patients->chronic_diseases}}" required placeholder="chronic_diseases">
                 </div>
 
                 <div class="form-group">

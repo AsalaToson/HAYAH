@@ -51,7 +51,7 @@ Route::middleware('guest')->group(function () {
 //
 //    Route::post('login', [UserAuthController::class, 'store'])
 //        ->name('login.user');
-=======
+
 
                         //****************************
 

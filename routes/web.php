@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin_ProfileController;
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\AppointmentMotherController;
@@ -10,13 +11,14 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
-t
+
 //use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Lab_DoctorController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabDoctor\RequestController;
 use App\Http\Controllers\LabDoctorController;
-=======
+
 
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
@@ -71,7 +73,7 @@ Route::get('/mother_dashboard', function () {
 //    $schedule = schedule::all();
     return view('mother_dashboard',compact('section','doctor'));
 })->middleware(['auth:web', 'verified'])->name('dashboard.mother');
-=======
+
 
 //****************************
 
@@ -130,6 +132,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('sections', SectionController::class);
     Route::get('section', [SectionController::class,'display'])->name("section");
     Route::post('Section', [SectionController::class,'destroy'])->name("Section");
+    Route::delete('/items/{id}', [SectionController::class, 'destroy2'])->name('items.destroy2');
                          //**************
           //***********   for add or edit or show doctors    **********
     Route::resource('doctors', DoctorController::class);
@@ -137,10 +140,14 @@ Route::middleware('auth:admin')->group(function () {
                         //**************
          //***********   for add or edit or show patients    **********
     Route::resource('patients', PatientController::class);
+    Route::get('/patient', [PatientController::class,"index2"])->name("patient.index2");
                          //**************
             //***********   for add or edit or show admins    **********
     Route::resource('admins', AdminStaffController::class);
                             //**************
+    //***********   for add or edit or show Lab_Doctor    **********
+    Route::resource('lab_doctors', Lab_DoctorController::class);
+    //**************
            //***********   for add or edit or show resources    **********
     Route::resource('resources', ResourcesController::class);
                             //**************
@@ -151,7 +158,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/AppointmentMother/store', [AppointmentMotherController::class,"store"])->name("AppointmentMother.store");
     Route::get('/AppointmentUnpproval/{id}', [AppointmentMotherController::class,"unapproval"])->name("AppointmentApproval.unapproval");
     //**************
-
+    Route::resource('admin profile', Admin_ProfileController::class);
+    Route::get('/profile/edit2', [Admin_ProfileController::class, 'edit2'])->name('profile.edit2');
+    Route::put('/profile/update2',[Admin_ProfileController::class,'update2'])->name('profile.update2');
 });
 //                   *******************************
 
@@ -194,7 +203,7 @@ Route::prefix("user/")->name("user.")->group(function (){
 
 
 Route::middleware('auth:web')->group(function () {
-=======
+
 
     Route::get('/MProfile/show', [MotherProfileController::class, 'showProfile'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'editProfile'])->name('MProfile.edit');
@@ -213,7 +222,7 @@ Route::middleware('auth:web')->group(function () {
 
 
     Route::post('/MotherAppointment', [MotherAppointmentController::class,"store"])->name("MotherAppointment.store");
-=======
+
 
 
 //    Route::get('/chatify', [MotherAppointmentController::class, 'chatify'])->name('chatify');

@@ -40,7 +40,7 @@ public function index()
         'type'=>'مؤكد',
 
     ]);
-    Mail::to($appointments->email)->send(new AppointmentConfirmation($appointments->name, $appointments->appointment));
+    Mail::to($appointments->email)->send(new AppointmentConfirmation($appointments->name, $appointments->appointment,$appointments->time));
 
 
 
@@ -92,6 +92,7 @@ public function display()
             'phone' => $request->input('phone'),
             'appointment' => $request->input('appointment'),
             'notes' => $request->input('notes'),
+            'time' => $request->input('time'),
         ]);
         session()->flash('add');
         return redirect()->route('AppointmentMother.index');
@@ -111,7 +112,7 @@ public function display()
 
         ]);
 
-        Mail::to($appointments->email)->send(new AppointmentUnConfirmation($appointments->name, $appointments->appointment));
+        Mail::to($appointments->email)->send(new AppointmentUnConfirmation($appointments->name, $appointments->appointment,$appointments->time));
 
 
 //    Mail::to($email)->send(new AppointmentConfirmation);

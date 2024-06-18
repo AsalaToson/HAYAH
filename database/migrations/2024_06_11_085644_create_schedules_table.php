@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('type',['غير مؤكد','مؤكد','منتهي'])->default('غير مؤكد');
             $table->dateTime('appointment')->nullable();
+            $table->text('time')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

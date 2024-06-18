@@ -14,14 +14,16 @@ class AppointmentUnConfirmation extends Mailable
     use Queueable, SerializesModels;
     public $name;
     public $appointment;
+    public $time;
     /**
      * Create a new message instance.
      */
 
-    public function __construct($name,$appointment)
+    public function __construct($name,$appointment,$time)
     {
         $this->name = $name;
         $this->appointment = $appointment;
+        $this->time = $time;
     }
     /**
      * Get the message envelope.

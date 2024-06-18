@@ -34,13 +34,20 @@
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
                     <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
@@ -129,6 +136,26 @@
                     <input type="text" id="first-name" name="name" required placeholder="Patient name">
                 </div>
 
+                <div class="form-group">
+                    <label for="details">blood_type</label><br/>
+                    <input type="text" id="details" name="blood_type" required placeholder="blood_type">
+                </div>
+
+                <div class="form-group">
+                    <label for="details">surgical_history</label><br/>
+                    <input type="text" id="details" name="surgical_history" required placeholder="surgical_history">
+                </div>
+
+                <div class="form-group">
+                    <label for="details">allergies</label><br/>
+                    <input type="text" id="details" name="allergies" required placeholder="allergies">
+                </div>
+
+                <div class="form-group">
+                    <label for="details">chronic_diseases</label><br/>
+                    <input type="text" id="details" name="chronic_diseases" required placeholder="chronic_diseases">
+                </div>
+
 
                 <div class="form-group">
                     <label for="phone">Phone </label><br/>
@@ -138,15 +165,15 @@
                     <label for="email">Email</label><br/>
                     <input type="email" id="email" name="email" required placeholder="Email">
                 </div>
-                <div class="form-group">
-                    <label for="gender">Gender</label><br/>
-                    <select id="gender" name="gender" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+{{--                <div class="form-group">--}}
+{{--                    <label for="gender">Gender</label><br/>--}}
+{{--                    <select id="gender" name="gender" required>--}}
+{{--                        <option value="male">Male</option>--}}
+{{--                        <option value="female">Female</option>--}}
+{{--                        <option value="other">Other</option>--}}
 
-                    </select>
-                </div>
+{{--                    </select>--}}
+{{--                </div>--}}
 
                 <div class="form-group">
                     <label for="Address">Address</label><br/>
