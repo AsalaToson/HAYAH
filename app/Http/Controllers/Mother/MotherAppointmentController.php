@@ -62,6 +62,7 @@ class MotherAppointmentController extends Controller
             'phone' => $request->input('phone'),
             'appointment' => $request->input('appointment'),
             'notes' => $request->input('notes'),
+            'time' => $request->input('time'),
         ]);
         session()->flash('add');
         return redirect()->route('dashboard.mother');

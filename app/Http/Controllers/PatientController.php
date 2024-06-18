@@ -21,6 +21,12 @@ class PatientController extends Controller
         return $this->patients->index();
     }
 
+
+    public function index2()
+    {
+        return $this->patients->index();
+    }
+
     /**
      * Show the form for creating a new resource.
      */

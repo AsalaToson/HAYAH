@@ -22,7 +22,12 @@ class UserSeeder extends Seeder
             'age' => '21',
             'phone' =>'0101755603',
             'details' => '.',
-            'address' => '.', ]);
+            'address' => '.',
+            'blood_type' => 'A',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
+            ]);
         User::create([
                 'name' => 'Mother2',
                 'email' => 'mother2@example.com',
@@ -31,6 +36,10 @@ class UserSeeder extends Seeder
                 'details' => 'Details for Mother 2',
                 'phone' => '01166804539',
                 'address' => 'Address for Mother 2',
+            'blood_type' => 'B',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
             ]);
 
         User::create([
@@ -41,6 +50,10 @@ class UserSeeder extends Seeder
             'details' => 'Details for Mother 3',
             'phone' => '555555555',
             'address' => 'Address for Mother 3',
+            'blood_type' => 'A+',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
         ]);
 
     }

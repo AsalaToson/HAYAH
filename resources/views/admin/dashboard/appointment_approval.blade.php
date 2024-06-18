@@ -24,7 +24,13 @@
                                         <div class="input-group-text">
                                             <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                         </div>
-                                    </div><input class="form-control" name="appointment" id="datetimepicker" type="text" value="{{ $appointment->appointment }}">
+                                    </div>
+                                    <div>
+                                    <label for="address"> appointment</label><br/>
+                                    <input class="form-control" name="appointment" id="datetimepicker" type="text" value="{{ $appointment->appointment }}">
+                                    <label for="address"> time</label><br/>
+                                    <input class="form-control" name="time" id="datetimepicker" type="text" value="{{ $appointment->time }}">
+                                    </div>
                                 </div>
 
                             </div>
