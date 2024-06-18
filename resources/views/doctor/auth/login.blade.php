@@ -21,7 +21,7 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('{{ asset('assets/images/ff.jpg') }}');">
+    <div class="container-login100" style="background-image: url('{{ asset('images/ff.jpg') }}');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
             <!-- Session Status -->
@@ -30,7 +30,7 @@
             <form class="login100-form validate-form" method="POST" action="{{ route('login.doctor') }}" >
                 @csrf
                 <span class="login100-form-title p-b-49">
-						HAYAH Login as Doctor
+						HAYAH Login as  Doctor
 					</span>
 
                 <!-- Display error messages -->

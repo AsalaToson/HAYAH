@@ -34,8 +34,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    protected $fillable = ['name','age','email','phone','address','image'];
-
+    protected $fillable = [
+        'name', 'age', 'address', 'email', 'phone', 'image'
+    ];
 
 
 

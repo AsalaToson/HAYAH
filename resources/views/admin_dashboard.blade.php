@@ -110,8 +110,10 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Settings</a>
                                 <a class="dropdown-item" href="edit profile">Profile</a>
-                                <a class="dropdown-item" href="#">logout</a>
-                            </div>
+                                <form action="{{ route('logout.admin') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>                            </div>
                         </li>
                     </ul>
                 </div>

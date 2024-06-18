@@ -50,8 +50,8 @@
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
 
                             <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('web')->user()->id])}}">Our Services</a>
-=======
-                            
+
+
 
                         </li>
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
@@ -72,8 +72,8 @@
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
                             <a class="nav-link scroll" href="{{route('chatify')}}">Community Chating </a>
-=======
-                         
+
+
 
 
                         <li class="nav-item dropdown">
@@ -81,8 +81,8 @@
                                 <i class="fa fa-user"></i>
 
                                 {{Auth::guard('web')->user()->name}}
-=======
-                               
+
+
 
 
                             </a>
@@ -90,12 +90,14 @@
                                 <a class="dropdown-item" href="{{route('MProfile.show')}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 
                                  <a class="dropdown-item" href="{{route('record.show',[Auth::guard('web')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
-=======
-                                 
+
+
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>
-                            </div>
+                                <form action="{{ route('logout.user') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>                            </div>
                         </li>
 
 

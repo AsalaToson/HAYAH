@@ -12,8 +12,6 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Doctor\Auth\DoctorAuthController;
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
-use App\Http\Controllers\LabDoctor\RequestController;
-use App\Http\Controllers\Mother\Auth\MotherAuthController;
 use App\Http\Controllers\Mother\Auth\UserAuthController;
 use Illuminate\Support\Facades\Route;
 
