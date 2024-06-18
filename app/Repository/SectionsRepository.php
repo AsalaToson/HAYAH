@@ -26,6 +26,7 @@ class SectionsRepository implements SectionsRepositoryInterface
     {
         section::create([
             'name' => $request->input('name'),
+            'description'=> $request->input('description'),
         ]);
         session()->flash('add');
         return redirect()->route('sections.index');
@@ -44,6 +45,15 @@ class SectionsRepository implements SectionsRepositoryInterface
     }
 
 
+    public function destroy2($id): \Illuminate\Http\RedirectResponse
+    {
+        $section = section::findOrFail($id);
+        $section->delete();
+
+        return redirect()->route('sections.index');
+    }
+
+
     public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $section = section::findorfail($id);
@@ -56,6 +66,7 @@ class SectionsRepository implements SectionsRepositoryInterface
         $section = section::findOrFail($request->id);
         $section->update([
             'name' => $request->input('name'),
+            'description'=> $request->input('description'),
 
         ]);
         return redirect()->route('sections.index');

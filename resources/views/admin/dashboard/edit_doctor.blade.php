@@ -35,7 +35,7 @@
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
@@ -44,6 +44,15 @@
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
                 </ul>
             </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
+                </ul>
+            </li>
+
+
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
                     <li><a href="{{route('AppointmentMother.display')}}">Add Appointment </a></li>
@@ -119,9 +128,9 @@
 
         </div>
 
-        <h1>Add Doctor</h1>
+        <h1>Edit Doctor</h1>
         <div class="inner_content">
-            <h3>Add doctor</h3><br>
+            <h3>Edit doctor</h3><br>
             <hr>
 
             <form id="add-patient-form" action="{{route('doctors.update',$doctor->id)}}" method="post" enctype="multipart/form-data" >
@@ -190,17 +199,24 @@
                 </div>
 
 
+
                 <div class="form-group">
-                    <label for="section-name">appointment</label><br/>
-                    <select name="appointment" >appointment
-
-
-                        @foreach($appointments as $appointment)
-
-                            <option value="{{$appointment->id}}" {{ $appointment->name== $doctor->appointment ? 'selected':"" }}>{{$appointment->name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="password">appointment</label><br/>
+                    <input type="text" id="password" name="appointment" value="{{$doctor->appointment}}" required placeholder="password">
                 </div>
+
+
+{{--                <div class="form-group">--}}
+{{--                    <label for="section-name">appointment</label><br/>--}}
+{{--                    <select name="appointment" >appointment--}}
+
+
+{{--                        @foreach($appointments as $appointment)--}}
+
+{{--                            <option value="{{$doctor->appointment}}"></option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                </div>--}}
 
 
 

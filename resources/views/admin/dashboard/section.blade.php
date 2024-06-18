@@ -45,6 +45,13 @@
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
                 </ul>
             </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
+                </ul>
+            </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
                     <li><a href="{{route('AppointmentMother.display')}}">Add Appointment </a></li>
@@ -156,6 +163,8 @@
                             <th></th>
                             <th>department ID</th>
                             <th>Department Name</th>
+                            <th>Department Description</th>
+                            <th>Operations</th>
 
                         </tr>
                         </thead>
@@ -166,14 +175,31 @@
                             <td><input type="checkbox"></td>
                             <td>{{$Section->id}}</td>
                             <td>{{$Section->name}}</td>
+                            <td>{{$Section->description}}</td>
 
                         <td>
                             <div class="container3" style="display: flex;">
                                 <!-- Delete Button with Delete Icon -->
-                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                                    <i class="fas fa-trash-alt"></i> Delete
+{{--                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
+{{--                                    <i class="fas fa-trash-alt"></i> Delete--}}
 
+{{--                                </button>--}}
+
+{{--                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"--}}
+{{--                                        data-id="{{ $Section->id }}" data-url="{{ route('items.destroy2', $Section->id) }}">--}}
+{{--                                    Delete--}}
+{{--                                </button>--}}
+
+{{--                                <button type="button" class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal"--}}
+{{--                                   href="#delete{{$Section->id}}"><i class="las la-trash"></i>>--}}
+{{--                                    Delete--}}
+{{--                                </button>--}}
+
+                                <button type="button" class="btn btn-danger delete-button"  <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal" href="#delete{{$Section->id}}"> </a>
+                                <i class="fas fa-trash-alt"></i> Delete
                                 </button>
+
+{{--                                <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal" href="#delete{{$Section->id}}"><i class="las la-trash"></i></a>--}}
 
                                 <!-- Edit Button with Edit Icon -->
                                 <a href="{{route('sections.edit',$Section->id)}}"><button type="button" class="btn btn-primary"  id="dbutton" >
@@ -185,26 +211,45 @@
                         </tr>
 
                         <!-- Modal for delete -->
-                        <div id="myModal" class="modal2">
-                            <div class="modal-content2">
-                                <form action="{{ route('Section')}}" method="post">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <input type="text" name="filename" value="{{$Section->name}}">
-                                        <input type="text" name="id" value="{{$Section->id}}">
-                                    </div>
-                                    <p>Are you sure?</p>
-                                    <button id="confirmDelete" class="btn btn-danger">Yes</button>
-                                </form>
-                                <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
-                            </div>
-                        </div>
+{{--                        <div id="myModal" class="modal2">--}}
+{{--                            <div class="modal-content2">--}}
+{{--                                <form action="{{ route('Section')}}" method="post">--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="modal-body">--}}
+{{--                                        <input type="text" name="filename" value="{{$Section->name}}">--}}
+{{--                                        <input type="text" name="id" value="{{$Section->id}}">--}}
+{{--                                        <input type="text" name="filename2" value="{{$Section->description}}">--}}
+{{--                                    </div>--}}
+{{--                                    <p>Are you sure?</p>--}}
+{{--                                    <button id="confirmDelete" class="btn btn-danger">Yes</button>--}}
+{{--                                </form>--}}
+{{--                                <button id="cancelDelete" class="btn btn-secondary">Cancel</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-
+                        @include('admin.dashboard.modals_delete')
 
                             @endforeach
                         </tbody>
                     </table>
+
+{{--                    @include('admin.dashboard.modals_delete')--}}
+
+                    @section('scripts')
+                        <script>
+                            $('#deleteModal').on('show.bs.modal', function (event) {
+                                var button = $(event.relatedTarget)
+                                var id = button.data('id')
+                                var url = button.data('url')
+
+                                var modal = $(this)
+                                modal.find('.modal-body').text('Are you sure you want to delete this item with ID ' + id + '?')
+                                modal.find('#deleteForm').attr('action', url)
+                            })
+                        </script>
+                    @endsection
+
+
                 </div>
             </div>
             <div class="pag">
@@ -219,17 +264,17 @@
 
             </div>
 
-            <div class="container3">
-                <!-- Delete Button with Delete Icon -->
-                <button type="button" class="btn btn-danger" id="dbutton">
-                    <i class="fas fa-trash-alt"></i> Delete
-                </button>
+{{--            <div class="container3">--}}
+{{--                <!-- Delete Button with Delete Icon -->--}}
+{{--                <button type="button" class="btn btn-danger" id="dbutton">--}}
+{{--                    <i class="fas fa-trash-alt"></i> Delete--}}
+{{--                </button>--}}
 
-                <!-- Edit Button with Edit Icon -->
-                <button type="button" class="btn btn-primary" id="dbutton">
-                    <i class="fas fa-edit"></i> Edit
-                </button>
-            </div>
+{{--                <!-- Edit Button with Edit Icon -->--}}
+{{--                <button type="button" class="btn btn-primary" id="dbutton">--}}
+{{--                    <i class="fas fa-edit"></i> Edit--}}
+{{--                </button>--}}
+{{--            </div>--}}
 
 
 

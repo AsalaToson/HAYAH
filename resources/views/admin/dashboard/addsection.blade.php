@@ -44,6 +44,13 @@
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
                 </ul>
             </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
+                </ul>
+            </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
                     <li><a href="{{route('AppointmentMother.display')}}">Add Appointment </a></li>
@@ -130,6 +137,11 @@
           <label for="first-name"> Department Name</label><br/>
           <input type="text" id="first-name" name="name" required placeholder=" Department Name">
         </div>
+
+          <div class="form-group">
+              <label for="first-name"> Department Description</label><br/>
+              <input type="text" id="first-name" name="description" required placeholder=" Department Description">
+          </div>
 
 
         <div class="form-group">

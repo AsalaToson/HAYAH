@@ -36,13 +36,20 @@
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
                 <ul class="sublist">
                     <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
@@ -174,8 +181,12 @@
                             <td>{{$Admins->age}}</td>
                             <td><div class="container3" style="display: flex;">
                                     <!-- Delete Button with Delete Icon -->
-                                    <button type="button" class="btn btn-danger delete-button"  id="dbutton" >
-                                        <i class="fas fa-trash-alt"></i> Delete
+{{--                                    <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}
+{{--                                        <i class="fas fa-trash-alt"></i> Delete--}}
+{{--                                    </button>--}}
+
+                                    <button type="button" class="btn btn-danger delete-button"  <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal" href="#delete{{$Admins->id}}"> </a>
+                                    <i class="fas fa-trash-alt"></i> Delete
                                     </button>
 
                                     <!-- Edit Button with Edit Icon -->
@@ -184,6 +195,39 @@
                                         </button></a>
                                 </div></td>
                         </tr>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="delete{{ $Admins->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Section</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                    <form action="{{ route('admins.destroy',$Admins->id) }}" method="post">
+                                        @method('DELETE')
+                                        {{--                {{ method_field('post') }}--}}
+                                        {{ csrf_field() }}
+                                        <div class="modal-body">
+                                            <input type="hidden" name="id" value="{{ $Admins->id }}">
+                                            <h5>Are you sure you want to delete this section</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                            @endforeach
                         </tbody>
                     </table>
@@ -206,23 +250,23 @@
 </div>
 
 <!-- Modal for delete -->
-<div id="myModal" class="modal2">
-    <div class="modal-content2">
-        <form action="{{ route('admins.destroy',$Admins->id)}}" method="post" >
-            @csrf
-            @method('DELETE')
-            <div class="modal-body">
-                <!--       <input type="text" name="filename" value="">    -->
-                <input type="text" name="id"  >
-            </div>
+{{--<div id="myModal" class="modal2">--}}
+{{--    <div class="modal-content2">--}}
+{{--        <form action="{{ route('admins.destroy',$Admins->id)}}" method="post" >--}}
+{{--            @csrf--}}
+{{--            @method('DELETE')--}}
+{{--            <div class="modal-body">--}}
+{{--                <!--       <input type="text" name="filename" value="">    -->--}}
+{{--                <input type="text" name="id"  >--}}
+{{--            </div>--}}
 
-            <p>Are you sure?</p>
-            <button id="confirmDelete" class="btn btn-danger">Yes</button>
+{{--            <p>Are you sure?</p>--}}
+{{--            <button id="confirmDelete" class="btn btn-danger">Yes</button>--}}
 
-        </form>
-        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
-    </div>
-</div>
+{{--        </form>--}}
+{{--        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <!--modal for search-->
 

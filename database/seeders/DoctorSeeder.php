@@ -31,6 +31,7 @@ class DoctorSeeder extends Seeder
             'gender' => 'female',
             'details' => '.',
             'address' => '.',
+            'appointment' => 'الاحد',
         ]);
         doctor::create([ 'name' => 'john',
             'email' => 'john22@gmail.com',

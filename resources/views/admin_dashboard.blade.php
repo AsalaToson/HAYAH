@@ -38,7 +38,7 @@
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>   Patients</a>
                 <ul class="sublist">
                     <li><a href="{{route('patients.create')}}">Add Patient</a></li>
-                    <li><a href="{{route('patients.index')}}">All Patient</a></li>
+                    <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
@@ -47,6 +47,17 @@
                     <li><a href="{{route('admins.index')}}">All Stuff</a></li>
                 </ul>
             </li>
+
+
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Lab Doctors</a>
+                <ul class="sublist">
+                    <li><a href="{{route('lab_doctors.create')}}">Add Lab Doctors</a></li>
+                    <li><a href="{{route('lab_doctors.index')}}">All Lab Doctors</a></li>
+                </ul>
+            </li>
+
+
+
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
                 <ul class="sublist">
                     <li><a href="{{route('AppointmentMother.display')}}">Add Appointment </a></li>
@@ -105,15 +116,21 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-user"> {{Auth::guard('admin')->user()->name}}  </i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Settings</a>
+
+                                <a class="dropdown-item" href="{{route('admin profile.index')}}">Profile</a>
+                                <a class="dropdown-item" href="#">logout</a>
+                            </div>
+
                                 <a class="dropdown-item" href="edit profile">Profile</a>
                                 <form action="{{ route('logout.admin') }}" method="POST">
                                     @csrf
                                     <button type="submit">Logout</button>
                                 </form>                            </div>
+
                         </li>
                     </ul>
                 </div>
