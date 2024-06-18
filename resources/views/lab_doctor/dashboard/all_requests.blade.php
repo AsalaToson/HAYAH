@@ -64,21 +64,25 @@
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
 
-                        <td><div class="container3" style="display: flex;">
+                        <td>
+                            <div class="container3" style="display: flex;">
 
-                          <a href="{{route('add_analysis.create' , $request->id)}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
-                            <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
+                                <a href="{{route('add_analysis.create' , $request->id)}}"> <button type="button" class="btn btn-primary" id="dbutton"  >
+                                        <i class=" fa fa-search" aria-hidden="true"></i> Analyze </button></a>
 
                                 <form style="display: inline;" method="POST" action="{{route('request.destroy', $request->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="Submit" class="btn btn-danger delete-button"  id="donebutton" >
-                                        <i class="fas fa-trash-alt"></i> Done
+                                    <button type="Submit"   id="donebutton" style="   margin: 7px;
+
+                                    width: 100px;
+                                    padding: 8px;"  >
+                                        <i class="fa fa-check-circle"></i> Done
                                     </button>
                                 </form>
 
-                        </div></td>
-                    </tr>
+                            </div>
+                        </td>
 
                 @endforeach
 
