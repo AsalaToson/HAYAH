@@ -121,10 +121,14 @@
 {{--                                <a class="dropdown-item" href="{{ route('logout.doctor') }}" ><i class="fa-solid fa-right-from-bracket"></i>--}}
 {{--                                    logout</a>--}}
 
-                                <form action="{{ route('logout.doctor') }}" method="POST">
+                                <form id="logout-form" action="{{ route('logout.doctor') }}" method="POST" style="display: none;">
                                     @csrf
-                                    <button type="submit">Logout </button>
                                 </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
+
                             </div>
 
 

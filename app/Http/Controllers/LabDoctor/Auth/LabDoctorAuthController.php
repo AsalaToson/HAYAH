@@ -36,7 +36,7 @@ class LabDoctorAuthController extends Controller
         Auth::guard('lab_doctor')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/login/page');
 
     }
 

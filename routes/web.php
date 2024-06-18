@@ -92,9 +92,12 @@ Route::get('/mother_dashboard', function () {
 Route::get('/doctor_dashboard', function () {
     return view('doctor_dashboard');
 })->middleware(['auth:doctor', 'verified'])->name('dashboard.doctor');
+
 //****************************
+
 Route::get('login/user', [AuthenticatedSessionController::class, 'create'])->name('user.login');
 Route::post('login/user', [AuthenticatedSessionController::class, 'store'])->name('login.user');
+
 //*******************    lab_doctor dashboard     *****************
 Route::get('/lab_doctor_dashboard', function () {
     return view('lab_doctor_dashboard');
@@ -130,7 +133,7 @@ Route::middleware('auth:lab_doctor')->group(function (){
 
 });
 
-// show login page for any user
+// show login page options for any user
 
 Route::get('login/page',function (){
     return view('options');

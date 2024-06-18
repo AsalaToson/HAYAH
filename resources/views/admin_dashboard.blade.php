@@ -126,10 +126,9 @@
                             </div>
 
                                 <a class="dropdown-item" href="edit profile">Profile</a>
-                                <form action="{{ route('logout.admin') }}" method="POST">
+
+                                <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
                                     @csrf
-                                    <button type="submit">Logout</button>
-                                </form>                            </div>
 
                         </li>
                     </ul>
