@@ -72,7 +72,7 @@
                                 <form style="display: inline;" method="POST" action="{{route('request.destroy', $request->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="Submit" class="btn btn-danger delete-button"  id="dbutton" >
+                                    <button type="Submit" class="btn btn-danger delete-button"  id="donebutton" >
                                         <i class="fas fa-trash-alt"></i> Done
                                     </button>
                                 </form>

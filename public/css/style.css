@@ -136,7 +136,7 @@ button[type="submit"]:hover {
 
     display: flex;
     height: auto;
-    background-color: ;
+    background-color:#0c214e ;
 
 }
 
@@ -291,7 +291,11 @@ thead tr th {
 
     width: 100px;
 }
+#donebutton{
+    margin: 7px;
 
+    width: 100px;
+}
 
 #dbutton , #Tbutton:hover{
     transform: scale(1.1);
@@ -445,4 +449,3 @@ table{
     border: none;
 
 }
-

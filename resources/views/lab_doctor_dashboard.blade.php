@@ -17,14 +17,12 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-
-
 </head>
 
-<body id="body">
+<body id="body" style="height: auto">
 
 <!-- main container-->
-<div class="main" style="height: 100vh;">
+<div class="main" style="height: auto;">
 
 <!-- sidebar-->
 <div class="sidebar" >
@@ -100,9 +98,12 @@
              <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                Settings</a>
 
-             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-               logout</a>
-
+{{--             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>--}}
+{{--               logout</a>--}}
+               <form action="{{ route('logout.lab_doctor') }}" method="POST">
+                   @csrf
+                   <button type="submit">Logout </button>
+               </form>
 
            </div>
 

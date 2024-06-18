@@ -52,10 +52,7 @@ return [
 //            'provider' => 'users',
 //        ],
 
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+
 
 
         'doctor' => [
@@ -100,10 +97,10 @@ return [
         ],
 
 
-        'mothers' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\mother::class,
-        ],
+//        'mothers' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Models\mother::class,
+//        ],
 
 
         'doctors' => [
@@ -156,12 +153,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'mothers' => [
-            'provider' => 'mothers',
-            'table' => 'admin_password_reset_tokens',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
+//        'mothers' => [
+//            'provider' => 'mothers',
+//            'table' => 'admin_password_reset_tokens',
+//            'expire' => 60,
+//            'throttle' => 60,
+//        ],
         'doctors' => [
             'provider' => 'doctors',
             'table' => 'admin_password_reset_tokens',

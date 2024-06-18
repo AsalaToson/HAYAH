@@ -94,8 +94,10 @@
 
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>
-                            </div>
+                                <form action="{{ route('logout.user') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>                            </div>
                         </li>
 
 

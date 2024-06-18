@@ -25,7 +25,7 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">
@@ -116,8 +116,10 @@
                                 <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-                                    logout</a>
+                                <form action="{{ route('logout.doctor') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Logout </button>
+                                </form>
 
 
                             </div>

@@ -14,28 +14,32 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class UserAuthController extends Controller
 {
-    public function create(): View|Application|Factory
+    public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view("mother.auth.login");
     }
 
 
+    /**
+     * @throws ValidationException
+     */
     public function store(UserLoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::User);
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
 
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request): Application|\Illuminate\Routing\Redirector|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
-        Auth::guard('user')->logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 

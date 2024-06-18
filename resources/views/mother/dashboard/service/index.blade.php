@@ -419,10 +419,12 @@
                             luctus neque rhoncus ipsum tempor varius iaculis at luctus
                             neque rhoncus ipsum tempor varius cubilia laoreet augue vitae
                             laoreet augue undo cubilia feugiat suscipit
-                        </p>+++++++++++++++++++++++++++++
+                        </p>
 
                         <!-- Button -->
+
 {{--                        <a href="{{route('appointment.show',[Auth::guard('user')->user()->id])}}" class="btn btn-blue blue-hover"--}}
+
                         >Book an Appointment</a
                         >
                     </div>

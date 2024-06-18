@@ -170,7 +170,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
-        Livewire\LivewireServiceProvider::class,
     ])->toArray(),
 
     /*

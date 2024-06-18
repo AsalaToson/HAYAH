@@ -20,7 +20,7 @@
 <body>
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">
@@ -120,9 +120,17 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Settings</a>
+
                                 <a class="dropdown-item" href="{{route('admin profile.index')}}">Profile</a>
                                 <a class="dropdown-item" href="#">logout</a>
                             </div>
+
+                                <a class="dropdown-item" href="edit profile">Profile</a>
+                                <form action="{{ route('logout.admin') }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>                            </div>
+
                         </li>
                     </ul>
                 </div>
