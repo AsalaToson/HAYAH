@@ -116,10 +116,13 @@
                                 <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <form action="{{ route('logout.doctor') }}" method="POST">
+                                <form id="logout-form" action="{{ route('logout.doctor') }}" method="POST" style="display: none;">
                                     @csrf
-                                    <button type="submit">Logout </button>
                                 </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
 
 
                             </div>
@@ -296,8 +299,7 @@
         </script>
 
 
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>

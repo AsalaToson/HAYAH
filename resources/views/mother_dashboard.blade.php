@@ -94,10 +94,16 @@
 
 
                                 <div class="dropdown-divider"></div>
-                                <form action="{{ route('logout.user') }}" method="POST">
+
+                                <form id="logout-form" action="{{ route('logout.user') }}" method="POST" style="display: none;">
                                     @csrf
-                                    <button type="submit">Logout</button>
-                                </form>                            </div>
+                                </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
+
+                            </div>
                         </li>
 
 
