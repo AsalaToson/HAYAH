@@ -29,8 +29,6 @@ use App\Http\Controllers\LabDoctorController;
 
 
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
-use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Mother\Auth\UserAuthController;
 
 use App\Http\Controllers\Mother\MotherAppointmentController;
