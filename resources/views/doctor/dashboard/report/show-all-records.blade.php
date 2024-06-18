@@ -41,7 +41,7 @@
             </div>
 
 
-        </div>
+
         <div class="inner_content">
 
             <h3>Medical Report details</h3><br>
@@ -84,52 +84,8 @@
 
 
 
-        {{--                <h2>Test Results</h2>--}}
-        {{--                <table>--}}
-        {{--                    <tr>--}}
-        {{--                        <th>Lab Test Results</th>--}}
-        {{--                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
-        {{--                    </tr>--}}
-        {{--                    <tr>--}}
-        {{--                        <th>Radiology Reports</th>--}}
-        {{--                        <td><a href="#" class="lab-test-results">Click here to access</a></li></td>--}}
-        {{--                    </tr>--}}
-
-        {{--                </table>--}}
-
-
-        {{--                --}}
-
-        {{--                <table>--}}
-        {{--                    <h2>Prescription</h2>--}}
-        {{--                    <tr>--}}
-        {{--                        <th>Previous Illnesses or Surgeries</th>--}}
-        {{--                        <td>None</td>--}}
-        {{--                    </tr>--}}
-        {{--                    <tr>--}}
-        {{--                        <th>Allergies</th>--}}
-        {{--                        <td>Pollen, peanuts</td>--}}
-        {{--                    </tr>--}}
-        {{--                    <tr>--}}
-        {{--                        <th>Medications</th>--}}
-        {{--                        <td>Aspirin (2 tablets every 4 hours)</td>--}}
-        {{--                    </tr>--}}
-        {{--                </table>--}}
-
-{{--        <table>--}}
-{{--            <h2>Billing Information</h2>--}}
-{{--            <tr>--}}
-{{--                <th>Medical Bills</th>--}}
-{{--                <td>100 LE</td>--}}
-{{--            </tr>--}}
-{{--            <tr>--}}
-{{--                <th>Insurance Coverage</th>--}}
-{{--                <td>60%</td>--}}
-{{--            </tr>--}}
-
-{{--        </table>--}}
         <a href= "{{route('record.pdf',[$mother->id])}}"  class="btn btn-primary" >Download</a>
         <a href="/doctor_dashboard" class="btn btn-primary">Home</a>
         </div>
-
+    </div>
 @endsection

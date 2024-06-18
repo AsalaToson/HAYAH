@@ -44,9 +44,9 @@ class User extends Authenticatable
     {
         return $this->morphOne(image::class, 'imageable');
     }
-    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function schedules(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasmany(appointment::class);
+        return $this->hasmany(schedule::class);
     }
     public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

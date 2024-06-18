@@ -2,19 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\appointment;
+use App\Models\schedule;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AppointmentSeeder extends Seeder
+class ScheduleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-    DB::table('appointments')->delete();
+    DB::table('schedules')->delete();
 
 //        for ($i = 1; $i <= 10; $i++) {
 //            $mother = Mother::find(random_int(1, 3));
@@ -32,7 +32,7 @@ class AppointmentSeeder extends Seeder
 //                'phone' => $mother->phone,
 //            ]);
 //        }
-        appointment::factory()->count(20)->create();
+        schedule::factory()->count(20)->create();
     }
 
 

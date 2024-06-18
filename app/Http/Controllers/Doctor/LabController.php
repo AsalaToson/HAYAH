@@ -69,8 +69,8 @@ class LabController extends Controller
         $tests=Analysis_Result::find($id);
         $data['analysis_results']=$tests->analysis_results;
         $pdf=Pdf::loadview('doctor.dashboard.analysisreport.pdf',$data,compact('tests'));
-//        return $pdf->stream();
-        return $pdf->download('TestReport.pdf');
+        return $pdf->stream();
+//        return $pdf->download('TestReport.pdf');
 
     }
 }

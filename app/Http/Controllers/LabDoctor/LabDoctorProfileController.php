@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LabDoctorProfileController extends Controller
 {
-    public function show(){
+    public function show(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
         $labDoctor = Auth::guard('lab_doctor')->user();
         return view('lab_doctor.profile.show',compact('labDoctor'));
     }

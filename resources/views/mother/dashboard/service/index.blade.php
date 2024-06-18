@@ -423,7 +423,7 @@
 
                         <!-- Button -->
 
-{{--                        <a href="{{route('appointment.show',[Auth::guard('user')->user()->id])}}" class="btn btn-blue blue-hover"--}}
+                        <a href="{{route('appointment.show',[Auth::guard('user')->user()->id])}}" class="btn btn-blue blue-hover"
 
                         >Book an Appointment</a
                         >

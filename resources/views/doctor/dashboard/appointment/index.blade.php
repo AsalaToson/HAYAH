@@ -49,9 +49,9 @@
                     <tr>
 {{--                        <th></th>--}}
                         <th>patient Name</th>
-                        <th>Date</th>
+                        <th>Type</th>
                         <th>Time</th>
-                        <th>Fee</th>
+                        <th>Appointment</th>
                         <th>Problem</th>
                         {{--                            <th>status</th> --}}
                         <th>operations</th>
@@ -63,11 +63,11 @@
                         @foreach ($appointments as $appointment)
                             <tr>
 {{--                                <td><input type="checkbox"></td>--}}
-                                <td>{{ $appointment->user->name }}</td>
-                                <td>{{ $appointment->date }}</td>
+                                <td>{{ $appointment->name }}</td>
+                                <td>{{ $appointment->type }}</td>
                                 <td>{{ $appointment->time }}</td>
-                                <td>{{ $appointment->fee }}</td>
-                                <td>{{ $appointment->user->details }}</td>
+                                <td>{{ $appointment->appointment }}</td>
+                                <td>{{ $appointment->notes }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
 
                                 <td>
