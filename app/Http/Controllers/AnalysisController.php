@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AnalysisController extends Controller
 {
     public function index(){
-        $analysisFromDB = Analysis_Result::all();
+        $analysisFromDB = Analysis_Result::paginate(10);
         return view('lab_doctor.dashboard.all_analysis_reports' , ['allAnalysis' => $analysisFromDB]);
     }
 

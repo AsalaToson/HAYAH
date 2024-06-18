@@ -129,6 +129,7 @@
 
                                 <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
                                     @csrf
+                                </form>
 
                         </li>
                     </ul>

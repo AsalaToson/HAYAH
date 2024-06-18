@@ -30,7 +30,7 @@
     <div class="sidebar">
         <a href="#"><img src="{{asset('../../images/logo.png')}}" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="{{route('dashboard.doctor')}}" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
 
 

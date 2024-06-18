@@ -11,7 +11,10 @@
     @endif
       <h1>All Requests</h1>
       <div class="inner_content">
-        <h3>Requests list </h3><br>
+        <h3>Requests list </h3>
+          <br>
+          <h3> {{App\Models\laboratory::count()}} analysis requests </h3>
+          <br>
         <hr>
         <div class="container">
           <div class="row">
@@ -47,6 +50,7 @@
                         <th>Patient Name</th>
                         <th>Doctor Name</th>
                         <th>Analysis Name</th>
+                        <th>Date of request</th>
                         <th>operations</th>
                     </tr>
                 </thead>
@@ -63,6 +67,7 @@
                         <td>{{$request ->User->name}} </td>
                         <td>{{$request ->doctor->name}}</td>
                         <td>{{$request -> description}}</td>
+                        <td>{{$request -> created_at}}</td>
 
                         <td>
                             <div class="container3" style="display: flex;">
@@ -88,19 +93,14 @@
 
                 </tbody>
             </table>
+
         </div>
+          <br>
     </div>
- <div class="pag">
-
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-
- </div>
+          <!-- Pagination Links -->
+          <div class="pagination">
+              {{ $requests->links() }}
+          </div>
 
     </div>
 
