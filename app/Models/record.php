@@ -16,5 +16,9 @@ class record extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function doctor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(doctor::class);
+    }
 
 }

@@ -38,7 +38,7 @@
                         <th>Patient Name</th>
                         <th>patient Phone</th>
                         <th>Type</th>
-                        <th>Time</th>
+{{--                        <th>Time</th>--}}
                         <th>Appointment</th>
                         <th>Problem</th>
                         {{--                            <th>status</th> --}}
@@ -56,10 +56,10 @@
                                 <td>{{ $appointment->User->phone }}</td>
                                 {{--                                    <td>{{$appointment->doctor->name}} </td> --}}
                                 <td>{{ $appointment->type }}</td>
-                                <td>{{ $appointment->time }}</td>
+{{--                                <td>{{ $appointment->time }}</td>--}}
                                 <td>{{ $appointment->appointment }}</td>
 
-                                <td>{{ $appointment->mother->details }}</td>
+                                <td>{{ $appointment->notes }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
                                 <td><div class="container3" style="display: flex;">
                                         <!-- Delete Button with Delete Icon -->
@@ -78,7 +78,7 @@
                                         </button>
 
                                         <!-- Edit Button with Edit Icon -->
-                                        <a href="{{route('lRecord.show',[$appointment->mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                        <a href="{{route('lRecord.show',[$appointment->User->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
                                             </button></a>
                                     </div></td>

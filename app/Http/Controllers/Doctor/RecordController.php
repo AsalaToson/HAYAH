@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\record;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
 
@@ -64,16 +65,23 @@ class RecordController extends Controller
     {
         $mother=User::findorfail($id);
         $data['records']=$mother->records;
+//        $records = $mother->records()->with('doctor')->get();
+//        $data = [
+//            'user' => $mother,
+//            'records' => $records,
+//            'current_date' => Carbon::now()->format('Y-m-d'), // Add the current date
+//        ];
         $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data,compact('mother'));
-        return $pdf->stream();
-//        return $pdf->download('reports.pdf');
+//        return $pdf->stream();
+        return $pdf->download('reports.pdf');
 
     }
 
 
     public function createRecord(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('doctor.dashboard.report.createRecord');
+        $mothers=User::all();
+        return view('doctor.dashboard.report.createRecord',compact('mothers'));
 
     }
 

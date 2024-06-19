@@ -143,7 +143,7 @@
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
         <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
-          <h2 >{{App\Models\appointment::count()}}  visit</h2>
+          <h2 >{{App\Models\schedule::count()}}  visit</h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
         </div>
 

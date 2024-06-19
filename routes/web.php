@@ -183,11 +183,10 @@ Route::middleware('auth:admin')->group(function () {
 
 /******************************doctor permissions***********************/
 Route::middleware('auth:doctor')->group(function () {
-    //**********************to view appointments***********************************//
     Route::get('/appointments', [AppointmentController::class,'index'])->name("appointments.index");
     Route::get('/appointments/month', [AppointmentController::class,'month'])->name('appointments.month');
     Route::get('/appointments/today', [AppointmentController::class,'today'])->name('appointments.today');
-    Route::get('/search', [AppointmentController::class,'search']);
+    Route::get('/ASearch', [AppointmentController::class,'search']);
 
 
     //***********************************to view ,update profile*******************//

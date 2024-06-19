@@ -29,10 +29,10 @@ class doctor extends Authenticatable
     }
 
 
-//    public function doctorappointments(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-//    {
-//        return $this->belongsToMany(appointment::class, 'appointment_doctor');
-//    }
+    public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(record::class);
+    }
 
 
     public function users(): \Illuminate\Database\Eloquent\Relations\HasManyThrough

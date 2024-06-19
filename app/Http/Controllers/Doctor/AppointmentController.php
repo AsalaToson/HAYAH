@@ -11,21 +11,25 @@ class AppointmentController extends Controller
 {
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $doctor = Auth::guard('doctor')->user();
-        $appointments = schedule::all();
-        return view('doctor.dashboard.appointment.index',compact('appointments'));
-    }
-    public function month(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        $currentMonth = date('m');
-        $appointments = schedule::where('date', 'like', '%' . $currentMonth . '%')->get();
+
+        // Fetch appointments that belong to the authenticated doctor
+        $appointments = Schedule::where('doctor_id',Auth::guard('doctor')->id())->get();
+
+        // Pass the appointments to the view
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
 
-    public function today(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function month()
+    {
+        $currentMonth = date('m');
+        $appointments = Schedule::whereMonth('appointment', $currentMonth)->where('doctor_id',Auth::guard('doctor')->id())->get();
+        return view('doctor.dashboard.appointment.index', compact('appointments'));
+    }
+
+    public function today()
     {
         $currentDate = date('Y-m-d');
-        $appointments = schedule::where('date', $currentDate)->get();
+        $appointments = Schedule::whereDate('appointment', $currentDate)->where('doctor_id',Auth::guard('doctor')->id())->get();
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
     public function destroy($id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
@@ -37,7 +41,7 @@ class AppointmentController extends Controller
     function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        $appointments=schedule::where('mother_id','like','%'.$request->input('query').'%')->get();
+        $appointments=schedule::where('user_id','like','%'.$request->input('query').'%')->get();
         return view('doctor.dashboard.appointment.search',compact("appointments"));
     }
 }
