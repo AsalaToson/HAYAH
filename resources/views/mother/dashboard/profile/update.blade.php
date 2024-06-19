@@ -21,7 +21,7 @@
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
               </a>
 
               <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
@@ -55,6 +55,8 @@
         <div class="breadcrumb-bg py-5  w3l-inner-page-breadcrumb">
           <div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
             <h2 class="title pt-5">Edit Profile</h2>
+
+
             <ul class="breadcrumbs-custom-path mt-3 text-center">
               <li><a href="logged.html">Home</a></li>
               <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Edit </li>

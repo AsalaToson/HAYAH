@@ -40,27 +40,26 @@
                     <ul class="navbar-nav mx-lg-auto">
                         <li class="nav-item active">
 
-                            <a class="nav-link scroll" href="#Home">Home</a>
-                        </li>
-                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="#About Us">About Us</a>
+                            <a class="nav-link scroll" href="/">Home</a>
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="service-2.html">Our Services</a>
-                        </li>
-                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="#">pregnancy</a>
-                        </li>
-                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="#">Baby</a>
-                        </li>
-                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="#">Family</a>
-                        </li>
+{{--                            <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('web')->user()->id])}}">Our Services</a>--}}
 
+                        </li>
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
-                            <a class="nav-link scroll" href="#contact us">contact us</a>
+
+                            <a class="nav-link scroll" href="{{route('pregnancy.home')}}">pregnancy</a>
+                        </li>
+                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
+                            <a class="nav-link scroll" href="{{route('baby.index')}}">Baby</a>
+                        </li>
+                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
+                            <a class="nav-link scroll" href="{{route('family.home')}}">Family</a>
+                        </li>
+                        <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
+
+{{--                            <a class="nav-link scroll" href="{{route('contactus.show',[Auth::guard('web')->user()->id])}}">contact us</a>--}}
                         </li>
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
