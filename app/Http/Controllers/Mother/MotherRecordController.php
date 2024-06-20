@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Mother;
 
 use App\Http\Controllers\Controller;
 use App\Models\record;
+
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +22,7 @@ class MotherRecordController extends Controller
 {
     public function show(string $id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother=mother::findorfail($id);
+        $mother=User::findorfail($id);
         $records=$mother->records;
         return view('mother.dashboard.report.show',compact('records','mother'));
     }
@@ -31,6 +34,7 @@ class MotherRecordController extends Controller
         return $pdf->download('report.pdf');
 
     }
+
 
 }
 

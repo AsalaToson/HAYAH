@@ -4,6 +4,7 @@
 <head>
     <title>My Medical Record</title>
     <link rel="icon" type="image/png" href="{{asset('site/patient profile/favicon.ico')}}"/>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -107,6 +108,9 @@
     </style>
 </head>
 <body>
+
+{{--@if (isset($mothers))--}}
+{{--    @foreach ($mothers as $mother)--}}
 <a class="container">
     <h1>My Medical Records </h1>
 
@@ -114,11 +118,11 @@
     <table>
         <tr>
             <th>Name</th>
-            <td>Hanan Maghraby</td>
+            <td>  {{$mother->name}}</td>
         </tr>
         <tr>
             <th>Age</th>
-            <td>22</td>
+            <td>{{$mother->age}}</td>
         </tr>
         <tr>
             <th>Gender</th>
@@ -126,7 +130,7 @@
         </tr>
         <tr>
             <th>Contact Details</th>
-            <td>Phone: 01065283201<br>Email: hananmghrby576@gmail.com</td>
+            <td>{{$mother->phone}}<br>{{$mother->email}}</td>
         </tr>
         <tr>
             <th>Emergency Contact Information</th>
@@ -137,75 +141,61 @@
     <table>
         <tr>
             <th>Previous Illnesses or Surgeries</th>
-            <td>None</td>
+            <td>{{$mother->blood_pressure}}</td>
         </tr>
         <tr>
             <th>Allergies</th>
-            <td>Pollen, peanuts</td>
+            <td>{{$mother->blood_pressure}}</td>
         </tr>
         <tr>
             <th>Medications</th>
-            <td>Aspirin (2 tablets every 4 hours)</td>
-        </tr>
-    </table>
-    <h2>Test Results</h2>
-    <table>
-        <tr>
-            <th>Lab Test Results</th>
-            <td><a href="#" class="lab-test-results">Click here to access</a></li></td>
-        </tr>
-        <tr>
-            <th>Radiology Reports</th>
-            <td><a href="#" class="lab-test-results">Click here to access</a></li></td>
-        </tr>
-
-    </table>
-
-
-    <table>
-        <h2>Appointment</h2>
-        <tr>
-            <th>Dr/Mohamed</th>
-            <td>March 21,2023 at 7 PM</td>
-        </tr>
-        <tr>
-            <th>Dr/Ramy</th>
-            <td>February 5,2023 at 3 PM</td>
-        </tr>
-        <tr>
-            <th>Dr/salem</th>
-            <td>January 4,2023 at 10 AM</td>
+            <td>{{$mother->medication}}</td>
         </tr>
     </table>
 
-    <table>
-        <h2>Prescription</h2>
-        <tr>
-            <th>Previous Illnesses or Surgeries</th>
-            <td>None</td>
-        </tr>
-        <tr>
-            <th>Allergies</th>
-            <td>Pollen, peanuts</td>
-        </tr>
-        <tr>
-            <th>Medications</th>
-            <td>Aspirin (2 tablets every 4 hours)</td>
-        </tr>
-    </table>
+    <h3>Medical Report details</h3><br>
+    <p></p>
 
-    <table>
-        <h2>Billing Information</h2>
-        <tr>
-            <th>Medical Bills</th>
-            <td>100 LE</td>
-        </tr>
-        <tr>
-            <th>Insurance Coverage</th>
-            <td>60%</td>
+    <table class="stable">
+        <tr class="str">
+            <th class="sth">Date</th>
+            <th class="sth">Doctor Name</th>
+            <th class="sth">Blood Pressure</th>
+            <th class="sth">Baby Size</th>
+            <th class="sth">Weight</th>
+            <th class="sth">Sugar Rate</th>
+            <th class="sth">Medication</th>
+
         </tr>
 
-    </table>
-    <a href="{{$mother->record}}" >  <button class=""download-button">Download</button></a>
-    <a href="{{asset('site/logged.html')}}" class="home-button">Home</a>
+        @if ($records)
+            @foreach ($records as $record)
+                <tr class="str">
+                    <td class="std">{{$record->created_at}}</td>
+                    <td class="std">{{$record->doctor->name}}</td>
+                    <td class="std">{{$record->blood_pressure}}</td>
+                    <td class="std">{{$record->baby_size}}</td>
+                    <td class="std">{{$record->Weight}}</td>
+                    <td class="std">{{$record->sugar_rate}}</td>
+                    <td class="std">{{$record->medication}}</td>
 
+
+                </tr>
+
+            @endforeach
+        @else
+            <div class="alert alert-danger">
+                <p>{{ 'this patient has no medical records' }}</p></div>
+        @endif
+
+    </table><br>
+{{--    <button href="{{route('MRecord.pdf',[Auth::guard('web')->user()->id])}})}}" class="download-button">Download</button>--}}
+
+    <a href="{{route('MRecord.pdf',[Auth::guard('web')->user()->id])}})}}" >  <button class=""download-button">Download</button></a>
+
+
+
+    <a class="nav-link scroll" href="{{route('dashboard.mother',[Auth::guard('web')->user()->id])}}">Home</a>
+{{--    <button class="nav-link scroll" href="{{route('dashboard.mother',[Auth::guard('web')->user()->id])}}">Home</button>--}}
+{{--@endforeach--}}
+{{--@endif--}}
