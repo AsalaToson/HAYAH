@@ -15,14 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/style_3.css">
-=======
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-
-
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
 
 </head>
 
@@ -125,20 +117,9 @@
                                 <a class="dropdown-item" href="#">Settings</a>
 
                                 <a class="dropdown-item" href="{{route('admin profile.index')}}">Profile</a>
-<<<<<<< HEAD
-                                <a class="dropdown-item" href="#">logout</a>
-                            </div>
-
-                            <a class="dropdown-item" href="edit profile">Profile</a>
-
-                            <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-=======
                                 <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
 
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-right-from-bracket"></i> logout
@@ -163,10 +144,8 @@
         </div>
 
         <div class="inner_content">
+            <div style="display: flex;">
 
-<<<<<<< HEAD
-            <div class="container mt-4">
-=======
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
                     <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
                     <div style="margin: 50px;">
@@ -193,250 +172,86 @@
                 </div>
 
             </div>
-
-
-            <div class="container-fluid dashboard-container">
-
-
-                <!-- Row 3: Medical Reports and Visits/Appointments -->
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
-                <div class="row">
-                    <div class="col-md-3 dcard">
-                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
-                            <img src="images/tasks.png" alt="Image 1"  >
-                            <h4> 470  Task</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 dcard " >
-                        <div class="inner-card" style="background-color: #fff5dd;">
-                            <img src="images/pregnancy.png" alt="Image 2" >
-                            <h4>6930 Patient</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 dcard" >
-                        <div class="inner-card" style="background-color: #d3eaea;">
-                            <img src="images/online-booking.png" alt="Image 3" >
-                            <h4>15849 visits</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 dcard" >
-                        <div class="inner-card" style="background-color: lightsalmon;">
-                            <img src="images/dollar.png" alt="Image 3" >
-                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $99385</h4>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid dashboard-container">
-
-
-                    <!-- Row 3: Medical Reports and Visits/Appointments -->
-                    <div class="row">
-                        <div class="col-md-5 chart-container">
-                            <h5>Patient Demographics</h5>
-                            <canvas id="patientDemographicsChart"></canvas>
-                        </div>
-                        <div class="col-md-6 chart-container">
-                            <h5>Admin Activity</h5>
-                            <canvas id="adminActivityChart"></canvas>
-                        </div>
-                        <div class="col-md-6 chart-container">
-                            <h5>Satisfied Patients</h5>
-                            <canvas id="satisfiedPatientsChart"></canvas>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-
         </div>
-
-
-
     </div>
-<<<<<<< HEAD
-    <script>  // Satisfied Patients Chart
-        const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
-        const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
-                datasets: [{
-                    label: 'Patient Satisfaction',
-                    data: [85, 10, 5],
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(255, 99, 132, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(255, 99, 132, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
+    <div class="container-fluid dashboard-container">
 
-=======
-    <!--modal-->
 
-    <!--modal-->
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
-                    <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
-                    </button>
-
-                </div>
-                <div class="modal-body">
-
-                    <form>
-                        <div class="form-group">
-                            <label for="searchInput">Search:</label>
-                            <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
-                        <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
-
-                    </form>
-                </div>
+        <!-- Row 3: Medical Reports and Visits/Appointments -->
+        <div class="row">
+            <div class="col-md-5 chart-container">
+                <h5>Patient Demographics</h5>
+                <canvas id="patientDemographicsChart"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <h5>Admin Activity</h5>
+                <canvas id="adminActivityChart"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <h5>Satisfied Patients</h5>
+                <canvas id="satisfiedPatientsChart"></canvas>
             </div>
         </div>
     </div>
-    <script>  // Satisfied Patients Chart
-        const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
-        const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
-                datasets: [{
-                    label: 'Patient Satisfaction',
-                    data: [85, 10, 5],
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(255, 99, 132, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(255, 99, 132, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
 
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
-        // Patient Demographics Chart
-        const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
-        const patientDemographicsChart = new Chart(patientDemographicsCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
-                datasets: [{
-                    label: 'Demographics',
-                    data: [200, 150, 80, 20],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
-        // Admin Activity Chart
-        const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
-        const adminActivityChart = new Chart(adminActivityCtx, {
-            type: 'line',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                datasets: [{
-                    label: 'Tasks Completed',
-                    data: [50, 70, 80, 60],
-                    fill: false,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+</div>
+
+</div>
 
 
 
+</div>
+<!--modal-->
 
-    </script>
+<!--modal-->
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
+                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                </button>
 
+            </div>
+            <div class="modal-body">
 
+                <form>
+                    <div class="form-group">
+                        <label for="searchInput">Search:</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<<<<<<< HEAD
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
-=======
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>  // Satisfied Patients Chart
+    const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
+    const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
+            datasets: [{
+                label: 'Patient Satisfaction',
+                data: [85, 10, 5],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });

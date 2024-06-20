@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include Chart.js from CDN -->
@@ -135,32 +135,25 @@
 
         </div>
 
-        <div class="short" >
-            <h3 class="dash">Quick Statistics</h3>
-            <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Dashboard  </p></div>
-        </div>
+
+        <h1>Home...</h1>
         <div class="inner_content">
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-3 dcard">
-                        <div class="inner-card" id="card1">
-                            <img src="images/medical-report.png" alt="Image 1"  >
-                            <h4> 6934 Report</h4>
-                        </div>
+            <div style="display: flex;">
+
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
-                    <div class="col-md-3 dcard " id="card2" >
-                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
-                            <img src="images/pregnancy.png" alt="Image 2" >
-                            <h4>10045 Patient</h4>
-                        </div>
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\User::count()}} Patient</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-md-3 dcard" id="card3" >
-                        <div class="inner-card" style="background-color: lightblue;">
-                            <img src="images/online-booking.png" alt="Image 3" >
-                            <h4> 20957 visits</h4>
-                        </div>
-=======
 
                 </div>
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
@@ -168,167 +161,152 @@
                     <div style="margin: 50px;">
                         <h2 >{{App\Models\schedule::count()}} visits</h2>
                         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
->>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
-                    </div>
-                    <div class="col-md-3 dcard" id="card4" >
-                        <div class="inner-card" style="background-color: #f0c8a0;">
-                            <img src="images/dollar.png" alt="Image 3" >
-                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $6938</h4>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid dashboard-container" >
-                <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
-                <div class="row">
-
-                    <div class="col-md-5">
-                        <div class="chart-container">
-                            <h5>Successful Operations</h5>
-                            <canvas id="successfulOperationsChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="chart-container">
-                            <h5>Medical Reports</h5>
-                            <canvas id="medicalReportsChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="chart-container">
-                            <h5>Doctor Consultations</h5>
-                            <canvas id="doctorConsultationsChart"></canvas>
-                        </div>
                     </div>
 
                 </div>
-            </div>
 
-
-        </div>
-
-        <!--modal-->
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title fs-5" id="exampleModalLabel" >Search Here</h2>
-                        <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
-                        </button>
-
-                    </div>
-                    <div class="modal-body">
-
-                        <form>
-                            <div class="form-group">
-                                <label for="searchInput">Search:</label>
-                                <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
-                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
-
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
-        <script>
+    </div>
+</div>
 
-            // Doctor Consultations Chart
-            const doctorConsultationsCtx = document.getElementById('doctorConsultationsChart').getContext('2d');
-            const doctorConsultationsChart = new Chart(doctorConsultationsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                    datasets: [{
-                        label: 'Consultations',
-                        data: [120, 190, 300, 500, 230, 350],
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+<div class="container-fluid dashboard-container" >
+    <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
+    <div class="row">
+
+        <div class="col-md-4.5">
+            <div class="chart-container">
+                <h5>Successful Operations</h5>
+                <canvas id="successfulOperationsChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="chart-container">
+                <h5>Medical Reports</h5>
+                <canvas id="medicalReportsChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="chart-container">
+                <h5>Doctor Consultations</h5>
+                <canvas id="doctorConsultationsChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</div>
+<!--modal-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
+                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="searchInput">Search:</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    // Doctor Consultations Chart
+    const doctorConsultationsCtx = document.getElementById('doctorConsultationsChart').getContext('2d');
+    const doctorConsultationsChart = new Chart(doctorConsultationsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Consultations',
+                data: [120, 190, 300, 500, 230, 350],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
-            });
-            // Medical Reports Chart
-            const medicalReportsCtx = document.getElementById('medicalReportsChart').getContext('2d');
-            const medicalReportsChart = new Chart(medicalReportsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                    datasets: [{
-                        label: 'Reports',
-                        data: [100, 120, 150, 200, 180, 160],
-                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                        borderColor: 'rgba(255, 159, 64, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+            }
+        }
+    });
+    // Medical Reports Chart
+    const medicalReportsCtx = document.getElementById('medicalReportsChart').getContext('2d');
+    const medicalReportsChart = new Chart(medicalReportsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Reports',
+                data: [100, 120, 150, 200, 180, 160],
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
-            });
-            // Successful Operations Chart
-            const successfulOperationsCtx = document.getElementById('successfulOperationsChart').getContext('2d');
-            const successfulOperationsChart = new Chart(successfulOperationsCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Successful', 'Unsuccessful'],
-                    datasets: [{
-                        label: 'Operations',
-                        data: [90, 10],
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(255, 99, 132, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
+            }
+        }
+    });
+    // Successful Operations Chart
+    const successfulOperationsCtx = document.getElementById('successfulOperationsChart').getContext('2d');
+    const successfulOperationsChart = new Chart(successfulOperationsCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Successful', 'Unsuccessful'],
+            datasets: [{
+                label: 'Operations',
+                data: [90, 10],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
 
-        </script>
+</script>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/popper.min.js')}}"></script>
+<script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
