@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('../../css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/style_3.css') }}">
 
     @yield('css')
 
@@ -58,7 +59,7 @@
     <div class="content">
         <div class="nav">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -80,17 +81,15 @@
                                 <i class="fa fa-bell"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 350px;" >
-                                <p style="text-align: center;"> you have 3 notification</p><hr>
-                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> Lorem ipsum dolor sit, officia placeat,</a>
-                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem</a>
-                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
+                                <p style="text-align: center;"> you have 2 notification</p><hr>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> you have new analysis request</a>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> update your profile</a>
                             </div>
                         </li>
                         <li class="nav-item-dropdown" >
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
                                 <i class="fas fa-user" ></i>
                                 {{Auth::guard('lab_doctor')->user()->name}}
-
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
                                 <a class="dropdown-item" href="{{route("labProfile.show")}}" ><i class="fa fa-user" aria-hidden="true"></i>
@@ -158,7 +157,6 @@
 
 
 
-
 <script src="{{asset('../../js/popper.min.js')}}"></script>
 <script src="{{asset('../../js/jquery-3.7.1.min.js')}}"></script>
 <script src="{{asset('../../js/bootstrap.js')}}"></script>
@@ -167,15 +165,3 @@
 @yield('js')
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

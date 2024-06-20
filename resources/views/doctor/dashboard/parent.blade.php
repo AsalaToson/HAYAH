@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('../../css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/style_3.css') }}">
 
     @yield('css')
 
@@ -71,12 +71,10 @@
         </ul>
     </div>
 
-
-
     <div class="content">
         <div class="nav">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -173,12 +171,11 @@
 
 
 
-
-
 <script src="{{asset('../../js/popper.min.js')}}"></script>
 <script src="{{asset('../../js/jquery-3.7.1.min.js')}}"></script>
 <script src="{{asset('../../js/bootstrap.js')}}"></script>
 <script src="{{asset('../../js/main.js')}}"></script>
 @yield('js')
+
 </body>
 </html>
