@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Doctor Dashboard</title>
     <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
-    <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include Chart.js from CDN -->
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="css/style_3.css">
 
 
 
@@ -43,20 +43,20 @@
 
                 </ul>
             </li>
-{{--            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i> My patients</a>--}}
-{{--                <ul class="sublist">--}}
-{{--                    <li><a href="{{route('patients.index')}}">All patients</a></li>--}}
+            {{--            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i> My patients</a>--}}
+            {{--                <ul class="sublist">--}}
+            {{--                    <li><a href="{{route('patients.index')}}">All patients</a></li>--}}
 
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
 
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Medical Reports</a>
                 <ul class="sublist">
                     <li><a href="/record/create">Add Medical Report</a></li>
                     <li><a href="{{route('records.index')}}">All Medical Reports</a></li>
-{{--                    <li><a href="#">Medical Report Details</a></li>--}}
+                    {{--                    <li><a href="#">Medical Report Details</a></li>--}}
 
-{{--                    <li><a href="#">Edit Medical Report</a></li>--}}
+                    {{--                    <li><a href="#">Edit Medical Report</a></li>--}}
                 </ul>
             </li>
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Analysis Reports</a>
@@ -84,7 +84,7 @@
                     <ul class="navbar-nav ml-auto" >
                         <li class="nav-item">
                             <a class="nav-link" href="#" style="padding-top: 18px;"><i class="fa-solid fa-toggle-on" id="dark"></i>
-                                </a>
+                            </a>
                         </li>
 
 
@@ -135,43 +135,46 @@
 
         </div>
 
-
-        <h1>Home...</h1>
+        <div class="short" >
+            <h3 class="dash">Quick Statistics</h3>
+            <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Dashboard  </p></div>
+        </div>
         <div class="inner_content">
-            <div style="display: flex;">
-
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-3 dcard">
+                        <div class="inner-card" id="card1">
+                            <img src="images/medical-report.png" alt="Image 1"  >
+                            <h4> 6934 Report</h4>
+                        </div>
                     </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\User::count()}} Patient</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                    <div class="col-md-3 dcard " id="card2" >
+                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
+                            <img src="images/pregnancy.png" alt="Image 2" >
+                            <h4>10045 Patient</h4>
+                        </div>
                     </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\appointment::count()}} visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                    <div class="col-md-3 dcard" id="card3" >
+                        <div class="inner-card" style="background-color: lightblue;">
+                            <img src="images/online-booking.png" alt="Image 3" >
+                            <h4> 20957 visits</h4>
+                        </div>
                     </div>
+                    <div class="col-md-3 dcard" id="card4" >
+                        <div class="inner-card" style="background-color: #f0c8a0;">
+                            <img src="images/dollar.png" alt="Image 3" >
+                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $6938</h4>
 
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
             <div class="container-fluid dashboard-container" >
                 <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
                 <div class="row">
 
-                    <div class="col-md-4.5">
+                    <div class="col-md-5">
                         <div class="chart-container">
                             <h5>Successful Operations</h5>
                             <canvas id="successfulOperationsChart"></canvas>
@@ -194,35 +197,34 @@
             </div>
 
 
+        </div>
 
+        <!--modal-->
 
-</div>
-<!--modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="exampleModalLabel" >Search Here</h2>
+                        <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
-                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
-                </button>
-
-            </div>
-            <div class="modal-body">
-
-                <form>
-                    <div class="form-group">
-                        <label for="searchInput">Search:</label>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+                    <div class="modal-body">
 
-                </form>
+                        <form>
+                            <div class="form-group">
+                                <label for="searchInput">Search:</label>
+                                <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
         <script>
 
             // Doctor Consultations Chart
@@ -299,12 +301,12 @@
         </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="{{asset('js/popper.min.js')}}"></script>
-<script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+        <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
 

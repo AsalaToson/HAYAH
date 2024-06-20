@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_3.css">
 
 </head>
 
@@ -125,11 +125,11 @@
                                 <a class="dropdown-item" href="#">logout</a>
                             </div>
 
-                                <a class="dropdown-item" href="edit profile">Profile</a>
+                            <a class="dropdown-item" href="edit profile">Profile</a>
 
-                                <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
                         </li>
                     </ul>
@@ -140,168 +140,161 @@
 
         </div>
 
-        <h1>Home...</h1>
+        <div class="short" >
+            <h3 class="dash">Quick Statistics</h3>
+            <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Dashboard</p></div>
+        </div>
+
         <div class="inner_content">
-            <div style="display: flex;">
 
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\User::count()}} Patient</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\appointment::count()}} visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="container-fluid dashboard-container">
-
-
-                <!-- Row 3: Medical Reports and Visits/Appointments -->
+            <div class="container mt-4">
                 <div class="row">
-                    <div class="col-md-5 chart-container">
-                        <h5>Patient Demographics</h5>
-                        <canvas id="patientDemographicsChart"></canvas>
+                    <div class="col-md-3 dcard">
+                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
+                            <img src="images/tasks.png" alt="Image 1"  >
+                            <h4> 470  Task</h4>
+                        </div>
                     </div>
-                    <div class="col-md-6 chart-container">
-                        <h5>Admin Activity</h5>
-                        <canvas id="adminActivityChart"></canvas>
+                    <div class="col-md-3 dcard " >
+                        <div class="inner-card" style="background-color: #fff5dd;">
+                            <img src="images/pregnancy.png" alt="Image 2" >
+                            <h4>6930 Patient</h4>
+                        </div>
                     </div>
-                    <div class="col-md-6 chart-container">
-                        <h5>Satisfied Patients</h5>
-                        <canvas id="satisfiedPatientsChart"></canvas>
+                    <div class="col-md-3 dcard" >
+                        <div class="inner-card" style="background-color: #d3eaea;">
+                            <img src="images/online-booking.png" alt="Image 3" >
+                            <h4>15849 visits</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard" >
+                        <div class="inner-card" style="background-color: lightsalmon;">
+                            <img src="images/dollar.png" alt="Image 3" >
+                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $99385</h4>
+
+                        </div>
                     </div>
                 </div>
+                <div class="container-fluid dashboard-container">
 
+
+                    <!-- Row 3: Medical Reports and Visits/Appointments -->
+                    <div class="row">
+                        <div class="col-md-5 chart-container">
+                            <h5>Patient Demographics</h5>
+                            <canvas id="patientDemographicsChart"></canvas>
+                        </div>
+                        <div class="col-md-6 chart-container">
+                            <h5>Admin Activity</h5>
+                            <canvas id="adminActivityChart"></canvas>
+                        </div>
+                        <div class="col-md-6 chart-container">
+                            <h5>Satisfied Patients</h5>
+                            <canvas id="satisfiedPatientsChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
 
         </div>
 
 
 
-</div>
-<script>  // Satisfied Patients Chart
-    const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
-    const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
-            datasets: [{
-                label: 'Patient Satisfaction',
-                data: [85, 10, 5],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
+    </div>
+    <script>  // Satisfied Patients Chart
+        const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
+        const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
+                datasets: [{
+                    label: 'Patient Satisfaction',
+                    data: [85, 10, 5],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
 
-    // Patient Demographics Chart
-    const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
-    const patientDemographicsChart = new Chart(patientDemographicsCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
-            datasets: [{
-                label: 'Demographics',
-                data: [200, 150, 80, 20],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-    // Admin Activity Chart
-    const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
-    const adminActivityChart = new Chart(adminActivityCtx, {
-        type: 'line',
-        data: {
-            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            datasets: [{
-                label: 'Tasks Completed',
-                data: [50, 70, 80, 60],
-                fill: false,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
+        // Patient Demographics Chart
+        const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
+        const patientDemographicsChart = new Chart(patientDemographicsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
+                datasets: [{
+                    label: 'Demographics',
+                    data: [200, 150, 80, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+        // Admin Activity Chart
+        const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
+        const adminActivityChart = new Chart(adminActivityCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Tasks Completed',
+                    data: [50, 70, 80, 60],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
 
 
 
-</script>
+    </script>
 
 
 
 
 
-<script src="js/popper.min.js"></script>
-<script src="js/jquery-3.7.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/main.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

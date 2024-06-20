@@ -1,0 +1,638 @@
+body{
+ 
+  margin: 0;
+  padding: 0;
+  height: auto;
+  
+  
+   }
+   img{
+    width:170px; 
+    height:85px;
+    margin-top: 20px;
+    margin-left: 25px;
+   }
+   .sidebar {
+  
+    width: 320px;
+    background-color:lavender;
+     height: auto; 
+   
+  
+    
+     #444;
+   
+  }
+  .dark .sidebar{
+    background-color:     #170e1f ;
+  }
+  .dark .sidebar a{
+    color:white;
+  }
+  .dark .sidebar a:hover{
+    background-color: gray;
+  }
+  .dark .main{
+    background-color: #1C1D21;
+  }
+
+   .dark .inner_content ,.dark .dashboard-container {
+    background-color:  #220b20;
+  } 
+  .dark .content{
+    background-color: #220b20;
+  }
+  .dark .nav{
+    background-color: #170e1f;
+  }
+  .dark .nav-link:hover{
+    color: whitesmoke;
+    background-color: gray;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+  .dark .chart-container{
+    background-color:#4b354a;
+  }
+  .dark .chart-container h5{
+    color: whitesmoke;
+  }
+  .dark #card1{
+    background-color: #825b86;
+  }
+   .dark .short{
+    background-color:#332946;
+    
+  } 
+  .dark .dash{
+    color: whitesmoke;
+
+  }
+  .dark td{
+    color: whitesmoke;
+  } 
+  .dark form label{
+    color:whitesmoke;
+  }
+  .dark form input{
+    background-color: rgb(212, 207, 207);
+  }
+  .dark label{
+    color: whitesmoke;
+  }
+  #exampleModalLabel{
+    color: rgb(88, 15, 54);
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 30px;
+    height: auto;
+   
+  
+  
+  }
+  
+  .sidebar ul li  {
+   margin-bottom: 25px;
+    font-size:20px;
+    
+    
+  }
+  
+  .sidebar ul li ul {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+  
+  
+  }
+  
+  .sidebar ul li   ul li a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #595959;
+    display: block;
+    font-weight: 400;
+  }
+  .sidebar .main-menu .sublist li {
+    margin-bottom: 1px; /* Space between sublist items */
+}
+.sidebar .main-menu > li > a .fa-solid {
+  margin-right: 8px;
+}
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #747272;
+    display: block;
+    font-weight: 600;
+  
+   
+   
+  }
+ 
+  .sidebar ul li a:hover {
+    background-color: lightgray;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+  
+  
+  }
+  
+  .form-group {
+   margin: 5px;
+   
+   
+  }
+  
+  label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    box-sizing: border-box;
+    color: rgb(75, 72, 72);
+  }
+  
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="file"],
+  
+  select {
+  
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: inline-block;
+  
+  }
+  
+  .dbody {
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+}
+
+/* Optional: If you want to add some padding to the image */
+.dbody img {
+    padding-top: 10px;
+    width: 50%;
+    
+}
+table{
+  border: none;
+ 
+}
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color:rgb(183, 87, 103);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px;
+    margin: 15px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: rgb(100, 85, 88);
+  }
+  
+  
+  
+  .main{
+  
+    display: flex;
+    height: auto;
+  }
+  
+  .content{
+    width: 100%;
+    background-color:whitesmoke;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .inner_content{
+   
+    margin: 20px;
+    background-color:white;
+    height: auto;
+    color: #1C1D21;
+  
+  }
+  
+  .dash{
+   
+    height: 50px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+   color: #747272;
+   font-weight: 600;
+   font-family: Arial, Helvetica, sans-serif;
+   
+  }
+  
+  .form-group{
+    padding-left: 20px;
+    padding-bottom: 15px;
+    display: inline-block;
+    width: 500px;
+   
+  
+  }
+  .navbar {
+    width: 100%;
+  }
+ 
+  .navbar-nav {
+    width: 100%;
+    justify-content: flex-end;
+    
+  }
+  
+  .nav-item {
+  margin-right: 20px;
+  margin-left: 20px;
+ 
+
+  }
+  
+  
+  .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .navbar-toggler {
+    color: pink;
+    border: none;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: gray;
+  }
+  
+  .nav-link {
+ color: gray;
+ border-radius:30px ;
+ -webkit-border-radius:30px ;
+ -moz-border-radius:30px ;
+ -ms-border-radius:30px ;
+ -o-border-radius:30px ;
+}
+  .nav-link:hover{
+    
+   background-color: lightgray;
+   color: black;
+  }
+  
+  .dropdown-menu {
+    background-color:#f0efeb;
+    color: purple;
+  }
+  
+  .dropdown-item {
+    color: black;
+    height: 35px;
+  }
+  .fas fa-user{
+    padding-right: 7px;
+  }
+  
+  .nav-item-dropdown{
+    padding-top: 10px;
+  }
+  .add-patient-form{
+    box-sizing: border-box;
+  }
+  h3{
+    height: 15px;
+    padding-top: 10px;
+    padding-left: 18px;
+    padding-bottom: 2px;
+    color:palevioletred;
+  }
+  .form-groups{
+    display: flex;
+   
+  }
+  .row{
+    display: flex;
+    justify-content: space-between;
+  }
+  #show-entries{
+    width: 100px;
+    height: 34px;
+  margin-top: 0px;
+  }
+  #search{
+    width: 700px;
+    height: 35px;
+    margin-top: 0px;
+  
+   
+  }
+  .container2{
+    margin: 15px;
+    margin-bottom: 0px;
+  }
+  ul i ,.fa-home   {
+    color:#dc6eab;
+    margin-right: 10px;
+   
+ font-size: medium;
+}
+
+  th{
+    text-decoration: none;
+  }
+  thead tr th {
+   color:palevioletred;
+   text-align: center;
+  
+  }
+  .pagination{
+   justify-content: flex-end;
+  
+  
+  }
+  .Pag {
+   padding-top: 0px;
+  }
+  .pagination .page-link {
+    color: palevioletred;
+  }
+  
+  /* Change background color on hover */
+  .pagination .page-link:hover,
+  .pagination .page-link:focus {
+    background-color: palevioletred;
+    color: white; /* Ensuring text color remains visible on background */
+  }
+ 
+  #dbutton , #Tbutton{
+  
+   margin: 7px;
+  
+   width: 100px;
+  }
+  /* #donebutton{
+     margin: 7px;
+  
+    width: 100px; 
+    padding: 8px;
+  } */
+ .buttons{
+  margin: 7px;
+   width: 100px;
+ } 
+  #dbutton:hover{
+    transform: scale(1.1);
+  }
+  .dbody{
+    display: flex;
+    justify-content: space-around;
+  }
+  table {
+   border-collapse: collapse;
+   margin-top: 20px;
+   margin-right: 100px;
+   height: 400px;
+   margin-left: 30px;
+  border-color: blueviolet;
+  }
+  th, td {
+    border: 1px solid purple;
+    padding: 8px;
+  }
+  .card{
+    margin: 10px;
+    width: 400px;
+    height: 500px;
+  }
+  th{
+    width: 200px;
+    background-color: whitesmoke;
+    color: purple;
+  }
+  table td{
+    width: 500px;
+  }
+  
+  .check{
+    width: 10px;
+  }
+  .Pbody{
+    height: 500px;
+    display: flex;
+  }
+  .Pbody table tr th{
+    width: 50px;
+   
+   
+  }
+  .Pbody table tr{
+  height: 10px;
+  width: 400px;
+  
+  }
+  .visits{
+    width: 60%;
+  }
+  
+  
+   /* Modal styles */
+   .modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content2 {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button:hover {
+    text-decoration: none;
+  }
+  #confirmDelete{
+   width: 100%;
+   margin-bottom: 10px;
+  }
+  #cancelDelete{
+    width: 100%;
+  }
+  .profile{
+    margin: 30px;
+    display: flex;
+  }
+  .profileData{
+    margin: 30px;
+  }
+  h2{
+    color: palevioletred;
+  } 
+
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px; /* Adjust as needed */
+}
+.dbody {
+  display: flex;
+  flex-direction: column; /* Ensure content stacks vertically */
+}
+
+/* Optional: If you want to add some padding to the image */
+.dbody img {
+  padding-top: 10px;
+  width: 50%;
+  
+}
+table{
+border: none;
+}
+
+
+  
+ 
+
+.dashboard-container {
+    padding: 30px;
+    
+}
+
+.chart-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(199, 194, 194, 0.1);
+}
+
+h5 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #333;
+}
+.top{
+  display: flex;
+   background-color: rgb(246, 199, 207); 
+   border-radius: 40px; align-items: center;
+justify-content: center; 
+width: auto; height: 37px;
+ margin-right: 15px; padding-left: 10px;
+
+}
+.rout{
+  margin-top: 15px; color: gray; padding-right: 10px;
+
+}
+.short{
+  display: flex; justify-content: space-between; 
+  background-color:rgb(238, 235, 235); 
+   align-items: center;
+}
+  
+
+
+/* Custom Styles for Dashboard */
+.dashboard-container {
+    padding: 2rem;
+    background-color: white;
+}
+
+.chart-container {
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container h5 {
+    color: #555;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Custom Colors for Charts */
+.chart-bg-pink {
+    background-color: rgba(255, 192, 203, 0.2);
+    border-color: rgba(255, 192, 203, 1);
+}
+
+.chart-bg-purple {
+    background-color: rgba(147, 112, 219, 0.2);
+    border-color: rgba(147, 112, 219, 1);
+}
+
+.chart-bg-blue {
+    background-color: rgba(173, 216, 230, 0.2);
+    border-color: rgba(173, 216, 230, 1);
+}
+.inner-card {
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid #ddd;
+border-radius: 5px;
+padding: 10px;
+height: 120px;
+background-color: lavender;
+border-radius: 20px;
+margin: 0px;
+width: 230px;
+}
+
+.inner-card img {
+margin-right: 10px;
+width: 50px; height: 50px;
+margin-top: 0px;
+
+}
+h4{
+color:gray;
+font-weight: 400;
+}
+
+
+
+
+

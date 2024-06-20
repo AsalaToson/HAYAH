@@ -11,6 +11,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class DoctorAuthController extends Controller
 {
@@ -22,11 +23,17 @@ class DoctorAuthController extends Controller
 
     public function store(DoctorLoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
 
-        $request->session()->regenerate();
+        try {
+            $request->authenticate();
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::DOCTOR);
+        } catch (ValidationException $e) {
+            return back()->withErrors([
+                'email' => __('auth.failed'),
+            ])->withInput($request->only('email'));
+        }
 
-        return redirect()->intended(RouteServiceProvider::DOCTOR);
     }
 
 
