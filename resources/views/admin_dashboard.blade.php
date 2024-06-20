@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAYAH</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>HAYAH ADMIN Dashboard</title>
+    <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include Chart.js from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style_3.css">
 
 </head>
 
-<body>
+<body id="body">
 
 <!-- main container-->
 <div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">
-        <a href="#"><img src="images/logo.png" alt="" width="200" height="100"></a>
+        <a href="#"><img src="{{asset('images/logo.png')}}" alt=""  width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="/admin_dashboard" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
             </li>
             <li><a href="#" class="toggle-link"><i class="fas fa-user-md"></i>     Doctors</a>
@@ -72,14 +73,7 @@
                     <li><a href="{{route('sections.index')}}">All Departments</a></li>
                 </ul>
             </li>
-            <!-- <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i>Analysis Report</a>
-              <ul class="sublist">
-                <li><a href="#">Add Analysis Report</a></li>
-                <li><a href="#">Analysis Report Details</a></li>
-                <li><a href="#">All Analysis Report</a></li>
-                <li><a href="#">Edit Analysis Report</a></li>
-              </ul>
-            </li> -->
+
             <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>
                 <ul class="sublist">
                     <li><a href="{{route('resources.create')}}">Add Resources</a></li>
@@ -89,6 +83,7 @@
 
         </ul>
     </div>
+
 
 
 
@@ -260,80 +255,6 @@
                 responsive: true
             }
         });
-
-    // Patient Demographics Chart
-    const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
-    const patientDemographicsChart = new Chart(patientDemographicsCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
-            datasets: [{
-                label: 'Demographics',
-                data: [200, 150, 80, 20],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-    // Admin Activity Chart
-    const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
-    const adminActivityChart = new Chart(adminActivityCtx, {
-        type: 'line',
-        data: {
-            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            datasets: [{
-                label: 'Tasks Completed',
-                data: [50, 70, 80, 60],
-                fill: false,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-
-
-
-</script>
-
-
-
-
-
-        <script src="{{asset('js/popper.min.js')}}"></script>
-        <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
-</body>
-</html>
-
-
-
-
-
-
 
 
 
