@@ -122,14 +122,17 @@
                                 <a class="dropdown-item" href="#">Settings</a>
 
                                 <a class="dropdown-item" href="{{route('admin profile.index')}}">Profile</a>
-                                <a class="dropdown-item" href="#">logout</a>
-                            </div>
+                                <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
 
-                            <a class="dropdown-item" href="edit profile">Profile</a>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>                            </div>
 
-                            <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                            {{--                                <a class="dropdown-item" href="edit profile">Profile</a>--}}
+
+
 
                         </li>
                     </ul>
@@ -146,31 +149,32 @@
         </div>
 
         <div class="inner_content">
+            <div style="display: flex;">
 
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-3 dcard">
-                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
-                            <img src="images/tasks.png" alt="Image 1"  >
-                            <h4> 470  Task</h4>
-                        </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
-                    <div class="col-md-3 dcard " >
-                        <div class="inner-card" style="background-color: #fff5dd;">
-                            <img src="images/pregnancy.png" alt="Image 2" >
-                            <h4>6930 Patient</h4>
-                        </div>
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\User::count()}} Patient</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
-                    <div class="col-md-3 dcard" >
-                        <div class="inner-card" style="background-color: #d3eaea;">
-                            <img src="images/online-booking.png" alt="Image 3" >
-                            <h4>15849 visits</h4>
-                        </div>
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\schedule::count()}} visits</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
-                    <div class="col-md-3 dcard" >
-                        <div class="inner-card" style="background-color: lightsalmon;">
-                            <img src="images/dollar.png" alt="Image 3" >
-                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $99385</h4>
+
+                </div>
 
                         </div>
                     </div>
@@ -193,16 +197,42 @@
                             <canvas id="satisfiedPatientsChart"></canvas>
                         </div>
                     </div>
-
                 </div>
+
             </div>
-
-
 
         </div>
 
 
 
+    </div>
+    <!--modal-->
+
+    <!--modal-->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
+                    <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <div class="form-group">
+                            <label for="searchInput">Search:</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                        <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <script>  // Satisfied Patients Chart
         const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
@@ -231,70 +261,83 @@
             }
         });
 
-        // Patient Demographics Chart
-        const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
-        const patientDemographicsChart = new Chart(patientDemographicsCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
-                datasets: [{
-                    label: 'Demographics',
-                    data: [200, 150, 80, 20],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
-        // Admin Activity Chart
-        const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
-        const adminActivityChart = new Chart(adminActivityCtx, {
-            type: 'line',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                datasets: [{
-                    label: 'Tasks Completed',
-                    data: [50, 70, 80, 60],
-                    fill: false,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+    // Patient Demographics Chart
+    const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
+    const patientDemographicsChart = new Chart(patientDemographicsCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
+            datasets: [{
+                label: 'Demographics',
+                data: [200, 150, 80, 20],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+    // Admin Activity Chart
+    const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
+    const adminActivityChart = new Chart(adminActivityCtx, {
+        type: 'line',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+                label: 'Tasks Completed',
+                data: [50, 70, 80, 60],
+                fill: false,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
 
 
 
 
-    </script>
+</script>
 
 
 
 
 
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/main.js"></script>
+        <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,9 +3,7 @@
 
 
 use App\Http\Controllers\Admin_ProfileController;
-
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
-
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\AppointmentMotherController;
@@ -17,20 +15,11 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
-
-//use App\Http\Controllers\HomeController;
-
 use App\Http\Controllers\Lab_DoctorController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LabDoctor\RequestController;
-use App\Http\Controllers\LabDoctorController;
-
-
-
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
 use App\Http\Controllers\Mother\Auth\UserAuthController;
-
 use App\Http\Controllers\Mother\MotherAppointmentController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
 use App\Http\Controllers\Mother\BrowsePagesController;
@@ -194,11 +183,10 @@ Route::middleware('auth:admin')->group(function () {
 
 /******************************doctor permissions***********************/
 Route::middleware('auth:doctor')->group(function () {
-    //**********************to view appointments***********************************//
     Route::get('/appointments', [AppointmentController::class,'index'])->name("appointments.index");
     Route::get('/appointments/month', [AppointmentController::class,'month'])->name('appointments.month');
     Route::get('/appointments/today', [AppointmentController::class,'today'])->name('appointments.today');
-    Route::get('/search', [AppointmentController::class,'search']);
+    Route::get('/ASearch', [AppointmentController::class,'search']);
 
 
     //***********************************to view ,update profile*******************//

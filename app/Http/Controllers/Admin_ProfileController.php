@@ -12,7 +12,7 @@ class Admin_ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $admins = Auth::guard('admin')->user();
         return view('admin.dashboard.show_profile',compact('admins'));

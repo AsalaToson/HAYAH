@@ -20,7 +20,8 @@ class RequestsController extends Controller
     }
 
 
-    public function create($id){
+    public function create($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
         $request = laboratory::find($id);
         return view('lab_doctor.dashboard.upload_test',compact('request'));
     }
