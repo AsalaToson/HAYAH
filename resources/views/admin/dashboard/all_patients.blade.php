@@ -153,7 +153,7 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th></th>
+{{--                            <th></th>--}}
                             <th>Patient Image</th>
                             <th>patient Name</th>
                             <th>email</th>
@@ -169,7 +169,7 @@
                         <tbody>
                            @foreach($patients as $Patients)
                         <tr>
-                            <td><input type="checkbox"></td>
+{{--                            <td><input type="checkbox"></td>--}}
                             <td>
 
                                 @if($Patients->image)
