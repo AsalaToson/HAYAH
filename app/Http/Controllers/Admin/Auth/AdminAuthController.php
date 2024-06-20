@@ -12,6 +12,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AdminAuthController extends Controller
 {
@@ -22,11 +23,19 @@ class AdminAuthController extends Controller
 
     public function store(AdminLoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
 
-        $request->session()->regenerate();
+        try {
+            $request->authenticate();
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::ADMIN);
+        } catch (ValidationException $e) {
+            return back()->withErrors([
+                'email' => __('auth.failed'),
+            ])->withInput($request->only('email'));
+        }
 
-        return redirect()->intended(RouteServiceProvider::ADMIN);
+
+
     }
 
     public function login(AdminLoginRequest $request)

@@ -8,16 +8,18 @@
 
         <div class="profile">
             @if ($labDoctor->image)
-                <img  width="400px" height="350"  src="{{ asset('Dashboard/image/labDoctors/'.$labDoctor->image) }}" alt="Profile Image">
+                <img  width="500px" height="550"  src="{{ asset('Dashboard/image/labDoctor/'.$labDoctor->image) }}" alt="Profile Image">
             @else
-                <img src="" alt="profileimage" style="height: 200px; width: 300px">
+                <img src="" alt="profileimage" style="height: 400px; width: 500px">
             @endif
+
 
             <div class="profileData">
                 <h2>{{$labDoctor->name}}</h2>
                 <p><b>Name:</b>{{$labDoctor->name}}</p>
                 <p><b>Age:</b>{{$labDoctor->age}}</p>
-                <p><b>Age:</b>{{$labDoctor->phone}}</p>
+                <p><b>Gender:</b>{{$labDoctor->gender}}</p>
+                <p><b>Phone:</b>{{$labDoctor->phone}}</p>
                 <p><b>Email:</b>{{$labDoctor->email}}</p>
                 <p><b>Experience:</b>{{$labDoctor->experience}}</p>
 

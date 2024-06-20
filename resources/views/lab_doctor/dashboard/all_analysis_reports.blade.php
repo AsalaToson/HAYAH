@@ -5,7 +5,7 @@
       <div class="inner_content">
         <h3>Reports  list </h3>
           <br>
-          <h3> {{App\Models\Analysis_Result::count()}} analysis report </h3>
+          <h3 align="center"> {{App\Models\Analysis_Result::count()}} Analysis Report </h3>
           <br>
         <hr>
         <div class="container">
@@ -41,7 +41,7 @@
                     <th>Patient Name</th>
                     <th>Doctor Name</th>
                     <th>Report Name</th>
-                    <th>Photo</th>
+                    <th>Analysis Date</th>
                     <th>operations</th>
                 </tr>
             </thead>
@@ -57,8 +57,14 @@
                     <td>{{$analysis ->User->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
-                    <td> <img alt="" src="{{asset($analysis->photo)}}"></td>
-                    <td><div class="container3" style="display: flex;">
+                    <td>{{$analysis -> test_date}}</td>
+                    @php
+                      //  <td> <img alt="" src="{{asset($analysis->photo)}}"></td>
+                    @endphp
+
+
+                    <td>
+                        <div class="container3" style="display: flex; align-items: center">
 
                             <a href="{{route('details.show' , $analysis->id)}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                     <i class="fas far fa-eye" aria-hidden="true"></i> view

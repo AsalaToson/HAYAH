@@ -40,10 +40,9 @@
             <div class="form-group">
                 <label for="gender">Gender</label><br/>
                 <select id="gender" name="gender" required >
-                    <option value="{{$labDoctor->gender}}"></option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+
+                    <option value="male" {{ $labDoctor->gender == 'male' ? 'selected' : '' }}>Male</option>
+                    <option value="female" {{ $labDoctor->gender == 'female' ? 'selected' : '' }}>Female</option>
 
                 </select>
             </div>
@@ -58,14 +57,14 @@
             </div>
             <div class="form-group">
                 <label for="image">image</label><br/>
-                <input type="file" id="image" name="image"  required placeholder="choose image"  >
+                <input type="file" id="image" name="image"  placeholder="choose image"  >
                 @if($labDoctor->image)
-                    <img src="{{asset('Dashboard/image/labDoctors/'.$labDoctor->image)}}"
-                         height="50px" width="50px" alt="">
+                    <img src="{{asset('Dashboard/image/labDoctor/'.$labDoctor->image)}}"
+                         height="60px" width="60px" alt="">
 
                 @else
-                    <img src="{{asset('Dashboard/image/labDoctor/1.jpg')}}" height="50px"
-                         width="50px" alt="">
+                    <img src="{{asset('Dashboard/image/labDoctor/1.jpg')}}" height="60px"
+                         width="60px" alt="">
                 @endif
             </div>
 
