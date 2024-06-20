@@ -52,8 +52,10 @@
                         <th>Type</th>
 {{--                        <th>Time</th>--}}
                         <th>Appointment</th>
+                                                    <th>Email</th>
+                        <th>phone</th>
                         <th>Problem</th>
-                        {{--                            <th>status</th> --}}
+
                         <th>operations</th>
                     </tr>
                     </thead>
@@ -67,6 +69,8 @@
                                 <td>{{ $appointment->type }}</td>
 {{--                                <td>{{ $appointment->doctor->name }}</td>--}}
                                 <td>{{ $appointment->appointment }}</td>
+                                <td>{{$appointment->email}}</td>
+                                <td>{{$appointment->phone}}</td>
                                 <td>{{ $appointment->notes }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
 
