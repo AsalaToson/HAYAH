@@ -12,12 +12,12 @@ class schedule extends Model
 
 
 
-    public function doctor()
+    public function doctor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(doctor::class,'doctor_id');
     }
 
-    public function section()
+    public function section(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(section::class,'section_id');
     }
@@ -28,8 +28,9 @@ class schedule extends Model
 //    }
 
 
-    public function mother()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class,'mother_id');
+        return $this->belongsTo(User::class,'user_id');
     }
+
 }

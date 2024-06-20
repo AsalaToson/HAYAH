@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-//            $table->foreignId('mother_id')->references('id')->on('mothers')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->enum('type',['غير مؤكد','مؤكد','منتهي'])->default('غير مؤكد');
+            $table->enum('type',['Uncertain','Certain','Finished'])->default('Uncertain');
             $table->dateTime('appointment')->nullable();
             $table->text('time')->nullable();
             $table->text('notes')->nullable();

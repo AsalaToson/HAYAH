@@ -20,4 +20,5 @@ class record extends Model
     {
         return $this->belongsTo(doctor::class);
     }
+
 }

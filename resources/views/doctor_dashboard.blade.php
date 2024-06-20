@@ -154,11 +154,21 @@
                             <h4>10045 Patient</h4>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-3 dcard" id="card3" >
                         <div class="inner-card" style="background-color: lightblue;">
                             <img src="images/online-booking.png" alt="Image 3" >
                             <h4> 20957 visits</h4>
                         </div>
+=======
+
+                </div>
+                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+                    <div style="margin: 50px;">
+                        <h2 >{{App\Models\schedule::count()}} visits</h2>
+                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+>>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
                     </div>
                     <div class="col-md-3 dcard" id="card4" >
                         <div class="inner-card" style="background-color: #f0c8a0;">

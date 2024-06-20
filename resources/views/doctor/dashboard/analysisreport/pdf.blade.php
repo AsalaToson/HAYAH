@@ -72,8 +72,7 @@
             </tr>
             <tr>
                 <th>Analysis Name</th>
-                <td>{{$tests->analysis_Name}}
-                </td>
+                <td>{{$tests->analysis_Name}}</td>
             </tr>
         </table>
         <h3>Test Result</h3>

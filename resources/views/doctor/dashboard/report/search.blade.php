@@ -36,8 +36,8 @@
 
                     <thead>
                     <tr>
-                        <th> Patient ID </th>
-                        <th>Patient Name</th>
+                        <th> Patient Name </th>
+                        <th>Patient Phone</th>
                         <th>operations</th>
                     </tr>
                     </thead>
@@ -45,8 +45,8 @@
                     @if (isset($mothers))
                         @foreach ($mothers as $mother)
                             <tr>
-                                <td>{{$mother->id}} </td>
-                                <td>{{$mother->name}}</td>
+                                <td>{{$mother->name}} </td>
+                                <td>{{$mother->phone }}</td>
                                 <td><div class="container3" style="display: flex;">
                                         <!-- Delete Button with Delete Icon -->
                                         {{--                                <button type="button" class="btn btn-danger delete-button"  id="dbutton" >--}}

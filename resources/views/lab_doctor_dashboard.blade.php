@@ -49,7 +49,110 @@
             </li>
 
 
+<<<<<<< HEAD
         </ul>
+=======
+  </ul>
+</div>
+
+
+
+<div class="content">
+  <div class="nav">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav ml-auto" >
+         <li class="nav-item">
+           <a class="nav-link" href="#" style="padding-top: 18px;"><i class="fa-solid fa-toggle-on" id="dark"></i>
+           </a>
+         </li>
+
+
+         <li class="nav-item">
+           <button class="nav-link btn btn-link" id="searchIcon" style="padding-top: 16px;"><i class="fa fa-search"></i></button>
+         </li>
+
+         <li class="nav-item dropdown" style="padding-top: 10px;">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
+             <i class="fa fa-bell"></i>
+           </a>
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 350px;" >
+             <p style="text-align: center;"> you have 3 notification</p><hr>
+             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> Lorem ipsum dolor sit, officia placeat,</a>
+             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem</a>
+             <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> obcaecati aspernatur sequi nihil esse rem </a>
+           </div>
+         </li>
+         <li class="nav-item-dropdown" >
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
+             <i class="fas fa-user" ></i>
+               {{Auth::guard('lab_doctor')->user()->name}}
+           </a>
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
+             <a class="dropdown-item" href="{{route('labProfile.show')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+               Profile</a>
+               <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
+                My schedule</a>
+             <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
+               Settings</a>
+
+{{--             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>--}}
+{{--               logout</a>--}}
+
+               <form id="logout-form" action="{{ route('logout.lab_doctor') }}" method="POST" style="display: none;">
+                   @csrf
+               </form>
+
+               <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                   <i class="fa-solid fa-right-from-bracket"></i> logout
+               </a>
+
+           </div>
+
+         </li>
+       </ul>
+     </div>
+
+   </nav>
+
+</div>
+
+
+    <h1>Home...</h1>
+    <div class="inner_content">
+      <div style="display: flex;">
+
+      <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+         <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
+        <div style="margin: 50px;">
+          <h2 >{{App\Models\doctor::count()}} Doctor </h2>
+        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+        </div>
+
+      </div>
+      <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+        <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+        <div style="margin: 50px;">
+          <h2 >{{App\Models\User::count()}}  patient</h2>
+        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+        </div>
+
+      </div>
+      <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
+        <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
+        <div style="margin: 50px;">
+          <h2 >{{App\Models\schedule::count()}}  visit</h2>
+        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+        </div>
+
+      </div>
+
+>>>>>>> 9251af3897e7be6ef3f49dc8c5972e253cf735e6
     </div>
 
 

@@ -35,8 +35,12 @@
             {{--            </div>--}}
             {{--            <form id="add-patient-form">--}}
             <div class="form-group">
-                <label for="patient-id"> patient ID</label><br />
-                <input type="text" id="patient-id" name="user_id" placeholder=" Patient ID" value="{{old("user_id")}}">
+                <label for="patient-id"> patient Name</label><br />
+                <select type="text" id="patient-id" name="user_id"  >
+                    @foreach($mothers as $mother)
+                        <option value="{{$mother->id}}">{{$mother->name}}</option>
+                    @endforeach
+                </select>
             </div>
             {{--                    <form id="add-patient-form"> --}}
             {{--                        <div class="form-group"> --}}

@@ -67,20 +67,20 @@
                     @endif
                 </table>
 
-        @if($lastTest)
-                                <h3>Test Results</h3>
-<br>
-            <p><b>Test Name:</b>{{$lastTest->analysis_Name}}</p>
-            <!-- Add the image here -->
-            <img src="{{ asset($lastTest->photo) }}" alt="Report Image" class="img-fluid mt-3">
+{{--        @if($lastTest)--}}
+{{--                                <h3>Test Results</h3>--}}
+{{--<br>--}}
+{{--            <p><b>Test Name:</b>{{$lastTest->analysis_Name}}</p>--}}
+{{--            <!-- Add the image here -->--}}
+{{--            <img src="{{ asset($lastTest->photo) }}" alt="Report Image" class="img-fluid mt-3">--}}
 
 
-        @else
-        <div class="alert alert-danger">
-            <p>{{ 'this patient has no test results' }}</p></div>
+{{--        @else--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            <p>{{ 'this patient has no test results' }}</p></div>--}}
 
-@endif
-        </div>
+{{--@endif--}}
+{{--        </div>--}}
         <br>
         <div>
             <a href="{{route('record.create',[$mother->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >

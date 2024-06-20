@@ -53,7 +53,7 @@
                     @if (isset($requests))
                         @foreach ($requests as $request)
                             <tr>
-                                <td>{{$request->mother->name}} </td>
+                                <td>{{$request->User->name}} </td>
                                 <td>{{$request->doctor->name}}</td>
                                 <td>{{$request->analysis_Name}}</td>
                                 <td>{{$request->test_date}}</td>

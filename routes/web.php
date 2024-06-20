@@ -3,9 +3,7 @@
 
 
 use App\Http\Controllers\Admin_ProfileController;
-
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
-
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\AppointmentMotherController;
@@ -17,23 +15,17 @@ use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\LabController;
 use App\Http\Controllers\Doctor\RecordController;
 use App\Http\Controllers\DoctorController;
-
-//use App\Http\Controllers\HomeController;
-
 use App\Http\Controllers\Lab_DoctorController;
 use App\Http\Controllers\LabDoctor\LabDoctorProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LabDoctor\RequestController;
-use App\Http\Controllers\LabDoctorController;
-
-
-
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
 use App\Http\Controllers\Mother\Auth\UserAuthController;
-
 use App\Http\Controllers\Mother\MotherAppointmentController;
+use App\Http\Controllers\Mother\MotherBabyController;
 use App\Http\Controllers\Mother\MotherDoctoreController;
 use App\Http\Controllers\Mother\BrowsePagesController;
+use App\Http\Controllers\Mother\MotherFamilyController;
+use App\Http\Controllers\Mother\MotherPregnancyController;
 use App\Http\Controllers\Mother\MotherprofileController;
 use App\Http\Controllers\Mother\MotherRecordController;
 use App\Http\Controllers\MotherController;
@@ -194,11 +186,10 @@ Route::middleware('auth:admin')->group(function () {
 
 /******************************doctor permissions***********************/
 Route::middleware('auth:doctor')->group(function () {
-    //**********************to view appointments***********************************//
     Route::get('/appointments', [AppointmentController::class,'index'])->name("appointments.index");
     Route::get('/appointments/month', [AppointmentController::class,'month'])->name('appointments.month');
     Route::get('/appointments/today', [AppointmentController::class,'today'])->name('appointments.today');
-    Route::get('/search', [AppointmentController::class,'search']);
+    Route::get('/ASearch', [AppointmentController::class,'search']);
 
 
     //***********************************to view ,update profile*******************//
@@ -271,9 +262,44 @@ Route::middleware('auth:web')->group(function () {
 //    Route::get('/chatify', [MotherAppointmentController::class, 'chatify'])->name('chatify');
 });
 
+/************************** baby *********************/
+Route::get('/babyprofile/show', [MotherBabyController::class, 'index'])->name('baby.index');
+Route::get('/babybreast/show', [MotherBabyController::class, 'Breast'])->name('baby.Breast');
+Route::get('/babycrying/show', [MotherBabyController::class, 'crying'])->name('baby.crying');
+Route::get('/babydiapering/show', [MotherBabyController::class, 'diapering'])->name('baby.diapering');
+Route::get('/babynewborn/show', [MotherBabyController::class, 'new_born'])->name('baby.new_born');
+Route::get('/babyshedule/show', [MotherBabyController::class, 'bschedule'])->name('baby.bschedule');
+Route::get('/babyborn/show', [MotherBabyController::class, 'p_born'])->name('baby.p_born');
+Route::get('/babytest/show', [MotherBabyController::class, 'btest'])->name('baby.btest');
+/************************** pregence *********************/
+
+Route::get('/pregnancy/home', [MotherPregnancyController::class, 'homepregnancy'])->name('pregnancy.home');
+Route::get('/pregnancy/weekbyweek', [MotherPregnancyController::class, 'weekbyweek'])->name('pregnancy.weekbyweek');
+Route::get('/pregnancy/yourBody', [MotherPregnancyController::class, 'yourBody'])->name('pregnancy.yourBody');
+Route::get('/pregnancy/yourbaby', [MotherPregnancyController::class, 'yourbaby'])->name('pregnancy.yourbaby');
+Route::get('/pregnancy/diet', [MotherPregnancyController::class, 'diet'])->name('pregnancy.diet');
+Route::get('/pregnancy/Your Life', [MotherPregnancyController::class, 'Your_Life'])->name('pregnancy.Your Life');
+Route::get('/pregnancy/PreparingForBaby', [MotherPregnancyController::class, 'PreparingForBaby'])->name('pregnancy.PreparingForBaby');
+Route::get('/pregnancy/Health', [MotherPregnancyController::class, 'Health'])->name('pregnancy.Health');
+Route::get('/pregnancy/trimesters', [MotherPregnancyController::class, 'trimesters'])->name('pregnancy.trimesters');
+Route::get('/pregnancy/relation', [MotherPregnancyController::class, 'relation'])->name('pregnancy.relation');
+
+/************************** family *********************/
+
+Route::get('/family/home', [MotherFamilyController::class, 'home'])->name('family.home');
+Route::get('/family/Fatherhood', [MotherFamilyController::class, 'Fatherhood'])->name('family.Fatherhood');
+Route::get('/family/Holidays', [MotherFamilyController::class, 'Holidays'])->name('family.Holidays');
+Route::get('/family/Motherhood', [MotherFamilyController::class, 'Motherhood'])->name('family.Motherhood');
+Route::get('/family/Siblings', [MotherFamilyController::class, 'Siblings'])->name('family.Siblings');
+Route::get('/family/Staying', [MotherFamilyController::class, 'Staying'])->name('family.Staying');
+Route::get('/family/test', [MotherFamilyController::class, 'test'])->name('family.test');
 
 
 
+
+
+//
+//Route::get('/download/{filename}', [FileController::class, 'download'])->name('file.download');
 
 /************************** End Public Views *********************/
 

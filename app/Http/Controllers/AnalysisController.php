@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 
 class AnalysisController extends Controller
 {
-    public function index(){
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
         $analysisFromDB = Analysis_Result::paginate(10);
         return view('lab_doctor.dashboard.all_analysis_reports' , ['allAnalysis' => $analysisFromDB]);
     }
 
 
 
-    public function show($id)
+    public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $report = Analysis_Result::find($id);
         return view('lab_doctor.dashboard.analysis_report_details' , ['analysis' => $report]);
@@ -24,7 +25,8 @@ class AnalysisController extends Controller
 
 
 
-    public function destroy($analysisId){
+    public function destroy($analysisId): \Illuminate\Http\RedirectResponse
+    {
         $report = Analysis_Result::find($analysisId);
         $report->delete();
 
@@ -35,7 +37,8 @@ class AnalysisController extends Controller
 
 
 
-    public function delete($requestId){
+    public function delete($requestId): \Illuminate\Http\RedirectResponse
+    {
         $request = laboratory::find($requestId);
         $request -> delete();
 
