@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/style_3.css') }}">
 
 </head>
 
@@ -90,51 +91,65 @@
     <div class="content">
 
         <div class="nav">
-            <nav class="navbar navbar-expand-lg ">
+
+            <nav class="navbar navbar-expand-lg">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" >
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-sun"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-moon"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user"> {{Auth::guard('admin')->user()->name}}  </i>
+                            <a class="nav-link" href="#" style="padding-top: 18px;"><i class="fa-solid fa-toggle-on" id="dark"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Settings</a>
+                        </li>
 
-                                <a class="dropdown-item" href="{{route('admin profile.index')}}">Profile</a>
+
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link" id="searchIcon" style="padding-top: 16px;"><i class="fa fa-search"></i></button>
+                        </li>
+
+                        <li class="nav-item dropdown" style="padding-top: 10px;">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
+                                <i class="fa fa-bell"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 350px;" >
+                                <p style="text-align: center;"> you have 2 notification</p><hr>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> you have new analysis request </a>
+                                <a class="dropdown-item" href="#" style="height: 40px;"><i class="fa-solid fa-circle-exclamation"></i> update your profile</a>
+                            </div>
+                        </li>
+                        <li class="nav-item-dropdown" >
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" >
+                                <i class="fas fa-user" ></i>
+                                {{Auth::guard('admin')->user()->name}}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="height: 150px; width: 200px;">
+                                <a class="dropdown-item" href="{{route('admin profile.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                                    Profile</a>
+                                <a class="dropdown-item" href="#" ><i class="fa fa-user" aria-hidden="true"></i>
+                                    My schedule</a>
+                                <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
+                                    Settings</a>
+
+                                {{--             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>--}}
+                                {{--               logout</a>--}}
+
                                 <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
 
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-right-from-bracket"></i> logout
-                                </a>                            </div>
+                                </a>
 
-                            {{--                                <a class="dropdown-item" href="edit profile">Profile</a>--}}
-
-
+                            </div>
 
                         </li>
                     </ul>
                 </div>
+
             </nav>
-
-
 
         </div>
 
@@ -146,112 +161,182 @@
         <div class="inner_content">
             <div style="display: flex;">
 
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-3 dcard">
+                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
+                            <img src="images/tasks.png" alt="Image 1"  >
+                            <h4> 470  Task</h4>
+                        </div>
                     </div>
+                    <div class="col-md-3 dcard " >
+                        <div class="inner-card" style="background-color: #fff5dd;">
+                            <img src="images/pregnancy.png" alt="Image 2" >
+                            <h4>6930 Patient</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard" >
+                        <div class="inner-card" style="background-color: #d3eaea;">
+                            <img src="images/online-booking.png" alt="Image 3" >
+                            <h4>15849 visits</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard" >
+                        <div class="inner-card" style="background-color: lightsalmon;">
+                            <img src="images/dollar.png" alt="Image 3" >
+                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $99385</h4>
 
+                        </div>
+                    </div>
                 </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\User::count()}} Patient</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
+                <div class="container-fluid dashboard-container">
 
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\schedule::count()}} visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
 
-                </div>
+                    <!-- Row 3: Medical Reports and Visits/Appointments -->
+                    <div class="row">
+                        <div class="col-md-5 chart-container">
+                            <h5>Patient Demographics</h5>
+                            <canvas id="patientDemographicsChart"></canvas>
+                        </div>
+                        <div class="col-md-6 chart-container">
+                            <h5>Admin Activity</h5>
+                            <canvas id="adminActivityChart"></canvas>
+                        </div>
+                        <div class="col-md-6 chart-container">
+                            <h5>Satisfied Patients</h5>
+                            <canvas id="satisfiedPatientsChart"></canvas>
+                        </div>
+                        <!--modal-->
 
-            </div>
-        </div>
+                        <!--modal-->
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
+                                        <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="searchInput">Search:</label>
+                                                <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
     </div>
-    <div class="container-fluid dashboard-container">
+    <script>  // Satisfied Patients Chart
+        const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
+        const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
+                datasets: [{
+                    label: 'Patient Satisfaction',
+                    data: [85, 10, 5],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Patient Demographics Chart
+        const patientDemographicsCtx = document.getElementById('patientDemographicsChart').getContext('2d');
+        const patientDemographicsChart = new Chart(patientDemographicsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Pregnant', 'Newborns', 'Adults', 'Seniors'],
+                datasets: [{
+                    label: 'Demographics',
+                    data: [200, 150, 80, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+        // Admin Activity Chart
+        const adminActivityCtx = document.getElementById('adminActivityChart').getContext('2d');
+        const adminActivityChart = new Chart(adminActivityCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Tasks Completed',
+                    data: [50, 70, 80, 60],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
 
-        <!-- Row 3: Medical Reports and Visits/Appointments -->
-        <div class="row">
-            <div class="col-md-5 chart-container">
-                <h5>Patient Demographics</h5>
-                <canvas id="patientDemographicsChart"></canvas>
-            </div>
-            <div class="col-md-6 chart-container">
-                <h5>Admin Activity</h5>
-                <canvas id="adminActivityChart"></canvas>
-            </div>
-            <div class="col-md-6 chart-container">
-                <h5>Satisfied Patients</h5>
-                <canvas id="satisfiedPatientsChart"></canvas>
-            </div>
-        </div>
-    </div>
+    </script>
 
-</div>
 
-</div>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
 
 
 
-</div>
-<!--modal-->
 
-<!--modal-->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
-                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
-                </button>
 
-            </div>
-            <div class="modal-body">
 
-                <form>
-                    <div class="form-group">
-                        <label for="searchInput">Search:</label>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
 
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<script>  // Satisfied Patients Chart
-    const satisfiedPatientsCtx = document.getElementById('satisfiedPatientsChart').getContext('2d');
-    const satisfiedPatientsChart = new Chart(satisfiedPatientsCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Satisfied', 'Neutral', 'Unsatisfied'],
-            datasets: [{
-                label: 'Patient Satisfaction',
-                data: [85, 10, 5],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
+
+
+
+
+

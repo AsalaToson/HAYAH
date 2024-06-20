@@ -135,66 +135,66 @@
 
         </div>
 
-
-        <h1>Home...</h1>
+        <div class="short" >
+            <h3 class="dash">Quick Statistics</h3>
+            <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Dashboard  </p></div>
+        </div>
         <div class="inner_content">
-            <div style="display: flex;">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-3 dcard">
+                        <div class="inner-card" id="card1">
+                            <img src="images/medical-report.png" alt="Image 1"  >
+                            <h4> 6934 Report</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard " id="card2" >
+                        <div class="inner-card" style="background-color: rgb(254, 198, 207);">
+                            <img src="images/pregnancy.png" alt="Image 2" >
+                            <h4>10045 Patient</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard" id="card3" >
+                        <div class="inner-card" style="background-color: lightblue;">
+                            <img src="images/online-booking.png" alt="Image 3" >
+                            <h4> 20957 visits</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dcard" id="card4" >
+                        <div class="inner-card" style="background-color: #f0c8a0;">
+                            <img src="images/dollar.png" alt="Image 3" >
+                            <h4> <small style="color: rgb(104, 101, 101) ;font-weight: lighter; font-size: medium;">Total Revenue </small> <br> $6938</h4>
 
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class="fa-solid fa-clipboard" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\doctor::count()}} Doctor</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid dashboard-container" >
+                <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="chart-container">
+                            <h5>Successful Operations</h5>
+                            <canvas id="successfulOperationsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="chart-container">
+                            <h5>Medical Reports</h5>
+                            <canvas id="medicalReportsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="chart-container">
+                            <h5>Doctor Consultations</h5>
+                            <canvas id="doctorConsultationsChart"></canvas>
+                        </div>
                     </div>
 
                 </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\User::count()}} Patient</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-                <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
-                    <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
-                    <div style="margin: 50px;">
-                        <h2 >{{App\Models\schedule::count()}} visits</h2>
-                        <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
-                    </div>
-
-                </div>
-
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid dashboard-container" >
-    <!-- Row 1: Doctor Consultations, Successful Operations, and Medical Reports -->
-    <div class="row">
-
-        <div class="col-md-4.5">
-            <div class="chart-container">
-                <h5>Successful Operations</h5>
-                <canvas id="successfulOperationsChart"></canvas>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <div class="chart-container">
-                <h5>Medical Reports</h5>
-                <canvas id="medicalReportsChart"></canvas>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <div class="chart-container">
-                <h5>Doctor Consultations</h5>
-                <canvas id="doctorConsultationsChart"></canvas>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 
 
@@ -202,31 +202,31 @@
 </div>
 <!--modal-->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title fs-5" id="exampleModalLabel" style="color: black; background-color: transparent;">Search Here</h2>
-                <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
-                </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="exampleModalLabel" >Search Here</h2>
+                        <button type="button" class="btn-close" aria-label="Close" id="closeModalButton"><i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
 
-            </div>
-            <div class="modal-body">
-
-                <form>
-                    <div class="form-group">
-                        <label for="searchInput">Search:</label>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
-                    <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+                    <div class="modal-body">
 
-                </form>
+                        <form>
+                            <div class="form-group">
+                                <label for="searchInput">Search:</label>
+                                <input type="text" class="form-control" id="searchInput" placeholder="Search..." style="width: 400px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Search</button>
+                            <button type="submit" class="btn btn-primary" style="padding: 1px; width: 100px; height: 40px;font-size: large;">Cancel</button>
+
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<script>
+        <script>
 
     // Doctor Consultations Chart
     const doctorConsultationsCtx = document.getElementById('doctorConsultationsChart').getContext('2d');
