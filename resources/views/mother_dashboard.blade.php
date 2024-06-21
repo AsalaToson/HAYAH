@@ -430,10 +430,10 @@
                 </div>
                 <div class="col-lg-6 free-appointment pl-lg-5 mt-5">
                     <div class="appointment-form">
-                        <form  action="{{route('MotherAppointment.store')}}" method="post">
+                        <form action="{{route('MotherAppointment.store')}}" method="post">
                             @csrf
                             @method('POST')
-                            <br class="fields-grid">
+                            <div class="fields-grid">
                                 <div class="styled-input">
                                     <div class="appointment-form-field">
                                         <input type="text" name="name" placeholder="Full Name" required="">
@@ -473,24 +473,10 @@
                                 </div>
 
 
-{{--                                <div class="styled-input">--}}
-{{--                                    <div class="appointment-form-field">--}}
-{{--                                        <select id="department" required="Specialization">--}}
-{{--                                            <option value="">Specialization*</option>--}}
-{{--                                            <option value="">Obstetrics and Gynecology </option>--}}
-{{--                                            <option value="">Psychological Services</option>--}}
-{{--                                            <option value="">Neonatal Intensive Care Unit (NICU)</option>--}}
-{{--                                            <option value="">Nutrition and Dietetics</option>--}}
-{{--                                            <option value="">Pediatric and Neonatology </option>--}}
-{{--                                            <option value="">Family Planning and Contraception</option>--}}
-{{--                                            <option value="">Diagnostic Services</option>--}}
-{{--                                            <option value="">Physical Therapy and Rehabilitation</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
 
                                 <div class="appointment-form-field">
-{{--                                    <label for="section-name">Specialization</label><br/>--}}
+                                    {{--                                    <label for="section-name">Specialization</label><br/>--}}
                                     <select name="section_id" >Specialization
                                         <option value="" selected disabled>Specialization</option>
                                         @foreach($section as $Section)
@@ -500,23 +486,10 @@
                                 </div>
 
 
-{{--                                <div class="styled-input">--}}
-{{--                                    <div class="appointment-form-field">--}}
-{{--                                        <select id="doctor" required="Select Doctor">--}}
-{{--                                            <option value="">Select Doctor</option>--}}
-{{--                                            <option value="">Doctor 1</option>--}}
-{{--                                            <option value="">Doctor 2</option>--}}
-{{--                                            <option value="">Doctor 3</option>--}}
-{{--                                            <option value="">Doctor 4</option>--}}
-{{--                                            <option value="">Doctor 5</option>--}}
-{{--                                            <option value="">Doctor 6</option>--}}
-{{--                                            <option value="">Doctor 7</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
 
                                 <div class="appointment-form-field">
-{{--                                    <label for="section-name">doctor</label><br/>--}}
+                                    {{--                                    <label for="section-name">doctor</label><br/>--}}
                                     <select name="doctor_id" required="Select Doctor">
                                         <option value="" selected disabled>Doctor</option>
                                         @foreach($doctor as $Doctor)
@@ -524,7 +497,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </br>
+                                </br>
 
                                 <style>
 
@@ -550,6 +523,126 @@
                                 <button type="submit" class="btn btn-style btn-primary mt-4">Book Appointment</button>
                             </div>
                         </form>
+{{--                        <form  action="{{route('MotherAppointment.store')}}" method="post">--}}
+{{--                            @csrf--}}
+{{--                            @method('POST')--}}
+{{--                            <br class="fields-grid">--}}
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="text" name="name" placeholder="Full Name" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="email" name="email" placeholder="Enter Email" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="text" name="phone" placeholder="Enter Number" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="date" name="appointment" placeholder="Set a Date" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <select id="time" required="time" name="time">--}}
+{{--                                            <option value="">Time Slot</option>--}}
+{{--                                            <option value="09:00-10:00">09:00 AM - 10:00 AM</option>--}}
+{{--                                            <option value="10:00-11:00">10:00 AM - 11:00 AM</option>--}}
+{{--                                            <option value="11:00-12:00">11:00 AM - 12:00 PM</option>--}}
+{{--                                            <option value="12:00-13:00">12:00 PM - 01:00 PM</option>--}}
+{{--                                            <option value="13:00-14:00">01:00 PM - 02:00 PM</option>--}}
+{{--                                            <option value="14:00-15:00">02:00 PM - 03:00 PM</option>--}}
+{{--                                            <option value="15:00-16:00">03:00 PM - 04:00 PM</option>--}}
+{{--                                            <option value="16:00-17:00">04:00 PM - 05:00 PM</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <select id="department" required="Specialization">--}}
+{{--                                            <option value="">Specialization*</option>--}}
+{{--                                            <option value="">Obstetrics and Gynecology </option>--}}
+{{--                                            <option value="">Psychological Services</option>--}}
+{{--                                            <option value="">Neonatal Intensive Care Unit (NICU)</option>--}}
+{{--                                            <option value="">Nutrition and Dietetics</option>--}}
+{{--                                            <option value="">Pediatric and Neonatology </option>--}}
+{{--                                            <option value="">Family Planning and Contraception</option>--}}
+{{--                                            <option value="">Diagnostic Services</option>--}}
+{{--                                            <option value="">Physical Therapy and Rehabilitation</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                                <div class="appointment-form-field">--}}
+{{--                                    <label for="section-name">Specialization</label><br/>--}}
+{{--                                    <select name="section_id" >Specialization--}}
+{{--                                        <option value="" selected disabled>Specialization</option>--}}
+{{--                                        @foreach($section as $Section)--}}
+{{--                                            <option value="{{$Section->id}}">{{$Section->name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+
+
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <select id="doctor" required="Select Doctor">--}}
+{{--                                            <option value="">Select Doctor</option>--}}
+{{--                                            <option value="">Doctor 1</option>--}}
+{{--                                            <option value="">Doctor 2</option>--}}
+{{--                                            <option value="">Doctor 3</option>--}}
+{{--                                            <option value="">Doctor 4</option>--}}
+{{--                                            <option value="">Doctor 5</option>--}}
+{{--                                            <option value="">Doctor 6</option>--}}
+{{--                                            <option value="">Doctor 7</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                                <div class="appointment-form-field">--}}
+{{--                                    <label for="section-name">doctor</label><br/>--}}
+{{--                                    <select name="doctor_id" required="Select Doctor">--}}
+{{--                                        <option value="" selected disabled>Doctor</option>--}}
+{{--                                        @foreach($doctor as $Doctor)--}}
+{{--                                            <option value="{{$Doctor->id}}">{{$Doctor->name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </br>--}}
+
+{{--                                <style>--}}
+
+{{--                                    .note-box textarea {--}}
+{{--                                        width: 100%;--}}
+{{--                                        height: 200px;--}}
+{{--                                        padding: 10px;--}}
+{{--                                        border: 1px solid #ccc;--}}
+{{--                                        border-radius: 5px;--}}
+{{--                                        font-size: 16px;--}}
+{{--                                        resize: none;--}}
+{{--                                    }--}}
+{{--                                </style>--}}
+
+{{--                                <div class="note-box">--}}
+{{--                                    <h4>Write your notes</h4>--}}
+{{--                                    <textarea placeholder="Type your notes here..." name="notes"></textarea>--}}
+{{--                                </div>--}}
+
+
+{{--                            </div>--}}
+{{--                            <div class="appointment-btn text-lg-right">--}}
+{{--                                <button type="submit" class="btn btn-style btn-primary mt-4">Book Appointment</button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
                     </div>
                 </div>
             </div>

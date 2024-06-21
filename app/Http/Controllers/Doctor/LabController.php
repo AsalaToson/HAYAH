@@ -23,19 +23,21 @@ class LabController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
         laboratory::create([
-                'description'=>$request->input('description'),
-                'doctor_id'=>$request->input('doctor_id'),
-                'user_id'=>$request->input('user_id'),]
+                'description' => $request->input('description'),
+                'doctor_id' => $request->input('doctor_id'),
+                'user_id' => $request->input('user_id'),]
         );
 
         return redirect('/appointments')->with('success', 'Data inserted successfully!');
     }
+
     public function index()
     {
         $requests = Analysis_Result::all();
-        return view('doctor.dashboard.analysisreport.view',compact('requests'));
+        return view('doctor.dashboard.analysisreport.view', compact('requests'));
 
     }
+
     public function month()
     {
         $currentMonth = date('m');
@@ -49,28 +51,57 @@ class LabController extends Controller
         $requests = Analysis_Result::where('test_date', $currentDate)->get();
         return view('doctor.dashboard.analysisreport.view', compact('requests'));
     }
+
     public function show(string $id)
     {
-        $tests=Analysis_Result::find($id);
-        return view('doctor.dashboard.analysisreport.showTestResult',compact('tests'));
+        $tests = Analysis_Result::find($id);
+        return view('doctor.dashboard.analysisreport.showTestResult', compact('tests'));
     }
+
     public function editTest()
     {
         return view('doctor.dashboard.analysisreport.updateRequest');
 
     }
-    function search(Request $request){
 
-        $requests=Analysis_Result::where('user_id','like','%'.$request->input('query').'%')->get();
-        return view('doctor.dashboard.analysisreport.search',compact("requests"));
-    }
-    Public function downloadPdf(string $id): \Illuminate\Http\Response
+    function search(Request $request)
     {
-        $tests=Analysis_Result::find($id);
-        $data['analysis_results']=$tests->analysis_results;
-        $pdf=Pdf::loadview('doctor.dashboard.analysisreport.pdf',$data,compact('tests'));
-        return $pdf->stream();
-//        return $pdf->download('TestReport.pdf');
 
+        $requests = Analysis_Result::where('user_id', 'like', '%' . $request->input('query') . '%')->get();
+        return view('doctor.dashboard.analysisreport.search', compact("requests"));
     }
+//    Public function downloadPdf(string $id): \Illuminate\Http\Response
+//    {
+//        $tests=Analysis_Result::find($id);
+//        $data['analysis_results']=$tests->analysis_results;
+//        $pdf=Pdf::loadview('doctor.dashboard.analysisreport.pdf',$data,compact('tests')) ->setOptions([
+//            'dpi' => 150,
+//            'marginBottom' => 10,
+//            'marginLeft' => 10,
+//            'marginRight' => 10,
+//            'marginTop' => 10,
+//            'autoColumnWidth' => true, // Added this line
+//        ]);
+//        ;
+////        return $pdf->stream();
+//        return $pdf->download('TestReport.pdf');
+//
+//    }
+
+    public function downloadPdf(string $id): \Illuminate\Http\Response
+    {
+        $tests = Analysis_Result::find($id);
+        $data = [
+            'tests' => $tests,
+        ];
+        $pdf = PDF::loadView('doctor.dashboard.analysisreport.pdf', $data);
+//            ->setOptions([
+//                'dpi' => 150,
+//                'autoColumnWidth' => true,
+//                'isHtml5ParserEnabled' => true,
+//                'isRemoteEnabled' => true,
+//            ]);
+        return $pdf->download('TestReport.pdf');
+    }
+
 }

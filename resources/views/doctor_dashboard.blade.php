@@ -61,7 +61,7 @@
             </li>
             <li><a href="#" class="toggle-link">  <i class="fa-solid fa-clipboard"></i> Analysis Reports</a>
                 <ul class="sublist">
-                    <li><a href="{{route('tests.index')}}">All Medical Reports</a></li>
+                    <li><a href="{{route('tests.index')}}">All Analysis Reports</a></li>
 
                 </ul>
             </li>

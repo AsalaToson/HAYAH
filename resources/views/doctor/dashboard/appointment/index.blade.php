@@ -57,8 +57,10 @@
                         <th>Type</th>
 {{--                        <th>Time</th>--}}
                         <th>Appointment</th>
+                        <th>Email</th>
+                        <th>phone</th>
                         <th>Problem</th>
-                        {{--                            <th>status</th> --}}
+
                         <th>operations</th>
                     </tr>
                     </thead>
@@ -72,10 +74,12 @@
                                 <td>{{ $appointment->type }}</td>
 {{--                                <td>{{ $appointment->doctor->name }}</td>--}}
                                 <td>{{ $appointment->appointment }}</td>
+                                <td>{{$appointment->email}}</td>
+                                <td>{{$appointment->phone}}</td>
                                 <td>{{ $appointment->notes }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
 
-                                <td class="container3" style="display: flex">
+                                <td><div class="container3" style="display: flex">
                                     <a  href="#" data-toggle="modal" data-target="#laboratorie_conversion{{$appointment->id}}">
                                         <button type="button" class="btn btn-primary"  id="dbutton"><i class="text-warning fas fa-syringe" aria-hidden="true"></i>Test</button>
 
@@ -84,7 +88,7 @@
                                     <a href="{{route('lRecord.show',[$appointment->user->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                             <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
                                         </button></a>
-                                </td>
+                                </div></td>
                             </tr>
 
                             <!-- Modal -->

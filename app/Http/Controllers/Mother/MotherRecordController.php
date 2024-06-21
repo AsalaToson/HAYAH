@@ -26,13 +26,25 @@ class MotherRecordController extends Controller
         $records=$mother->records;
         return view('mother.dashboard.report.show',compact('records','mother'));
     }
-    public function downloadPdf(string $id): \Illuminate\Http\Response
+    public function Pdf(string $id): \Illuminate\Http\Response
     {
-        $records = record::findorfail($id);
-        $data['records'] = $records;
-        $pdf = Pdf::loadview('mother.dashboard.report.pdf', $data);
-        return $pdf->download('report.pdf');
+        $mother = User::findOrFail($id);
+        $data['records'] = $mother->records;
+        $data['mother'] = $mother;
 
+        $pdf = PDF::loadView('doctor.dashboard.report.pdf', $data)
+            ->setOptions([
+                'dpi' => 150,
+                'marginBottom' => 10,
+                'marginLeft' => 10,
+                'marginRight' => 10,
+                'marginTop' => 10,
+                'autoColumnWidth' => true,
+//                'isHtml5ParserEnabled' => true,
+//                'isRemoteEnabled' => true,
+            ]);
+
+        return $pdf->download('reports.pdf');
     }
 
 
