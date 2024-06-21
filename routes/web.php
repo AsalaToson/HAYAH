@@ -244,9 +244,13 @@ Route::middleware('auth:web')->group(function () {
 
 
 
-    Route::get('/MProfile/show', [MotherProfileController::class, 'show'])->name('MProfile.show');
+
+
+    Route::get('MProfile/show', [MotherProfileController::class , 'show'])->name('MProfile.show');
     Route::get('/MProfile/edit', [MotherProfileController::class, 'edit'])->name('MProfile.edit');
     Route::put('/MProfile/update',[MotherProfileController::class,'update'])->name('MProfile.update');
+
+
     Route::get('download/MRecord/{id}', [MotherRecordController::class,'downloadPdf'])->name("MRecord.pdf");
     Route::get('show/record/{id}', [MotherRecordController::class,'show'])->name("record.show");
     Route::put('appointments/approval/{id}',[MotherAppointmentController::class,'approval'])->name('appointments.approval');

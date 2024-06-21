@@ -1,7 +1,14 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <h1>All Medical Reports</h1>
+
+
+    <div class="short" >
+        <h3 class="dash"> All Analysis Reports </h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Medical Reports / All Medical Reports </p></div>
+    </div>
+
+
     <div class="inner_content">
 
         <h3> Medical Reports list </h3><br>

@@ -2,7 +2,11 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <h1>Add Medical Report</h1>
+
+    <div class="short" >
+        <h3 class="dash"> Add Medical Report </h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Medical Report / Add Medical Report </p></div>
+    </div>
 
     <div class="inner_content">
         <div class="col-12">

@@ -88,34 +88,34 @@
                         </ul>
                     </div>
                 @endif
-              <form action="{{route('MProfile.update',$mother->id)}}" method="post" class="signin-form">
+              <form action="{{route('MProfile.update')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
                 <div class="input-grids">
-                    <label for="w3lName"> Name:</label> <br>
-                  <input type="text" name="w3lName" id="w3lName" placeholder="Your Name*" class="contact-input"
+                    <label for="name"> Name:</label> <br>
+                  <input type="text" name="name" id="name" placeholder="Your Name*" class="contact-input"
                     required=""  value="{{ $mother->name }}" />
-                    <label for="w3lAge"> Age:</label> <br>
-                    <input type="text" name="w3lAge" id="w3lAge" placeholder="Your Age*" class="contact-input"
+                    <label for="age"> Age:</label> <br>
+                    <input type="text" name="age" id="age" placeholder="Your Age*" class="contact-input"
                     required=""   value="{{ $mother->age }}"/>
-                    <label for="w3lAdress"> Adress:</label> <br>
-                    <input type="text" name="w3lAdress" id="w3lAdress" placeholder="Your Address*" class="contact-input"
+                    <label for="address"> Adress:</label> <br>
+                    <input type="text" name="address" id="address" placeholder="Your Address*" class="contact-input"
                     required=""   value="{{ $mother->address }}"/>
-                    <label for="w3lSender"> Email:</label> <br>
-                  <input type="email" name="w3lSender" id="w3lSender" placeholder="Your Email*" class="contact-input"
+                    <label for="email"> Email:</label> <br>
+                  <input type="email" name="email" id="email" placeholder="Your Email*" class="contact-input"
                     required=""  value="{{ $mother->email }}" />
-                    <label for="w3lphone"> Phone Number:</label> <br>
-                  <input type="tel" name="w3lphone" id="w3lphone" placeholder="Phone Number*" class="contact-input"
+                    <label for="phone"> Phone Number:</label> <br>
+                  <input type="tel" name="phone" id="phone" placeholder="Phone Number*" class="contact-input"
                     required=""   value="{{ $mother->phone}}"/>
-                    <label for="w3limage"> Image:</label> <br>
-                    <input type="file" name="w3limage" id="w3limage"  class="contact-input" alt="photo "    placeholder="choose image"
-                    required="" /> <br>
+                    <label for="image"> Image:</label> <br>
+                    <input type="file" name="image" id="image"  class="contact-input" alt="photo "    placeholder="choose image"/>
+                    <br>
                     @if($mother->image)
                         <img src="{{asset('Dashboard/mother/'.$mother->image)}}"
                              height="50px" width="50px" alt="">
 
                     @else
-                        <img src="{{asset('Dashboard/image/mother/')}}" height="50px"
+                        <img src="{{asset('Dashboard/image/mother/mohamed.jpg')}}" height="50px"
                              width="50px" alt="">
                     @endif
 

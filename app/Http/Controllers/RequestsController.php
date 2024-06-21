@@ -37,6 +37,7 @@ class RequestsController extends Controller
             'analysis_name' => ['required' , 'min:3'],
             'photo' => ['required'],
         ]);
+
         $m_id = request()->user_id;
         $d_id = request()->doctor_id;
         $l_id = request()->lab_id;

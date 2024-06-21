@@ -1,7 +1,12 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-<h1>Medical Report details</h1>
+
+    <div class="short" >
+        <h3 class="dash"> Medical Report details</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Medical Reports / Medical Report details </p></div>
+    </div>
+
     <div class="inner_content">
 {{--        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; ">--}}
 {{--            <img src="{{asset('site/assets/images/logo2.png')}}" alt="1" style="height: 75px; width: 200px;">--}}

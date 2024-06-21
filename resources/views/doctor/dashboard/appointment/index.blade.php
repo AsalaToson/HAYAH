@@ -7,7 +7,12 @@
         </div>
 
     @endif
-    <h1>All Appointments</h1>
+
+    <div class="short" >
+        <h3 class="dash"> Appointments </h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Upcoming Appointments / All Appointments </p></div>
+    </div>
+
     <div class="inner_content">
         <h3> Appointments list </h3><br>
         <hr>

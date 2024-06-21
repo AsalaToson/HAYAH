@@ -3,7 +3,10 @@
 @section('content')
 
 
-    <h1>Analysis Report  Details</h1>
+    <div class="short" >
+        <h3 class="dash">Analysis Report Details</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p class="rout"> / Analysis Report / All Reports / Report Details </p></div>
+    </div>
     <!-- <div class="inner_content">
       <h3>Report Details</h3><br>
       <hr>

@@ -1,7 +1,12 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <h1> Edit Profile...</h1>
+
+    <div class="short" >
+        <h3 class="dash"> Edit Profile</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Profile / Edit Profile </p></div>
+    </div>
+
     <div class="inner_content">
         <div class="col-12">
             @if ($errors->any())
