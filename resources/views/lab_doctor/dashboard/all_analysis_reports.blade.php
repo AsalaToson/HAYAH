@@ -1,7 +1,10 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
-      <h1>All Analyis Reports </h1>
+    <div class="short" >
+        <h3 class="dash">All Requests</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p class="rout"> / Analysis Reports / All Analysis Report </p></div>
+    </div>
       <div class="inner_content">
         <h3>Reports  list </h3>
           <br>
@@ -57,9 +60,9 @@
                     <td>{{$analysis ->User->name}}</td>
                     <td>{{$analysis ->doctor->name}}</td>
                     <td>{{$analysis -> analysis_Name}}</td>
-                    <td>{{$analysis -> test_date}}</td>
+                    <td>{{$analysis -> created_at -> format('Y-m-d')}}</td>
                     @php
-                      //  <td> <img alt="" src="{{asset($analysis->photo)}}"></td>
+                      //  <td> <img alt="" src="{{asset($analysis->photo)}}"></td>  to show the analysis report
                     @endphp
 
 

@@ -3,7 +3,11 @@
 @section('content')
 
 
-        <h1>All Lab Doctors</h1>
+    <div class="short" >
+        <h3 class="dash"> Lab Doctors  </h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  /  Lab Doctors / All Lab Doctors</p></div>
+    </div>
+
         <div class="inner_content">
             <h3> Lab Doctors list </h3><br>
             <hr>

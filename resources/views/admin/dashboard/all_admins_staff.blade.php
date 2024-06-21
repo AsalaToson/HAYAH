@@ -2,7 +2,10 @@
 
 @section('content')
 
-        <h1>All Stuff</h1>
+    <div class="short" >
+        <h3 class="dash">  Stuff</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout"> / Staff / All Stuff </p></div>
+    </div>
         <div class="inner_content">
             <h3> stuff list </h3><br>
             <hr>

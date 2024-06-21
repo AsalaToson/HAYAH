@@ -1,7 +1,12 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-        <h1>All Medical Reports</h1>
+
+    <div class="short" >
+        <h3 class="dash"> All Medical Reports </h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout">  / Analysis Reports / All Medical Reports </p></div>
+    </div>
+
         <div class="inner_content">
 
             <h3> Medical Reports list </h3><br>
@@ -56,7 +61,7 @@
                                     <td>{{$request->user->name}} </td>
                                     <td>{{$request->doctor->name}}</td>
                                     <td>{{$request->analysis_Name}}</td>
-                                    <td>{{$request->test_date}}</td>
+                                    <td>{{$request->created_at -> format('Y-m-d')}}</td>
 
                                     {{--                                    @if($request->doctor_id == Auth::guard('doctor')->user()->id)--}}
                                     <td><div class="container3" style="display: flex;">

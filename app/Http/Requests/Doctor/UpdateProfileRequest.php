@@ -26,9 +26,9 @@ class UpdateProfileRequest extends FormRequest
             'address' => 'required|string',
             'phone' => 'required|string',
             'email' => 'required|email',
-            'gender' => 'required|in:male,female',
+            'gender' => '|in:male,female',
             'age' => 'required|integer',
-            'experience' => 'required|string',
+            'experience' => '|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
