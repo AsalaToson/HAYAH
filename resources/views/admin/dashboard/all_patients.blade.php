@@ -1,7 +1,10 @@
 @extends('admin.parent')
 
 @section('content')
-        <h1>All Patients</h1>
+    <div class="short" >
+        <h3 class="dash">  Patients</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout"> / Patients / All Patients </p></div>
+    </div>
         <div class="inner_content">
             <h3> Patient list </h3><br>
             <hr>
@@ -34,7 +37,7 @@
                     <table class="table table-bordered" >
                         <thead>
                         <tr>
-{{--                            <th></th>--}}
+                            <th></th>
                             <th>Patient Image</th>
                             <th>patient Name</th>
                             <th>email</th>
@@ -54,7 +57,7 @@
                         <tbody>
                            @foreach($patients as $Patients)
                         <tr>
-{{--                            <td><input type="checkbox"></td>--}}
+                            <td><input type="checkbox"></td>
                             <td>
 
                                 @if($Patients->image)
@@ -105,7 +108,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Delete Mother</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Section</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true"></span>
                                         </button>
@@ -116,7 +119,7 @@
                                         {{ csrf_field() }}
                                         <div class="modal-body">
                                             <input type="hidden" name="id" value="{{ $Patients->id }}">
-                                            <h5>Are you sure you want to delete this mother</h5>
+                                            <h5>Are you sure you want to delete this section</h5>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
