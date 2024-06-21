@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <title>My Medical Record</title>
+    <title>My Analysis Report</title>
     <link rel="icon" type="image/png" href="favicon.ico"/>
     <style>
         body {

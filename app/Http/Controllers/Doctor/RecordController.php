@@ -61,22 +61,26 @@ class RecordController extends Controller
         return view('doctor.dashboard.report.show',compact('lastRecord',"lastTest",'mother'));
 
     }
-    Public function downloadPdf(string $id): \Illuminate\Http\Response
+    public function downloadPdf(string $id): \Illuminate\Http\Response
     {
-        $mother=User::findorfail($id);
-        $data['records']=$mother->records;
-//        $records = $mother->records()->with('doctor')->get();
-//        $data = [
-//            'user' => $mother,
-//            'records' => $records,
-//            'current_date' => Carbon::now()->format('Y-m-d'), // Add the current date
-//        ];
-        $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data,compact('mother'));
-//        return $pdf->stream();
+        $mother = User::findOrFail($id);
+        $data['records'] = $mother->records;
+        $data['mother'] = $mother;
+
+        $pdf = PDF::loadView('doctor.dashboard.report.pdf', $data)
+            ->setOptions([
+                'dpi' => 150,
+                'marginBottom' => 10,
+                'marginLeft' => 10,
+                'marginRight' => 10,
+                'marginTop' => 10,
+                'autoColumnWidth' => true,
+//                'isHtml5ParserEnabled' => true,
+//                'isRemoteEnabled' => true,
+            ]);
+
         return $pdf->download('reports.pdf');
-
     }
-
 
     public function createRecord(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {

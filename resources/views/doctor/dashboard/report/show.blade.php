@@ -3,11 +3,11 @@
 @section('content')
 <h1>Medical Report details</h1>
     <div class="inner_content">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; ">
-            <img src="{{asset('site/assets/images/logo2.png')}}" alt="1" style="height: 75px; width: 200px;">
-            <div style="display: flex;"><img src="{{asset("../site/assets/images/care.png")}}" alt="2" style="height: 75px; width: 80px;">
-                <h3 style="text-align: center;"> Mother Care <br>Hospital Mangaement System</h3></div>
-        </div>
+{{--        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; ">--}}
+{{--            <img src="{{asset('site/assets/images/logo2.png')}}" alt="1" style="height: 75px; width: 200px;">--}}
+{{--            <div style="display: flex;"><img src="{{asset("../site/assets/images/care.png")}}" alt="2" style="height: 75px; width: 80px;">--}}
+{{--                <h3 style="text-align: center;"> Mother Care <br>Hospital Mangaement System</h3></div>--}}
+{{--        </div>--}}
 
 
                 <h3>Personal Information</h3><br>
@@ -30,10 +30,26 @@
                     <td>{{$mother->phone}}<br>{{$mother->email}}
                     </td>
                 </tr>
+                <tr>
+                    <th>Blood Type</th>
+                    <td>{{$mother->blood_type}}</td>
+                </tr>
+                <tr>
+                    <th>Surgical History</th>
+                    <td>{{$mother->surgical_history}}</td>
+                </tr>
+                <tr>
+                    <th>Allergies</th>
+                    <td>{{$mother->allergies}}</td>
+                </tr>
+                <tr>
+                    <th>Chronic Diseases</th>
+                    <td>{{$mother->chronic_diseases}}</td>
+                </tr>
             </table>
 
 
-    <h3>Medical Report details</h3><br>
+    <h3>Last Medical Prescription</h3><br>
 
                 <table>
                     @if($lastRecord)

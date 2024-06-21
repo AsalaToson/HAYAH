@@ -12,24 +12,23 @@ class AppointmentController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        // Fetch appointments that belong to the authenticated doctor
-        $appointments = Schedule::where('doctor_id',Auth::guard('doctor')->id())->get();
+        $appointments = Schedule::where('doctor_id',Auth::guard('doctor')->id())->where('type',"Certain")->get();
 
-        // Pass the appointments to the view
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
 
     public function month()
     {
         $currentMonth = date('m');
-        $appointments = Schedule::whereMonth('appointment', $currentMonth)->where('doctor_id',Auth::guard('doctor')->id())->get();
+        $appointments = Schedule::whereMonth('appointment', $currentMonth)->where('doctor_id',Auth::guard('doctor')->id())->where('type',"Certain")->get();
+
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
 
     public function today()
     {
         $currentDate = date('Y-m-d');
-        $appointments = Schedule::whereDate('appointment', $currentDate)->where('doctor_id',Auth::guard('doctor')->id())->get();
+        $appointments = Schedule::whereDate('appointment', $currentDate)->where('doctor_id',Auth::guard('doctor')->id())->where('type',"Certain")->get();
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
     public function destroy($id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
@@ -41,7 +40,7 @@ class AppointmentController extends Controller
     function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        $appointments=schedule::where('user_id','like','%'.$request->input('query').'%')->get();
+        $appointments=schedule::where('user_id','like','%'.$request->input('query').'%')->where('type',"Certain")->get();
         return view('doctor.dashboard.appointment.search',compact("appointments"));
     }
 }

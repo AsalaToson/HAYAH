@@ -1,7 +1,7 @@
 @extends('doctor.dashboard.parent')
 
 @section('content')
-    <h1>All Analysis Reports</h1>
+    <h1>All Medical Reports</h1>
     <div class="inner_content">
 
         <h3> Medical Reports list </h3><br>
@@ -38,6 +38,8 @@
                     <tr>
                         <th> Patient Name </th>
                         <th> Patient Age</th>
+{{--                        <th></th>--}}
+
                         <th>operations</th>
                     </tr>
                     </thead>

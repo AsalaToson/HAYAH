@@ -38,7 +38,7 @@
                         <th>Patient Name</th>
                         <th>patient Phone</th>
                         <th>Type</th>
-{{--                        <th>Time</th>--}}
+                        <th>Email</th>
                         <th>Appointment</th>
                         <th>Problem</th>
                         {{--                            <th>status</th> --}}
@@ -56,7 +56,7 @@
                                 <td>{{ $appointment->User->phone }}</td>
                                 {{--                                    <td>{{$appointment->doctor->name}} </td> --}}
                                 <td>{{ $appointment->type }}</td>
-{{--                                <td>{{ $appointment->time }}</td>--}}
+                                <td>{{ $appointment->email }}</td>
                                 <td>{{ $appointment->appointment }}</td>
 
                                 <td>{{ $appointment->notes }}</td>
