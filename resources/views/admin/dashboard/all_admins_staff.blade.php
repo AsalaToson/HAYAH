@@ -2,7 +2,10 @@
 
 @section('content')
 
-        <h1>All Stuff</h1>
+    <div class="short" >
+        <h3 class="dash">  Stuff</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout"> / Staff / All Stuff </p></div>
+    </div>
         <div class="inner_content">
             <h3> stuff list </h3><br>
             <hr>
@@ -78,7 +81,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Delete Staff</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Section</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true"></span>
                                         </button>
@@ -89,7 +92,7 @@
                                         {{ csrf_field() }}
                                         <div class="modal-body">
                                             <input type="hidden" name="id" value="{{ $Admins->id }}">
-                                            <h5>Are you sure you want to delete this staff</h5>
+                                            <h5>Are you sure you want to delete this section</h5>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
