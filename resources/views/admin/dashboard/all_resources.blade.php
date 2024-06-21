@@ -2,7 +2,10 @@
 
 @section('content')
 
-        <h1>All Resources</h1>
+    <div class="short" >
+        <h3 class="dash">  Patients</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p  class="rout"> / Patients / All Resources </p></div>
+    </div>
         <div class="inner_content">
             <h3> Resources list </h3><br>
             <hr>
@@ -146,4 +149,3 @@
 
 
 @endsection
-
