@@ -18,8 +18,8 @@ return new class extends Migration
             $table->decimal('Weight');
             $table->integer('sugar_rate');
             $table->string('medication');
-            $table->foreignId('doctor_id')->constrained('doctors');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
 
         });

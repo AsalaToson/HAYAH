@@ -4,29 +4,28 @@ namespace App\Http\Controllers\Mother;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mother\UpdateMProfileRequest;
-use App\Http\Requests\Mother\UpdateProfileRequest;
-use App\Models\mother;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MotherProfileController extends Controller
 {
-    public function showProfile(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function show(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother = Auth::guard('user')->user();
+        $mother = Auth::user();
         return view('mother.dashboard.profile.show',compact('mother'));
 
     }
-    public function editProfile(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother = Auth::guard('user')->user();
+        $mother = Auth::user();
         return view('mother.dashboard.profile.update', compact('mother'));
     }
 
-    public function updateProfile(UpdateMProfileRequest $request): \Illuminate\Http\RedirectResponse
+    public function update(UpdateMProfileRequest $request): \Illuminate\Http\RedirectResponse
     {
 
-        $mother = Auth::guard('user')->user();
+        $mother = Auth::user();
 
         $input=$request->except('image');
         // Handle image upload and update if a new image is provided

@@ -25,7 +25,7 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">
@@ -116,8 +116,13 @@
                                 <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-                                    logout</a>
+                                <form id="logout-form" action="{{ route('logout.doctor') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
 
 
                             </div>
@@ -154,7 +159,7 @@
                 <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
                     <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
                     <div style="margin: 50px;">
-                        <h2 >{{App\Models\appointment::count()}} visits</h2>
+                        <h2 >{{App\Models\schedule::count()}} visits</h2>
                         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
                     </div>
 
@@ -294,8 +299,7 @@
         </script>
 
 
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>

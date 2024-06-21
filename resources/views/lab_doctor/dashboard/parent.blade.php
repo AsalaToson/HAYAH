@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYAH Lab Doctor Dashboard</title>
@@ -22,7 +23,7 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main" style="height: 100vh;">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar" >
@@ -99,8 +100,18 @@
                                 <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-                                    logout</a>
+                                @php
+                                    //<a class="dropdown-item" href="{{route('logout.lab_doctor')}}" ><i class="fa-solid fa-right-from-bracket"></i>
+                                    //logout</a>
+                                @endphp
+
+                                <form id="logout-form" action="{{ route('logout.lab_doctor') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
 
 
                             </div>
@@ -152,6 +163,7 @@
 <script src="{{asset('../../js/jquery-3.7.1.min.js')}}"></script>
 <script src="{{asset('../../js/bootstrap.js')}}"></script>
 <script src="{{asset('../../js/main.js')}}"></script>
+
 @yield('js')
 </body>
 </html>

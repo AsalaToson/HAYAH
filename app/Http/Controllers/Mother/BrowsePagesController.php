@@ -25,8 +25,11 @@ class BrowsePagesController extends Controller
     }
     public function appointment($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $section = section::all();
+        $doctor = doctor::all();
+        $user = User::all();
         $mother =User::find($id);
-        return view('mother.dashboard.service.appointment',compact('mother'));
+        return view('mother.dashboard.service.appointment',compact('mother','section','doctor','user'));
 
     }
     public function departments($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\record;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
 
@@ -16,7 +17,7 @@ class RecordController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
         $mothers = User::all();
@@ -27,7 +28,7 @@ class RecordController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($id)
+    public function create($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $mother = User::find($id);
         return view('doctor.dashboard.report.create', compact('mother'));
@@ -36,7 +37,7 @@ class RecordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRecordRequest $request)
+    public function store(StoreRecordRequest $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         $input = $request->all();
         $input['doctor_id'] = Auth::guard('doctor')->id();
@@ -45,16 +46,16 @@ class RecordController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(string $id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $mother=User::findorfail($id);
         $records=$mother->records;
 //       dd($records);
         return view('doctor.dashboard.report.show-all-records',compact('records','mother'));
     }
-    Public function showLast($id)
+    Public function showLast($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $mother=User::find($id);
+        $mother = User::where('id', $id)->firstOrFail();
         $lastRecord=$mother->records()->latest()->first();
         $lastTest=$mother->analysis_results()->latest()->first();
         return view('doctor.dashboard.report.show',compact('lastRecord',"lastTest",'mother'));
@@ -64,6 +65,12 @@ class RecordController extends Controller
     {
         $mother=User::findorfail($id);
         $data['records']=$mother->records;
+//        $records = $mother->records()->with('doctor')->get();
+//        $data = [
+//            'user' => $mother,
+//            'records' => $records,
+//            'current_date' => Carbon::now()->format('Y-m-d'), // Add the current date
+//        ];
         $pdf=Pdf::loadview('doctor.dashboard.report.pdf',$data,compact('mother'));
 //        return $pdf->stream();
         return $pdf->download('reports.pdf');
@@ -71,14 +78,16 @@ class RecordController extends Controller
     }
 
 
-    public function createRecord()
+    public function createRecord(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('doctor.dashboard.report.createRecord');
+        $mothers=User::all();
+        return view('doctor.dashboard.report.createRecord',compact('mothers'));
 
     }
 
 
-    function search(Request $request){
+    function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
 
         $mothers=User::where('name','like','%'.$request->input('query').'%')->get();
         return view('doctor.dashboard.report.search',compact("mothers"));

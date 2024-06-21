@@ -227,7 +227,9 @@
 
                         <!-- APPOINTMENT FORM -->
                         <div id="appointment-form-holder" class="text-center">
-                            <form name="appointmentform" class="row appointment-form">
+                            <form name="appointmentform" class="row appointment-form" action="{{route('MotherAppointment.store')}}" method="post">
+                                @csrf
+                                @method('POST')
                                 <!-- Form Select -->
                                 <div
                                     id="input-department"
@@ -235,76 +237,99 @@
                                 >
                                     <select
                                         id="inlineFormCustomSelect1"
-                                        name="department"
+                                        name="section_id"
                                         class="custom-select department"
                                         required
                                     >
-                                        <option value="">Select Department</option>
-                                        <option>Obstetrics and Gynecology Department</option>
-                                        <option>Psychological Services Department</option>
-                                        <option>Neonatal Intensive Care Unit (NICU) Department</option>
-                                        <option>Nutrition and Dietetics Department</option>
-                                        <option>Pediatric and Neonatology Department</option>
-                                        <option>Family Planning and Contraception Department</option>
-                                        <option>Laboratory Services</option>
-                                        <option>Other</option>
+                                        <option value="" selected disabled>Specialization</option>
+                                        @foreach($section as $Section)
+                                            <option value="{{$Section->id}}">{{$Section->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
+
 
                                 <!-- Form Select -->
                                 <div id="input-doctor" class="col-md-12 input-doctor">
                                     <select
                                         id="inlineFormCustomSelect2"
-                                        name="doctor"
+                                        name="doctor_id"
                                         class="custom-select doctor"
                                         required
                                     >
-                                        <option value="">Select Doctor</option>
-                                        <option>Jonathan Barnes D.M.</option>
-                                        <option>Hannah Harper D.M.</option>
-                                        <option>Matthew Anderson D.M.</option>
-                                        <option>Megan Coleman D.M.</option>
-                                        <option>Joshua Elledge D.M.</option>
-                                        <option>Other</option>
+                                        <option value="" selected disabled>Doctor</option>
+                                        @foreach($doctor as $Doctor)
+                                            <option value="{{$Doctor->id}}">{{$Doctor->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <!-- Form Select -->
-                                <div id="input-patient" class="col-md-12 input-patient">
-                                    <select
-                                        id="inlineFormCustomSelect3"
-                                        name="patient"
-                                        class="custom-select patient"
-                                        required
-                                    >
-                                        <option value="">Have You Visited Us Before?*</option>
-                                        <option>New Patient</option>
-                                        <option>Returning Patient</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
+{{--                                <div id="input-patient" class="col-md-12 input-patient">--}}
+{{--                                    <select--}}
+{{--                                        id="inlineFormCustomSelect3"--}}
+{{--                                        name="patient"--}}
+{{--                                        class="custom-select patient"--}}
+{{--                                        required--}}
+{{--                                    >--}}
+{{--                                        <option value="">Have You Visited Us Before?*</option>--}}
+{{--                                        <option>New Patient</option>--}}
+{{--                                        <option>Returning Patient</option>--}}
+{{--                                        <option>Other</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                                 <!-- Contact Form Input -->
                                 <div id="input-date" class="col-lg-12">
                                     <input
                                         id="datetimepicker"
-                                        type="text"
-                                        name="date"
+                                        type="date"
+                                        name="appointment"
                                         class="form-control date"
                                         placeholder="Appointment Date"
                                         required
                                     />
                                 </div>
 
+
+                                <!-- Time Slot Field -->
+                                <div id="input-time-slot" class="col-lg-12">
+                                    <select id="time-slot" name="time-slot" class="form-control select-time" required>
+                                        <option value="" disabled selected>Choose a time slot</option>
+                                        <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
+                                        <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                                        <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                                        <option value="12:00-13:00">12:00 PM - 01:00 PM</option>
+                                        <option value="13:00-14:00">01:00 PM - 02:00 PM</option>
+                                        <option value="14:00-15:00">02:00 PM - 03:00 PM</option>
+                                        <option value="15:00-16:00">03:00 PM - 04:00 PM</option>
+                                        <option value="16:00-17:00">04:00 PM - 05:00 PM</option>
+                                    </select>
+                                </div>
+
                                 <!-- Contact Form Input -->
-                                <div id="input-name" class="col-lg-12">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="form-control name"
-                                        placeholder="Enter Your Name*"
+{{--                                <div id="input-name" class="col-lg-12">--}}
+{{--                                    <input--}}
+{{--                                        type="text"--}}
+{{--                                        name="name"--}}
+{{--                                        class="form-control name"--}}
+{{--                                        placeholder="Enter Your Name*"--}}
+{{--                                        required--}}
+{{--                                    />--}}
+{{--                                </div>--}}
+
+                                <div id="input-doctor" class="col-md-12 input-doctor">
+                                    <select
+                                        id="inlineFormCustomSelect2"
+                                        name="user_id"
+                                        class="custom-select doctor"
                                         required
-                                    />
+                                    >
+                                        <option value="" selected disabled>Enter Your Name</option>
+                                        @foreach($user as $User)
+                                            <option value="{{$User->id}}">{{$User->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div id="input-email" class="col-lg-12">
@@ -330,7 +355,7 @@
                                 <div id="input-message" class="col-lg-12 input-message">
                       <textarea
                           class="form-control message"
-                          name="message"
+                          name="notes"
                           rows="6"
                           placeholder="Your Message ..."
                       ></textarea>

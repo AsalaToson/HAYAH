@@ -12,8 +12,6 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Doctor\Auth\DoctorAuthController;
 use App\Http\Controllers\LabDoctor\Auth\LabDoctorAuthController;
-use App\Http\Controllers\LabDoctor\RequestController;
-use App\Http\Controllers\Mother\Auth\MotherAuthController;
 use App\Http\Controllers\Mother\Auth\UserAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +24,7 @@ Route::middleware('guest')->group(function () {
 
          //*******************    user login     *****************
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+                ->name('user.login');
 
     Route::post('login/user', [AuthenticatedSessionController::class, 'store'])->name('login.user');
                          //****************************
@@ -51,7 +49,7 @@ Route::middleware('guest')->group(function () {
 //
 //    Route::post('login', [UserAuthController::class, 'store'])
 //        ->name('login.user');
-=======
+
 
                         //****************************
 

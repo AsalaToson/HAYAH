@@ -13,6 +13,7 @@ interface SectionsRepositoryInterface
     public function display();
 
     public function destroy($request);
+    public function destroy2($id);
 
     public function edit($id);
 

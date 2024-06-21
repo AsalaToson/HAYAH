@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             SectionSeeder::class,
             DoctorSeeder::class,
             UserSeeder::class,
-            AppointmentSeeder::class,
+            ScheduleSeeder::class,
             RecordSeeder::class,
             LabDoctorSeeder::class,
             AnalysisResultSeeder::class,

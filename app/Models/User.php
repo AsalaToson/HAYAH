@@ -34,8 +34,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    protected $fillable = ['name','age','email','phone','address','image'];
-
+    protected $fillable = [
+        'name', 'age', 'address', 'email', 'phone', 'image'
+    ];
 
 
 
@@ -43,9 +44,9 @@ class User extends Authenticatable
     {
         return $this->morphOne(image::class, 'imageable');
     }
-    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function schedules(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasmany(appointment::class);
+        return $this->hasmany(schedule::class);
     }
     public function records(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

@@ -17,14 +17,12 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-
-
 </head>
 
-<body id="body">
+<body id="body" style="height: auto">
 
 <!-- main container-->
-<div class="main" style="height: 100vh;">
+<div class="main" style="height: auto;">
 
 <!-- sidebar-->
 <div class="sidebar" >
@@ -100,9 +98,16 @@
              <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                Settings</a>
 
-             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-               logout</a>
+{{--             <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>--}}
+{{--               logout</a>--}}
 
+               <form id="logout-form" action="{{ route('logout.lab_doctor') }}" method="POST" style="display: none;">
+                   @csrf
+               </form>
+
+               <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                   <i class="fa-solid fa-right-from-bracket"></i> logout
+               </a>
 
            </div>
 
@@ -138,7 +143,7 @@
       <div style="width: 350px; height: 200px; margin: 10px; background-color: whitesmoke  ; display: flex;">
         <i class=" fa fa-users" style="margin-top: 80px;  margin-left: 30px;"></i>
         <div style="margin: 50px;">
-          <h2 >{{App\Models\appointment::count()}}  visit</h2>
+          <h2 >{{App\Models\schedule::count()}}  visit</h2>
         <p>Lorem ipsum doculpa enim ipsam cum incidunt eius ullam necessitatibus.</p>
         </div>
 

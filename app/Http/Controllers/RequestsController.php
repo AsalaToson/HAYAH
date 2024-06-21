@@ -10,16 +10,18 @@ use Illuminate\Http\Request;
 
 class RequestsController extends Controller
 {
-    public function index(){
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
 
-        $requestsFromDB = laboratory::all();
+        $requestsFromDB = laboratory::paginate(10);
 
         return view('lab_doctor.dashboard.all_requests', ['requests' => $requestsFromDB]);
 
     }
 
 
-    public function create($id){
+    public function create($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
         $request = laboratory::find($id);
         return view('lab_doctor.dashboard.upload_test',compact('request'));
     }
@@ -39,7 +41,6 @@ class RequestsController extends Controller
         $d_id = request()->doctor_id;
         $l_id = request()->lab_id;
         $a_name = request()->analysis_name;
-
         $m_name = request()->user_name;
 
                 // upload photo
@@ -47,17 +48,14 @@ class RequestsController extends Controller
         $path = $request->file('photo')->storeAs('images',$fileName,'public');
         $photoPath = '/storage/'.$path;
 
-
         Analysis_Result::create([
             'user_id' => $m_id,
             'doctor_id' => $d_id,
             'labDoctor_id' => $l_id,
             'analysis_Name' => $a_name,
-            'photo' => $photoPath,
-
-        ]);
+            'photo' => $photoPath,]);
         return redirect('/requests')->with([
-            'success' => 'Analysis Report Added successfully for patient number ',
+            'success' => 'Analysis Report Added successfully for ',
             'name' => $m_name
         ]);
     }

@@ -11,15 +11,15 @@ use Illuminate\Http\Request;
 
 class MotherController extends Controller
 {
-    use MotherAuthService ;
-
-   public function showLoginForm(): View|Application|Factory
-   {
-       return view("mother.auth.login");
-   }
-
-   public function login(MotherLoginRequest $request)
-   {
-       
-   }
+//    use MotherAuthService ;
+//
+//   public function showLoginForm(): View|Application|Factory
+//   {
+//       return view("mother.auth.login");
+//   }
+//
+//   public function login(MotherLoginRequest $request)
+//   {
+//
+//   }
 }

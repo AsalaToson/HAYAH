@@ -25,7 +25,7 @@
                         </select>
                     </div>
                 </div>
-                <form action="/search" class="col-md-4">
+                <form action="/ASearch" class="col-md-4">
                     <div class="form-groups">
                         <label for="search" id="Slabel">Search </label>
                         <input type="text" name="query" class="form-control" id="search">
@@ -49,9 +49,9 @@
                     <tr>
 {{--                        <th></th>--}}
                         <th>patient Name</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Fee</th>
+                        <th>Type</th>
+{{--                        <th>Time</th>--}}
+                        <th>Appointment</th>
                         <th>Problem</th>
                         {{--                            <th>status</th> --}}
                         <th>operations</th>
@@ -64,21 +64,17 @@
                             <tr>
 {{--                                <td><input type="checkbox"></td>--}}
                                 <td>{{ $appointment->user->name }}</td>
-                                <td>{{ $appointment->date }}</td>
-                                <td>{{ $appointment->time }}</td>
-                                <td>{{ $appointment->fee }}</td>
-                                <td>{{ $appointment->user->details }}</td>
+                                <td>{{ $appointment->type }}</td>
+{{--                                <td>{{ $appointment->doctor->name }}</td>--}}
+                                <td>{{ $appointment->appointment }}</td>
+                                <td>{{ $appointment->notes }}</td>
                                 {{--                                    <td>{{$appointment->status}}</td> --}}
 
-                                <td>
+                                <td class="container3" style="display: flex">
                                     <a  href="#" data-toggle="modal" data-target="#laboratorie_conversion{{$appointment->id}}">
                                         <button type="button" class="btn btn-primary"  id="dbutton"><i class="text-warning fas fa-syringe" aria-hidden="true"></i>Test</button>
 
                                        </a>
-
-
-
-
                                     <!-- Edit Button with Edit Icon -->
                                     <a href="{{route('lRecord.show',[$appointment->user->id])}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
                                             <i class="fa fa-pencil" aria-hidden="true"></i>prescribe
@@ -96,17 +92,12 @@
 
                 </table>
 
-                <div class="pag">
+{{--                <!-- Pagination Links -->--}}
+{{--                <div class="pagination">--}}
+{{--                    {{ $appointments->links() }}--}}
+{{--                </div>--}}
 
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
 
-                </div>
             </div>
         </div>
 

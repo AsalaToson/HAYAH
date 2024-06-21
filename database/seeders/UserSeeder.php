@@ -22,25 +22,38 @@ class UserSeeder extends Seeder
             'age' => '21',
             'phone' =>'0101755603',
             'details' => '.',
-            'address' => '.', ]);
+            'address' => '.',
+            'blood_type' => 'A',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
+            ]);
         User::create([
                 'name' => 'Mother2',
                 'email' => 'mother2@example.com',
-                'password' => bcrypt('password2'),
+                'password' => bcrypt('123456789'),
                 'age' => 35,
                 'details' => 'Details for Mother 2',
                 'phone' => '01166804539',
                 'address' => 'Address for Mother 2',
+            'blood_type' => 'B',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
             ]);
 
         User::create([
             'name' => 'Mother 3',
             'email' => 'mother3@example.com',
-            'password' => bcrypt('password3'),
+            'password' => bcrypt('123456789'),
             'age' => 28,
             'details' => 'Details for Mother 3',
             'phone' => '555555555',
             'address' => 'Address for Mother 3',
+            'blood_type' => 'A+',
+            'surgical_history' => '.',
+            'chronic_diseases' => 'Diabetes',
+            'allergies' => '.',
         ]);
 
     }

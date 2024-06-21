@@ -78,20 +78,13 @@ class DoctorsRepository implements DoctorsRepositoryInterface
     public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $section = section::all();
-        $appointments = appointment::all();
         $doctor = doctor::findorfail($id);
-        return view('admin.dashboard.edit_doctor',compact('section','appointments','doctor'));
+        return view('admin.dashboard.edit_doctor',compact('section','doctor'));
     }
-
-
-
 
     public function update($request,$id)
     {
-
-
             $doctor = doctor::find($id);
-
             $doctor->email = $request->email;
             $doctor->name = $request->name;
             $doctor->section_id = $request->section_id;
@@ -106,16 +99,8 @@ class DoctorsRepository implements DoctorsRepositoryInterface
             $doctor->price = $request->price;
             $doctor->save();
 
-
-
-            // update pivot tABLE
-        $doctor->doctorappointments()->sync($request->appointments);
-
             //Upload img
                 $this->verifyAndStoreImage($request,'image','doctors','upload_image',$doctor->id,'App\Models\doctor');
-
-
-
             return redirect()->route('doctors.index');
 
         }

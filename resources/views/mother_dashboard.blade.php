@@ -50,8 +50,8 @@
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
 
                             <a class="nav-link scroll" href="{{route('service.show',[Auth::guard('web')->user()->id])}}">Our Services</a>
-=======
-                            
+
+
 
                         </li>
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
@@ -72,8 +72,8 @@
 
                         <li class="nav-item  mr-lg-3 mt-lg-0 mt-3">
                             <a class="nav-link scroll" href="{{route('chatify')}}">Community Chating </a>
-=======
-                         
+
+
 
 
                         <li class="nav-item dropdown">
@@ -81,8 +81,8 @@
                                 <i class="fa fa-user"></i>
 
                                 {{Auth::guard('web')->user()->name}}
-=======
-                               
+
+
 
 
                             </a>
@@ -90,11 +90,19 @@
                                 <a class="dropdown-item" href="{{route('MProfile.show')}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 
                                  <a class="dropdown-item" href="{{route('record.show',[Auth::guard('web')->user()->id])}}"><i class="fa fa-file" aria-hidden="true"></i> Medical Report</a>
-=======
-                                 
+
+
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" onclick="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+
+                                <form id="logout-form" action="{{ route('logout.user') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
+
                             </div>
                         </li>
 
@@ -428,12 +436,25 @@
                         <form  action="{{route('MotherAppointment.store')}}" method="post">
                             @csrf
                             @method('POST')
-                            <div class="fields-grid">
-                                <div class="styled-input">
-                                    <div class="appointment-form-field">
-                                        <input type="text" name="name" placeholder="Full Name" required="">
-                                    </div>
-                                </div>
+                            <br class="fields-grid">
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="text" name="name" placeholder="Full Name" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+                            <div class="styled-input">
+                                <label for="section-name">Full Name</label><br/>
+                                <select name="user_id" >Full Name
+                                    <option value="" selected disabled>Full Name</option>
+                                    @foreach($user as $User)
+                                        <option value="{{$User->id}}">{{$User->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+
+
                                 <div class="styled-input">
                                     <div class="appointment-form-field">
                                         <input type="email" name="email" placeholder="Enter Email" required="">
@@ -449,6 +470,25 @@
                                         <input type="date" name="appointment" placeholder="Set a Date" required="">
                                     </div>
                                 </div>
+
+
+                                <div class="styled-input">
+                                    <div class="appointment-form-field">
+                                        <select id="time" required="time" name="time">
+                                            <option value="">Time Slot</option>
+                                            <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
+                                            <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                                            <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                                            <option value="12:00-13:00">12:00 PM - 01:00 PM</option>
+                                            <option value="13:00-14:00">01:00 PM - 02:00 PM</option>
+                                            <option value="14:00-15:00">02:00 PM - 03:00 PM</option>
+                                            <option value="15:00-16:00">03:00 PM - 04:00 PM</option>
+                                            <option value="16:00-17:00">04:00 PM - 05:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
 {{--                                <div class="styled-input">--}}
 {{--                                    <div class="appointment-form-field">--}}
 {{--                                        <select id="department" required="Specialization">--}}
@@ -500,11 +540,12 @@
                                         @endforeach
                                     </select>
                                 </div>
+                            </br>
 
                                 <style>
 
                                     .note-box textarea {
-                                        width: 200%;
+                                        width: 100%;
                                         height: 200px;
                                         padding: 10px;
                                         border: 1px solid #ccc;
@@ -518,6 +559,7 @@
                                     <h4>Write your notes</h4>
                                     <textarea placeholder="Type your notes here..." name="notes"></textarea>
                                 </div>
+
 
                             </div>
                             <div class="appointment-btn text-lg-right">

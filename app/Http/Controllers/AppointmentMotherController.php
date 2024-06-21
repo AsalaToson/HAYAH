@@ -8,6 +8,7 @@ use App\Mail\AppointmentUnConfirmation;
 use App\Models\doctor;
 use App\Models\schedule;
 use App\Models\section;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -37,10 +38,10 @@ public function index()
 
     $appointments=schedule::findorfail($id);
     $appointments->update([
-        'type'=>'مؤكد',
+        'type'=>'Certain',
 
     ]);
-    Mail::to($appointments->email)->send(new AppointmentConfirmation($appointments->name, $appointments->appointment));
+    Mail::to($appointments->email)->send(new AppointmentConfirmation($appointments->user->name, $appointments->appointment,$appointments->time));
 
 
 
@@ -78,20 +79,23 @@ public function display()
 {
     $section = section::all();
     $doctor = doctor::all();
-    return view('admin.dashboard.add_appointment',compact('section','doctor'));
+    $user = User::all();
+    return view('admin.dashboard.add_appointment',compact('section','doctor','user'));
 }
 
 
     public function store(Request $request)
     {
         schedule::create([
-            'name' => $request->input('name'),
+//            'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'user_id' => $request->input('user_id'),
             'section_id' => $request->input('section_id'),
             'doctor_id' => $request->input('doctor_id'),
             'phone' => $request->input('phone'),
             'appointment' => $request->input('appointment'),
             'notes' => $request->input('notes'),
+            'time' => $request->input('time'),
         ]);
         session()->flash('add');
         return redirect()->route('AppointmentMother.index');
@@ -107,11 +111,11 @@ public function display()
 
         $appointments=schedule::findorfail($id);
         $appointments->update([
-            'type'=>'غير مؤكد',
+            'type'=>'Uncertain',
 
         ]);
 
-        Mail::to($appointments->email)->send(new AppointmentUnConfirmation($appointments->name, $appointments->appointment));
+        Mail::to($appointments->email)->send(new AppointmentUnConfirmation($appointments->user->name, $appointments->appointment,$appointments->time));
 
 
 //    Mail::to($email)->send(new AppointmentConfirmation);

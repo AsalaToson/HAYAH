@@ -7,6 +7,7 @@ interface PatientsRepositoryInterface
 {
 
     public function index();
+    public function index2();
 
     public function create();
 

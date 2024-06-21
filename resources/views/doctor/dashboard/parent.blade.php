@@ -24,13 +24,13 @@
 <body id="body">
 
 <!-- main container-->
-<div class="main">
+<div class="main" style="height: auto;">
 
     <!-- sidebar-->
     <div class="sidebar">
         <a href="#"><img src="{{asset('../../images/logo.png')}}" alt="" width="200" height="100"></a>
         <ul>
-            <li><a href="#" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
+            <li><a href="{{route('dashboard.doctor')}}" class="toggle-link"> <i class="fa-solid fa-house"></i>    Dashboard</a>
 
 
 
@@ -118,9 +118,16 @@
                                 <a class="dropdown-item" href="#" ><i class="fa fa-cog" aria-hidden="true"></i>
                                     Settings</a>
 
-                                <a class="dropdown-item" href="#" ><i class="fa-solid fa-right-from-bracket"></i>
-                                    logout</a>
+{{--                                <a class="dropdown-item" href="{{ route('logout.doctor') }}" ><i class="fa-solid fa-right-from-bracket"></i>--}}
+{{--                                    logout</a>--}}
 
+                                <form id="logout-form" action="{{ route('logout.doctor') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket"></i> logout
+                                </a>
 
                             </div>
 

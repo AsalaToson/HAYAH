@@ -14,7 +14,7 @@
                     @method('GET')
                     @csrf
                     <input type="hidden" name="id" value="{{ $appointment->id }}">
-                    <p class="mg-b-20">{{$appointment->name}}</p>
+                    <p class="mg-b-20">{{$appointment->user->name}}</p>
                     <!--div-->
                     <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
                         <div class="card">
@@ -24,7 +24,13 @@
                                         <div class="input-group-text">
                                             <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                         </div>
-                                    </div><input class="form-control" name="appointment" id="datetimepicker" type="text" value="{{ $appointment->appointment }}">
+                                    </div>
+                                    <div>
+                                    <label for="address"> appointment</label><br/>
+                                    <input class="form-control" name="appointment" id="datetimepicker" type="text" value="{{ $appointment->appointment }}">
+                                    <label for="address"> time</label><br/>
+                                    <input class="form-control" name="time" id="datetimepicker" type="text" value="{{ $appointment->time }}">
+                                    </div>
                                 </div>
 
                             </div>

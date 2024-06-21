@@ -3,7 +3,10 @@
 @section('content')
       <h1>All Analyis Reports </h1>
       <div class="inner_content">
-        <h3>Reports  list </h3><br>
+        <h3>Reports  list </h3>
+          <br>
+          <h3> {{App\Models\Analysis_Result::count()}} analysis report </h3>
+          <br>
         <hr>
         <div class="container">
           <div class="row">
@@ -19,14 +22,13 @@
                       </select>
                   </div>
               </div>
-              <div class="col-md-4">
-                  <div class="form-groups">
-                      <form class="form-inline my-2 my-lg-0" method="get" action="#">
-                      <input type="text" class="form-control" name="search" id="search" placeholder="Search ">
-                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+
+                      <form action="#" class="col-md-4">
+                          <div class="form-groups">
+                              <label for="search" id="Slabel">Search </label>
+                              <input type="text" name="query" class="form-control" id="search">
+                          </div>
                       </form>
-                  </div>
-              </div>
           </div>
       </div>
       <div class="container2">
@@ -57,38 +59,37 @@
                     <td>{{$analysis -> analysis_Name}}</td>
                     <td> <img alt="" src="{{asset($analysis->photo)}}"></td>
                     <td><div class="container3" style="display: flex;">
+
+                            <a href="{{route('details.show' , $analysis->id)}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                                    <i class="fas far fa-eye" aria-hidden="true"></i> view
+                                </button></a>
+
                       <!-- Delete Button with Delete Icon -->
 
                             <form style="display: inline;" method="POST" action="{{route('analysis.destroy', $analysis->id)}}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="Submit" class="btn btn-danger delete-button"  id="dbutton" >
+                                <button type="Submit"  id="donebutton" style="   margin: 7px;
+
+                                    width: 100px;
+                                    padding: 8px;"  >
                                     <i class="fas fa-trash-alt"></i> Delete
                                 </button>
                             </form>
 
-                            <a href="{{route('details.show' , $analysis->id)}}"> <button type="button" class="btn btn-secondary"  id="dbutton" >
-                                    <i class="fas far fa-eye"></i> view
-                                </button></a>
-                        </div></td>
-      </tr>
+                        </div>
+                    </td>
+                </tr>
             @endforeach
             </tbody>
         </table>
         </div>
     </div>
 
- <div class="pag">
-
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#" class="active">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-
- </div>
+          <!-- Pagination Links -->
+          <div class="pagination">
+              {{ $allAnalysis->links() }}
+          </div>
 
 
     </div>

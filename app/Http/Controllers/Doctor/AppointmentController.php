@@ -3,40 +3,45 @@
 namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
-use App\Models\appointment;
-use App\Models\mother;
+use App\Models\schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $appointments = appointment::all();
-        return view('doctor.dashboard.appointment.index',compact('appointments'));
+
+        // Fetch appointments that belong to the authenticated doctor
+        $appointments = Schedule::where('doctor_id',Auth::guard('doctor')->id())->get();
+
+        // Pass the appointments to the view
+        return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
+
     public function month()
     {
         $currentMonth = date('m');
-        $appointments = appointment::where('date', 'like', '%' . $currentMonth . '%')->get();
+        $appointments = Schedule::whereMonth('appointment', $currentMonth)->where('doctor_id',Auth::guard('doctor')->id())->get();
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
 
     public function today()
     {
         $currentDate = date('Y-m-d');
-        $appointments = appointment::where('date', $currentDate)->get();
+        $appointments = Schedule::whereDate('appointment', $currentDate)->where('doctor_id',Auth::guard('doctor')->id())->get();
         return view('doctor.dashboard.appointment.index', compact('appointments'));
     }
     public function destroy($id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
-        $appointment=appointment::findorFail($id);
+        $appointment=schedule::findorFail($id);
         $appointment->delete();
         return view('doctor.dashboard.appointment.index' );
     }
     function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        $appointments=appointment::where('mother_id','like','%'.$request->input('query').'%')->get();
+        $appointments=schedule::where('user_id','like','%'.$request->input('query').'%')->get();
         return view('doctor.dashboard.appointment.search',compact("appointments"));
     }
 }
