@@ -1,7 +1,10 @@
 @extends('lab_doctor.dashboard.parent')
 
 @section('content')
-    <h1>Profile...</h1>
+    <div class="short" >
+        <h3 class="dash">Profile</h3>
+        <div class="top"> <i class="fa fa-home" ></i> <p class="rout"> / profile </p></div>
+    </div>
     <div class="inner_content">
         <h3> Profile</h3><br>
         <hr>

@@ -31,7 +31,7 @@ class Analysis_ResultFactory extends Factory
             'User_id' => $mother->id,
             'labDoctor_id' => $lab_doctor->id,
             'doctor_id' => $doctor->id,
-            'analysis_Name' => $this->faker->randomElement([ 'Blood Test',
+            'analysis_Name' => $this->faker->randomElement(['Blood Test',
                 'Urine Test',
                 'Thyroid Test',
                 'Pregnancy Test',
@@ -39,11 +39,12 @@ class Analysis_ResultFactory extends Factory
                 'Glucose Test',
                 'Liver Function Test',
                 'Kidney Function Test',]),
-            'test_date' => $this->getRandomTestDate(),
             'photo' => $this->faker->imageUrl,
         ];
     }
-    private function getRandomTestDate(): Carbon
+
+
+    /* private function getRandomTestDate(): Carbon
     {
         $startDate = Carbon::now()->subMonths(6)->startOfDay();
         $endDate = Carbon::now()->endOfDay();
@@ -51,4 +52,6 @@ class Analysis_ResultFactory extends Factory
             mt_rand($startDate->timestamp, $endDate->timestamp)
         );
     }
+    */
+
 }

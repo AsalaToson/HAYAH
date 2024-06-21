@@ -1,27 +1,27 @@
 body{
- 
+
   margin: 0;
   padding: 0;
   height: auto;
-  
-  
+
+
    }
    img{
-    width:170px; 
+    width:170px;
     height:85px;
     margin-top: 20px;
     margin-left: 25px;
    }
    .sidebar {
-  
+
     width: 320px;
     background-color:lavender;
-     height: auto; 
-   
-  
-    
-     #444;
-   
+     height: auto;
+
+
+
+     #444.
+
   }
   .dark .sidebar{
     background-color:     #170e1f ;
@@ -38,7 +38,7 @@ body{
 
    .dark .inner_content ,.dark .dashboard-container {
     background-color:  #220b20;
-  } 
+  }
   .dark .content{
     background-color: #220b20;
   }
@@ -65,15 +65,15 @@ body{
   }
    .dark .short{
     background-color:#332946;
-    
-  } 
+
+  }
   .dark .dash{
     color: whitesmoke;
 
   }
   .dark td{
     color: whitesmoke;
-  } 
+  }
   .dark form label{
     color:whitesmoke;
   }
@@ -88,31 +88,31 @@ body{
     text-align: center;
     font-weight: bold;
   }
-  
+
   .sidebar ul {
     list-style-type: none;
     padding: 30px;
     height: auto;
-   
-  
-  
+
+
+
   }
-  
+
   .sidebar ul li  {
    margin-bottom: 25px;
     font-size:20px;
-    
-    
+
+
   }
-  
+
   .sidebar ul li ul {
     display: none;
     list-style-type: none;
     padding: 0;
-  
-  
+
+
   }
-  
+
   .sidebar ul li   ul li a {
     margin-left: 15px;
     text-decoration: none;
@@ -126,17 +126,17 @@ body{
 .sidebar .main-menu > li > a .fa-solid {
   margin-right: 8px;
 }
-  
+
   .sidebar ul li a {
     text-decoration: none;
     color: #747272;
     display: block;
     font-weight: 600;
-  
-   
-   
+
+
+
   }
- 
+
   .sidebar ul li a:hover {
     background-color: lightgray;
     border-radius: 12px;
@@ -144,16 +144,16 @@ body{
     -moz-border-radius: 12px;
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
-  
-  
+
+
   }
-  
+
   .form-group {
    margin: 5px;
-   
-   
+
+
   }
-  
+
   label {
     display: inline-block;
     width: 150px;
@@ -161,14 +161,14 @@ body{
     box-sizing: border-box;
     color: rgb(75, 72, 72);
   }
-  
+
   input[type="text"],
   input[type="tel"],
   input[type="email"],
   input[type="file"],
-  
+
   select {
-  
+
     width: 100%;
     padding: 8px;
     border-radius: 5px;
@@ -178,9 +178,9 @@ body{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     display: inline-block;
-  
+
   }
-  
+
   .dbody {
     display: flex;
     flex-direction: column; /* Ensure content stacks vertically */
@@ -190,11 +190,11 @@ body{
 .dbody img {
     padding-top: 10px;
     width: 50%;
-    
+
 }
 table{
   border: none;
- 
+
 }
   button[type="submit"] {
     padding: 10px 20px;
@@ -208,19 +208,19 @@ table{
     font-size: 15px;
     font-weight: bold;
   }
-  
+
   button[type="submit"]:hover {
     background-color: rgb(100, 85, 88);
   }
-  
-  
-  
+
+
+
   .main{
-  
+
     display: flex;
     height: auto;
   }
-  
+
   .content{
     width: 100%;
     background-color:whitesmoke;
@@ -229,68 +229,68 @@ table{
     flex-direction: column;
   }
   .inner_content{
-   
+
     margin: 20px;
     background-color:white;
     height: auto;
     color: #1C1D21;
-  
+
   }
-  
+
   .dash{
-   
+
     height: 50px;
     padding-left: 30px;
     padding-bottom: 20px;
    color: #747272;
    font-weight: 600;
    font-family: Arial, Helvetica, sans-serif;
-   
+
   }
-  
+
   .form-group{
     padding-left: 20px;
     padding-bottom: 15px;
     display: inline-block;
     width: 500px;
-   
-  
+
+
   }
   .navbar {
     width: 100%;
   }
- 
+
   .navbar-nav {
     width: 100%;
     justify-content: flex-end;
-    
+
   }
-  
+
   .nav-item {
   margin-right: 20px;
   margin-left: 20px;
- 
+
 
   }
-  
-  
+
+
   .nav-item:last-child {
     margin-right: 0;
   }
-  
+
   .navbar-toggler {
     color: pink;
     border: none;
   }
-  
+
   .navbar-toggler:focus {
     outline: none;
   }
-  
+
   .navbar-toggler-icon {
     background-color: gray;
   }
-  
+
   .nav-link {
  color: gray;
  border-radius:30px ;
@@ -300,16 +300,16 @@ table{
  -o-border-radius:30px ;
 }
   .nav-link:hover{
-    
+
    background-color: lightgray;
    color: black;
   }
-  
+
   .dropdown-menu {
     background-color:#f0efeb;
     color: purple;
   }
-  
+
   .dropdown-item {
     color: black;
     height: 35px;
@@ -317,7 +317,7 @@ table{
   .fas fa-user{
     padding-right: 7px;
   }
-  
+
   .nav-item-dropdown{
     padding-top: 10px;
   }
@@ -333,7 +333,7 @@ table{
   }
   .form-groups{
     display: flex;
-   
+
   }
   .row{
     display: flex;
@@ -348,8 +348,8 @@ table{
     width: 700px;
     height: 35px;
     margin-top: 0px;
-  
-   
+
+
   }
   .container2{
     margin: 15px;
@@ -358,7 +358,7 @@ table{
   ul i ,.fa-home   {
     color:#dc6eab;
     margin-right: 10px;
-   
+
  font-size: medium;
 }
 
@@ -368,12 +368,12 @@ table{
   thead tr th {
    color:palevioletred;
    text-align: center;
-  
+
   }
   .pagination{
    justify-content: flex-end;
-  
-  
+
+
   }
   .Pag {
    padding-top: 0px;
@@ -381,30 +381,30 @@ table{
   .pagination .page-link {
     color: palevioletred;
   }
-  
+
   /* Change background color on hover */
   .pagination .page-link:hover,
   .pagination .page-link:focus {
     background-color: palevioletred;
     color: white; /* Ensuring text color remains visible on background */
   }
- 
+
   #dbutton , #Tbutton{
-  
+
    margin: 7px;
-  
+
    width: 100px;
   }
   /* #donebutton{
      margin: 7px;
-  
-    width: 100px; 
+
+    width: 100px;
     padding: 8px;
   } */
  .buttons{
   margin: 7px;
    width: 100px;
- } 
+ }
   #dbutton:hover{
     transform: scale(1.1);
   }
@@ -437,7 +437,7 @@ table{
   table td{
     width: 500px;
   }
-  
+
   .check{
     width: 10px;
   }
@@ -447,19 +447,19 @@ table{
   }
   .Pbody table tr th{
     width: 50px;
-   
-   
+
+
   }
   .Pbody table tr{
   height: 10px;
   width: 400px;
-  
+
   }
   .visits{
     width: 60%;
   }
-  
-  
+
+
    /* Modal styles */
    .modal2 {
     display: none;
@@ -472,7 +472,7 @@ table{
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
   }
-  
+
   .modal-content2 {
     background-color: #fefefe;
     margin: 15% auto;
@@ -482,11 +482,11 @@ table{
     text-align: center;
     border-radius: 10px;
   }
-  
+
   button {
     cursor: pointer;
   }
-  
+
   button:hover {
     text-decoration: none;
   }
@@ -506,9 +506,9 @@ table{
   }
   h2{
     color: palevioletred;
-  } 
+  }
 
-  
+
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -523,19 +523,19 @@ table{
 .dbody img {
   padding-top: 10px;
   width: 50%;
-  
+
 }
 table{
 border: none;
 }
 
 
-  
- 
+
+
 
 .dashboard-container {
     padding: 30px;
-    
+
 }
 
 .chart-container {
@@ -553,9 +553,9 @@ h5 {
 }
 .top{
   display: flex;
-   background-color: rgb(246, 199, 207); 
+   background-color: rgb(246, 199, 207);
    border-radius: 40px; align-items: center;
-justify-content: center; 
+justify-content: center;
 width: auto; height: 37px;
  margin-right: 15px; padding-left: 10px;
 
@@ -565,11 +565,11 @@ width: auto; height: 37px;
 
 }
 .short{
-  display: flex; justify-content: space-between; 
-  background-color:rgb(238, 235, 235); 
+  display: flex; justify-content: space-between;
+  background-color:rgb(238, 235, 235);
    align-items: center;
 }
-  
+
 
 
 /* Custom Styles for Dashboard */
@@ -633,6 +633,79 @@ font-weight: 400;
 }
 
 
+
+
+
+/* grid styel*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /
+}
+/* Form container styles */
+.form-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #f7f9fc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form-container h5 {
+    color: #5561ff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.form-container .form-group {
+    margin-bottom: 20px;
+}
+.form-container .form-group label {
+    color: #5561ff;
+    font-weight: bold;
+}
+.form-container .upload-box {
+    border: 2px dashed #d3d9df;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-container .upload-box:hover {
+    background-color: #eef2ff;
+}
+.form-container .upload-box i {
+    font-size: 3rem;
+    color: #d3d9df;
+    margin-bottom: 10px;
+}
+.form-container .upload-box p {
+    margin: 0;
+    color: #5561ff;
+    font-size: 1.1rem;
+}
+.form-container .btn-primary {
+    background-color: #5561ff;
+    border-color: #5561ff;
+    width: 80%;
+}
+.form-container .btn-primary:hover {
+    background-color: #3541cc;
+    border-color: #3541cc;
+}
+
+/* style for profile dark mode*/
+.dark .profile p {
+    color: whitesmoke;
+}
+.profile h2{
+    margin-bottom:30px;
+}
 
 
 

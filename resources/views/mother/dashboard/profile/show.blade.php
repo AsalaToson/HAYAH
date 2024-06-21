@@ -39,6 +39,8 @@
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                 </button>
 
+            </nav>
+
 
         </div>
         <!-- toggle switch for light and dark theme -->
@@ -57,7 +59,7 @@
         </div>
         <!-- //toggle switch for light and dark theme -->
 
-        </nav>
+        </header>
 
 </div>
 </header>
@@ -146,8 +148,10 @@
 
             </div>
         </div>
-        <a href="{{route('MProfile.edit')}}">  <button class="btn btn-style btn-primary" style="width: 200px; margin-top: 25px;"  >Edit</button> </a>
 
+        <a href="{{route('MProfile.edit')}}"> <button type="button" class="btn btn-primary"  id="dbutton" >
+                <i class="fas fa-edit"></i> Edit
+            </button></a>
 
 </section>
 
