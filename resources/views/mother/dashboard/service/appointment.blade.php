@@ -308,15 +308,30 @@
                                 </div>
 
                                 <!-- Contact Form Input -->
-                                <div id="input-name" class="col-lg-12">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="form-control name"
-                                        placeholder="Enter Your Name*"
+{{--                                <div id="input-name" class="col-lg-12">--}}
+{{--                                    <input--}}
+{{--                                        type="text"--}}
+{{--                                        name="name"--}}
+{{--                                        class="form-control name"--}}
+{{--                                        placeholder="Enter Your Name*"--}}
+{{--                                        required--}}
+{{--                                    />--}}
+{{--                                </div>--}}
+
+                                <div id="input-doctor" class="col-md-12 input-doctor">
+                                    <select
+                                        id="inlineFormCustomSelect2"
+                                        name="user_id"
+                                        class="custom-select doctor"
                                         required
-                                    />
+                                    >
+                                        <option value="" selected disabled>Enter Your Name</option>
+                                        @foreach($user as $User)
+                                            <option value="{{$User->id}}">{{$User->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+
 
                                 <div id="input-email" class="col-lg-12">
                                     <input

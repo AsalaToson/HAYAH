@@ -55,7 +55,7 @@
                         @foreach($appointments as $appointment)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$appointment->name}}</a></td>
+                                <td>{{$appointment->user->name}}</a></td>
                                 <td>{{$appointment->doctor->name}}</td>
                                 <td>{{$appointment->section->name}}</td>
                                 <td>{{$appointment->phone}}</td>

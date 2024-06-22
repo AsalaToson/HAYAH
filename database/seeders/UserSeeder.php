@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         User::create([
                 'name' => 'Mother2',
                 'email' => 'mother2@example.com',
-                'password' => bcrypt('password2'),
+                'password' => bcrypt('123456789'),
                 'age' => 35,
                 'details' => 'Details for Mother 2',
                 'phone' => '01166804539',
@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Mother 3',
             'email' => 'mother3@example.com',
-            'password' => bcrypt('password3'),
+            'password' => bcrypt('123456789'),
             'age' => 28,
             'details' => 'Details for Mother 3',
             'phone' => '555555555',

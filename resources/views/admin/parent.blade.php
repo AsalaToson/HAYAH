@@ -45,10 +45,10 @@
                     <li><a href="{{route('patient.index2')}}">All Patient</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Stuff</a>
+            <li><a href="#" class="toggle-link"><i class="fas fa-users"></i>Staff</a>
                 <ul class="sublist">
-                    <li><a href="{{route('admins.create')}}">Add Stuff</a></li>
-                    <li><a href="{{route('admins.index')}}">All Stuff</a></li>
+                    <li><a href="{{route('admins.create')}}">Add Staff</a></li>
+                    <li><a href="{{route('admins.index')}}">All Staff</a></li>
                 </ul>
             </li>
 
@@ -77,12 +77,12 @@
                 </ul>
             </li>
 
-            <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>
-                <ul class="sublist">
-                    <li><a href="{{route('resources.create')}}">Add Resources</a></li>
-                    <li><a href="{{route('resources.index')}}">All Resources</a></li>
-                </ul>
-            </li>
+{{--            <li><a href="#" class="toggle-link"><i class="fa-solid fa-heart-pulse"></i>  Resources</a>--}}
+{{--                <ul class="sublist">--}}
+{{--                    <li><a href="{{route('resources.create')}}">Add Resources</a></li>--}}
+{{--                    <li><a href="{{route('resources.index')}}">All Resources</a></li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
 
         </ul>
     </div>

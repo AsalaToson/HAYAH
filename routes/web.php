@@ -80,8 +80,8 @@ Route::get('/mother_dashboard', function () {
 
     $section = section::all();
     $doctor = doctor::all();
-//    $schedule = schedule::all();
-    return view('mother_dashboard',compact('section','doctor'));
+    $user = \App\Models\User::all();
+    return view('mother_dashboard',compact('section','doctor','user'));
 })->middleware(['auth:web', 'verified'])->name('dashboard.mother');
 
 
