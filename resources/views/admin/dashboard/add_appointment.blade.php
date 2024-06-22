@@ -15,9 +15,19 @@
                 @csrf
                 @method('POST')
 
+{{--                <div class="form-group">--}}
+{{--                    <label for="first-name"> Full Name</label><br/>--}}
+{{--                    <input type="text" id="first-name" name="user_id" required placeholder=" Doctor Name">--}}
+{{--                </div>--}}
+
                 <div class="form-group">
-                    <label for="first-name"> Full Name</label><br/>
-                    <input type="text" id="first-name" name="name" required placeholder=" Doctor Name">
+                    <label for="section-name">Full Name</label><br/>
+                    <select name="user_id" >Full Name
+                        <option value="" selected disabled>Full Name</option>
+                        @foreach($user as $User)
+                            <option value="{{$User->id}}">{{$User->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">

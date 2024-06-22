@@ -55,8 +55,9 @@ class MotherAppointmentController extends Controller
     public function store(Request $request)
     {
         schedule::create([
-            'name' => $request->input('name'),
+//            'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'user_id' => $request->input('user_id'),
             'section_id' => $request->input('section_id'),
             'doctor_id' => $request->input('doctor_id'),
             'phone' => $request->input('phone'),

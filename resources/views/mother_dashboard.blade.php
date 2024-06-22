@@ -433,12 +433,24 @@
                         <form action="{{route('MotherAppointment.store')}}" method="post">
                             @csrf
                             @method('POST')
-                            <div class="fields-grid">
-                                <div class="styled-input">
-                                    <div class="appointment-form-field">
-                                        <input type="text" name="name" placeholder="Full Name" required="">
-                                    </div>
-                                </div>
+{{--                            <div class="fields-grid">--}}
+{{--                                <div class="styled-input">--}}
+{{--                                    <div class="appointment-form-field">--}}
+{{--                                        <input type="text" name="name" placeholder="Full Name" required="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+                            <div class="styled-input">
+                                <label for="section-name">Full Name</label><br/>
+                                <select name="user_id" >Full Name
+                                    <option value="" selected disabled>Full Name</option>
+                                    @foreach($user as $User)
+                                        <option value="{{$User->id}}">{{$User->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+
                                 <div class="styled-input">
                                     <div class="appointment-form-field">
                                         <input type="email" name="email" placeholder="Enter Email" required="">

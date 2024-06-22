@@ -29,13 +29,13 @@ class ScheduleFactory extends Factory
             'user_id' => $mother->id,
             'doctor_id' => $doctor->id,
                 'section_id' => $section->id,
-                'name' => $mother->name,
+//                'name' => $mother->name,
                 'email' => $mother->email,
                 'phone' => $mother->phone,
                 'type' => $this->faker->randomElement(['Uncertain','Certain','Finished']),
                 'appointment' => $this->faker->dateTimeBetween('-1 years', '+1 years'),
                 'time' => $this->faker->time(),
-                'notes' => $this->faker->text,
+                'notes' => $this->faker->words(10, true),
         ];
 
     }
