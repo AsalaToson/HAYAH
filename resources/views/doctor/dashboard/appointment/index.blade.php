@@ -70,7 +70,7 @@
                         @foreach ($appointments as $appointment)
                             <tr>
 {{--                                <td><input type="checkbox"></td>--}}
-                                <td>{{ $appointment->name }}</td>
+                                 <td>{{ $appointment->user->name }}</td>
                                 <td>{{ $appointment->type }}</td>
 {{--                                <td>{{ $appointment->doctor->name }}</td>--}}
                                 <td>{{ $appointment->appointment }}</td>
